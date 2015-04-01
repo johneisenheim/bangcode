@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resources>
+	<string name="welcome">Benvenuto in Bang! Western Duels. Questo wizard ti guiderà nella creazione del tuo profilo utente. Esegui un tap sul tasto in basso per procedere.</string>
+	<string name="wizard:next_button">Prosegui</string>
+	<string name="wizard:loginLabel">Per poter accedere all’applicazione, per favore effettua il login con Facebook. L’applicazione non memorizzerà in alcun modo le credenziali che hai inserito.</string>
+	<string name="wizard:loginButtonLabel">Accedi</string>
+	<string name="main:duelLabel">Inizia un duello</string>
+	<string name="main:challengesLabel">Sfide personali</string>
+	<string name="main:profilestatsLabel">Profilo e statistiche</string>
+	<string name="main:back">Indietro</string>
+	<string name="duels:chooseWhen">Quando vuoi duellare?</string>
+	<string name="duels:whenInstruction">Inserisci data e ora</string>
+	<string name="duels:chooseWhere">Scegli il luogo del duello</string>
+	<string name="duels:whereInstruction">Inserisci la posizione</string>
+	<string name="duels:chooseChallenger">Scegli un amico da sfidare</string>
+	<string name="duels:challengerInstruction">Inserisci lo sfidante</string>
+	<string name="challenge:receivedChallengesLabel">Sfide ricevute</string>
+	<string name="challenge:sentChallengesLabel">Sfide lanciate</string>
+</resources>

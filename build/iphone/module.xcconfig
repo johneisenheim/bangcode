@@ -1,0 +1,7 @@
+// this is a generated file - DO NOT EDIT
+
+COM_FACEBOOK_FRAMEWORK_SEARCH_PATHS=$(SRCROOT)/../../modules/iphone/com.facebook/3.21.10/platform
+COM_FACEBOOK_OTHER_LDFLAGS=$(inherited) -framework Social -framework FacebookSDK
+TI_MAP_OTHER_LDFLAGS=$(inherited) -weak_framework MapKit
+FRAMEWORK_SEARCH_PATHS=$(inherited) $(COM_FACEBOOK_FRAMEWORK_SEARCH_PATHS) 
+OTHER_LDFLAGS=$(inherited) $(COM_FACEBOOK_OTHER_LDFLAGS) $(TI_MAP_OTHER_LDFLAGS) 

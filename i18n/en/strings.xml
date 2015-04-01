@@ -1,4 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <resources>
-	<string name="welcome">Welcome to %s!</string>
+	<string name="welcome">Welcome to Bang! Western Duels. This wizard will guide you to create your user profile. Tap on button below to continue.</string>
+	<string name="wizard:next_button">Next</string>
+	<string name="wizard:loginLabel">Sign in with Facebook to play. Bang!Western Duels will not store your credentials anyway.</string>
+	<string name="wizard:loginButtonLabel">Sign in</string>
+	<string name="main:duelLabel">Start a duel</string>
+	<string name="main:challengesLabel">Challenges</string>
+	<string name="main:profilestatsLabel">Profile and stats</string>
+	<string name="main:back">Back</string>
+	<string name="duels:chooseWhen">When want you to duel?</string>
+	<string name="duels:whenInstruction">Insert date and hour</string>
+	<string name="duels:chooseWhere">Choose the duel's place</string>
+	<string name="duels:whereInstruction">Insert a position</string>
+	<string name="duels:chooseChallenger">Challenge a friend of yours</string>
+	<string name="duels:challengerInstruction">Insert the challenger</string>
+	<string name="challenge:receivedChallengesLabel">Received challenges</string>
+	<string name="challenge:sentChallengesLabel">Sent challenges</string>
 </resources>

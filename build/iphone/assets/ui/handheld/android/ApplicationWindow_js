@@ -1,0 +1,1 @@
+function ApplicationWindow(){var i=require("ui/handheld/MainView"),t=new i,e=Ti.UI.createNavigationWindow({window:t}),o=Titanium.UI.createButton({title:"Back"});return win.leftNavButton=o,o.addEventListener("click",function(){alert("I was clicked"),win.close()}),e.addEventListener("click",function(){e.openWindow(t,{animated:!0})}),e}module.exports=ApplicationWindow;
