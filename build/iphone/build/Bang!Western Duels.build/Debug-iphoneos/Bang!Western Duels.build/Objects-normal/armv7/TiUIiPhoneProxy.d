@@ -44,4 +44,5 @@ dependencies: \
   /Users/johneisenheim/Documents/Titanium_Studio_Workspace/bangcode/build/iphone/Classes/TiUIiPhoneAnimationStyleProxy.h \
   /Users/johneisenheim/Documents/Titanium_Studio_Workspace/bangcode/build/iphone/Classes/TiUIiPhoneStatusBarProxy.h \
   /Users/johneisenheim/Documents/Titanium_Studio_Workspace/bangcode/build/iphone/Classes/TiUIiPhoneSystemButtonProxy.h \
-  /Users/johneisenheim/Documents/Titanium_Studio_Workspace/bangcode/build/iphone/Classes/TiUIiPhoneActivityIndicatorStyleProxy.h
+  /Users/johneisenheim/Documents/Titanium_Studio_Workspace/bangcode/build/iphone/Classes/TiUIiPhoneActivityIndicatorStyleProxy.h \
+  /Users/johneisenheim/Documents/Titanium_Studio_Workspace/bangcode/build/iphone/Classes/TiUIiPhoneTableViewCellSelectionStyleProxy.h

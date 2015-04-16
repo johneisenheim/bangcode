@@ -31,58 +31,20 @@ var Window,
 
 var global = {
 	startApplication : function() {
-		switch(platform) {
-		case 'android':
-			NewWindow = require('ui/handheld/android/ApplicationWindow');
-			newWindow = new NewWindow();
-			window.close();
-			newWindow.open();
-			break;
-		default:
-			NewWindow = require('ui/handheld/iOS/ApplicationWindow');
-			newWindow = new NewWindow();
-			window.close();
-			newWindow.open();
-			break;
-		}
-	}
+		NewWindow = require('ui/ApplicationWindow');
+		newWindow = new NewWindow();
+		window.close();
+		newWindow.open();
+	},
+	mainTab : Titanium.UI.createTab({}),
+	bangServerUrl: 'https://bangserver-churchbell.rhcloud.com'
 };
 
 // This is a single context application with multiple windows in a stack
 (function() {
-	//render appropriate components based on the platform and form factor
-	var osname = Ti.Platform.osname,
-	    version = Ti.Platform.version,
-	    height = Ti.Platform.displayCaps.platformHeight,
-	    width = Ti.Platform.displayCaps.platformWidth;
-
-	//considering tablets to have width over 720px and height over 600px - you can define your own
-	function checkTablet() {
-		switch (platform) {
-		case 'ipad':
-			return true;
-		case 'android':
-			var psc = Ti.Platform.Android.physicalSizeCategory;
-			var tiAndroid = Ti.Platform.Android;
-			return psc === tiAndroid.PHYSICAL_SIZE_CATEGORY_LARGE || psc === tiAndroid.PHYSICAL_SIZE_CATEGORY_XLARGE;
-		default:
-			return Math.min(Ti.Platform.displayCaps.platformHeight, Ti.Platform.displayCaps.platformWidth) >= 400;
-		}
-	}
-
-	var isTablet = checkTablet();
-	console.log(isTablet);
-
 	if (Titanium.App.Properties.getBool("user_logged", 0)) {
 		//Start application
-		switch(platform) {
-		case 'android':
-			Window = require('ui/handheld/android/ApplicationWindow');
-			break;
-		default:
-			Window = require('ui/handheld/iOS/ApplicationWindow');
-			break;
-		}
+		Window = require('ui/ApplicationWindow');
 	} else {
 		//Start wizard
 		Window = require('wizard/Wizard');

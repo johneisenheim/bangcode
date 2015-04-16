@@ -5,8 +5,8 @@
     <version>1.0</version>
     <publisher>johneisenheim</publisher>
     <url>http://</url>
-    <description/>
-    <copyright>2015 by johneisenheim</copyright>
+    <description>undefined</description>
+    <copyright>PJGames</copyright>
     <icon>appicon.png</icon>
     <fullscreen>false</fullscreen>
     <navbar-hidden>false</navbar-hidden>
@@ -35,6 +35,22 @@
                 <false/>
                 <key>UIStatusBarStyle</key>
                 <string>UIStatusBarStyleDefault</string>
+                <key>CFBundleURLTypes</key>
+                <array>
+                    <dict>
+                        <key>CFBundleURLName</key>
+                        <string>om.pjgames.bang</string>
+                        <key>CFBundleURLSchemes</key>
+                        <array>
+                            <string>Bang!Western Duels</string>
+                            <string>fb671108566326429</string>
+                        </array>
+                    </dict>
+                </array>
+                <key>FacebookAppID</key>
+                <string>671108566326429</string>
+                <key>FacebookDisplayName</key>
+                <string>Bang!Western Duels</string>
             </dict>
         </plist>
     </ios>
@@ -47,7 +63,11 @@
         </splash>
         <theme>default</theme>
     </mobileweb>
-    <modules/>
+    <modules>
+        <module platform="iphone">com.facebook</module>
+        <module platform="iphone">ti.map</module>
+        <module platform="android">ti.map</module>
+    </modules>
     <deployment-targets>
         <target device="android">false</target>
         <target device="blackberry">false</target>

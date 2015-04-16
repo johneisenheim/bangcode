@@ -2,7 +2,7 @@ function NormalTile(){
 	
 	var self = Titanium.UI.createView({
 		backgroundColor:'transparent',
-		width:'97%',
+		width:'95%',
 		height:50
 	});
 	

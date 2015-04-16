@@ -1,1 +1,0 @@
-function ChallengesDetails(){var i=Titanium.UI.createScrollView({backgroundColor:"#F5F4F2",width:Ti.UI.SIZE,height:Ti.UI.SIZE,layout:"vertical",top:0});return i}module.exports=ChallengesDetails;
