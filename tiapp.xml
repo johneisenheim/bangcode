@@ -68,13 +68,14 @@
         <theme>default</theme>
     </mobileweb>
     <modules>
+        <module platform="iphone">ti.coremotion</module>
         <module platform="iphone">com.facebook</module>
+        <module platform="iphone">ti.map</module>
+        <module platform="iphone">com.salsarhythmsoftware.zlsound</module>
         <module platform="iphone">bencoding.localnotify</module>
+        <module platform="android">ti.map</module>
         <module platform="iphone">bencoding.blur</module>
         <module platform="iphone" version="1.0.0">com.pj</module>
-        <module platform="android">ti.map</module>
-        <module platform="iphone">ti.map</module>
-        <module platform="iphone">ti.coremotion</module>
     </modules>
     <deployment-targets>
         <target device="android">false</target>

@@ -1,0 +1,46 @@
+<h1>ZLSound.Sample</h1>
+<h2>Description</h2>
+<p>A ZLSound module object which represents a single sound sample. Sound samples are preloaded into memory in order
+to allow instant playback. They can also be looped by setting the <em>loopIn</em> and <em>loopOut</em> properties.</p>
+<h2>Functions</h2>
+<h3>play()</h3>
+<p>Plays the sound sample instantly. You must set the 'media' property prior to calling this method.</p>
+<h3>loop(timesToRepeat[int])</h3>
+<p>Plays the sound sample, looping it <em>timesToRepeat</em> times after the inital playback. Note 
+that <em>timesToRepeat</em> can be set to large values (1000 or more) without any worries, as the
+function uses an efficient method to achieve seemless looping. You can stop the looping sound at
+any time by calling the stop() method.</p>
+<p>Note: You must set the 'media' property prior to calling this method.</p>
+<h3>stop()</h3>
+<p>Stops the currently playing sound.</p>
+<h2>Properties</h2>
+<h3>media[string]</h3>
+<p>Sets the name of the WAVE file to play. Setting this property actually loads the file into memory and prepares the sound buffer for playback. It does not play the file. Note that changing this property may clear the looping points.</p>
+<h3>loopIn[int]</h3>
+<p>Cues the loop-in point of the sample. The value is expressed in number of audio frames, so if your sample is using 44100hz sampling rate, for example, setting this property 22050 will cue the loop-out point to second 0.5. Changing
+the value of this property has no effect on the currently playing sound, it will only affect subsequent calls to
+the loop() method.</p>
+<h3>loopOut[int]</h3>
+<p>Cues the loop-out point of the sample. The value is expressed in number of audio frames, so if your sample is using 44100hz sampling rate, for example, setting this property 88200 will cue the loop-out point to second 2.0. Changing
+the value of this property has no effect on the currently playing sound, it will only affect subsequent calls to
+the loop() method.</p>
+<h3>pan[float]</h3>
+<p>Controls the panning of the sample. A value of 0.0 will center the sample, -1.0 is far left and 
+1.0 is far right. Note that stereo samples do not support panning.</p>
+<h3>pitch[float]</h3>
+<p>Controls the pitch of the sample. A value of 1.0 will leave the pitch unchanged. The sample will
+play faster and with an increased pitch for greater values, and slower with a lower pitch for
+smaller values.</p>
+<p>Examples: a value of 2.0 will play the sample twice the original speed with a pitch two times
+higher, which a value of 0.5 will play the sample half the original speed with a lower pitch.</p>
+<h3>playing[boolean] (read-only)</h3>
+<p>True if the sound sample is currently playing.</p>
+<h3>volume[float]</h3>
+<p>Controls the volume of the sample. The valid values are in the range [0, 1.0], where higher values represent
+a higher volume.</p>
+<h3>duration[float] (read-only)</h3>
+<p>Returns the duration of the media in seconds.</p>
+<h2>Author</h2>
+<p>Uri Shaked, <a href="mailto:uri@salsa4fun.co.il">uri@salsa4fun.co.il</a></p>
+<h2>License</h2>
+<p>Copyright(c) 2011 by Uri Shaked. All Rights Reserved. Please see the LICENSE file included in the distribution for further details.</p>

@@ -15,6 +15,17 @@ function Motion() {
 	var userCanFire = false;
 	var timeout = null;
 
+	/*var bangSound = Ti.Media.createSound({
+		url : "music/colt_shot.mp3",
+		looping : false,
+		volume : 1
+	});*/
+	
+	var bangSound = ZLSound.createSample({
+        media: 'music/colt_shot.mp3',
+        volume : 1.0
+    });
+
 	self.startMotionRecognizer = function() {
 		if (CoreMotion.isDeviceMotionAvailable()) {
 			CoreMotion.setDeviceMotionUpdateInterval(200);
@@ -39,8 +50,8 @@ function Motion() {
 			}
 		}
 	};
-	
-	self.stopMotionRecognizer = function(){
+
+	self.stopMotionRecognizer = function() {
 		CoreMotion.stopDeviceMotionUpdates();
 		Ti.API.info('Motion updates stop');
 	};
@@ -65,26 +76,34 @@ function Motion() {
 			var data = e.attitude;
 
 			//if (!self.imInStarting) {
-			if ((data.pitch >= -2 && data.pitch < -1) && (data.roll >= 0.9 && data.roll < 2.5)) {
+			if ((data.pitch >= -2.25 && data.pitch < -0.25) && (data.roll >= 0.9 && data.roll < 2.5)) {
 				Ti.API.info("Starting position!");
 				//self.imInStarting = true;
-				Ti.App.fireEvent('position',{what:true});
-				userCanFire = true; //da cancellare perché determina la fine del countdown
+				Ti.App.fireEvent('position', {
+					what : true
+				});
+				userCanFire = true;
+				//da cancellare perché determina la fine del countdown
 			} else {
 				Ti.API.info("No starting position");
 				//self.imInStarting = false;
-				Ti.App.fireEvent('position',{what:false});
+				Ti.App.fireEvent('position', {
+					what : false
+				});
 			}
 
 			if (self.imInStarting) {
-				Ti.API.info('sono in starting e la variabile è '+userCanFire);
+				Ti.API.info('sono in starting e la variabile è ' + userCanFire);
 				if ((data.pitch >= -0.4 && data.pitch < 0.4 ) && (data.roll >= 1.2 && data.roll < 1.7)) {
 					if (data.yaw >= (startingYaw - 0.5) && data.yaw < (startingYaw + 0.5)) {
 						if (userCanFire) {
 							Ti.API.info("Bang!");
+							bangSound.play();
+							Ti.API.info("ACCELERAZIONE: " + lastX + ' ' + lastY + ' ' + lastZ);
 							Ti.API.info(data.yaw + " con yaw di riferimento " + startingYaw);
 							self.imInStarting = false;
 							stopCatchingYaw = false;
+							self.stopMotionRecognizer();
 						} else {
 							Ti.API.info("Fault!");
 							userCanFire = false;
@@ -100,7 +119,7 @@ function Motion() {
 					}
 					//self.imInStarting = false;
 				}
-			}else{
+			} else {
 				Ti.API.info('im in starting è false');
 			}
 

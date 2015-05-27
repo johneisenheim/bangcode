@@ -17,6 +17,20 @@
 
 	
 		[modules addObject:[NSDictionary
+			dictionaryWithObjectsAndKeys:@"coremotion",
+			@"name",
+			@"ti.coremotion",
+			@"moduleid",
+			@"1.1.0",
+			@"version",
+			@"cbf3cdea-b7e8-4375-bdfb-70fb98675309",
+			@"guid",
+			@"",
+			@"licensekey",
+			nil
+		]];
+		
+		[modules addObject:[NSDictionary
 			dictionaryWithObjectsAndKeys:@"facebookios",
 			@"name",
 			@"com.facebook",
@@ -24,6 +38,34 @@
 			@"3.21.10",
 			@"version",
 			@"7ac4bcd0-eb97-4e43-89fc-03f7f4d0a2a0",
+			@"guid",
+			@"",
+			@"licensekey",
+			nil
+		]];
+		
+		[modules addObject:[NSDictionary
+			dictionaryWithObjectsAndKeys:@"map",
+			@"name",
+			@"ti.map",
+			@"moduleid",
+			@"2.2.2",
+			@"version",
+			@"fee93b77-8eb3-418c-8f04-013664c4af83",
+			@"guid",
+			@"",
+			@"licensekey",
+			nil
+		]];
+		
+		[modules addObject:[NSDictionary
+			dictionaryWithObjectsAndKeys:@"zlsound",
+			@"name",
+			@"com.salsarhythmsoftware.zlsound",
+			@"moduleid",
+			@"2.1",
+			@"version",
+			@"bbbb1a7c-4c67-4385-b0ad-be33df15e044",
 			@"guid",
 			@"",
 			@"licensekey",
@@ -66,34 +108,6 @@
 			@"1.0.0",
 			@"version",
 			@"4aadde24-8fad-4082-9cb4-4b6ced681eb0",
-			@"guid",
-			@"",
-			@"licensekey",
-			nil
-		]];
-		
-		[modules addObject:[NSDictionary
-			dictionaryWithObjectsAndKeys:@"map",
-			@"name",
-			@"ti.map",
-			@"moduleid",
-			@"2.2.2",
-			@"version",
-			@"fee93b77-8eb3-418c-8f04-013664c4af83",
-			@"guid",
-			@"",
-			@"licensekey",
-			nil
-		]];
-		
-		[modules addObject:[NSDictionary
-			dictionaryWithObjectsAndKeys:@"coremotion",
-			@"name",
-			@"ti.coremotion",
-			@"moduleid",
-			@"1.1.0",
-			@"version",
-			@"cbf3cdea-b7e8-4375-bdfb-70fb98675309",
 			@"guid",
 			@"",
 			@"licensekey",

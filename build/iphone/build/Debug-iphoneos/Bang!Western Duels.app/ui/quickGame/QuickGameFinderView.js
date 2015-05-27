@@ -7,12 +7,18 @@ function QuickGameFinderView() {
 	var status = 0;
 
 	var orientation = 0;
+	
+    var loadSound = ZLSound.createSample({
+        media: 'music/gun_loading.mp3',
+        volume : 1.0
+    });
 
 	var self = Titanium.UI.createView({
 		width : '100%',
 		height : '100%',
 		backgroundColor : '#F5F4F2',
 		layout : 'vertical',
+		isGunAdded : false
 		//top : 10
 	});
 
@@ -48,6 +54,7 @@ function QuickGameFinderView() {
 		if (flag) {
 			motion.imInStarting = true;
 			Ti.API.info('im in starting ' + motion.imInStarting);
+			loadSound.play();
 		}
 	};
 
@@ -55,17 +62,22 @@ function QuickGameFinderView() {
 
 	Ti.Gesture.addEventListener('orientationchange', function(e) {
 		orientation = e.orientation;
+		Ti.API.info(orientation);
 		switch(e.orientation) {
 		case 2:
 			motion.startMotionRecognizer();
 			self.removeAllChildren();
 			self.add(gun);
+			self.isGunAdded = true;
 			break;
-		case 1:
-			motion.stopMotionRecognizer();
-			self.remove(gun);
-			self.add(label);
-			self.add(position);
+		case 1 || 3 || 4 || 5:
+			if (self.isGunAdded) {
+				motion.stopMotionRecognizer();
+				self.remove(gun);
+				self.add(label);
+				self.add(position);
+				self.isGunAdded = false;
+			}
 			//gun.removeEventListener('click', whenUpside);
 			break;
 		default:

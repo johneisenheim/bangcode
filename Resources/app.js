@@ -40,75 +40,81 @@ var global = {
 	bangServerUrl : 'https://bangserver-churchbell.rhcloud.com'
 };
 
+var ZLSound = require('com.salsarhythmsoftware.zlsound');
+
 var musicVolume = Ti.App.Properties.getDouble('volume', 0.4);
-var player = Ti.Media.createSound({
-	url : "music/theme.mp3",
-	looping : true,
+/*var player = Ti.Media.createSound({
+ url : "music/theme.mp3",
+ looping : true,
+ volume : musicVolume
+ });*/
+
+var player = ZLSound.createSample({
+	media : "music/theme.mp3",
 	volume : musicVolume
 });
 
+player.loop(1000);
 player.play();
 
+//player.play();
+
 if (Ti.Platform.name == "iPhone OS" && parseInt(Ti.Platform.version.split(".")[0]) >= 8) {
-    Ti.API.info("I am iOS 8!");
-    // Create notification actions
-    var acceptAction = Ti.App.iOS.createUserNotificationAction({
-        identifier: "ACCEPT_IDENTIFIER",
-        title: "Vai a Bang!",
-        activationMode: Ti.App.iOS.USER_NOTIFICATION_ACTIVATION_MODE_FOREGROUND,
-        destructive: false,
-        authenticationRequired: true
-    });
-    
-    var rejectAction = Ti.App.iOS.createUserNotificationAction({
-        identifier: "REJECT_IDENTIFIER",
-        title: "Dopo",
-        activationMode: Ti.App.iOS.USER_NOTIFICATION_ACTIVATION_MODE_BACKGROUND,
-        destructive: true,
-        authenticationRequired: false
-    });
-    
-    // Create a notification category
-    var duelContent = Ti.App.iOS.createUserNotificationCategory({
-      identifier: "DUEL",
-      actionsForDefaultContext: [acceptAction, rejectAction]
-    });    
-    // Register for user notifications and categories
-    Ti.App.iOS.registerUserNotificationSettings({
-        types: [
-            Ti.App.iOS.USER_NOTIFICATION_TYPE_ALERT,
-            Ti.App.iOS.USER_NOTIFICATION_TYPE_BADGE,
-            Ti.App.iOS.USER_NOTIFICATION_TYPE_SOUND
-        ],
-        categories: [duelContent]
-    });
-    // Monitor notifications received while app is in the background
-    Ti.App.iOS.addEventListener('localnotificationaction', function(e) {
-        if (e.category == "DUEL" && e.identifier == "ACCEPT_IDENTIFIER") {
-            alert("start download");
-        }
-        
-        // Reset the badge value
-        if (e.badge > 0) {
-            Ti.App.iOS.scheduleLocalNotification({
-                date: new Date(new Date().getTime() + 3000),
-                badge: "-1"
-            });
-        }
-        Ti.API.info(JSON.stringify(e));
-    });
+	Ti.API.info("I am iOS 8!");
+	// Create notification actions
+	var acceptAction = Ti.App.iOS.createUserNotificationAction({
+		identifier : "ACCEPT_IDENTIFIER",
+		title : "Vai a Bang!",
+		activationMode : Ti.App.iOS.USER_NOTIFICATION_ACTIVATION_MODE_FOREGROUND,
+		destructive : false,
+		authenticationRequired : true
+	});
+
+	var rejectAction = Ti.App.iOS.createUserNotificationAction({
+		identifier : "REJECT_IDENTIFIER",
+		title : "Dopo",
+		activationMode : Ti.App.iOS.USER_NOTIFICATION_ACTIVATION_MODE_BACKGROUND,
+		destructive : true,
+		authenticationRequired : false
+	});
+
+	// Create a notification category
+	var duelContent = Ti.App.iOS.createUserNotificationCategory({
+		identifier : "DUEL",
+		actionsForDefaultContext : [acceptAction, rejectAction]
+	});
+	// Register for user notifications and categories
+	Ti.App.iOS.registerUserNotificationSettings({
+		types : [Ti.App.iOS.USER_NOTIFICATION_TYPE_ALERT, Ti.App.iOS.USER_NOTIFICATION_TYPE_BADGE, Ti.App.iOS.USER_NOTIFICATION_TYPE_SOUND],
+		categories : [duelContent]
+	});
+	// Monitor notifications received while app is in the background
+	Ti.App.iOS.addEventListener('localnotificationaction', function(e) {
+		if (e.category == "DUEL" && e.identifier == "ACCEPT_IDENTIFIER") {
+			alert("start download");
+		}
+
+		// Reset the badge value
+		if (e.badge > 0) {
+			Ti.App.iOS.scheduleLocalNotification({
+				date : new Date(new Date().getTime() + 3000),
+				badge : "-1"
+			});
+		}
+		Ti.API.info(JSON.stringify(e));
+	});
 }
 
-// Monitor notifications received while app is in the foreground 
-Ti.App.iOS.addEventListener('notification', function(e) { 
-    // Reset the badge value
-    if (e.badge > 0) {
-        Ti.App.iOS.scheduleLocalNotification({
-            date: new Date(new Date().getTime() + 3000),
-            badge: "-1"
-        });
-    }
-    Ti.API.info(JSON.stringify(e));
+// Monitor notifications received while app is in the foreground
+Ti.App.iOS.addEventListener('notification', function(e) {
+	// Reset the badge value
+	if (e.badge > 0) {
+		Ti.App.iOS.scheduleLocalNotification({
+			date : new Date(new Date().getTime() + 3000),
+			badge : "-1"
+		});
+	}
+	Ti.API.info(JSON.stringify(e));
 });
 
 var Loader = require('ui/customUI/Loader');
