@@ -11,7 +11,7 @@
     <fullscreen>false</fullscreen>
     <navbar-hidden>false</navbar-hidden>
     <analytics>true</analytics>
-    <guid>31333771-0331-45e4-9561-982cd7ce93da</guid>
+    <guid>2d138cd3-7158-4d36-9555-be51f00db4ee</guid>
     <property name="ti.ui.defaultunit" type="string">dp</property>
     <ios>
         <plist>
@@ -51,6 +51,10 @@
                 <string>671108566326429</string>
                 <key>FacebookDisplayName</key>
                 <string>Bang!Western Duels</string>
+                <key>NSLocationAlwaysUsageDescription</key>
+                <string>
+                    Bang! vorrebbe accedere alla tua posizione.
+                </string>
             </dict>
         </plist>
     </ios>
@@ -65,8 +69,12 @@
     </mobileweb>
     <modules>
         <module platform="iphone">com.facebook</module>
-        <module platform="iphone">ti.map</module>
+        <module platform="iphone">bencoding.localnotify</module>
+        <module platform="iphone">bencoding.blur</module>
+        <module platform="iphone" version="1.0.0">com.pj</module>
         <module platform="android">ti.map</module>
+        <module platform="iphone">ti.map</module>
+        <module platform="iphone">ti.coremotion</module>
     </modules>
     <deployment-targets>
         <target device="android">false</target>
@@ -76,4 +84,5 @@
         <target device="mobileweb">false</target>
     </deployment-targets>
     <sdk-version>3.5.1.GA</sdk-version>
+    <property name="appc-app-id" type="string">5562e33ae334890b36dcba32</property>
 </ti:app>

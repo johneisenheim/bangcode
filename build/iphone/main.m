@@ -7,7 +7,7 @@
 #define _QUOTEME(x) #x
 #define STRING(x) _QUOTEME(x)
 
-NSString * const TI_APPLICATION_DEPLOYTYPE = @"test";
+NSString * const TI_APPLICATION_DEPLOYTYPE = @"development";
 NSString * const TI_APPLICATION_ID = @"com.pjgames.bang";
 NSString * const TI_APPLICATION_PUBLISHER = @"johneisenheim";
 NSString * const TI_APPLICATION_URL = @"http://";
@@ -15,7 +15,7 @@ NSString * const TI_APPLICATION_NAME = @"Bang!Western Duels";
 NSString * const TI_APPLICATION_VERSION = @"1.0";
 NSString * const TI_APPLICATION_DESCRIPTION = @"undefined";
 NSString * const TI_APPLICATION_COPYRIGHT = @"PJGames";
-NSString * const TI_APPLICATION_GUID = @"31333771-0331-45e4-9561-982cd7ce93da";
+NSString * const TI_APPLICATION_GUID = @"2d138cd3-7158-4d36-9555-be51f00db4ee";
 BOOL const TI_APPLICATION_ANALYTICS = true;
 NSString * const TI_APPLICATION_BUILD_TYPE = @"";
 

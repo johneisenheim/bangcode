@@ -1,1 +1,0 @@
-function MainWindow(){var e=require("ui/MainView"),i=new e,t=Titanium.UI.createButton({title:"Tutorial"}),n=Titanium.UI.createWindow({navTintColor:"white",extendEdges:[Ti.UI.EXTEND_EDGE_TOP],backgroundColor:"#F5F4F2",statusBarStyle:Titanium.UI.iPhone.StatusBar.LIGHT_CONTENT,layout:"composite",tabBarHidden:!0,rightNavButton:t});return n.add(i),n}module.exports=MainWindow;

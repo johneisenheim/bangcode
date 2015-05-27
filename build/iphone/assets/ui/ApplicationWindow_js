@@ -1,1 +1,0 @@
-function ApplicationWindow(){var e=require("ui/MainWindow"),n=new e,i=Titanium.UI.createTabGroup({navTintColor:"white",tintColor:"#E2BB5A",barColor:"#E2BB5A",translucent:!0}),t=global.mainTab;return t.setWindow(n),i.addTab(t),i.setActiveTab(t),i}module.exports=ApplicationWindow;

@@ -31,13 +31,69 @@
 		]];
 		
 		[modules addObject:[NSDictionary
+			dictionaryWithObjectsAndKeys:@"localnotify",
+			@"name",
+			@"bencoding.localnotify",
+			@"moduleid",
+			@"0.47",
+			@"version",
+			@"648e81b4-9d78-4857-8fc9-688af1d23358",
+			@"guid",
+			@"",
+			@"licensekey",
+			nil
+		]];
+		
+		[modules addObject:[NSDictionary
+			dictionaryWithObjectsAndKeys:@"blur",
+			@"name",
+			@"bencoding.blur",
+			@"moduleid",
+			@"0.40-beta",
+			@"version",
+			@"d85a60ff-a204-4a70-b16a-315bd61c7d0d",
+			@"guid",
+			@"",
+			@"licensekey",
+			nil
+		]];
+		
+		[modules addObject:[NSDictionary
+			dictionaryWithObjectsAndKeys:@"telepathy",
+			@"name",
+			@"com.pj",
+			@"moduleid",
+			@"1.0.0",
+			@"version",
+			@"4aadde24-8fad-4082-9cb4-4b6ced681eb0",
+			@"guid",
+			@"",
+			@"licensekey",
+			nil
+		]];
+		
+		[modules addObject:[NSDictionary
 			dictionaryWithObjectsAndKeys:@"map",
 			@"name",
 			@"ti.map",
 			@"moduleid",
-			@"2.2.1",
+			@"2.2.2",
 			@"version",
 			@"fee93b77-8eb3-418c-8f04-013664c4af83",
+			@"guid",
+			@"",
+			@"licensekey",
+			nil
+		]];
+		
+		[modules addObject:[NSDictionary
+			dictionaryWithObjectsAndKeys:@"coremotion",
+			@"name",
+			@"ti.coremotion",
+			@"moduleid",
+			@"1.1.0",
+			@"version",
+			@"cbf3cdea-b7e8-4375-bdfb-70fb98675309",
 			@"guid",
 			@"",
 			@"licensekey",

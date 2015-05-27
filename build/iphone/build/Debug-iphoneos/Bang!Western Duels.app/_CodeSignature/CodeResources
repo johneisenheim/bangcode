@@ -30,7 +30,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		CBQOc6zR/aACnvnaqzTH3BkHuF0=
+		OoIREg7OsVjHvwZqgujLgrC6KUw=
 		</data>
 		<key>KS_nav_ui.png</key>
 		<data>
@@ -44,9 +44,25 @@
 		<data>
 		n57qDP4tZfLD1rCS43W0B4LQjzE=
 		</data>
+		<key>_app_props_.json</key>
+		<data>
+		w7rtzgJK5Pwmb/RRyJn7sDK1fWI=
+		</data>
+		<key>app.js</key>
+		<data>
+		UcIErzCgBRpauygMQ2vs6/rqw60=
+		</data>
 		<key>appicon.png</key>
 		<data>
 		KD8dTv4RWG2uOO01WMEtZjaYsRY=
+		</data>
+		<key>core/Countdown.js</key>
+		<data>
+		BTyQHf+0HuT0SoxmCkd+umQyLow=
+		</data>
+		<key>core/Motion.js</key>
+		<data>
+		8DxaCcU1MaYFxn5zQL2rs+lcN8I=
 		</data>
 		<key>debugger.plist</key>
 		<data>
@@ -60,7 +76,7 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			LjhXs/3lehjpEjzM/gVqSmtFUUc=
+			9bDnL2UmYEl0jSwnIvPrFY8/0/M=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -141,6 +157,10 @@
 		<data>
 		ogubLt7h3oOKqxD+QGD44NxRFs0=
 		</data>
+		<key>fonts/Valentino.ttf</key>
+		<data>
+		JiYdtsWKdWunVn/+TjMcMUvAMBc=
+		</data>
 		<key>fonts/WEST____.TTF</key>
 		<data>
 		CVcyBTMN3s9uI9p6zM6Z2Op7X6I=
@@ -153,15 +173,51 @@
 		<data>
 		C+HglKRF1VtK2WOUP27KB6J2rCM=
 		</data>
+		<key>images/frame.png</key>
+		<data>
+		qf5QFJ+HyDv6nx7FPQXSzYUJ4QU=
+		</data>
+		<key>images/gun.png</key>
+		<data>
+		kal03ab2aHRWHct624km8Kt/tws=
+		</data>
+		<key>images/loading.png</key>
+		<data>
+		EMsTMF/Vom8ZGJA6pFLZV1mmuX4=
+		</data>
+		<key>images/points.png</key>
+		<data>
+		2sjQD6OYP07uh9duESNFq8sUNNo=
+		</data>
+		<key>images/position1.png</key>
+		<data>
+		EOsDcWYFJcgAQJFXDkAb5cd4BEY=
+		</data>
+		<key>images/position2.png</key>
+		<data>
+		IHVl5af0V80s7TqqudImMw3TStQ=
+		</data>
+		<key>images/screen1.png</key>
+		<data>
+		Ogbfl7b2N95jIVkWer1LMM9+WQw=
+		</data>
+		<key>images/settings.png</key>
+		<data>
+		X3Pf4WNYpaZmKObI8Af3IGF7JKM=
+		</data>
 		<key>it.lproj/Localizable.strings</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			XMaGUkJsWpjq/RhHvu06s2DMwgs=
+			LcjfBTfnUsM4DOFxM1ExYxmyJFM=
 			</data>
 			<key>optional</key>
 			<true/>
 		</dict>
+		<key>login/facebook/FacebookHandler.js</key>
+		<data>
+		skfRGZp8kUCaCo++lFL+eQHnTKk=
+		</data>
 		<key>modules/ui/images/badge.png</key>
 		<data>
 		V0FYZCpzFOcFA7n0Zak4eggMFNM=
@@ -174,6 +230,14 @@
 		<data>
 		sDV6mhNqm2AcbtSqWvXToEw/JNU=
 		</data>
+		<key>music/notification.mp3</key>
+		<data>
+		W7O9VtzOuYlNhCQuyvtfVbl1yDM=
+		</data>
+		<key>music/theme.mp3</key>
+		<data>
+		5GhJUgUl92mgyw4HDz8Vn25hghY=
+		</data>
 		<key>profiler.plist</key>
 		<data>
 		xqrNs8QR895Qhkh/DM/XU8A3g9k=
@@ -181,6 +245,170 @@
 		<key>stylesheet.plist</key>
 		<data>
 		zmV6UqBSo6r1NOz798vd5O4zTBA=
+		</data>
+		<key>ui/ApplicationWindow.js</key>
+		<data>
+		0Y40+Zz2KDoRGjok4CP87v2NFP0=
+		</data>
+		<key>ui/MainView.js</key>
+		<data>
+		jzBEZD1U+ySeI5cXNyrNex5c8nU=
+		</data>
+		<key>ui/MainWindow.js</key>
+		<data>
+		fNU82dwAem1obg1KqM8ePQIbAv8=
+		</data>
+		<key>ui/challenges/ChallengeView.js</key>
+		<data>
+		dcBZItF/VQfcaM6Eoa+HZlM4ySE=
+		</data>
+		<key>ui/challenges/ChallengeWindow.js</key>
+		<data>
+		KqpCTxdpKFdn/JkFOuKWK8dectM=
+		</data>
+		<key>ui/challenges/ChallengesDetailsTable1.js</key>
+		<data>
+		uNLCDZ2J6E7aX1WeKjgtkDBSLyM=
+		</data>
+		<key>ui/challenges/ChallengesDetailsTable2.js</key>
+		<data>
+		BqvpcemKinyl5Hi7Ggj4vXJ3BRk=
+		</data>
+		<key>ui/challenges/ChallengesDetailsTable3.js</key>
+		<data>
+		UgA38Kxn1G15zxiKT4gtHgDyHZc=
+		</data>
+		<key>ui/challenges/Map.js</key>
+		<data>
+		cj6iiNIj36FZmWGF6rrLyA/vStY=
+		</data>
+		<key>ui/challenges/MapToSet.js</key>
+		<data>
+		BVTDE6qTCXCLKEVBHA4NGx+hzx4=
+		</data>
+		<key>ui/challenges/Picker.js</key>
+		<data>
+		M1YJx1O/xXvLz8V8is1rynljSGo=
+		</data>
+		<key>ui/customUI/BigTile.js</key>
+		<data>
+		bXqecVyPQuOBCmpKMK0/7sP1cEk=
+		</data>
+		<key>ui/customUI/CustomButton.js</key>
+		<data>
+		lnSKJoXxgRxIP5c3geBe1ktt2xw=
+		</data>
+		<key>ui/customUI/CustomDisabledButton.js</key>
+		<data>
+		NCyvwM7qthRpZYJidwOCfdKMN48=
+		</data>
+		<key>ui/customUI/Loader.js</key>
+		<data>
+		TbtIajG7EkXbOdEdRMqr7jTE8dU=
+		</data>
+		<key>ui/customUI/MinusNormalTile.js</key>
+		<data>
+		TVNsvQoZK/zj41FVCb0Cs1MebS0=
+		</data>
+		<key>ui/customUI/NormalTile.js</key>
+		<data>
+		u0PlCjt/s6KxXjqtvSWCXAQ6BDE=
+		</data>
+		<key>ui/customUI/PageTitle.js</key>
+		<data>
+		RMp9SzVaR1OpfYCWMcpvlC0z62g=
+		</data>
+		<key>ui/customUI/VeryBigTile.js</key>
+		<data>
+		jXOtoQwZe49N7iVgO/4OVYLrWY0=
+		</data>
+		<key>ui/customUI/ViewScrollr.js</key>
+		<data>
+		BVgDtWLQqcZVsa+fFUriKDP3Yak=
+		</data>
+		<key>ui/newChallenge/FacebookFriends.js</key>
+		<data>
+		u/uTK3wWWlU0uAOBEq1BWvXKuqM=
+		</data>
+		<key>ui/newChallenge/Map.js</key>
+		<data>
+		YuqfQK1sRAnLlAU2Ri65xthCsk0=
+		</data>
+		<key>ui/newChallenge/Picker.js</key>
+		<data>
+		uiZxfibz2bbtdUC/4GFja3kbBRY=
+		</data>
+		<key>ui/newChallenge/StartChallengeView.js</key>
+		<data>
+		wvJLWHwA9G985m8Q+t+FAUy4R9A=
+		</data>
+		<key>ui/newChallenge/StartChallengeWindow.js</key>
+		<data>
+		YFrmL/d/ywohMFrroDA3gWNR8dg=
+		</data>
+		<key>ui/profile/Charts.js</key>
+		<data>
+		Ui3XQTFQWYDkmur7zmZeX9GgPs4=
+		</data>
+		<key>ui/profile/Details.js</key>
+		<data>
+		sWHPVb/pgH7M7ynmAgNmBNyNteI=
+		</data>
+		<key>ui/profile/Profile.js</key>
+		<data>
+		VEEzbqY6CKXIcknOYN/eIPpsBIg=
+		</data>
+		<key>ui/quickGame/QuickGame.js</key>
+		<data>
+		nfq5eMJi6QXuwfddcQtUjRR160o=
+		</data>
+		<key>ui/quickGame/QuickGameFinder.js</key>
+		<data>
+		dWKEjBpE79H1lOGxRnx1MNu1XJY=
+		</data>
+		<key>ui/quickGame/QuickGameFinderView.js</key>
+		<data>
+		nK9b3tckfDXSxhQ0OBBp4tY1vwA=
+		</data>
+		<key>ui/settings/Settings.js</key>
+		<data>
+		unXnTFNPhKHBrLdSDbXCmhjhp+Y=
+		</data>
+		<key>ui/tutorial/TutPage1.js</key>
+		<data>
+		Kl7y8mZ6JxdSvdjm0Mp0I/wW05s=
+		</data>
+		<key>ui/tutorial/TutPage2.js</key>
+		<data>
+		m8Wl8FjGZsrSRMVCoAv6wastdHI=
+		</data>
+		<key>ui/tutorial/TutPage3.js</key>
+		<data>
+		X0SPsZkMiljLWJXswacKlPBaYZQ=
+		</data>
+		<key>ui/tutorial/TutPage4.js</key>
+		<data>
+		dS6Qq4c10JT5rLh1OJU0tpK029I=
+		</data>
+		<key>ui/tutorial/TutPage5.js</key>
+		<data>
+		KlEwqlZvr+Vfp0KWzAeK8yCfAR4=
+		</data>
+		<key>ui/tutorial/Tutorial.js</key>
+		<data>
+		D0Dc6Ux2rqwZN9izOrHhSaJWpI4=
+		</data>
+		<key>wizard/FirstPage.js</key>
+		<data>
+		JZwdq6cqPpEX6PWdj2pNLXcRMgs=
+		</data>
+		<key>wizard/SecondPage.js</key>
+		<data>
+		PLb2pn7Jk0jnP/XYIrUNf05HnWc=
+		</data>
+		<key>wizard/Wizard.js</key>
+		<data>
+		nJfuIOme34nNfDwMF7G/dp9K3nc=
 		</data>
 	</dict>
 	<key>files2</key>
@@ -217,9 +445,25 @@
 		<data>
 		tiEpxlNIxTS7GBCcZ8laVDZJNvU=
 		</data>
+		<key>_app_props_.json</key>
+		<data>
+		w7rtzgJK5Pwmb/RRyJn7sDK1fWI=
+		</data>
+		<key>app.js</key>
+		<data>
+		UcIErzCgBRpauygMQ2vs6/rqw60=
+		</data>
 		<key>appicon.png</key>
 		<data>
 		KD8dTv4RWG2uOO01WMEtZjaYsRY=
+		</data>
+		<key>core/Countdown.js</key>
+		<data>
+		BTyQHf+0HuT0SoxmCkd+umQyLow=
+		</data>
+		<key>core/Motion.js</key>
+		<data>
+		8DxaCcU1MaYFxn5zQL2rs+lcN8I=
 		</data>
 		<key>debugger.plist</key>
 		<data>
@@ -233,7 +477,7 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			LjhXs/3lehjpEjzM/gVqSmtFUUc=
+			9bDnL2UmYEl0jSwnIvPrFY8/0/M=
 			</data>
 			<key>optional</key>
 			<true/>
@@ -314,6 +558,10 @@
 		<data>
 		ogubLt7h3oOKqxD+QGD44NxRFs0=
 		</data>
+		<key>fonts/Valentino.ttf</key>
+		<data>
+		JiYdtsWKdWunVn/+TjMcMUvAMBc=
+		</data>
 		<key>fonts/WEST____.TTF</key>
 		<data>
 		CVcyBTMN3s9uI9p6zM6Z2Op7X6I=
@@ -326,15 +574,51 @@
 		<data>
 		C+HglKRF1VtK2WOUP27KB6J2rCM=
 		</data>
+		<key>images/frame.png</key>
+		<data>
+		qf5QFJ+HyDv6nx7FPQXSzYUJ4QU=
+		</data>
+		<key>images/gun.png</key>
+		<data>
+		kal03ab2aHRWHct624km8Kt/tws=
+		</data>
+		<key>images/loading.png</key>
+		<data>
+		EMsTMF/Vom8ZGJA6pFLZV1mmuX4=
+		</data>
+		<key>images/points.png</key>
+		<data>
+		2sjQD6OYP07uh9duESNFq8sUNNo=
+		</data>
+		<key>images/position1.png</key>
+		<data>
+		EOsDcWYFJcgAQJFXDkAb5cd4BEY=
+		</data>
+		<key>images/position2.png</key>
+		<data>
+		IHVl5af0V80s7TqqudImMw3TStQ=
+		</data>
+		<key>images/screen1.png</key>
+		<data>
+		Ogbfl7b2N95jIVkWer1LMM9+WQw=
+		</data>
+		<key>images/settings.png</key>
+		<data>
+		X3Pf4WNYpaZmKObI8Af3IGF7JKM=
+		</data>
 		<key>it.lproj/Localizable.strings</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			XMaGUkJsWpjq/RhHvu06s2DMwgs=
+			LcjfBTfnUsM4DOFxM1ExYxmyJFM=
 			</data>
 			<key>optional</key>
 			<true/>
 		</dict>
+		<key>login/facebook/FacebookHandler.js</key>
+		<data>
+		skfRGZp8kUCaCo++lFL+eQHnTKk=
+		</data>
 		<key>modules/ui/images/badge.png</key>
 		<data>
 		V0FYZCpzFOcFA7n0Zak4eggMFNM=
@@ -347,6 +631,14 @@
 		<data>
 		sDV6mhNqm2AcbtSqWvXToEw/JNU=
 		</data>
+		<key>music/notification.mp3</key>
+		<data>
+		W7O9VtzOuYlNhCQuyvtfVbl1yDM=
+		</data>
+		<key>music/theme.mp3</key>
+		<data>
+		5GhJUgUl92mgyw4HDz8Vn25hghY=
+		</data>
 		<key>profiler.plist</key>
 		<data>
 		xqrNs8QR895Qhkh/DM/XU8A3g9k=
@@ -354,6 +646,170 @@
 		<key>stylesheet.plist</key>
 		<data>
 		zmV6UqBSo6r1NOz798vd5O4zTBA=
+		</data>
+		<key>ui/ApplicationWindow.js</key>
+		<data>
+		0Y40+Zz2KDoRGjok4CP87v2NFP0=
+		</data>
+		<key>ui/MainView.js</key>
+		<data>
+		jzBEZD1U+ySeI5cXNyrNex5c8nU=
+		</data>
+		<key>ui/MainWindow.js</key>
+		<data>
+		fNU82dwAem1obg1KqM8ePQIbAv8=
+		</data>
+		<key>ui/challenges/ChallengeView.js</key>
+		<data>
+		dcBZItF/VQfcaM6Eoa+HZlM4ySE=
+		</data>
+		<key>ui/challenges/ChallengeWindow.js</key>
+		<data>
+		KqpCTxdpKFdn/JkFOuKWK8dectM=
+		</data>
+		<key>ui/challenges/ChallengesDetailsTable1.js</key>
+		<data>
+		uNLCDZ2J6E7aX1WeKjgtkDBSLyM=
+		</data>
+		<key>ui/challenges/ChallengesDetailsTable2.js</key>
+		<data>
+		BqvpcemKinyl5Hi7Ggj4vXJ3BRk=
+		</data>
+		<key>ui/challenges/ChallengesDetailsTable3.js</key>
+		<data>
+		UgA38Kxn1G15zxiKT4gtHgDyHZc=
+		</data>
+		<key>ui/challenges/Map.js</key>
+		<data>
+		cj6iiNIj36FZmWGF6rrLyA/vStY=
+		</data>
+		<key>ui/challenges/MapToSet.js</key>
+		<data>
+		BVTDE6qTCXCLKEVBHA4NGx+hzx4=
+		</data>
+		<key>ui/challenges/Picker.js</key>
+		<data>
+		M1YJx1O/xXvLz8V8is1rynljSGo=
+		</data>
+		<key>ui/customUI/BigTile.js</key>
+		<data>
+		bXqecVyPQuOBCmpKMK0/7sP1cEk=
+		</data>
+		<key>ui/customUI/CustomButton.js</key>
+		<data>
+		lnSKJoXxgRxIP5c3geBe1ktt2xw=
+		</data>
+		<key>ui/customUI/CustomDisabledButton.js</key>
+		<data>
+		NCyvwM7qthRpZYJidwOCfdKMN48=
+		</data>
+		<key>ui/customUI/Loader.js</key>
+		<data>
+		TbtIajG7EkXbOdEdRMqr7jTE8dU=
+		</data>
+		<key>ui/customUI/MinusNormalTile.js</key>
+		<data>
+		TVNsvQoZK/zj41FVCb0Cs1MebS0=
+		</data>
+		<key>ui/customUI/NormalTile.js</key>
+		<data>
+		u0PlCjt/s6KxXjqtvSWCXAQ6BDE=
+		</data>
+		<key>ui/customUI/PageTitle.js</key>
+		<data>
+		RMp9SzVaR1OpfYCWMcpvlC0z62g=
+		</data>
+		<key>ui/customUI/VeryBigTile.js</key>
+		<data>
+		jXOtoQwZe49N7iVgO/4OVYLrWY0=
+		</data>
+		<key>ui/customUI/ViewScrollr.js</key>
+		<data>
+		BVgDtWLQqcZVsa+fFUriKDP3Yak=
+		</data>
+		<key>ui/newChallenge/FacebookFriends.js</key>
+		<data>
+		u/uTK3wWWlU0uAOBEq1BWvXKuqM=
+		</data>
+		<key>ui/newChallenge/Map.js</key>
+		<data>
+		YuqfQK1sRAnLlAU2Ri65xthCsk0=
+		</data>
+		<key>ui/newChallenge/Picker.js</key>
+		<data>
+		uiZxfibz2bbtdUC/4GFja3kbBRY=
+		</data>
+		<key>ui/newChallenge/StartChallengeView.js</key>
+		<data>
+		wvJLWHwA9G985m8Q+t+FAUy4R9A=
+		</data>
+		<key>ui/newChallenge/StartChallengeWindow.js</key>
+		<data>
+		YFrmL/d/ywohMFrroDA3gWNR8dg=
+		</data>
+		<key>ui/profile/Charts.js</key>
+		<data>
+		Ui3XQTFQWYDkmur7zmZeX9GgPs4=
+		</data>
+		<key>ui/profile/Details.js</key>
+		<data>
+		sWHPVb/pgH7M7ynmAgNmBNyNteI=
+		</data>
+		<key>ui/profile/Profile.js</key>
+		<data>
+		VEEzbqY6CKXIcknOYN/eIPpsBIg=
+		</data>
+		<key>ui/quickGame/QuickGame.js</key>
+		<data>
+		nfq5eMJi6QXuwfddcQtUjRR160o=
+		</data>
+		<key>ui/quickGame/QuickGameFinder.js</key>
+		<data>
+		dWKEjBpE79H1lOGxRnx1MNu1XJY=
+		</data>
+		<key>ui/quickGame/QuickGameFinderView.js</key>
+		<data>
+		nK9b3tckfDXSxhQ0OBBp4tY1vwA=
+		</data>
+		<key>ui/settings/Settings.js</key>
+		<data>
+		unXnTFNPhKHBrLdSDbXCmhjhp+Y=
+		</data>
+		<key>ui/tutorial/TutPage1.js</key>
+		<data>
+		Kl7y8mZ6JxdSvdjm0Mp0I/wW05s=
+		</data>
+		<key>ui/tutorial/TutPage2.js</key>
+		<data>
+		m8Wl8FjGZsrSRMVCoAv6wastdHI=
+		</data>
+		<key>ui/tutorial/TutPage3.js</key>
+		<data>
+		X0SPsZkMiljLWJXswacKlPBaYZQ=
+		</data>
+		<key>ui/tutorial/TutPage4.js</key>
+		<data>
+		dS6Qq4c10JT5rLh1OJU0tpK029I=
+		</data>
+		<key>ui/tutorial/TutPage5.js</key>
+		<data>
+		KlEwqlZvr+Vfp0KWzAeK8yCfAR4=
+		</data>
+		<key>ui/tutorial/Tutorial.js</key>
+		<data>
+		D0Dc6Ux2rqwZN9izOrHhSaJWpI4=
+		</data>
+		<key>wizard/FirstPage.js</key>
+		<data>
+		JZwdq6cqPpEX6PWdj2pNLXcRMgs=
+		</data>
+		<key>wizard/SecondPage.js</key>
+		<data>
+		PLb2pn7Jk0jnP/XYIrUNf05HnWc=
+		</data>
+		<key>wizard/Wizard.js</key>
+		<data>
+		nJfuIOme34nNfDwMF7G/dp9K3nc=
 		</data>
 	</dict>
 	<key>rules</key>

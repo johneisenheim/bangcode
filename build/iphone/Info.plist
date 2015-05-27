@@ -61,6 +61,8 @@
 	<string>671108566326429</string>
 	<key>FacebookDisplayName</key>
 	<string>Bang!Western Duels</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>Bang! vorrebbe accedere alla tua posizione.</string>
 	<key>CFBundleIconFiles</key>
 	<array>
 		<string>appicon.png</string>
@@ -162,6 +164,7 @@
 		<string>/fonts/Roboto-Regular.ttf</string>
 		<string>/fonts/Roboto-Thin.ttf</string>
 		<string>/fonts/Roboto-ThinItalic.ttf</string>
+		<string>/fonts/Valentino.ttf</string>
 		<string>/fonts/WEST____.TTF</string>
 		<string>/fonts/Wild West Icons.ttf</string>
 		<string>/fonts/sughayer Separates_04.ttf</string>
