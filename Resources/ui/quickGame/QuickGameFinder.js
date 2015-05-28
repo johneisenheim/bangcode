@@ -5,9 +5,21 @@ function QuickGameFinder() {
 
 	var status = 'notready';
 	var vsStatus = 'notready';
+	var random = 0;
+	var counter = 0;
 
 	var QuickGameFinderView = require('ui/quickGame/QuickGameFinderView');
 	var quickGameFinderView = new QuickGameFinderView();
+	
+	var churchbellSound = ZLSound.createSample({
+        media: 'music/churchbell.mp3',
+        volume : 1.0
+    });
+    
+    var ticSound = ZLSound.createSample({
+        media: 'music/tic.mp3',
+        volume : 1.0
+    });
 
 	var self = Titanium.UI.createWindow({
 		navTintColor : 'white',
@@ -51,80 +63,102 @@ function QuickGameFinder() {
 		title : 'Bang!'
 	});
 
-	/*loader.showLoader(self);
+	loader.showLoader(self);
 
-	 var initQuickGameCallback = function() {
-	 Telepathy = require('com.pj');
-	 telepathy = Telepathy.createSession();
-	 var bluetoothState = telepathy.checkBluetoothAccess();
-	 telepathy.addEventListener('bluetoothState', function(e) {
-	 switch(e.state) {
-	 case 'The connection with the system service was momentarily lost, update imminent.' || 'State unknown, update imminent.':
-	 break;
-	 case 'The platform doesn\'t support Bluetooth Low Energy.':
-	 dialog.message = 'Il tuo dispositivo non supporta il bluetooth 4.0. Bang! non può funzionare su questi dispositivi.';
-	 dialog.show();
-	 statusLabel.text = 'Bluetooth non supportato.';
-	 Telepathy = null;
-	 telepathy = null;
-	 break;
-	 case 'The app is not authorized to use Bluetooth Low Energy.':
-	 dialog.message = 'Non hai autorizzato Bang! a poter utilizzare il bluetooth.';
-	 dialog.show();
-	 statusLabel.text = 'Bluetooth non autorizzato.';
-	 Telepathy = null;
-	 telepathy = null;
-	 break;
-	 case 'Bluetooth is currently powered off.':
-	 dialog.message = 'Il Bluetooth è spento! Per favore, accedi alle impostazioni e attivalo.';
-	 dialog.show();
-	 statusLabel.text = 'Il Bluetooth è spento.';
-	 break;
-	 case 'Bluetooth is currently powered on and available to use.':
-	 statusLabel.text = 'Ricerco la partita...';
-	 telepathy.setupSessionAndStartServices(Ti.App.Properties.getString('fb_id'), '', 0);
-	 break;
-	 }
-	 });
+	var initQuickGameCallback = function() {
+		Telepathy = require('com.pj');
+		telepathy = Telepathy.createSession();
+		var bluetoothState = telepathy.checkBluetoothAccess();
+		telepathy.addEventListener('bluetoothState', function(e) {
+			switch(e.state) {
+			case 'The connection with the system service was momentarily lost, update imminent.' || 'State unknown, update imminent.':
+				break;
+			case 'The platform doesn\'t support Bluetooth Low Energy.':
+				dialog.message = 'Il tuo dispositivo non supporta il bluetooth 4.0. Bang! non può funzionare su questi dispositivi.';
+				dialog.show();
+				statusLabel.text = 'Bluetooth non supportato.';
+				Telepathy = null;
+				telepathy = null;
+				break;
+			case 'The app is not authorized to use Bluetooth Low Energy.':
+				dialog.message = 'Non hai autorizzato Bang! a poter utilizzare il bluetooth.';
+				dialog.show();
+				statusLabel.text = 'Bluetooth non autorizzato.';
+				Telepathy = null;
+				telepathy = null;
+				break;
+			case 'Bluetooth is currently powered off.':
+				dialog.message = 'Il Bluetooth è spento! Per favore, accedi alle impostazioni e attivalo.';
+				dialog.show();
+				statusLabel.text = 'Il Bluetooth è spento.';
+				break;
+			case 'Bluetooth is currently powered on and available to use.':
+				statusLabel.text = 'Ricerco la partita...';
+				telepathy.setupSessionAndStartServices(Ti.App.Properties.getString('fb_id'), '', 0);
+				break;
+			}
+		});
 
-	 telepathy.addEventListener('didReceiveInvitationFromPeer', function() {
-	 statusLabel.text = 'Ho trovato la partita!Preparo il gioco...';
-	 });
+		telepathy.addEventListener('didReceiveInvitationFromPeer', function() {
+			statusLabel.text = 'Ho trovato la partita!Preparo il gioco...';
+		});
 
-	 telepathy.addEventListener('connecting', function() {
-	 statusLabel.text = 'Connetto allo sfidante...';
-	 });
+		telepathy.addEventListener('connecting', function() {
+			statusLabel.text = 'Connetto allo sfidante...';
+		});
 
-	 telepathy.addEventListener('connected', function() {
-	 statusLabel.text = 'Connesso! Iniziamo...';
-	 //Costruisci UI
-	 });
+		telepathy.addEventListener('connected', function() {
+			statusLabel.text = 'Connesso! Iniziamo...';
+			//Costruisci UI
+			setTimeout(function() {
+				loader.hideLoader(self);
+				self.remove(statusLabel);
+				self.add(quickGameFinderView);
+			}, 2000);
 
-	 telepathy.addEventListener('notConnected', function() {
-	 Ti.API.info('Ho lanciato il notConnected');
-	 });
+		});
 
-	 telepathy.addEventListener('didReceiveData', function(e) {
-	 switch(e.message) {
-	 case 'tellme':
-	 telepathy.sendData(status);
-	 break;
-	 case 'start':
-	 interval = setInterval(function() {
-	 if (counter == 0) {
-	 //countdown.text = 'BANG!!!';
-	 clearInterval(interval);
-	 } else {
-	 counter = counter - 1;
-	 //countdown.text = counter;
-	 }
-	 }, 1000);
-	 break;
-	 }
-	 });
-	 };
+		telepathy.addEventListener('notConnected', function() {
+			Ti.API.info('Ho lanciato il notConnected');
+		});
 
-	 self.addEventListener('open', initQuickGameCallback);*/
+		telepathy.addEventListener('didReceiveData', function(e) {
+			var sMessage = (e.message).split(':');
+			switch(sMessage[0]) {
+			case 'tellme':
+				telepathy.sendData(status + ':');
+				break;
+			case 'start':
+				counter = 3+random;
+				startCountdown();
+				ticSound.play();
+				break;
+			case 'random':
+				random = sMessage[1];
+				break;
+			}
+		});
+	};
+
+	function startCountdown() {
+		setInterval(function() {
+			if (counter == 0) {
+				//countdown.text = 'BANG!!!';
+				Ti.API.info('countdown BANG!');
+				ticSound.stop();
+				churchbellSound.play();
+				Ti.App.fireEvent('user_can_fire',{});
+				return;
+			} else {
+				counter = counter - 1;
+				startCountdown();
+				//countdown.text = counter;
+			}
+		}, 1000);
+	}
+
+
+	self.addEventListener('open', initQuickGameCallback);
 
 	closeButton.addEventListener('click', function() {
 		Telepathy = null;
@@ -132,28 +166,13 @@ function QuickGameFinder() {
 		self.close();
 	});
 
-	function fadeOut() {
-		Ti.API.info('volume '+player.volume);
-		if (player.volume <= 0) {
-			player.stop();
-			return;
-		}
-		setTimeout(function() {
-			player.setVolume(player.volume - 0.1);
-			fadeOut();
-		}, 200);
-	}
+	/*self.addEventListener('open', function() {
+	//fadeOut();
+	player.stop();
+	});*/
 
-
-	self.addEventListener('open', function() {
-		//fadeOut();
-		player.stop();
-	});
-
-	self.add(quickGameFinderView);
-
-	//self.add(statusLabel);
-	//self.add(closeButton);
+	self.add(statusLabel);
+	self.add(closeButton);
 
 	return self;
 

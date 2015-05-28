@@ -224,6 +224,7 @@ function StartChallengeView() {
 		if (isQuickGame) {
 			var QuickGame = require('ui/quickGame/QuickGame');
 			var quickGame = new QuickGame();
+			quickGame.setIDOpponent(currentID);
 			global.mainTab.open(quickGame, {
 				modal : true,
 				modalTransitionStyle : Ti.UI.iPhone.MODAL_TRANSITION_STYLE_COVER_VERTICAL,

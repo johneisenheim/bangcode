@@ -25,6 +25,11 @@ function Motion() {
         media: 'music/colt_shot.mp3',
         volume : 1.0
     });
+    
+    var missSound = ZLSound.createSample({
+        media: 'music/colt_shot.mp3',
+        volume : 1.0
+    });
 
 	self.startMotionRecognizer = function() {
 		if (CoreMotion.isDeviceMotionAvailable()) {
@@ -82,7 +87,7 @@ function Motion() {
 				Ti.App.fireEvent('position', {
 					what : true
 				});
-				userCanFire = true;
+				//userCanFire = true;
 				//da cancellare perché determina la fine del countdown
 			} else {
 				Ti.API.info("No starting position");
@@ -147,6 +152,10 @@ function Motion() {
 			accelX = accelY = accelZ = 0;
 		}
 	}
+	
+	Ti.App.addEventListener('user_can_fire', function(){
+		userCanFire = true;
+	});
 
 	return self;
 }
