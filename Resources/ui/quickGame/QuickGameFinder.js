@@ -145,22 +145,23 @@ function QuickGameFinder() {
 		});
 	};
 
+	function count() {
+		if (counter == 0) {
+			Ti.API.info('countdown BANG!');
+			ticSound.stop();
+			churchbellSound.play();
+			Ti.App.fireEvent('user_can_fire', {});
+			clearInterval(interval);
+		} else {
+			Ti.API.info(counter);
+			counter = counter - 1;
+		}
+	}
+
 	function startCountdown() {
-		setInterval(function() {
-			if (counter == 0) {
-				//countdown.text = 'BANG!!!';
-				Ti.API.info('countdown BANG!');
-				ticSound.stop();
-				setTimeout(function() {
-					churchbellSound.play();
-					Ti.App.fireEvent('user_can_fire', {});
-					return;
-				},300);
-			} else {
-				counter = counter - 1;
-				startCountdown();
-				//countdown.text = counter;
-			}
+		interval = setInterval(function() {
+			Ti.API.info('called startCountdown');
+			count();
 		}, 1000);
 	}
 

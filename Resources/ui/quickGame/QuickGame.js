@@ -5,6 +5,7 @@ function QuickGame() {
 	var QuickGameView = require('ui/quickGame/QuickGameView');
 	var quickGameView = new QuickGameView();
 	var counter = 0;
+	var interval = null;
 
 	var random = Math.floor((Math.random() * 4) + 1);
 
@@ -115,10 +116,10 @@ function QuickGame() {
 				if (quickGameView.flag) {
 					telepathy.sendData('start:');
 					counter = 3 + random;
-					setTimeout(function() {
+					//setTimeout(function() {
 						ticSound.play();
 						startCountdown();
-					}, 100);
+					//}, 100);
 				} else {
 					telepathy.sendData('tellme:');
 				}
@@ -127,23 +128,27 @@ function QuickGame() {
 		});
 	};
 
+	function count() {
+		if (counter == 0) {
+			//countdown.text = 'BANG!!!';
+			Ti.API.info('countdown BANG!');
+			ticSound.stop();
+			//setTimeout(function() {
+			churchbellSound.play();
+			Ti.App.fireEvent('user_can_fire', {});
+			clearInterval(interval);
+			//},300);
+		} else {
+			Ti.API.info(counter);
+			counter = counter - 1;
+			//countdown.text = counter;
+		}
+	}
+
 	function startCountdown() {
-		setInterval(function() {
-			if (counter == 0) {
-				//countdown.text = 'BANG!!!';
-				Ti.API.info('countdown BANG!');
-				ticSound.stop();
-				setTimeout(function() {
-					churchbellSound.play();
-					Ti.App.fireEvent('user_can_fire', {});
-					return;
-				},300);
-			} else {
-				Ti.API.info(counter);
-				counter = counter - 1;
-				startCountdown();
-				//countdown.text = counter;
-			}
+		interval = setInterval(function() {
+			Ti.API.info('called startCountdown');
+			count();
 		}, 1000);
 	}
 

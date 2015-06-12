@@ -30,21 +30,21 @@
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		2412F467115C296300454E5B /* TiMediaVideoPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2412F465115C296300454E5B /* TiMediaVideoPlayer.m */; };
 		242E8E3111BA39FD0046A0D0 /* libTiCore.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 242E8E3011BA39FD0046A0D0 /* libTiCore.a */; };
-		677CECA72A2B46569ABB8C08 /* libfacebook.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CDBF527165AC43DA8E4062EC /* libfacebook.a */; };
-		C5240673862744F386A6A688 /* libcom.pj.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BEFF5CAE39D34B6DBF87BBF4 /* libcom.pj.a */; };
-		F3291545E2114D99B9686732 /* libbencoding.blur.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D1EA9FF52D454ED7A023E8BA /* libbencoding.blur.a */; };
-		A67DEC3821F04325A9D5DDA3 /* libbencoding.localnotify.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 39A62276180344E6A2F558B9 /* libbencoding.localnotify.a */; };
-		3CD6E46A68064717929D56C8 /* libcom.salsarhythmsoftware.zlsound.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AC79E97E0D1C403C8E4E60C0 /* libcom.salsarhythmsoftware.zlsound.a */; };
-		DBB46B1024D542BCA1D6A34B /* libti.map.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B16F762CE6874CE89B4F2FA9 /* libti.map.a */; };
-		6145DF824CFF4F9EA203F040 /* libti.coremotion.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C8A9BCC124E4BB58D01A10B /* libti.coremotion.a */; };
+		AA5B35FFBD844879A161BAD4 /* libfacebook.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 56E2CD38975143A0BB2AEDE2 /* libfacebook.a */; };
+		09C9C691F9034933BEA37B88 /* libcom.pj.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D853396257DA4C5991B72062 /* libcom.pj.a */; };
+		5ADCB0D322BF48E884337EF7 /* libbencoding.blur.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 62D5907457F24E2EB79B22EF /* libbencoding.blur.a */; };
+		AB54CC34C05A4A8FA5B1D38A /* libbencoding.localnotify.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D8BBB101C0354DFC84FD972B /* libbencoding.localnotify.a */; };
+		245A0AF34FC549E6B1CA8551 /* libcom.salsarhythmsoftware.zlsound.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F45355016F240AFA3C8BB86 /* libcom.salsarhythmsoftware.zlsound.a */; };
+		A1AF85CCE5A747B3B06F24FB /* libti.map.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 397F8CD7584E4039B73E377A /* libti.map.a */; };
+		2863168EEB8D434D80073F80 /* libti.coremotion.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 442523E03DB5456288B12B85 /* libti.coremotion.a */; };
 		242E8E3211BA39FE0046A0D0 /* libTiCore.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 242E8E3011BA39FD0046A0D0 /* libTiCore.a */; };
-		F78D2B313275403BBA2253B2 /* libfacebook.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CDBF527165AC43DA8E4062EC /* libfacebook.a */; };
-		444A37DDDE3C4562B83FAD14 /* libcom.pj.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BEFF5CAE39D34B6DBF87BBF4 /* libcom.pj.a */; };
-		9382B2725B7340D8A2C1C987 /* libbencoding.blur.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D1EA9FF52D454ED7A023E8BA /* libbencoding.blur.a */; };
-		0F399E6425374840901A8F71 /* libbencoding.localnotify.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 39A62276180344E6A2F558B9 /* libbencoding.localnotify.a */; };
-		77281CF9923843F7981F3E7C /* libcom.salsarhythmsoftware.zlsound.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AC79E97E0D1C403C8E4E60C0 /* libcom.salsarhythmsoftware.zlsound.a */; };
-		B1BA4FC1235A4AE08231F007 /* libti.map.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B16F762CE6874CE89B4F2FA9 /* libti.map.a */; };
-		0000F31B69CA4ED5AC814EF4 /* libti.coremotion.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C8A9BCC124E4BB58D01A10B /* libti.coremotion.a */; };
+		696163A9AD4549CB88AB2293 /* libfacebook.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 56E2CD38975143A0BB2AEDE2 /* libfacebook.a */; };
+		8C411AB6987E4A24B7E621A5 /* libcom.pj.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D853396257DA4C5991B72062 /* libcom.pj.a */; };
+		BA6F15718A6B47528777CE08 /* libbencoding.blur.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 62D5907457F24E2EB79B22EF /* libbencoding.blur.a */; };
+		41B37F991A204D5996604E7C /* libbencoding.localnotify.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D8BBB101C0354DFC84FD972B /* libbencoding.localnotify.a */; };
+		18A89612E4444D0C8E922B1A /* libcom.salsarhythmsoftware.zlsound.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F45355016F240AFA3C8BB86 /* libcom.salsarhythmsoftware.zlsound.a */; };
+		5D955782083145D9882498C5 /* libti.map.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 397F8CD7584E4039B73E377A /* libti.map.a */; };
+		EADE1746D994413A903EF452 /* libti.coremotion.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 442523E03DB5456288B12B85 /* libti.coremotion.a */; };
 		242E967711BAD2F20046A0D0 /* AsyncSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 242E967411BAD2F20046A0D0 /* AsyncSocket.m */; };
 		242E967811BAD2F20046A0D0 /* AsyncUdpSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 242E967611BAD2F20046A0D0 /* AsyncUdpSocket.m */; };
 		242E967911BAD2F20046A0D0 /* AsyncSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 242E967411BAD2F20046A0D0 /* AsyncSocket.m */; };
@@ -911,13 +911,13 @@
 		DABB37B412E8CB280026A6EA /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 24EB0A57111E1BAE001DC2D1 /* libxml2.dylib */; };
 		DABB37B512E8CB280026A6EA /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24597034118FF66300519F79 /* StoreKit.framework */; };
 		DABB37B612E8CB280026A6EA /* libTiCore.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 242E8E3011BA39FD0046A0D0 /* libTiCore.a */; };
-		9E89520C5E114BAC89417B49 /* libfacebook.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CDBF527165AC43DA8E4062EC /* libfacebook.a */; };
-		C665EB907A814E81B93F4535 /* libcom.pj.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BEFF5CAE39D34B6DBF87BBF4 /* libcom.pj.a */; };
-		E18BADF9C5E44220A5C77BB5 /* libbencoding.blur.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D1EA9FF52D454ED7A023E8BA /* libbencoding.blur.a */; };
-		E9AF89081DE7469A9CD98573 /* libbencoding.localnotify.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 39A62276180344E6A2F558B9 /* libbencoding.localnotify.a */; };
-		9A8D692A365F4A7DB1BCCDE0 /* libcom.salsarhythmsoftware.zlsound.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AC79E97E0D1C403C8E4E60C0 /* libcom.salsarhythmsoftware.zlsound.a */; };
-		98B22F272B334715BAA8A5AA /* libti.map.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B16F762CE6874CE89B4F2FA9 /* libti.map.a */; };
-		FCCF622F53054B7CA00DCE1B /* libti.coremotion.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C8A9BCC124E4BB58D01A10B /* libti.coremotion.a */; };
+		91537D5F572E4C28A0AA3D5F /* libfacebook.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 56E2CD38975143A0BB2AEDE2 /* libfacebook.a */; };
+		029D492A871545BDB5F4D208 /* libcom.pj.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D853396257DA4C5991B72062 /* libcom.pj.a */; };
+		0B33EE8AD34F4F588E856DF4 /* libbencoding.blur.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 62D5907457F24E2EB79B22EF /* libbencoding.blur.a */; };
+		52B1D7D756574F2DA32CEE8D /* libbencoding.localnotify.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D8BBB101C0354DFC84FD972B /* libbencoding.localnotify.a */; };
+		28BA0B22CC56490890A78573 /* libcom.salsarhythmsoftware.zlsound.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F45355016F240AFA3C8BB86 /* libcom.salsarhythmsoftware.zlsound.a */; };
+		C4C78122C31C4F79A7AE5523 /* libti.map.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 397F8CD7584E4039B73E377A /* libti.map.a */; };
+		69F2235300004F9BAC2C223B /* libti.coremotion.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 442523E03DB5456288B12B85 /* libti.coremotion.a */; };
 		DABB37B712E8CB280026A6EA /* libtiverify.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 24D5C75811E6364F00F097E2 /* libtiverify.a */; };
 		DABDEB08128B5A8F00C85FEA /* AudioStreamerCUR.m in Sources */ = {isa = PBXBuildFile; fileRef = DA9FF582128A1F3600457759 /* AudioStreamerCUR.m */; };
 		DABF3ECF134D210400836137 /* TiBuffer.m in Sources */ = {isa = PBXBuildFile; fileRef = DABF3ECE134D210400836137 /* TiBuffer.m */; };
@@ -1000,13 +1000,13 @@
 		241EAA21118AB3BB0081A5BE /* defines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = defines.h; path = Classes/defines.h; sourceTree = SOURCE_ROOT; };
 		241EAEC5118E2BA90081A5BE /* project.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = project.xcconfig; sourceTree = "<group>"; };
 		242E8E3011BA39FD0046A0D0 /* libTiCore.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libTiCore.a; path = lib/libTiCore.a; sourceTree = SOURCE_ROOT; };
-		CDBF527165AC43DA8E4062EC /* libfacebook.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libfacebook.a; path = "/Users/johneisenheim/Library/Application Support/Titanium/modules/iphone/facebook/4.0.3/libfacebook.a"; sourceTree = "<absolute>"; };
-		BEFF5CAE39D34B6DBF87BBF4 /* libcom.pj.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcom.pj.a; path = "/Users/johneisenheim/Documents/Appcelerator_Studio_Workspace/bangcode/modules/iphone/com.pj/1.0.0/libcom.pj.a"; sourceTree = "<absolute>"; };
-		D1EA9FF52D454ED7A023E8BA /* libbencoding.blur.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libbencoding.blur.a; path = "/Users/johneisenheim/Documents/Appcelerator_Studio_Workspace/bangcode/modules/iphone/bencoding.blur/0.40-beta/libbencoding.blur.a"; sourceTree = "<absolute>"; };
-		39A62276180344E6A2F558B9 /* libbencoding.localnotify.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libbencoding.localnotify.a; path = "/Users/johneisenheim/Documents/Appcelerator_Studio_Workspace/bangcode/modules/iphone/bencoding.localnotify/0.47/libbencoding.localnotify.a"; sourceTree = "<absolute>"; };
-		AC79E97E0D1C403C8E4E60C0 /* libcom.salsarhythmsoftware.zlsound.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcom.salsarhythmsoftware.zlsound.a; path = "/Users/johneisenheim/Documents/Appcelerator_Studio_Workspace/bangcode/modules/iphone/com.salsarhythmsoftware.zlsound/2.1/libcom.salsarhythmsoftware.zlsound.a"; sourceTree = "<absolute>"; };
-		B16F762CE6874CE89B4F2FA9 /* libti.map.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libti.map.a; path = "/Users/johneisenheim/Library/Application Support/Titanium/modules/iphone/ti.map/2.2.2/libti.map.a"; sourceTree = "<absolute>"; };
-		5C8A9BCC124E4BB58D01A10B /* libti.coremotion.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libti.coremotion.a; path = "/Users/johneisenheim/Library/Application Support/Titanium/modules/iphone/ti.coremotion/1.1.0/libti.coremotion.a"; sourceTree = "<absolute>"; };
+		56E2CD38975143A0BB2AEDE2 /* libfacebook.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libfacebook.a; path = "/Users/johneisenheim/Library/Application Support/Titanium/modules/iphone/facebook/4.0.3/libfacebook.a"; sourceTree = "<absolute>"; };
+		D853396257DA4C5991B72062 /* libcom.pj.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcom.pj.a; path = "/Users/johneisenheim/Documents/Appcelerator_Studio_Workspace/bangcode/modules/iphone/com.pj/1.0.0/libcom.pj.a"; sourceTree = "<absolute>"; };
+		62D5907457F24E2EB79B22EF /* libbencoding.blur.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libbencoding.blur.a; path = "/Users/johneisenheim/Documents/Appcelerator_Studio_Workspace/bangcode/modules/iphone/bencoding.blur/0.40-beta/libbencoding.blur.a"; sourceTree = "<absolute>"; };
+		D8BBB101C0354DFC84FD972B /* libbencoding.localnotify.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libbencoding.localnotify.a; path = "/Users/johneisenheim/Documents/Appcelerator_Studio_Workspace/bangcode/modules/iphone/bencoding.localnotify/0.47/libbencoding.localnotify.a"; sourceTree = "<absolute>"; };
+		9F45355016F240AFA3C8BB86 /* libcom.salsarhythmsoftware.zlsound.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcom.salsarhythmsoftware.zlsound.a; path = "/Users/johneisenheim/Documents/Appcelerator_Studio_Workspace/bangcode/modules/iphone/com.salsarhythmsoftware.zlsound/2.1/libcom.salsarhythmsoftware.zlsound.a"; sourceTree = "<absolute>"; };
+		397F8CD7584E4039B73E377A /* libti.map.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libti.map.a; path = "/Users/johneisenheim/Library/Application Support/Titanium/modules/iphone/ti.map/2.2.2/libti.map.a"; sourceTree = "<absolute>"; };
+		442523E03DB5456288B12B85 /* libti.coremotion.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libti.coremotion.a; path = "/Users/johneisenheim/Library/Application Support/Titanium/modules/iphone/ti.coremotion/1.1.0/libti.coremotion.a"; sourceTree = "<absolute>"; };
 		242E967311BAD2F20046A0D0 /* AsyncSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AsyncSocket.h; path = Classes/AsyncSocket.h; sourceTree = SOURCE_ROOT; };
 		242E967411BAD2F20046A0D0 /* AsyncSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AsyncSocket.m; path = Classes/AsyncSocket.m; sourceTree = SOURCE_ROOT; };
 		242E967511BAD2F20046A0D0 /* AsyncUdpSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AsyncUdpSocket.h; path = Classes/AsyncUdpSocket.h; sourceTree = SOURCE_ROOT; };
@@ -1644,13 +1644,13 @@
 				24EB0A58111E1BAE001DC2D1 /* libxml2.dylib in Frameworks */,
 				24597035118FF66300519F79 /* StoreKit.framework in Frameworks */,
 				242E8E3111BA39FD0046A0D0 /* libTiCore.a in Frameworks */,
-				677CECA72A2B46569ABB8C08 /* libfacebook.a in Frameworks */,
-				C5240673862744F386A6A688 /* libcom.pj.a in Frameworks */,
-				F3291545E2114D99B9686732 /* libbencoding.blur.a in Frameworks */,
-				A67DEC3821F04325A9D5DDA3 /* libbencoding.localnotify.a in Frameworks */,
-				3CD6E46A68064717929D56C8 /* libcom.salsarhythmsoftware.zlsound.a in Frameworks */,
-				DBB46B1024D542BCA1D6A34B /* libti.map.a in Frameworks */,
-				6145DF824CFF4F9EA203F040 /* libti.coremotion.a in Frameworks */,
+				AA5B35FFBD844879A161BAD4 /* libfacebook.a in Frameworks */,
+				09C9C691F9034933BEA37B88 /* libcom.pj.a in Frameworks */,
+				5ADCB0D322BF48E884337EF7 /* libbencoding.blur.a in Frameworks */,
+				AB54CC34C05A4A8FA5B1D38A /* libbencoding.localnotify.a in Frameworks */,
+				245A0AF34FC549E6B1CA8551 /* libcom.salsarhythmsoftware.zlsound.a in Frameworks */,
+				A1AF85CCE5A747B3B06F24FB /* libti.map.a in Frameworks */,
+				2863168EEB8D434D80073F80 /* libti.coremotion.a in Frameworks */,
 				B606EF60190B42FB00663EFC /* libAPSHTTPClient.a in Frameworks */,
 				242EA11611BD956F0046A0D0 /* ExternalAccessory.framework in Frameworks */,
 				24D5C75911E6364F00F097E2 /* libtiverify.a in Frameworks */,
@@ -1692,13 +1692,13 @@
 				24D8E4AB119B9D8A00F8CAA6 /* libxml2.dylib in Frameworks */,
 				24D8E4AC119B9D8A00F8CAA6 /* StoreKit.framework in Frameworks */,
 				242E8E3211BA39FE0046A0D0 /* libTiCore.a in Frameworks */,
-				F78D2B313275403BBA2253B2 /* libfacebook.a in Frameworks */,
-				444A37DDDE3C4562B83FAD14 /* libcom.pj.a in Frameworks */,
-				9382B2725B7340D8A2C1C987 /* libbencoding.blur.a in Frameworks */,
-				0F399E6425374840901A8F71 /* libbencoding.localnotify.a in Frameworks */,
-				77281CF9923843F7981F3E7C /* libcom.salsarhythmsoftware.zlsound.a in Frameworks */,
-				B1BA4FC1235A4AE08231F007 /* libti.map.a in Frameworks */,
-				0000F31B69CA4ED5AC814EF4 /* libti.coremotion.a in Frameworks */,
+				696163A9AD4549CB88AB2293 /* libfacebook.a in Frameworks */,
+				8C411AB6987E4A24B7E621A5 /* libcom.pj.a in Frameworks */,
+				BA6F15718A6B47528777CE08 /* libbencoding.blur.a in Frameworks */,
+				41B37F991A204D5996604E7C /* libbencoding.localnotify.a in Frameworks */,
+				18A89612E4444D0C8E922B1A /* libcom.salsarhythmsoftware.zlsound.a in Frameworks */,
+				5D955782083145D9882498C5 /* libti.map.a in Frameworks */,
+				EADE1746D994413A903EF452 /* libti.coremotion.a in Frameworks */,
 				24D5C75A11E6364F00F097E2 /* libtiverify.a in Frameworks */,
 				DADE76D613D65C6F0079FC75 /* libicucore.dylib in Frameworks */,
 			);
@@ -1739,13 +1739,13 @@
 				DABB37B412E8CB280026A6EA /* libxml2.dylib in Frameworks */,
 				DABB37B512E8CB280026A6EA /* StoreKit.framework in Frameworks */,
 				DABB37B612E8CB280026A6EA /* libTiCore.a in Frameworks */,
-				9E89520C5E114BAC89417B49 /* libfacebook.a in Frameworks */,
-				C665EB907A814E81B93F4535 /* libcom.pj.a in Frameworks */,
-				E18BADF9C5E44220A5C77BB5 /* libbencoding.blur.a in Frameworks */,
-				E9AF89081DE7469A9CD98573 /* libbencoding.localnotify.a in Frameworks */,
-				9A8D692A365F4A7DB1BCCDE0 /* libcom.salsarhythmsoftware.zlsound.a in Frameworks */,
-				98B22F272B334715BAA8A5AA /* libti.map.a in Frameworks */,
-				FCCF622F53054B7CA00DCE1B /* libti.coremotion.a in Frameworks */,
+				91537D5F572E4C28A0AA3D5F /* libfacebook.a in Frameworks */,
+				029D492A871545BDB5F4D208 /* libcom.pj.a in Frameworks */,
+				0B33EE8AD34F4F588E856DF4 /* libbencoding.blur.a in Frameworks */,
+				52B1D7D756574F2DA32CEE8D /* libbencoding.localnotify.a in Frameworks */,
+				28BA0B22CC56490890A78573 /* libcom.salsarhythmsoftware.zlsound.a in Frameworks */,
+				C4C78122C31C4F79A7AE5523 /* libti.map.a in Frameworks */,
+				69F2235300004F9BAC2C223B /* libti.coremotion.a in Frameworks */,
 				DABB37B712E8CB280026A6EA /* libtiverify.a in Frameworks */,
 				DADE76D713D65C7D0079FC75 /* libicucore.dylib in Frameworks */,
 			);
@@ -2798,13 +2798,13 @@
 				DAA4B2AD134E3DBD00AB6011 /* libti_ios_debugger.a */,
 				24D5C75811E6364F00F097E2 /* libtiverify.a */,
 				242E8E3011BA39FD0046A0D0 /* libTiCore.a */,
-				CDBF527165AC43DA8E4062EC /* libfacebook.a */,
-				BEFF5CAE39D34B6DBF87BBF4 /* libcom.pj.a */,
-				D1EA9FF52D454ED7A023E8BA /* libbencoding.blur.a */,
-				39A62276180344E6A2F558B9 /* libbencoding.localnotify.a */,
-				AC79E97E0D1C403C8E4E60C0 /* libcom.salsarhythmsoftware.zlsound.a */,
-				B16F762CE6874CE89B4F2FA9 /* libti.map.a */,
-				5C8A9BCC124E4BB58D01A10B /* libti.coremotion.a */,
+				56E2CD38975143A0BB2AEDE2 /* libfacebook.a */,
+				D853396257DA4C5991B72062 /* libcom.pj.a */,
+				62D5907457F24E2EB79B22EF /* libbencoding.blur.a */,
+				D8BBB101C0354DFC84FD972B /* libbencoding.localnotify.a */,
+				9F45355016F240AFA3C8BB86 /* libcom.salsarhythmsoftware.zlsound.a */,
+				397F8CD7584E4039B73E377A /* libti.map.a */,
+				442523E03DB5456288B12B85 /* libti.coremotion.a */,
 				1DF5F4DF0D08C38300B7A737 /* UIKit.framework */,
 				1D30AB110D05D00D00671497 /* Foundation.framework */,
 				288765FC0DF74451002DB57D /* CoreGraphics.framework */,
