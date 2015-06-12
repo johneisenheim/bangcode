@@ -38,7 +38,6 @@ dependencies: \
   /Users/johneisenheim/Documents/Appcelerator_Studio_Workspace/bangcode/build/iphone/Classes/TiUITableViewSectionProxy.h \
   /Users/johneisenheim/Documents/Appcelerator_Studio_Workspace/bangcode/build/iphone/Classes/TiUITableView.h \
   /Users/johneisenheim/Documents/Appcelerator_Studio_Workspace/bangcode/build/iphone/Classes/TiUISearchBarProxy.h \
-  /Users/johneisenheim/Documents/Appcelerator_Studio_Workspace/bangcode/build/iphone/Classes/TiUIRefreshControlProxy.h \
   /Users/johneisenheim/Documents/Appcelerator_Studio_Workspace/bangcode/build/iphone/Classes/Webcolor.h \
   /Users/johneisenheim/Documents/Appcelerator_Studio_Workspace/bangcode/build/iphone/Classes/ImageLoader.h \
   /Users/johneisenheim/Documents/Appcelerator_Studio_Workspace/bangcode/build/iphone/Classes/APSHTTPClient/APSHTTPClient.h \

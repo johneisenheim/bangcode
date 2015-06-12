@@ -112,6 +112,7 @@ const CFOptionFlags writeStreamEventFlags =
 			memcpy(&address.sin_addr.s_addr, host->h_addr_list[0], host->h_length);
 		}
     }
+	//ignore leak, Xcode getting confused over the function name
 #ifndef __clang_analyzer__
     return CFDataCreate(kCFAllocatorDefault,
                         (UInt8*)&address,

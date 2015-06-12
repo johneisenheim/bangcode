@@ -2,6 +2,4 @@ dependencies: \
   /Users/johneisenheim/Documents/Appcelerator_Studio_Workspace/bangcode/build/iphone/Classes/MGSplitView/MGSplitDividerView.m \
   /Users/johneisenheim/Documents/Appcelerator_Studio_Workspace/bangcode/build/iphone/Classes/TiBase.h \
   /Users/johneisenheim/Documents/Appcelerator_Studio_Workspace/bangcode/build/iphone/Classes/TiThreading.h \
-  /Users/johneisenheim/Documents/Appcelerator_Studio_Workspace/bangcode/build/iphone/Classes/TiPublicAPI.h \
-  /Users/johneisenheim/Documents/Appcelerator_Studio_Workspace/bangcode/build/iphone/Classes/MGSplitView/MGSplitDividerView.h \
-  /Users/johneisenheim/Documents/Appcelerator_Studio_Workspace/bangcode/build/iphone/Classes/MGSplitView/MGSplitViewController.h
+  /Users/johneisenheim/Documents/Appcelerator_Studio_Workspace/bangcode/build/iphone/Classes/TiPublicAPI.h

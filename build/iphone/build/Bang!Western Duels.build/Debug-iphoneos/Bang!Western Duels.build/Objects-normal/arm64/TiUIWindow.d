@@ -40,6 +40,5 @@ dependencies: \
   /Users/johneisenheim/Documents/Appcelerator_Studio_Workspace/bangcode/build/iphone/Classes/TiTabGroup.h \
   /Users/johneisenheim/Documents/Appcelerator_Studio_Workspace/bangcode/build/iphone/Classes/TiViewController.h \
   /Users/johneisenheim/Documents/Appcelerator_Studio_Workspace/bangcode/build/iphone/Classes/TiControllerProtocols.h \
-  /Users/johneisenheim/Documents/Appcelerator_Studio_Workspace/bangcode/build/iphone/Classes/TiUIiOSTransitionAnimationProxy.h \
   /Users/johneisenheim/Documents/Appcelerator_Studio_Workspace/bangcode/build/iphone/Classes/KrollBridge.h \
   /Users/johneisenheim/Documents/Appcelerator_Studio_Workspace/bangcode/build/iphone/Classes/Bridge.h

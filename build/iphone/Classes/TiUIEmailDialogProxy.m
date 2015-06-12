@@ -106,11 +106,7 @@
 	[composer setMailComposeDelegate:self];
 	if (barColor != nil)
 	{
-		if([TiUtils isIOS7OrGreater]) {
-			[[composer navigationBar] performSelector:@selector(setBarTintColor:) withObject:barColor];
-		} else {
-			[[composer navigationBar] setTintColor:barColor];
-		}
+        [[composer navigationBar] setBarTintColor:barColor];
 	}
 
 	[composer setSubject:subject];

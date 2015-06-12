@@ -121,7 +121,7 @@
 //TIMOB-17373. Workaround for separators disappearing on iOS7 and above
 - (void) ensureVisibleSelectorWithTableView:(UITableView*)tableView
 {
-    if (![TiUtils isIOS7OrGreater] || [self selectedOrHighlighted]) {
+    if ([self selectedOrHighlighted]) {
         return;
     }
     UITableView* attachedTableView = tableView;
@@ -261,7 +261,7 @@
                 case UITableViewCellSelectionStyleGray:sbgColor = [Webcolor webColorNamed:@"#bbb"];break;
                 case UITableViewCellSelectionStyleNone:sbgColor = [UIColor clearColor];break;
                 case UITableViewCellSelectionStyleBlue:sbgColor = [Webcolor webColorNamed:@"#0272ed"];break;
-                default:sbgColor = [TiUtils isIOS7OrGreater] ? [Webcolor webColorNamed:@"#e0e0e0"] : [Webcolor webColorNamed:@"#0272ed"];break;
+                default:sbgColor = [Webcolor webColorNamed:@"#e0e0e0"];break;
             }
         }
         selectedBGView.fillColor = sbgColor;
@@ -343,37 +343,19 @@
         backgroundImage = [_initialValues objectForKey:@"backgroundImage"];
     }
     UIImage* bgImage = [[ImageLoader sharedLoader] loadImmediateStretchableImage:[TiUtils toURL:backgroundImage proxy:_proxy] withLeftCap:TiDimensionAuto topCap:TiDimensionAuto];
-    if (_grouped && ![TiUtils isIOS7OrGreater]) {
-        UIView* superView = [self backgroundView];
-        if (bgImage != nil) {
-            if (![_bgView isKindOfClass:[UIImageView class]]) {
-                [_bgView removeFromSuperview];
-                RELEASE_TO_NIL(_bgView);
-                _bgView = [[UIImageView alloc] initWithFrame:CGRectZero];
-                _bgView.autoresizingMask = UIViewAutoresizingFlexibleWidth;
-                [superView addSubview:_bgView];
-            }
-            [(UIImageView*)_bgView setImage:bgImage];
-            [_bgView setBackgroundColor:[UIColor clearColor]];
+    if (bgImage != nil) {
+        //Set the backgroundView to ImageView and set its backgroundColor to bgColor
+        if ([self.backgroundView isKindOfClass:[UIImageView class]]) {
+            [(UIImageView*)self.backgroundView setImage:bgImage];
+            [(UIImageView*)self.backgroundView setBackgroundColor:[UIColor clearColor]];
         } else {
-            [_bgView removeFromSuperview];
-            RELEASE_TO_NIL(_bgView);
+            UIImageView *view_ = [[[UIImageView alloc] initWithFrame:CGRectZero] autorelease];
+            [view_ setImage:bgImage];
+            [view_ setBackgroundColor:[UIColor clearColor]];
+            self.backgroundView = view_;
         }
     } else {
-        if (bgImage != nil) {
-            //Set the backgroundView to ImageView and set its backgroundColor to bgColor
-            if ([self.backgroundView isKindOfClass:[UIImageView class]]) {
-                [(UIImageView*)self.backgroundView setImage:bgImage];
-                [(UIImageView*)self.backgroundView setBackgroundColor:[UIColor clearColor]];
-            } else {
-                UIImageView *view_ = [[[UIImageView alloc] initWithFrame:CGRectZero] autorelease];
-                [view_ setImage:bgImage];
-                [view_ setBackgroundColor:[UIColor clearColor]];
-                self.backgroundView = view_;
-            }
-        } else {
-            self.backgroundView = nil;
-        }
+        self.backgroundView = nil;
     }
     
 }

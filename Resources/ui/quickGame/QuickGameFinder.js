@@ -12,7 +12,7 @@ function QuickGameFinder() {
 	var quickGameFinderView = new QuickGameFinderView();
 	
 	var churchbellSound = ZLSound.createSample({
-        media: 'music/churchbell.mp3',
+        media: 'music/bell.mp3',
         volume : 1.0
     });
     
@@ -126,10 +126,15 @@ function QuickGameFinder() {
 			var sMessage = (e.message).split(':');
 			switch(sMessage[0]) {
 			case 'tellme':
+				if( quickGameFinderView.getMyOwnStatus() )
+					status = 'ready';
+				else status = 'notready';
+				Ti.API.info('[INFO] Sending '+status);
 				telepathy.sendData(status + ':');
 				break;
 			case 'start':
 				counter = 3+random;
+				Ti.API.info('[INFO] Counter is '+counter);
 				startCountdown();
 				ticSound.play();
 				break;
@@ -146,9 +151,11 @@ function QuickGameFinder() {
 				//countdown.text = 'BANG!!!';
 				Ti.API.info('countdown BANG!');
 				ticSound.stop();
-				churchbellSound.play();
-				Ti.App.fireEvent('user_can_fire',{});
-				return;
+				setTimeout(function() {
+					churchbellSound.play();
+					Ti.App.fireEvent('user_can_fire', {});
+					return;
+				},300);
 			} else {
 				counter = counter - 1;
 				startCountdown();

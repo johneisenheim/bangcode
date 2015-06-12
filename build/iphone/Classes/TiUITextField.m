@@ -15,14 +15,13 @@
 #import "TiViewProxy.h"
 #import "TiApp.h"
 #import "TiUITextWidget.h"
-
-#ifdef USE_TI_UIIOSATTRIBUTEDSTRING
-#import "TiUIiOSAttributedStringProxy.h"
+#if defined (USE_TI_UIATTRIBUTEDSTRING) || defined (USE_TI_UIIOSATTRIBUTEDSTRING)
+#import "TiUIAttributedStringProxy.h"
 #endif
 
 @implementation TiTextField
 
-@synthesize leftButtonPadding, rightButtonPadding, paddingLeft, paddingRight, becameResponder;
+@synthesize leftButtonPadding, rightButtonPadding, paddingLeft, paddingRight;
 
 -(void)configure
 {
@@ -202,33 +201,19 @@
 	if ([super resignFirstResponder])
 	{
 		[self repaintMode];
-        if (becameResponder) {
-            becameResponder = NO;
-            [touchHandler makeRootViewFirstResponder];
-        }
-        return YES;
+		[touchHandler makeRootViewFirstResponder];
+		return YES;
 	}
 	return NO;
 }
 
 -(BOOL)becomeFirstResponder
 {
-    if (self.isEnabled) {
-        if ([super becomeFirstResponder])
-        {
-            becameResponder = YES;
-            [self repaintMode];
-            return YES;
-        }
+    if ([super becomeFirstResponder]) {
+        [self repaintMode];
+        return YES;
     }
     return NO;
-}
-
-
--(BOOL)isFirstResponder
-{
-	if (becameResponder) return YES;
-	return [super isFirstResponder];
 }
 
 -(void)setLeftView:(UIView*)value
@@ -315,40 +300,44 @@
 
 -(void)setPaddingLeft_:(id)value
 {
-	[self textWidgetView].paddingLeft = [TiUtils floatValue:value];
+    TiTextField* tv = (TiTextField*)[self textWidgetView];
+    tv.paddingLeft = [TiUtils floatValue:value];
 }
 
 -(void)setLeftButtonPadding_:(id)value
 {
-	[self textWidgetView].leftButtonPadding = [TiUtils floatValue:value];
+    TiTextField* tv = (TiTextField*)[self textWidgetView];
+    tv.leftButtonPadding = [TiUtils floatValue:value];
 }
 
 -(void)setPaddingRight_:(id)value
 {
-	[self textWidgetView].paddingRight = [TiUtils floatValue:value];
+    TiTextField* tv = (TiTextField*)[self textWidgetView];
+    tv.paddingRight = [TiUtils floatValue:value];
 }
 
 -(void)setRightButtonPadding_:(id)value
 {
-	[self textWidgetView].rightButtonPadding = [TiUtils floatValue:value];
+    TiTextField* tv = (TiTextField*)[self textWidgetView];
+    tv.rightButtonPadding = [TiUtils floatValue:value];
 }
 
 -(void)setEditable_:(id)value
 {
     BOOL _trulyEnabled = ([TiUtils boolValue:value def:YES] && [TiUtils boolValue:[[self proxy] valueForUndefinedKey:@"enabled"] def:YES]);
-    [[self textWidgetView] setEnabled:_trulyEnabled];
+    [(TiTextField*)[self textWidgetView] setEnabled:_trulyEnabled];
 }
 
 -(void)setEnabled_:(id)value
 {
     BOOL _trulyEnabled = ([TiUtils boolValue:value def:YES] && [TiUtils boolValue:[[self proxy] valueForUndefinedKey:@"editable"] def:YES]);
-    [[self textWidgetView] setEnabled:_trulyEnabled];
+    [(TiTextField*)[self textWidgetView] setEnabled:_trulyEnabled];
 }
 
 
 -(void)setBackgroundImage_:(id)image
 {
-	UITextField *tf = [self textWidgetView];
+	TiTextField *tf = (TiTextField*)[self textWidgetView];
 	
 	if (image!=nil && tf.borderStyle == UITextBorderStyleRoundedRect)
 	{
@@ -362,20 +351,20 @@
 
 -(void)setBackgroundDisabledImage_:(id)image
 {
-	[[self textWidgetView] setDisabledBackground:[self loadImage:image]];
+	[(TiTextField*)[self textWidgetView] setDisabledBackground:[self loadImage:image]];
 }
 
 -(void)setHintText_:(id)value
 {
-	[[self textWidgetView] setPlaceholder:[TiUtils stringValue:value]];
+	[(TiTextField*)[self textWidgetView] setPlaceholder:[TiUtils stringValue:value]];
 }
 
 -(void)setAttributedHintText_:(id)value
 {
-#ifdef USE_TI_UIIOSATTRIBUTEDSTRING
-    ENSURE_SINGLE_ARG(value,TiUIiOSAttributedStringProxy);
-    [[self proxy] replaceValue:value forKey:@"attributedHintText" notification:NO];
-    [[self textWidgetView] setAttributedPlaceholder:[value attributedString]];
+#if defined (USE_TI_UIATTRIBUTEDSTRING) || defined (USE_TI_UIIOSATTRIBUTEDSTRING)
+	ENSURE_SINGLE_ARG(value,TiUIAttributedStringProxy);
+	[[self proxy] replaceValue:value forKey:@"attributedHintText" notification:NO];
+	[(TiTextField*)[self textWidgetView] setAttributedPlaceholder:[value attributedString]];
 #endif
 }
 
@@ -383,30 +372,30 @@
 {
     CGFloat newSize = [TiUtils floatValue:value];
     if (newSize < 4) {
-        [[self textWidgetView] setAdjustsFontSizeToFitWidth:NO];
-        [[self textWidgetView] setMinimumFontSize:0.0];
+        [(TiTextField*)[self textWidgetView] setAdjustsFontSizeToFitWidth:NO];
+        [(TiTextField*)[self textWidgetView] setMinimumFontSize:0.0];
     }
     else {
-        [[self textWidgetView] setAdjustsFontSizeToFitWidth:YES];
-        [[self textWidgetView] setMinimumFontSize:newSize];
+        [(TiTextField*)[self textWidgetView] setAdjustsFontSizeToFitWidth:YES];
+        [(TiTextField*)[self textWidgetView] setMinimumFontSize:newSize];
     }
 }
 
 -(void)setClearOnEdit_:(id)value
 {
-	[[self textWidgetView] setClearsOnBeginEditing:[TiUtils boolValue:value]];
+	[(TiTextField*)[self textWidgetView] setClearsOnBeginEditing:[TiUtils boolValue:value]];
 }
 
 -(void)setBorderStyle_:(id)value
 {
 	TiThreadPerformOnMainThread(^{
-		[[self textWidgetView] setBorderStyle:[TiUtils intValue:value]];
+		[(TiTextField*)[self textWidgetView] setBorderStyle:[TiUtils intValue:value]];
 	}, NO);
 }
 
 -(void)setClearButtonMode_:(id)value
 {
-	[[self textWidgetView] setClearButtonMode:[TiUtils intValue:value]];
+	[(TiTextField*)[self textWidgetView] setClearButtonMode:[TiUtils intValue:value]];
 }
 
 //TODO: rename
@@ -417,7 +406,7 @@
 	{
 		TiViewProxy *vp = (TiViewProxy*)value;
 		TiUIView *leftview = [vp view];
-		[[self textWidgetView] setLeftView:leftview];
+		[(TiTextField*)[self textWidgetView] setLeftView:leftview];
 	}
 	else
 	{
@@ -427,7 +416,7 @@
 
 -(void)setLeftButtonMode_:(id)value
 {
-	[[self textWidgetView] setLeftViewMode:[TiUtils intValue:value]];
+	[(TiTextField*)[self textWidgetView] setLeftViewMode:[TiUtils intValue:value]];
 }
 
 -(void)setRightButton_:(id)value
@@ -435,7 +424,7 @@
 	if ([value isKindOfClass:[TiViewProxy class]])
 	{
 		TiViewProxy *vp = (TiViewProxy*)value;
-		[[self textWidgetView] setRightView:[vp view]];
+		[(TiTextField*)[self textWidgetView] setRightView:[vp view]];
 	}
 	else
 	{
@@ -445,7 +434,7 @@
 
 -(void)setRightButtonMode_:(id)value
 {
-	[[self textWidgetView] setRightViewMode:[TiUtils intValue:value]];
+	[(TiTextField*)[self textWidgetView] setRightViewMode:[TiUtils intValue:value]];
 }
 
 -(void)setVerticalAlign_:(id)value
@@ -454,20 +443,20 @@
 	{
 		if ([value isEqualToString:@"top"])
 		{
-			[[self textWidgetView] setContentVerticalAlignment:UIControlContentVerticalAlignmentTop];
+			[(TiTextField*)[self textWidgetView] setContentVerticalAlignment:UIControlContentVerticalAlignmentTop];
 		}
 		else if ([value isEqualToString:@"middle"] || [value isEqualToString:@"center"])
 		{
-			[[self textWidgetView] setContentVerticalAlignment:UIControlContentVerticalAlignmentCenter];
+			[(TiTextField*)[self textWidgetView] setContentVerticalAlignment:UIControlContentVerticalAlignmentCenter];
 		}
 		else 
 		{
-			[[self textWidgetView] setContentVerticalAlignment:UIControlContentVerticalAlignmentBottom];
+			[(TiTextField*)[self textWidgetView] setContentVerticalAlignment:UIControlContentVerticalAlignmentBottom];
 		}
 	}
 	else
 	{
-		[[self textWidgetView] setContentVerticalAlignment:[TiUtils intValue:value]];
+		[(TiTextField*)[self textWidgetView] setContentVerticalAlignment:[TiUtils intValue:value]];
 	}
 }
 
@@ -475,7 +464,7 @@
 
 -(BOOL)hasText
 {
-	UITextField *f = [self textWidgetView];
+	TiTextField *f = (TiTextField*)[self textWidgetView];
 	return [[f text] length] > 0;
 }
 

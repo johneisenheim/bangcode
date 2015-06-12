@@ -38,7 +38,6 @@ dependencies: \
   /Users/johneisenheim/Documents/Appcelerator_Studio_Workspace/bangcode/build/iphone/Classes/APSHTTPClient/APSHTTPPostForm.h \
   /Users/johneisenheim/Documents/Appcelerator_Studio_Workspace/bangcode/build/iphone/Classes/APSHTTPClient/APSHTTPHelper.h \
   /Users/johneisenheim/Documents/Appcelerator_Studio_Workspace/bangcode/build/iphone/Classes/Ti2DMatrix.h \
-  /Users/johneisenheim/Documents/Appcelerator_Studio_Workspace/bangcode/build/iphone/Classes/Ti3DMatrix.h \
   /Users/johneisenheim/Documents/Appcelerator_Studio_Workspace/bangcode/build/iphone/Classes/TiViewProxy.h \
   /Users/johneisenheim/Documents/Appcelerator_Studio_Workspace/bangcode/build/iphone/Classes/TiViewTemplate.h \
   /Users/johneisenheim/Documents/Appcelerator_Studio_Workspace/bangcode/build/iphone/Classes/TiApp.h \
@@ -46,7 +45,6 @@ dependencies: \
   /Users/johneisenheim/Documents/Appcelerator_Studio_Workspace/bangcode/build/iphone/Classes/Bridge.h \
   /Users/johneisenheim/Documents/Appcelerator_Studio_Workspace/bangcode/build/iphone/Classes/TiStylesheet.h \
   /Users/johneisenheim/Documents/Appcelerator_Studio_Workspace/bangcode/build/iphone/Classes/KrollBridge.h \
-  /Users/johneisenheim/Documents/Appcelerator_Studio_Workspace/bangcode/build/iphone/Classes/XHRBridge.h \
   /Users/johneisenheim/Documents/Appcelerator_Studio_Workspace/bangcode/build/iphone/Classes/TiRootViewController.h \
   /Users/johneisenheim/Documents/Appcelerator_Studio_Workspace/bangcode/build/iphone/Classes/TiControllerProtocols.h \
   /Users/johneisenheim/Documents/Appcelerator_Studio_Workspace/bangcode/build/iphone/Classes/UIImage+Resize.h

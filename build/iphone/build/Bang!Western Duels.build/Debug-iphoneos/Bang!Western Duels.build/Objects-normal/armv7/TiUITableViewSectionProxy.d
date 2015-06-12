@@ -37,5 +37,4 @@ dependencies: \
   /Users/johneisenheim/Documents/Appcelerator_Studio_Workspace/bangcode/build/iphone/Classes/TiUITableViewRowProxy.h \
   /Users/johneisenheim/Documents/Appcelerator_Studio_Workspace/bangcode/build/iphone/Classes/TiUITableViewAction.h \
   /Users/johneisenheim/Documents/Appcelerator_Studio_Workspace/bangcode/build/iphone/Classes/TiUITableView.h \
-  /Users/johneisenheim/Documents/Appcelerator_Studio_Workspace/bangcode/build/iphone/Classes/TiUISearchBarProxy.h \
-  /Users/johneisenheim/Documents/Appcelerator_Studio_Workspace/bangcode/build/iphone/Classes/TiUIRefreshControlProxy.h
+  /Users/johneisenheim/Documents/Appcelerator_Studio_Workspace/bangcode/build/iphone/Classes/TiUISearchBarProxy.h

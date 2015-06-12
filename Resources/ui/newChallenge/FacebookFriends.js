@@ -70,9 +70,21 @@ function FacebookFriends() {
 	var table = null;
 
 	Ti.App.addEventListener('friends_done', function(e) {
+		Ti.API.info(e.data);
 		var jsonRes = JSON.parse(e.data);
 		var dataTable = [];
+		var imgFile = null;
 		for (var i = 1; i <= jsonRes.length; i++) {
+			var fileName = jsonRes[i-1].id + '.png';
+			imgFile = Titanium.Filesystem.getFile(Titanium.Filesystem.applicationDataDirectory, fileName);
+			if( !imgFile.exists() ){
+				var miniImage = Titanium.UI.createImageView({
+					image : 'https://graph.facebook.com/' + jsonRes[i-1].id + '/picture?width=200&height=200',
+					width : 120,
+					height : 120
+				});
+				imgFile.write(miniImage.toBlob());
+			}
 			var row = Ti.UI.createTableViewRow({
 				className : jsonRes[i - 1].name, // used to improve table performance
 				rowIndex : i, // custom property, useful for determining the row during events
@@ -82,24 +94,29 @@ function FacebookFriends() {
 					fontSize : 19
 				},
 				color : '#958078',
+				backgroundColor : 'white',
 				title : jsonRes[i - 1].name,
 				selectedColor : 'white',
 				selectionStyle : Titanium.UI.iPhone.TableViewCellSelectionStyle.GRAY,
 				fb_id : jsonRes[i - 1].id,
 				hasCheck : false,
-				leftImage : 'http://graph.facebook.com/' + jsonRes[i - 1].id + '/picture?width=100&height=100'
+				leftImage : imgFile.getNativePath()
 			});
-			Ti.API.info(row.leftImage);
 			dataTable.push(row);
+			imgFile = null;
 		}
 		table = Titanium.UI.createTableView({
-			height : jsonRes.length * 50,
-			backgroundColor : 'white',
+			height : (jsonRes.length * 50),
+			backgroundColor : 'transparent',
 			width : '100%',
+			height : '100%',
 			separatorColor : '#958078',
-			top : 107,
+			top : 60,
 			data : dataTable,
-			tintColor : 'E2BB5A'
+			tintColor : 'E2BB5A',
+			style : Titanium.UI.iPhone.TableViewStyle.GROUPED,
+			search : search,
+			tintColor : 'white'
 		});
 		table.addEventListener('click', function(e) {
 			currentID = e.rowData.fb_id;
@@ -117,7 +134,7 @@ function FacebookFriends() {
 		facebookHandler.getInvitableFriends();
 	});
 
-	win.add(search);
+	//win.add(search);
 	win.add(activityIndicator);
 
 	activityIndicator.show();

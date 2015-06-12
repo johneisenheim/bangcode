@@ -23,17 +23,13 @@
 	UIView *right;
 	UIView *leftView;
 	UIView *rightView;
-	
-	BOOL becameResponder;
-    TiUIView * touchHandler;
+	TiUIView * touchHandler;
 }
 
 @property(nonatomic,readwrite,assign) CGFloat paddingLeft;
 @property(nonatomic,readwrite,assign) CGFloat paddingRight;
 @property(nonatomic,readwrite,assign) CGFloat leftButtonPadding;
 @property(nonatomic,readwrite,assign) CGFloat rightButtonPadding;
-
-@property(nonatomic,readonly) BOOL becameResponder;
 
 -(void)setTouchHandler:(TiUIView*)handler;
 
@@ -43,10 +39,6 @@
 {
 @private
 }
-
-#pragma mark Internal 
-
--(TiTextField*)textWidgetView;
 
 @end
 

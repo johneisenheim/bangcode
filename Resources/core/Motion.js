@@ -14,22 +14,23 @@ function Motion() {
 	var startingYaw = 0;
 	var userCanFire = false;
 	var timeout = null;
+	var shouldListeningForPosition = true;
 
 	/*var bangSound = Ti.Media.createSound({
-		url : "music/colt_shot.mp3",
-		looping : false,
-		volume : 1
-	});*/
-	
+	 url : "music/colt_shot.mp3",
+	 looping : false,
+	 volume : 1
+	 });*/
+
 	var bangSound = ZLSound.createSample({
-        media: 'music/colt_shot.mp3',
-        volume : 1.0
-    });
-    
-    var missSound = ZLSound.createSample({
-        media: 'music/colt_shot.mp3',
-        volume : 1.0
-    });
+		media : 'music/colt_shot.mp3',
+		volume : 1.0
+	});
+
+	var missSound = ZLSound.createSample({
+		media : 'music/colt_shot.mp3',
+		volume : 1.0
+	});
 
 	self.startMotionRecognizer = function() {
 		if (CoreMotion.isDeviceMotionAvailable()) {
@@ -80,21 +81,23 @@ function Motion() {
 
 			var data = e.attitude;
 
-			//if (!self.imInStarting) {
-			if ((data.pitch >= -2.25 && data.pitch < -0.25) && (data.roll >= 0.9 && data.roll < 2.5)) {
-				Ti.API.info("Starting position!");
-				//self.imInStarting = true;
-				Ti.App.fireEvent('position', {
-					what : true
-				});
-				//userCanFire = true;
-				//da cancellare perché determina la fine del countdown
-			} else {
-				Ti.API.info("No starting position");
-				//self.imInStarting = false;
-				Ti.App.fireEvent('position', {
-					what : false
-				});
+			if (shouldListeningForPosition) {
+				//if (!self.imInStarting) {
+				if ((data.pitch >= -2.25 && data.pitch < -0.25) && (data.roll >= 0.9 && data.roll < 2.5)) {
+					Ti.API.info("Starting position!");
+					//self.imInStarting = true;
+					Ti.App.fireEvent('position', {
+						what : true
+					});
+					//userCanFire = true;
+					//da cancellare perché determina la fine del countdown
+				} else {
+					Ti.API.info("No starting position");
+					//self.imInStarting = false;
+					Ti.App.fireEvent('position', {
+						what : false
+					});
+				}
 			}
 
 			if (self.imInStarting) {
@@ -152,9 +155,11 @@ function Motion() {
 			accelX = accelY = accelZ = 0;
 		}
 	}
-	
-	Ti.App.addEventListener('user_can_fire', function(){
+
+
+	Ti.App.addEventListener('user_can_fire', function() {
 		userCanFire = true;
+		shouldListeningForPosition = false;
 	});
 
 	return self;

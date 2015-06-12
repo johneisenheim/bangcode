@@ -85,6 +85,13 @@ extern NSString * const TI_APPLICATION_GUID;
     [httpRequest setMethod: method];
     [httpRequest setUrl:url];
     
+    // twitter specifically disallows X-Requested-With so we only add this normal
+    // XHR header if not going to twitter. however, other services generally expect
+    // this header to indicate an XHR request (such as RoR)
+    if ([[url absoluteString] rangeOfString:@"twitter.com"].location==NSNotFound)
+    {
+        [httpRequest addRequestHeader:@"X-Requested-With" value:@"XMLHttpRequest"];
+    }
     if ( (apsConnectionManager != nil) && ([apsConnectionManager willHandleURL:url]) ){
         apsConnectionDelegate = [[apsConnectionManager connectionDelegateForUrl:url] retain];
     }
@@ -142,13 +149,6 @@ extern NSString * const TI_APPLICATION_GUID;
     }
     if([self valueForUndefinedKey:@"domain"]) {
         // TODO: NTLM
-    }
-    // twitter specifically disallows X-Requested-With so we only add this normal
-    // XHR header if not going to twitter. however, other services generally expect
-    // this header to indicate an XHR request (such as RoR)
-    if ([[self valueForUndefinedKey:@"url"] rangeOfString:@"twitter.com"].location==NSNotFound)
-    {
-        [httpRequest addRequestHeader:@"X-Requested-With" value:@"XMLHttpRequest"];
     }
     id file = [self valueForUndefinedKey:@"file"];
     if(file) {
@@ -320,6 +320,7 @@ extern NSString * const TI_APPLICATION_GUID;
 {
     [[TiApp app] stopNetwork];
     if([request cancelled]) {
+        [self forgetSelf];
         return;
     }
     NSInteger responseCode = [response status];
@@ -346,6 +347,7 @@ extern NSString * const TI_APPLICATION_GUID;
 {
     [[TiApp app] stopNetwork];
     if([request cancelled]) {
+        [self forgetSelf];
         return;
     }
     if(hasOnerror) {
@@ -415,7 +417,10 @@ extern NSString * const TI_APPLICATION_GUID;
 -(void)setRequestHeader:(id)args
 {
     ENSURE_ARG_COUNT(args,2);
-    [self ensureClient];
+    if (httpRequest == nil) {
+        NSLog(@"[ERROR] No request object found. Did you call open?");
+        return;
+    }
     NSString *key = [TiUtils stringValue:[args objectAtIndex:0]];
     NSString *value = [TiUtils stringValue:[args objectAtIndex:1]];
     [httpRequest addRequestHeader:key value:value];

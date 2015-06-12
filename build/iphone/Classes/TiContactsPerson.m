@@ -96,6 +96,7 @@ static NSDictionary* multiValueLabels;
 			[[NSDictionary alloc] initWithObjectsAndKeys:NUMINT	(kABPersonEmailProperty),@"email",
 			 NUMINT(kABPersonAddressProperty),@"address",
 			 NUMINT(kABPersonPhoneProperty),@"phone",
+			 NUMINT(kABPersonSocialProfileProperty),@"socialProfile",
 			 NUMINT(kABPersonInstantMessageProperty),@"instantMessage",
 			 NUMINT(kABPersonRelatedNamesProperty),@"relatedNames",
 			 NUMINT(kABPersonDateProperty),@"date",
@@ -112,6 +113,7 @@ static NSDictionary* multiValueLabels;
 			[[NSDictionary alloc] initWithObjectsAndKeys:NUMINT(kABMultiStringPropertyType),NUMINT(kABPersonEmailProperty),
 			 NUMINT(kABMultiDictionaryPropertyType),NUMINT(kABPersonAddressProperty),
 			 NUMINT(kABMultiStringPropertyType),NUMINT(kABPersonPhoneProperty),
+			 NUMINT(kABMultiDictionaryPropertyType),NUMINT(kABPersonSocialProfileProperty),
 			 NUMINT(kABMultiDictionaryPropertyType),NUMINT(kABPersonInstantMessageProperty),
 			 NUMINT(kABMultiStringPropertyType),NUMINT(kABPersonRelatedNamesProperty),
 			 NUMINT(kABMultiDateTimePropertyType),NUMINT(kABPersonDateProperty),
@@ -134,11 +136,23 @@ static NSDictionary* multiValueLabels;
 			 kABPersonPhoneMainLabel,@"main",
 			 kABPersonPhoneIPhoneLabel,@"iPhone",
 			 kABPersonPhoneHomeFAXLabel,@"homeFax",
+			 kABPersonSocialProfileServiceFacebook,@"facebookProfile",// Social Profile Labels
+			 kABPersonSocialProfileServiceFlickr,@"flickrProfile",
+			 kABPersonSocialProfileServiceGameCenter,@"gameCenterProfile",
+			 kABPersonSocialProfileServiceLinkedIn,@"linkedInProfile",
+			 kABPersonSocialProfileServiceMyspace,@"myspaceProfile",
+			 kABPersonSocialProfileServiceSinaWeibo,@"sinaWeiboProfile",
+			 kABPersonSocialProfileServiceTwitter,@"twitterProfile",
 			 kABPersonInstantMessageServiceAIM,@"aim", // IM labels
 			 kABPersonInstantMessageServiceICQ,@"icq",
 			 kABPersonInstantMessageServiceJabber,@"jabber",
 			 kABPersonInstantMessageServiceMSN,@"msn",
 			 kABPersonInstantMessageServiceYahoo,@"yahoo",
+			 kABPersonInstantMessageServiceQQ,@"qq",
+			 kABPersonInstantMessageServiceSkype,@"skype",
+			 kABPersonInstantMessageServiceGoogleTalk,@"googletalk",
+			 kABPersonInstantMessageServiceGaduGadu,@"gadugadu",
+			 kABPersonInstantMessageServiceFacebook,@"facebook",
 			 kABPersonMotherLabel,@"mother", // Relation labels
 			 kABPersonFatherLabel,@"father",
 			 kABPersonParentLabel,@"parent",
@@ -211,7 +225,12 @@ static NSDictionary* multiValueLabels;
 	for (NSString* key in [dict allKeys]) {
 		NSString* label = [[TiContactsPerson multiValueLabels] valueForKey:key];
 		for (id value in [dict objectForKey:key]) {
-			ABMultiValueAddValueAndLabel(multiValue, (CFTypeRef)value, (CFStringRef)label, NULL);
+			if (type == kABMultiDateTimePropertyType) {
+				ABMultiValueAddValueAndLabel(multiValue, (CFDateRef)[TiUtils dateForUTCDate:(CFTypeRef)value], (CFStringRef)label, NULL);
+			}
+			else {
+				ABMultiValueAddValueAndLabel(multiValue, (CFTypeRef)value, (CFStringRef)label, NULL);
+			}
 		}
 	}
 	
@@ -328,7 +347,7 @@ static NSDictionary* multiValueLabels;
 		
 		return result;
 	}
-	// Multi-value property
+    // Multi-value property
 	else if (property = [[TiContactsPerson multiValueProperties] valueForKey:key]) {
 		ABPropertyID propertyID = [property intValue];
 		ABMultiValueRef multiVal = ABRecordCopyValue([self record], propertyID);
@@ -366,24 +385,33 @@ static NSDictionary* multiValueLabels;
 						location:CODELOCATION];
 		}
 	}
+    //alternate birthdays have to be done seperately as it uses NSDict for setting ABRecord instead of MultiValueRef
+    else if ([TiUtils isIOS8OrGreater] && [key isEqualToString:@"alternateBirthday"]) {
+        ENSURE_TYPE(value, NSDictionary);
+            CFErrorRef error;
+            if (!ABRecordSetValue([self record], kABPersonAlternateBirthdayProperty, value, &error)) {
+                CFStringRef reason = CFErrorCopyDescription(error);
+                NSString* str = [NSString stringWithString:(NSString*)reason];
+                CFRelease(reason);
+                [self throwException:[NSString stringWithFormat:@"Failed to set contact property %@: %@", key, str] subreason:nil location:CODELOCATION];
+            }
+    }
 	// Multi-value property
 	else if (property = [[TiContactsPerson multiValueProperties] valueForKey:key]) {
-		ENSURE_TYPE(value, NSDictionary)
-		ABPropertyID propertyID = [property intValue];
+        ENSURE_TYPE(value, NSDictionary);
+        ABPropertyID propertyID = [property intValue];
 		int type = [[[TiContactsPerson multiValueTypes] objectForKey:property] intValue];
-		
-		ABMultiValueRef multiVal = [self dictionaryToMultiValue:value type:type];
-		CFErrorRef error;
-		if (!ABRecordSetValue([self record], propertyID, multiVal, &error)) {
-			
-			CFStringRef reason = CFErrorCopyDescription(error);
-			NSString* str = [NSString stringWithString:(NSString*)reason];
-			CFRelease(reason);
-			[self throwException:[NSString stringWithFormat:@"Failed to set contact property %@: %@", key, str]
+        ABMultiValueRef multiVal = [self dictionaryToMultiValue:value type:type];
+        CFErrorRef error;
+        if (!ABRecordSetValue([self record], propertyID, multiVal, &error)) {
+            CFStringRef reason = CFErrorCopyDescription(error);
+            NSString* str = [NSString stringWithString:(NSString*)reason];
+            CFRelease(reason);
+            [self throwException:[NSString stringWithFormat:@"Failed to set contact property %@: %@", key, str]
 					   subreason:nil
 						location:CODELOCATION];
-		}
-	}
+        }
+    }
 	// Something else
 	else {
 		[super setValue:value forUndefinedKey:key];

@@ -1,5 +1,7 @@
 function Loader() {
 
+	var currentObject = null;
+
 	var self = Titanium.UI.createView({
 		backgroundColor : '#FAD985',
 		width : 60,
@@ -7,7 +9,7 @@ function Loader() {
 		borderRadius : 10,
 		opacity : 0.96,
 		zIndex : 10,
-		top : '42%',
+		top : '40%',
 		layout : 'composite',
 		viewShadowColor : '#817F7F',
 		viewShadowRadius : 2,
@@ -27,6 +29,8 @@ function Loader() {
 	self.add(chamber);
 
 	self.showLoader = function(win) {
+		if( win != null )
+			currentObject = win;
 		chamber.animate({
 			transform : matrix,
 			duration : 900,

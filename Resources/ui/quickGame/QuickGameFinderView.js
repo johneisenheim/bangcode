@@ -95,6 +95,11 @@ function QuickGameFinderView() {
 				flag = false;
 		}
 	});
+	
+	self.getMyOwnStatus = function(){
+		//Ti.API.info('[INFO] getMyOwnStatus '+flag&&motion.imInStarting);
+		 return flag && motion.imInStarting;
+	};
 
 	self.add(label);
 	self.add(position);

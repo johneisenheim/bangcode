@@ -44,6 +44,7 @@ function SecondPage() {
 	});
 	
 	fbButton.addEventListener('click', function(){
+		loader.showLoader(self);
 		facebookHandler.logMeIn();
 	});
 	

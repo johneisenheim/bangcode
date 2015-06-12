@@ -128,20 +128,39 @@ NSString* const DATA_IFACE = @"pdp_ip0";
     return @"Ti.Platform";
 }
 
+-(void)registerListeners:(id)unused
+{
+    UIDevice *device = [UIDevice currentDevice];
+    // set a flag to temporarily turn on battery enablement
+    if (batteryEnabled==NO && device.batteryMonitoringEnabled==NO)
+    {
+        batteryEnabled = YES;
+        [device setBatteryMonitoringEnabled:YES];
+    }
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(batteryStateChanged:) name:UIDeviceBatteryStateDidChangeNotification object:device];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(batteryStateChanged:) name:UIDeviceBatteryLevelDidChangeNotification object:device];
+}
+
+-(void)unregisterListeners:(id)unused
+{
+    UIDevice *device = [UIDevice currentDevice];
+    if (batteryEnabled)
+    {
+        [device setBatteryMonitoringEnabled:NO];
+        batteryEnabled = NO;
+    }
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIDeviceBatteryStateDidChangeNotification object:device];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIDeviceBatteryLevelDidChangeNotification object:device];
+}
+
 -(void)_listenerAdded:(NSString *)type count:(int)count
 {
 	if (count == 1 && [type isEqualToString:@"battery"])
 	{
-		UIDevice *device = [UIDevice currentDevice];
-		// set a flag to temporarily turn on battery enablement
-		if (batteryEnabled==NO && device.batteryMonitoringEnabled==NO)
-		{
-			batteryEnabled = YES;
-			[device setBatteryMonitoringEnabled:YES];
-		}
-		WARN_IF_BACKGROUND_THREAD_OBJ;	//NSNotificationCenter is not threadsafe!
-		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(batteryStateChanged:) name:UIDeviceBatteryStateDidChangeNotification object:device];
-		[[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(batteryStateChanged:) name:UIDeviceBatteryLevelDidChangeNotification object:device];
+        TiThreadPerformOnMainThread(^{
+            [self registerListeners:nil];
+        }, YES);
 	}
 }
 
@@ -149,14 +168,9 @@ NSString* const DATA_IFACE = @"pdp_ip0";
 {
 	if (count == 0 && [type isEqualToString:@"battery"])
 	{
-		UIDevice *device = [UIDevice currentDevice];
-		if (batteryEnabled)
-		{
-			[device setBatteryMonitoringEnabled:NO];
-		}
-		WARN_IF_BACKGROUND_THREAD_OBJ;	//NSNotificationCenter is not threadsafe!
-		[[NSNotificationCenter defaultCenter] removeObserver:self name:UIDeviceBatteryStateDidChangeNotification object:device];
-		[[NSNotificationCenter defaultCenter] removeObserver:self name:UIDeviceBatteryLevelDidChangeNotification object:device];
+        TiThreadPerformOnMainThread(^{
+            [self unregisterListeners:nil];
+        }, YES);
 	}
 }
 
@@ -284,21 +298,47 @@ NSString* const DATA_IFACE = @"pdp_ip0";
 
 -(void)setBatteryMonitoring:(NSNumber *)yn
 {
+    if (![NSThread isMainThread]) {
+        TiThreadPerformOnMainThread(^{
+            [self setBatteryMonitoring:yn];
+        }, YES);
+    }
 	[[UIDevice currentDevice] setBatteryMonitoringEnabled:[TiUtils boolValue:yn]];
 }
 
 -(NSNumber*)batteryMonitoring
 {
+    if (![NSThread isMainThread]) {
+        __block NSNumber* result = nil;
+        TiThreadPerformOnMainThread(^{
+            result = [[self batteryMonitoring] retain];
+        }, YES);
+        return [result autorelease];
+    }
 	return NUMBOOL([UIDevice currentDevice].batteryMonitoringEnabled);
 }
 
 -(NSNumber*)batteryState
 {
+    if (![NSThread isMainThread]) {
+        __block NSNumber* result = nil;
+        TiThreadPerformOnMainThread(^{
+            result = [[self batteryState] retain];
+        }, YES);
+        return [result autorelease];
+    }
 	return NUMINT([[UIDevice currentDevice] batteryState]);
 }
 
 -(NSNumber*)batteryLevel
 {
+    if (![NSThread isMainThread]) {
+        __block NSNumber* result = nil;
+        TiThreadPerformOnMainThread(^{
+            result = [[self batteryLevel] retain];
+        }, YES);
+        return [result autorelease];
+    }
 	return NUMFLOAT([[UIDevice currentDevice] batteryLevel]);
 }
 

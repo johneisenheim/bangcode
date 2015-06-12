@@ -17,11 +17,18 @@
 @synthesize suppressFocusEvents;
 DEFINE_DEF_BOOL_PROP(suppressReturn,YES);
 
+-(void)_initWithProperties:(NSDictionary *)properties
+{
+    [self initializeProperty:@"enabled" defaultValue:NUMBOOL(YES)];
+    [self initializeProperty:@"editable" defaultValue:NUMBOOL(YES)];
+    [super _initWithProperties:properties];
+}
+
 - (void)windowWillClose
 {
 	if([self viewInitialized])
 	{
-		[[self view] resignFirstResponder];
+		[self blur:nil];
 	}
 	[(TiViewProxy *)[keyboardTiView proxy] windowWillClose];
 	for (TiViewProxy * thisToolBarItem in keyboardToolbarItems)
@@ -73,7 +80,7 @@ DEFINE_DEF_BOOL_PROP(suppressReturn,YES);
 	ENSURE_UI_THREAD_1_ARG(args)
 	if ([self viewAttached])
 	{
-		[[self view] resignFirstResponder];
+		[[(TiUITextWidget*)[self view] textWidgetView] resignFirstResponder];
 	}
 }
 
@@ -82,13 +89,20 @@ DEFINE_DEF_BOOL_PROP(suppressReturn,YES);
 	ENSURE_UI_THREAD_1_ARG(args)
 	if ([self viewAttached])
 	{
-		[[self view] becomeFirstResponder];
+		[[(TiUITextWidget*)[self view] textWidgetView] becomeFirstResponder];
 	}
 }
 
 -(BOOL)focused:(id)unused
 {
-	BOOL result=NO;
+    if (![NSThread isMainThread]) {
+        __block BOOL result=NO;
+        TiThreadPerformOnMainThread(^{
+            result = [self focused:nil];
+        }, YES);
+        return result;
+    }
+    BOOL result = NO;
 	if ([self viewAttached])
 	{
 		result = [(TiUITextWidget*)[self view] isFirstResponder];
@@ -136,11 +150,7 @@ DEFINE_DEF_BOOL_PROP(suppressReturn,YES);
 	[self replaceValue:value forKey:@"keyboardToolbarColor" notification:YES];
 	if(keyboardUIToolbar != nil){ //It already exists, update it.
 		UIColor * newColor = [[TiUtils colorValue:value] _color];
-		if ([TiUtils isIOS7OrGreater]) {
-			[keyboardUIToolbar performSelector:@selector(setBarTintColor:) withObject:newColor];
-		} else {
-			[keyboardUIToolbar setTintColor:newColor];
-		}
+		[keyboardUIToolbar setBarTintColor:newColor];
 	}
 }
 
@@ -165,11 +175,7 @@ DEFINE_DEF_BOOL_PROP(suppressReturn,YES);
 		keyboardUIToolbar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, 0, 320,[self keyboardAccessoryHeight])];
 		UIColor * newColor = [[TiUtils colorValue:[self valueForKey:@"keyboardToolbarColor"]] _color];
 		if(newColor != nil){
-			if ([TiUtils isIOS7OrGreater]) {
-				[keyboardUIToolbar performSelector:@selector(setBarTintColor:) withObject:newColor];
-			} else {
-				[keyboardUIToolbar setTintColor:newColor];
-			}
+			[keyboardUIToolbar setBarTintColor:newColor];
 		}
 		[self updateUIToolbar];
 	}

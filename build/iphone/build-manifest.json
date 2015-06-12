@@ -1,16 +1,16 @@
 {
 	"target": "device",
-	"deployType": "development",
+	"deployType": "test",
 	"iosSdkVersion": "8.3",
 	"deviceFamily": "iphone",
-	"developerName": "Donald Warnsing (YW4978MXVE)",
-	"iosSdkPath": "/Users/johneisenheim/Library/Application Support/Titanium/mobilesdk/osx/3.5.1.GA/iphone",
-	"tiCoreHash": "47658db9e85e6b4af144b3d6070d6de0",
-	"modulesHash": "2807e78cf02104149550ebc807c23a37",
-	"modulesNativeHash": "eecb21b6c945a5ecbe9bfa93c656a08e",
-	"gitHash": "96875c9",
+	"developerName": "Aniello Saulino (KZ4GFGE6BE)",
+	"iosSdkPath": "/Users/johneisenheim/Library/Application Support/Titanium/mobilesdk/osx/4.0.0.GA/iphone",
+	"tiCoreHash": "5710cda7b179a3c8391cc94011e308de",
+	"modulesHash": "23974af8e4920c5a63e1cefea0139cce",
+	"modulesNativeHash": "6f573160721c24ef895b6256f66602d9",
+	"gitHash": "9239ff9",
 	"name": "Bang!Western Duels",
-	"id": "com.pjgames.bang",
+	"id": "com.johneisenheim.bang",
 	"analytics": true,
 	"publisher": "johneisenheim",
 	"url": "http://",
@@ -21,5 +21,5 @@
 	"skipJSMinification": false,
 	"forceCopy": false,
 	"forceCopyAll": false,
-	"encryptJS": false
+	"encryptJS": true
 }

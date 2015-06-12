@@ -3,14 +3,16 @@
 <plist version="1.0">
 <dict>
 	<key>application-identifier</key>
-	<string>274U2BJQCN.com.pjgames.bang</string>
+	<string>L5M882YPQR.com.johneisenheim.bang</string>
+	<key>aps-environment</key>
+	<string>development</string>
 	<key>com.apple.developer.team-identifier</key>
-	<string>274U2BJQCN</string>
+	<string>L5M882YPQR</string>
 	<key>get-task-allow</key>
 	<true/>
 	<key>keychain-access-groups</key>
 	<array>
-		<string>274U2BJQCN.com.pjgames.bang</string>
+		<string>L5M882YPQR.com.johneisenheim.bang</string>
 	</array>
 </dict>
 </plist>

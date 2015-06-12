@@ -10,7 +10,8 @@
 #import <Foundation/Foundation.h>
 
 typedef NS_ENUM(NSInteger, APSRequestError) {
-	APSRequestErrorCancel = 0
+    APSRequestErrorCancel = 0,
+    APSRequestErrorConnectionDelegateFailed = -1
 };
 
 

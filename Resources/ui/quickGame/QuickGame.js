@@ -7,29 +7,35 @@ function QuickGame() {
 	var counter = 0;
 
 	var random = Math.floor((Math.random() * 4) + 1);
-	
-	
+
 	var churchbellSound = ZLSound.createSample({
-        media: 'music/churchbell.mp3',
-        volume : 1.0
-    });
-    
-    var ticSound = ZLSound.createSample({
-        media: 'music/tic.mp3',
-        volume : 1.0
-    });
-	
+		media : 'music/bell.mp3',
+		volume : 1.0
+	});
+
+	var ticSound = ZLSound.createSample({
+		media : 'music/tic.mp3',
+		volume : 1.0
+	});
+
 	var opponentID = 0;
 
 	var self = Titanium.UI.createWindow({
-		statusBarStyle : Titanium.UI.iPhone.StatusBar.LIGHT_CONTENT,
+		navTintColor : 'white',
+		tintColor : '#E2BB5A',
+		barColor : '#E2BB5A',
+		extendEdges : [Ti.UI.EXTEND_EDGE_TOP],
+		backgroundColor : '#F5F4F2',
+		translucent : true,
+		statusBarStyle : Titanium.UI.iPhone.StatusBar.GRAY,
 		layout : 'composite',
 		tabBarHidden : true,
-		modal : true
+		modal : true,
+		orientationModes : [1]
 	});
 
 	var statusLabel = Titanium.UI.createLabel({
-		top : '50%',
+		top : '55%',
 		font : {
 			fontSize : 17,
 			fontFamily : "Roboto-LightItalic"
@@ -43,6 +49,7 @@ function QuickGame() {
 	loader.showLoader(self);
 
 	var initQuickGameCallback = function() {
+		Ti.API.info('initQuickGameCallback');
 		telepathy = Telepathy.createSession();
 		var bluetoothState = telepathy.checkBluetoothAccess();
 		telepathy.addEventListener('bluetoothState', function(e) {
@@ -70,7 +77,8 @@ function QuickGame() {
 				break;
 			case 'Bluetooth is currently powered on and available to use.':
 				statusLabel.text = 'Ricerco l\'avversario...';
-				telepathy.setupSessionAndStartServices(Ti.App.Properties.getString('fb_id'), opponent, 1);
+				Ti.API.info(opponentID);
+				telepathy.setupSessionAndStartServices(Ti.App.Properties.getString('fb_id'), opponentID, 1);
 				break;
 			}
 		});
@@ -85,19 +93,20 @@ function QuickGame() {
 			setTimeout(function() {
 				loader.hideLoader(self);
 				self.remove(statusLabel);
-				self.add(quickGameFinderView);
+				self.add(quickGameView);
 				telepathy.sendData('tellme:');
-				telepathy.sendData('random:'+random);
+				telepathy.sendData('random:' + random);
 			}, 2000);
 
 		});
 
 		telepathy.addEventListener('notConnected', function() {
-			telepathy.tryToReconnect(Ti.App.Properties.getString('fb_id'), opponent, 1);
+			telepathy.tryToReconnect(Ti.App.Properties.getString('fb_id'), opponentID, 1);
 		});
 
 		telepathy.addEventListener('didReceiveData', function(e) {
 			var sMessage = (e.message).split(':');
+			Ti.API.info("[INFO] RECEIVED MESSAGE : " + sMessage[0]);
 			switch(sMessage[0]) {
 			case 'notready':
 				telepathy.sendData('tellme:');
@@ -105,9 +114,11 @@ function QuickGame() {
 			case 'ready':
 				if (quickGameView.flag) {
 					telepathy.sendData('start:');
-					counter = 3+random;
-					ticSound.play();
-					startCountdown();
+					counter = 3 + random;
+					setTimeout(function() {
+						ticSound.play();
+						startCountdown();
+					}, 100);
 				} else {
 					telepathy.sendData('tellme:');
 				}
@@ -115,17 +126,20 @@ function QuickGame() {
 			}
 		});
 	};
-	
+
 	function startCountdown() {
 		setInterval(function() {
 			if (counter == 0) {
 				//countdown.text = 'BANG!!!';
 				Ti.API.info('countdown BANG!');
 				ticSound.stop();
-				churchbellSound.play();
-				Ti.App.fireEvent('user_can_fire',{});
-				return;
+				setTimeout(function() {
+					churchbellSound.play();
+					Ti.App.fireEvent('user_can_fire', {});
+					return;
+				},300);
 			} else {
+				Ti.API.info(counter);
 				counter = counter - 1;
 				startCountdown();
 				//countdown.text = counter;
@@ -133,7 +147,9 @@ function QuickGame() {
 		}, 1000);
 	}
 
+
 	self.setIDOpponent = function(id) {
+		Ti.API.info('Opponent ID is ' + id);
 		opponentID = id;
 	};
 

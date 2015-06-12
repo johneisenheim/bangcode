@@ -74,6 +74,7 @@
 /Users/johneisenheim/Documents/Appcelerator_Studio_Workspace/bangcode/build/iphone/build/Bang!Western Duels.build/Debug-iphoneos/Bang!Western Duels.build/Objects-normal/arm64/TiUIEmailDialogProxy.o
 /Users/johneisenheim/Documents/Appcelerator_Studio_Workspace/bangcode/build/iphone/build/Bang!Western Duels.build/Debug-iphoneos/Bang!Western Duels.build/Objects-normal/arm64/TiUICanvasViewProxy.o
 /Users/johneisenheim/Documents/Appcelerator_Studio_Workspace/bangcode/build/iphone/build/Bang!Western Duels.build/Debug-iphoneos/Bang!Western Duels.build/Objects-normal/arm64/TiUICanvasView.o
+/Users/johneisenheim/Documents/Appcelerator_Studio_Workspace/bangcode/build/iphone/build/Bang!Western Duels.build/Debug-iphoneos/Bang!Western Duels.build/Objects-normal/arm64/TiUIAttributedStringProxy.o
 /Users/johneisenheim/Documents/Appcelerator_Studio_Workspace/bangcode/build/iphone/build/Bang!Western Duels.build/Debug-iphoneos/Bang!Western Duels.build/Objects-normal/arm64/TiUIButtonProxy.o
 /Users/johneisenheim/Documents/Appcelerator_Studio_Workspace/bangcode/build/iphone/build/Bang!Western Duels.build/Debug-iphoneos/Bang!Western Duels.build/Objects-normal/arm64/TiUIButtonBarProxy.o
 /Users/johneisenheim/Documents/Appcelerator_Studio_Workspace/bangcode/build/iphone/build/Bang!Western Duels.build/Debug-iphoneos/Bang!Western Duels.build/Objects-normal/arm64/TiUIButtonBar.o
@@ -145,9 +146,11 @@
 /Users/johneisenheim/Documents/Appcelerator_Studio_Workspace/bangcode/build/iphone/build/Bang!Western Duels.build/Debug-iphoneos/Bang!Western Duels.build/Objects-normal/arm64/TiUIiPhoneTableViewScrollPositionProxy.o
 /Users/johneisenheim/Documents/Appcelerator_Studio_Workspace/bangcode/build/iphone/build/Bang!Western Duels.build/Debug-iphoneos/Bang!Western Duels.build/Objects-normal/arm64/TiMediaAudioRecorderProxy.o
 /Users/johneisenheim/Documents/Appcelerator_Studio_Workspace/bangcode/build/iphone/build/Bang!Western Duels.build/Debug-iphoneos/Bang!Western Duels.build/Objects-normal/arm64/SCListener.o
+/Users/johneisenheim/Documents/Appcelerator_Studio_Workspace/bangcode/build/iphone/build/Bang!Western Duels.build/Debug-iphoneos/Bang!Western Duels.build/Objects-normal/arm64/TiUIiOSSplitWindow.o
 /Users/johneisenheim/Documents/Appcelerator_Studio_Workspace/bangcode/build/iphone/build/Bang!Western Duels.build/Debug-iphoneos/Bang!Western Duels.build/Objects-normal/arm64/TiMediaAudioSession.o
 /Users/johneisenheim/Documents/Appcelerator_Studio_Workspace/bangcode/build/iphone/build/Bang!Western Duels.build/Debug-iphoneos/Bang!Western Duels.build/Objects-normal/arm64/TiUIPickerProxy.o
 /Users/johneisenheim/Documents/Appcelerator_Studio_Workspace/bangcode/build/iphone/build/Bang!Western Duels.build/Debug-iphoneos/Bang!Western Duels.build/Objects-normal/arm64/TiUIPicker.o
+/Users/johneisenheim/Documents/Appcelerator_Studio_Workspace/bangcode/build/iphone/build/Bang!Western Duels.build/Debug-iphoneos/Bang!Western Duels.build/Objects-normal/arm64/TiAppiOSUserDefaultsProxy.o
 /Users/johneisenheim/Documents/Appcelerator_Studio_Workspace/bangcode/build/iphone/build/Bang!Western Duels.build/Debug-iphoneos/Bang!Western Duels.build/Objects-normal/arm64/TiUIPickerRowProxy.o
 /Users/johneisenheim/Documents/Appcelerator_Studio_Workspace/bangcode/build/iphone/build/Bang!Western Duels.build/Debug-iphoneos/Bang!Western Duels.build/Objects-normal/arm64/TiUIPickerColumnProxy.o
 /Users/johneisenheim/Documents/Appcelerator_Studio_Workspace/bangcode/build/iphone/build/Bang!Western Duels.build/Debug-iphoneos/Bang!Western Duels.build/Objects-normal/arm64/UIImage+Alpha.o
@@ -185,6 +188,7 @@
 /Users/johneisenheim/Documents/Appcelerator_Studio_Workspace/bangcode/build/iphone/build/Bang!Western Duels.build/Debug-iphoneos/Bang!Western Duels.build/Objects-normal/arm64/TiMediaMusicPlayer.o
 /Users/johneisenheim/Documents/Appcelerator_Studio_Workspace/bangcode/build/iphone/build/Bang!Western Duels.build/Debug-iphoneos/Bang!Western Duels.build/Objects-normal/arm64/TiMediaItem.o
 /Users/johneisenheim/Documents/Appcelerator_Studio_Workspace/bangcode/build/iphone/build/Bang!Western Duels.build/Debug-iphoneos/Bang!Western Duels.build/Objects-normal/arm64/TiLayoutQueue.o
+/Users/johneisenheim/Documents/Appcelerator_Studio_Workspace/bangcode/build/iphone/build/Bang!Western Duels.build/Debug-iphoneos/Bang!Western Duels.build/Objects-normal/arm64/TiUIiOSSplitWindowProxy.o
 /Users/johneisenheim/Documents/Appcelerator_Studio_Workspace/bangcode/build/iphone/build/Bang!Western Duels.build/Debug-iphoneos/Bang!Western Duels.build/Objects-normal/arm64/AsyncSocket.o
 /Users/johneisenheim/Documents/Appcelerator_Studio_Workspace/bangcode/build/iphone/build/Bang!Western Duels.build/Debug-iphoneos/Bang!Western Duels.build/Objects-normal/arm64/AsyncUdpSocket.o
 /Users/johneisenheim/Documents/Appcelerator_Studio_Workspace/bangcode/build/iphone/build/Bang!Western Duels.build/Debug-iphoneos/Bang!Western Duels.build/Objects-normal/arm64/TiContactsGroup.o
@@ -255,7 +259,6 @@
 /Users/johneisenheim/Documents/Appcelerator_Studio_Workspace/bangcode/build/iphone/build/Bang!Western Duels.build/Debug-iphoneos/Bang!Western Duels.build/Objects-normal/arm64/CalendarModule.o
 /Users/johneisenheim/Documents/Appcelerator_Studio_Workspace/bangcode/build/iphone/build/Bang!Western Duels.build/Debug-iphoneos/Bang!Western Duels.build/Objects-normal/arm64/TiCalendarCalendar.o
 /Users/johneisenheim/Documents/Appcelerator_Studio_Workspace/bangcode/build/iphone/build/Bang!Western Duels.build/Debug-iphoneos/Bang!Western Duels.build/Objects-normal/arm64/TiCalendarAlert.o
-/Users/johneisenheim/Documents/Appcelerator_Studio_Workspace/bangcode/build/iphone/build/Bang!Western Duels.build/Debug-iphoneos/Bang!Western Duels.build/Objects-normal/arm64/TiUIiOSAttributedStringProxy.o
 /Users/johneisenheim/Documents/Appcelerator_Studio_Workspace/bangcode/build/iphone/build/Bang!Western Duels.build/Debug-iphoneos/Bang!Western Duels.build/Objects-normal/arm64/TiCalendarEvent.o
 /Users/johneisenheim/Documents/Appcelerator_Studio_Workspace/bangcode/build/iphone/build/Bang!Western Duels.build/Debug-iphoneos/Bang!Western Duels.build/Objects-normal/arm64/TiCalendarReminder.o
 /Users/johneisenheim/Documents/Appcelerator_Studio_Workspace/bangcode/build/iphone/build/Bang!Western Duels.build/Debug-iphoneos/Bang!Western Duels.build/Objects-normal/arm64/TiCalendarRecurrenceRule.o

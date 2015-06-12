@@ -4,11 +4,13 @@
 <dict>
 	<key>get-task-allow</key>
 	<true/>
+	<key>aps-environment</key>
+	<string>development</string>
 	<key>application-identifier</key>
-	<string>274U2BJQCN.com.pjgames.bang</string>
+	<string>L5M882YPQR.com.johneisenheim.bang</string>
 	<key>keychain-access-groups</key>
 	<array>
-		<string>274U2BJQCN.com.pjgames.bang</string>
+		<string>L5M882YPQR.com.johneisenheim.bang</string>
 	</array>
 </dict>
 </plist>

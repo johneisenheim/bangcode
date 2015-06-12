@@ -30,21 +30,21 @@
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		2412F467115C296300454E5B /* TiMediaVideoPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2412F465115C296300454E5B /* TiMediaVideoPlayer.m */; };
 		242E8E3111BA39FD0046A0D0 /* libTiCore.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 242E8E3011BA39FD0046A0D0 /* libTiCore.a */; };
-		B03B413CDB9444AAB57D8EFC /* libcom.pj.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D3391F70999A4E8DB4EED1C0 /* libcom.pj.a */; };
-		5D3E45F0B41546C8AA90B330 /* libbencoding.blur.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6015D78BFE7443D88B45F1A0 /* libbencoding.blur.a */; };
-		A4A0B57FEEA34EC2901A0268 /* libbencoding.localnotify.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A0A79F113E2A460095AB3A52 /* libbencoding.localnotify.a */; };
-		D7064DFD79954039927E52BD /* libcom.salsarhythmsoftware.zlsound.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6881687135754313BE85E921 /* libcom.salsarhythmsoftware.zlsound.a */; };
-		C0EB2630289146A680ACCD21 /* libti.map.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CB351EC564F34C67ACBBC3A8 /* libti.map.a */; };
-		A144A439B2AA4CD3B6F56A00 /* libcom.facebook.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 060F82EDE1444E95B9AA0FBC /* libcom.facebook.a */; };
-		108D9530469B40FBBE8C9E25 /* libti.coremotion.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 55DA9230B06749FC8E97D5A1 /* libti.coremotion.a */; };
+		677CECA72A2B46569ABB8C08 /* libfacebook.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CDBF527165AC43DA8E4062EC /* libfacebook.a */; };
+		C5240673862744F386A6A688 /* libcom.pj.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BEFF5CAE39D34B6DBF87BBF4 /* libcom.pj.a */; };
+		F3291545E2114D99B9686732 /* libbencoding.blur.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D1EA9FF52D454ED7A023E8BA /* libbencoding.blur.a */; };
+		A67DEC3821F04325A9D5DDA3 /* libbencoding.localnotify.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 39A62276180344E6A2F558B9 /* libbencoding.localnotify.a */; };
+		3CD6E46A68064717929D56C8 /* libcom.salsarhythmsoftware.zlsound.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AC79E97E0D1C403C8E4E60C0 /* libcom.salsarhythmsoftware.zlsound.a */; };
+		DBB46B1024D542BCA1D6A34B /* libti.map.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B16F762CE6874CE89B4F2FA9 /* libti.map.a */; };
+		6145DF824CFF4F9EA203F040 /* libti.coremotion.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C8A9BCC124E4BB58D01A10B /* libti.coremotion.a */; };
 		242E8E3211BA39FE0046A0D0 /* libTiCore.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 242E8E3011BA39FD0046A0D0 /* libTiCore.a */; };
-		421F3F3F5FC74847B7C8E960 /* libcom.pj.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D3391F70999A4E8DB4EED1C0 /* libcom.pj.a */; };
-		035F3A9B3ADA4D268B5D1E31 /* libbencoding.blur.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6015D78BFE7443D88B45F1A0 /* libbencoding.blur.a */; };
-		DC680149688643189477EB28 /* libbencoding.localnotify.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A0A79F113E2A460095AB3A52 /* libbencoding.localnotify.a */; };
-		54FA37B6CF1C49C68279BD43 /* libcom.salsarhythmsoftware.zlsound.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6881687135754313BE85E921 /* libcom.salsarhythmsoftware.zlsound.a */; };
-		EE07AA8734C0427488927B2B /* libti.map.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CB351EC564F34C67ACBBC3A8 /* libti.map.a */; };
-		EE73CB3F3A2C4BE480C1ECD8 /* libcom.facebook.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 060F82EDE1444E95B9AA0FBC /* libcom.facebook.a */; };
-		D6A09EA5F8274771BFCC0DEE /* libti.coremotion.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 55DA9230B06749FC8E97D5A1 /* libti.coremotion.a */; };
+		F78D2B313275403BBA2253B2 /* libfacebook.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CDBF527165AC43DA8E4062EC /* libfacebook.a */; };
+		444A37DDDE3C4562B83FAD14 /* libcom.pj.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BEFF5CAE39D34B6DBF87BBF4 /* libcom.pj.a */; };
+		9382B2725B7340D8A2C1C987 /* libbencoding.blur.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D1EA9FF52D454ED7A023E8BA /* libbencoding.blur.a */; };
+		0F399E6425374840901A8F71 /* libbencoding.localnotify.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 39A62276180344E6A2F558B9 /* libbencoding.localnotify.a */; };
+		77281CF9923843F7981F3E7C /* libcom.salsarhythmsoftware.zlsound.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AC79E97E0D1C403C8E4E60C0 /* libcom.salsarhythmsoftware.zlsound.a */; };
+		B1BA4FC1235A4AE08231F007 /* libti.map.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B16F762CE6874CE89B4F2FA9 /* libti.map.a */; };
+		0000F31B69CA4ED5AC814EF4 /* libti.coremotion.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C8A9BCC124E4BB58D01A10B /* libti.coremotion.a */; };
 		242E967711BAD2F20046A0D0 /* AsyncSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 242E967411BAD2F20046A0D0 /* AsyncSocket.m */; };
 		242E967811BAD2F20046A0D0 /* AsyncUdpSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 242E967611BAD2F20046A0D0 /* AsyncUdpSocket.m */; };
 		242E967911BAD2F20046A0D0 /* AsyncSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 242E967411BAD2F20046A0D0 /* AsyncSocket.m */; };
@@ -579,6 +579,12 @@
 		84E00A9C17B646EE00B6DCE2 /* TiUIiOSNavWindowProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E00A9B17B646EE00B6DCE2 /* TiUIiOSNavWindowProxy.m */; };
 		84E00A9D17B646EE00B6DCE2 /* TiUIiOSNavWindowProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E00A9B17B646EE00B6DCE2 /* TiUIiOSNavWindowProxy.m */; };
 		84E00A9E17B646EE00B6DCE2 /* TiUIiOSNavWindowProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 84E00A9B17B646EE00B6DCE2 /* TiUIiOSNavWindowProxy.m */; };
+		84EB08011A71932D00D35815 /* TiUIiOSSplitWindowProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 84EB08001A71932D00D35815 /* TiUIiOSSplitWindowProxy.m */; };
+		84EB08021A71932D00D35815 /* TiUIiOSSplitWindowProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 84EB08001A71932D00D35815 /* TiUIiOSSplitWindowProxy.m */; };
+		84EB08031A71932D00D35815 /* TiUIiOSSplitWindowProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 84EB08001A71932D00D35815 /* TiUIiOSSplitWindowProxy.m */; };
+		84EB08061A71948C00D35815 /* TiUIiOSSplitWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 84EB08051A71948C00D35815 /* TiUIiOSSplitWindow.m */; };
+		84EB08071A71948C00D35815 /* TiUIiOSSplitWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 84EB08051A71948C00D35815 /* TiUIiOSSplitWindow.m */; };
+		84EB08081A71948C00D35815 /* TiUIiOSSplitWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 84EB08051A71948C00D35815 /* TiUIiOSSplitWindow.m */; };
 		84EB340017A8CAA700723B1E /* TiWindowProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 84EB33FF17A8CAA700723B1E /* TiWindowProxy.m */; };
 		84EB340117A8CAA700723B1E /* TiWindowProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 84EB33FF17A8CAA700723B1E /* TiWindowProxy.m */; };
 		84EB340217A8CAA700723B1E /* TiWindowProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = 84EB33FF17A8CAA700723B1E /* TiWindowProxy.m */; };
@@ -623,9 +629,6 @@
 		B6A0A2B1180DF4DA00E3FAA6 /* TiUIiOSTransitionAnimationProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = B6A0A2B0180DF4DA00E3FAA6 /* TiUIiOSTransitionAnimationProxy.m */; };
 		B6A0A2B2180DF4DA00E3FAA6 /* TiUIiOSTransitionAnimationProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = B6A0A2B0180DF4DA00E3FAA6 /* TiUIiOSTransitionAnimationProxy.m */; };
 		B6A0A2B3180DF4DA00E3FAA6 /* TiUIiOSTransitionAnimationProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = B6A0A2B0180DF4DA00E3FAA6 /* TiUIiOSTransitionAnimationProxy.m */; };
-		B6C5206118035AF3002471C6 /* TiUIiOSAttributedStringProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = B6C5206018035AF3002471C6 /* TiUIiOSAttributedStringProxy.m */; };
-		B6C5206218035AF3002471C6 /* TiUIiOSAttributedStringProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = B6C5206018035AF3002471C6 /* TiUIiOSAttributedStringProxy.m */; };
-		B6C5206318035AF3002471C6 /* TiUIiOSAttributedStringProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = B6C5206018035AF3002471C6 /* TiUIiOSAttributedStringProxy.m */; };
 		B6DFC5CF1A3B902300A857B7 /* libti_ios_debugger.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DAA4B2AD134E3DBD00AB6011 /* libti_ios_debugger.a */; };
 		B6DFC5D01A3B902300A857B7 /* libti_ios_debugger.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DAA4B2AD134E3DBD00AB6011 /* libti_ios_debugger.a */; };
 		B6DFC5D11A3B902400A857B7 /* libti_ios_debugger.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DAA4B2AD134E3DBD00AB6011 /* libti_ios_debugger.a */; };
@@ -635,6 +638,12 @@
 		BB26FC8319AB13B9007A35AF /* TiAppiOSNotificationCategoryProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = BB26FC7F19AB13B9007A35AF /* TiAppiOSNotificationCategoryProxy.m */; };
 		BB26FC8419AB13B9007A35AF /* TiAppiOSNotificationCategoryProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = BB26FC7F19AB13B9007A35AF /* TiAppiOSNotificationCategoryProxy.m */; };
 		BB26FC8519AB13B9007A35AF /* TiAppiOSNotificationCategoryProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = BB26FC7F19AB13B9007A35AF /* TiAppiOSNotificationCategoryProxy.m */; };
+		BBD6C2931A3AA22C00FA700E /* TiUIAttributedStringProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = BBDD81331A2C71C9003CDA10 /* TiUIAttributedStringProxy.m */; };
+		BBD6C2941A3AA22D00FA700E /* TiUIAttributedStringProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = BBDD81331A2C71C9003CDA10 /* TiUIAttributedStringProxy.m */; };
+		BBDD81341A2C71C9003CDA10 /* TiUIAttributedStringProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = BBDD81331A2C71C9003CDA10 /* TiUIAttributedStringProxy.m */; };
+		CEBC15711A95452000CB7B66 /* TiAppiOSUserDefaultsProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = CEBC15701A95452000CB7B66 /* TiAppiOSUserDefaultsProxy.m */; };
+		CEBC15721A95452000CB7B66 /* TiAppiOSUserDefaultsProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = CEBC15701A95452000CB7B66 /* TiAppiOSUserDefaultsProxy.m */; };
+		CEBC15731A95452000CB7B66 /* TiAppiOSUserDefaultsProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = CEBC15701A95452000CB7B66 /* TiAppiOSUserDefaultsProxy.m */; };
 		D4AB36F5123DE20200DED4A0 /* TiUIClipboardProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = D4AB36F4123DE20200DED4A0 /* TiUIClipboardProxy.m */; };
 		D4AB36F6123DE20200DED4A0 /* TiUIClipboardProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = D4AB36F4123DE20200DED4A0 /* TiUIClipboardProxy.m */; };
 		D930111E16DA9D63002E25C2 /* TiCalendarRecurrenceRule.m in Sources */ = {isa = PBXBuildFile; fileRef = D930111D16DA9D62002E25C2 /* TiCalendarRecurrenceRule.m */; };
@@ -902,13 +911,13 @@
 		DABB37B412E8CB280026A6EA /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 24EB0A57111E1BAE001DC2D1 /* libxml2.dylib */; };
 		DABB37B512E8CB280026A6EA /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24597034118FF66300519F79 /* StoreKit.framework */; };
 		DABB37B612E8CB280026A6EA /* libTiCore.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 242E8E3011BA39FD0046A0D0 /* libTiCore.a */; };
-		1112073A601140E69780DEDF /* libcom.pj.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D3391F70999A4E8DB4EED1C0 /* libcom.pj.a */; };
-		A9FDE94F60CC4A7B83596219 /* libbencoding.blur.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6015D78BFE7443D88B45F1A0 /* libbencoding.blur.a */; };
-		26C55A9BC424408AAEC4B068 /* libbencoding.localnotify.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A0A79F113E2A460095AB3A52 /* libbencoding.localnotify.a */; };
-		F2BFACF7A8444CFEA0E85939 /* libcom.salsarhythmsoftware.zlsound.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6881687135754313BE85E921 /* libcom.salsarhythmsoftware.zlsound.a */; };
-		98D23674A37A40FEBFE0F718 /* libti.map.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CB351EC564F34C67ACBBC3A8 /* libti.map.a */; };
-		F4BEA4A4556F40858C41A2E2 /* libcom.facebook.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 060F82EDE1444E95B9AA0FBC /* libcom.facebook.a */; };
-		B3F19409FFCC4C1B8E32BEFF /* libti.coremotion.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 55DA9230B06749FC8E97D5A1 /* libti.coremotion.a */; };
+		9E89520C5E114BAC89417B49 /* libfacebook.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CDBF527165AC43DA8E4062EC /* libfacebook.a */; };
+		C665EB907A814E81B93F4535 /* libcom.pj.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BEFF5CAE39D34B6DBF87BBF4 /* libcom.pj.a */; };
+		E18BADF9C5E44220A5C77BB5 /* libbencoding.blur.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D1EA9FF52D454ED7A023E8BA /* libbencoding.blur.a */; };
+		E9AF89081DE7469A9CD98573 /* libbencoding.localnotify.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 39A62276180344E6A2F558B9 /* libbencoding.localnotify.a */; };
+		9A8D692A365F4A7DB1BCCDE0 /* libcom.salsarhythmsoftware.zlsound.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AC79E97E0D1C403C8E4E60C0 /* libcom.salsarhythmsoftware.zlsound.a */; };
+		98B22F272B334715BAA8A5AA /* libti.map.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B16F762CE6874CE89B4F2FA9 /* libti.map.a */; };
+		FCCF622F53054B7CA00DCE1B /* libti.coremotion.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C8A9BCC124E4BB58D01A10B /* libti.coremotion.a */; };
 		DABB37B712E8CB280026A6EA /* libtiverify.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 24D5C75811E6364F00F097E2 /* libtiverify.a */; };
 		DABDEB08128B5A8F00C85FEA /* AudioStreamerCUR.m in Sources */ = {isa = PBXBuildFile; fileRef = DA9FF582128A1F3600457759 /* AudioStreamerCUR.m */; };
 		DABF3ECF134D210400836137 /* TiBuffer.m in Sources */ = {isa = PBXBuildFile; fileRef = DABF3ECE134D210400836137 /* TiBuffer.m */; };
@@ -937,6 +946,39 @@
 		EF0ADD1C143FA0CD00977386 /* GeolocationModule.m in Sources */ = {isa = PBXBuildFile; fileRef = EF0ADD19143FA0CD00977386 /* GeolocationModule.m */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		CEFFA0B81A8A7E1B0078F310 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CEFFA0B91A8A7E420078F310 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CEFFA0BA1A8A7E550078F310 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		1D0061BF160283820016BBEE /* TiBindingRunLoop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TiBindingRunLoop.h; sourceTree = "<group>"; };
 		1D0061C0160283820016BBEE /* TiBindingRunLoop.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TiBindingRunLoop.m; sourceTree = "<group>"; };
@@ -958,13 +1000,13 @@
 		241EAA21118AB3BB0081A5BE /* defines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = defines.h; path = Classes/defines.h; sourceTree = SOURCE_ROOT; };
 		241EAEC5118E2BA90081A5BE /* project.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = project.xcconfig; sourceTree = "<group>"; };
 		242E8E3011BA39FD0046A0D0 /* libTiCore.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libTiCore.a; path = lib/libTiCore.a; sourceTree = SOURCE_ROOT; };
-		D3391F70999A4E8DB4EED1C0 /* libcom.pj.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcom.pj.a; path = "/Users/johneisenheim/Documents/Appcelerator_Studio_Workspace/bangcode/modules/iphone/com.pj/1.0.0/libcom.pj.a"; sourceTree = "<absolute>"; };
-		6015D78BFE7443D88B45F1A0 /* libbencoding.blur.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libbencoding.blur.a; path = "/Users/johneisenheim/Documents/Appcelerator_Studio_Workspace/bangcode/modules/iphone/bencoding.blur/0.40-beta/libbencoding.blur.a"; sourceTree = "<absolute>"; };
-		A0A79F113E2A460095AB3A52 /* libbencoding.localnotify.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libbencoding.localnotify.a; path = "/Users/johneisenheim/Documents/Appcelerator_Studio_Workspace/bangcode/modules/iphone/bencoding.localnotify/0.47/libbencoding.localnotify.a"; sourceTree = "<absolute>"; };
-		6881687135754313BE85E921 /* libcom.salsarhythmsoftware.zlsound.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcom.salsarhythmsoftware.zlsound.a; path = "/Users/johneisenheim/Documents/Appcelerator_Studio_Workspace/bangcode/modules/iphone/com.salsarhythmsoftware.zlsound/2.1/libcom.salsarhythmsoftware.zlsound.a"; sourceTree = "<absolute>"; };
-		CB351EC564F34C67ACBBC3A8 /* libti.map.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libti.map.a; path = "/Users/johneisenheim/Library/Application Support/Titanium/modules/iphone/ti.map/2.2.2/libti.map.a"; sourceTree = "<absolute>"; };
-		060F82EDE1444E95B9AA0FBC /* libcom.facebook.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcom.facebook.a; path = "/Users/johneisenheim/Documents/Appcelerator_Studio_Workspace/bangcode/modules/iphone/com.facebook/3.21.10/libcom.facebook.a"; sourceTree = "<absolute>"; };
-		55DA9230B06749FC8E97D5A1 /* libti.coremotion.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libti.coremotion.a; path = "/Users/johneisenheim/Library/Application Support/Titanium/modules/iphone/ti.coremotion/1.1.0/libti.coremotion.a"; sourceTree = "<absolute>"; };
+		CDBF527165AC43DA8E4062EC /* libfacebook.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libfacebook.a; path = "/Users/johneisenheim/Library/Application Support/Titanium/modules/iphone/facebook/4.0.3/libfacebook.a"; sourceTree = "<absolute>"; };
+		BEFF5CAE39D34B6DBF87BBF4 /* libcom.pj.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcom.pj.a; path = "/Users/johneisenheim/Documents/Appcelerator_Studio_Workspace/bangcode/modules/iphone/com.pj/1.0.0/libcom.pj.a"; sourceTree = "<absolute>"; };
+		D1EA9FF52D454ED7A023E8BA /* libbencoding.blur.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libbencoding.blur.a; path = "/Users/johneisenheim/Documents/Appcelerator_Studio_Workspace/bangcode/modules/iphone/bencoding.blur/0.40-beta/libbencoding.blur.a"; sourceTree = "<absolute>"; };
+		39A62276180344E6A2F558B9 /* libbencoding.localnotify.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libbencoding.localnotify.a; path = "/Users/johneisenheim/Documents/Appcelerator_Studio_Workspace/bangcode/modules/iphone/bencoding.localnotify/0.47/libbencoding.localnotify.a"; sourceTree = "<absolute>"; };
+		AC79E97E0D1C403C8E4E60C0 /* libcom.salsarhythmsoftware.zlsound.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcom.salsarhythmsoftware.zlsound.a; path = "/Users/johneisenheim/Documents/Appcelerator_Studio_Workspace/bangcode/modules/iphone/com.salsarhythmsoftware.zlsound/2.1/libcom.salsarhythmsoftware.zlsound.a"; sourceTree = "<absolute>"; };
+		B16F762CE6874CE89B4F2FA9 /* libti.map.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libti.map.a; path = "/Users/johneisenheim/Library/Application Support/Titanium/modules/iphone/ti.map/2.2.2/libti.map.a"; sourceTree = "<absolute>"; };
+		5C8A9BCC124E4BB58D01A10B /* libti.coremotion.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libti.coremotion.a; path = "/Users/johneisenheim/Library/Application Support/Titanium/modules/iphone/ti.coremotion/1.1.0/libti.coremotion.a"; sourceTree = "<absolute>"; };
 		242E967311BAD2F20046A0D0 /* AsyncSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AsyncSocket.h; path = Classes/AsyncSocket.h; sourceTree = SOURCE_ROOT; };
 		242E967411BAD2F20046A0D0 /* AsyncSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AsyncSocket.m; path = Classes/AsyncSocket.m; sourceTree = SOURCE_ROOT; };
 		242E967511BAD2F20046A0D0 /* AsyncUdpSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AsyncUdpSocket.h; path = Classes/AsyncUdpSocket.h; sourceTree = SOURCE_ROOT; };
@@ -1455,6 +1497,10 @@
 		84DEE9161815CF52000D7B78 /* TiUIRefreshControlProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TiUIRefreshControlProxy.m; sourceTree = "<group>"; };
 		84E00A9A17B646EE00B6DCE2 /* TiUIiOSNavWindowProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TiUIiOSNavWindowProxy.h; sourceTree = "<group>"; };
 		84E00A9B17B646EE00B6DCE2 /* TiUIiOSNavWindowProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TiUIiOSNavWindowProxy.m; sourceTree = "<group>"; };
+		84EB07FF1A71932D00D35815 /* TiUIiOSSplitWindowProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TiUIiOSSplitWindowProxy.h; sourceTree = "<group>"; };
+		84EB08001A71932D00D35815 /* TiUIiOSSplitWindowProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TiUIiOSSplitWindowProxy.m; sourceTree = "<group>"; };
+		84EB08041A71948C00D35815 /* TiUIiOSSplitWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TiUIiOSSplitWindow.h; sourceTree = "<group>"; };
+		84EB08051A71948C00D35815 /* TiUIiOSSplitWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TiUIiOSSplitWindow.m; sourceTree = "<group>"; };
 		84EB33FE17A8CAA700723B1E /* TiWindowProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TiWindowProxy.h; sourceTree = "<group>"; };
 		84EB33FF17A8CAA700723B1E /* TiWindowProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TiWindowProxy.m; sourceTree = "<group>"; };
 		ABD472F213BB73BF00502912 /* KrollCoverage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KrollCoverage.h; path = Classes/KrollCoverage.h; sourceTree = "<group>"; };
@@ -1502,13 +1548,15 @@
 		B6465C2218D1011C003C51A8 /* TiNetworkCookieProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TiNetworkCookieProxy.m; sourceTree = "<group>"; };
 		B6A0A2AF180DF4DA00E3FAA6 /* TiUIiOSTransitionAnimationProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TiUIiOSTransitionAnimationProxy.h; sourceTree = "<group>"; };
 		B6A0A2B0180DF4DA00E3FAA6 /* TiUIiOSTransitionAnimationProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TiUIiOSTransitionAnimationProxy.m; sourceTree = "<group>"; };
-		B6C5205F18035AF3002471C6 /* TiUIiOSAttributedStringProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TiUIiOSAttributedStringProxy.h; sourceTree = "<group>"; };
-		B6C5206018035AF3002471C6 /* TiUIiOSAttributedStringProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TiUIiOSAttributedStringProxy.m; sourceTree = "<group>"; };
 		B6DFC5CE1A3B8FC200A857B7 /* TiDebugger.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = TiDebugger.h; path = Classes/TiDebugger.h; sourceTree = "<group>"; };
 		BB26FC7C19AB13B9007A35AF /* TiAppiOSNotificationActionProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TiAppiOSNotificationActionProxy.h; sourceTree = "<group>"; };
 		BB26FC7D19AB13B9007A35AF /* TiAppiOSNotificationActionProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TiAppiOSNotificationActionProxy.m; sourceTree = "<group>"; };
 		BB26FC7E19AB13B9007A35AF /* TiAppiOSNotificationCategoryProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TiAppiOSNotificationCategoryProxy.h; sourceTree = "<group>"; };
 		BB26FC7F19AB13B9007A35AF /* TiAppiOSNotificationCategoryProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TiAppiOSNotificationCategoryProxy.m; sourceTree = "<group>"; };
+		BBDD81321A2C71C9003CDA10 /* TiUIAttributedStringProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TiUIAttributedStringProxy.h; sourceTree = "<group>"; };
+		BBDD81331A2C71C9003CDA10 /* TiUIAttributedStringProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TiUIAttributedStringProxy.m; sourceTree = "<group>"; };
+		CEBC156F1A95452000CB7B66 /* TiAppiOSUserDefaultsProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TiAppiOSUserDefaultsProxy.h; sourceTree = "<group>"; };
+		CEBC15701A95452000CB7B66 /* TiAppiOSUserDefaultsProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TiAppiOSUserDefaultsProxy.m; sourceTree = "<group>"; };
 		D4AB36F3123DE20200DED4A0 /* TiUIClipboardProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TiUIClipboardProxy.h; sourceTree = "<group>"; };
 		D4AB36F4123DE20200DED4A0 /* TiUIClipboardProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TiUIClipboardProxy.m; sourceTree = "<group>"; };
 		D930111C16DA9D61002E25C2 /* TiCalendarRecurrenceRule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TiCalendarRecurrenceRule.h; sourceTree = "<group>"; };
@@ -1596,13 +1644,13 @@
 				24EB0A58111E1BAE001DC2D1 /* libxml2.dylib in Frameworks */,
 				24597035118FF66300519F79 /* StoreKit.framework in Frameworks */,
 				242E8E3111BA39FD0046A0D0 /* libTiCore.a in Frameworks */,
-				B03B413CDB9444AAB57D8EFC /* libcom.pj.a in Frameworks */,
-				5D3E45F0B41546C8AA90B330 /* libbencoding.blur.a in Frameworks */,
-				A4A0B57FEEA34EC2901A0268 /* libbencoding.localnotify.a in Frameworks */,
-				D7064DFD79954039927E52BD /* libcom.salsarhythmsoftware.zlsound.a in Frameworks */,
-				C0EB2630289146A680ACCD21 /* libti.map.a in Frameworks */,
-				A144A439B2AA4CD3B6F56A00 /* libcom.facebook.a in Frameworks */,
-				108D9530469B40FBBE8C9E25 /* libti.coremotion.a in Frameworks */,
+				677CECA72A2B46569ABB8C08 /* libfacebook.a in Frameworks */,
+				C5240673862744F386A6A688 /* libcom.pj.a in Frameworks */,
+				F3291545E2114D99B9686732 /* libbencoding.blur.a in Frameworks */,
+				A67DEC3821F04325A9D5DDA3 /* libbencoding.localnotify.a in Frameworks */,
+				3CD6E46A68064717929D56C8 /* libcom.salsarhythmsoftware.zlsound.a in Frameworks */,
+				DBB46B1024D542BCA1D6A34B /* libti.map.a in Frameworks */,
+				6145DF824CFF4F9EA203F040 /* libti.coremotion.a in Frameworks */,
 				B606EF60190B42FB00663EFC /* libAPSHTTPClient.a in Frameworks */,
 				242EA11611BD956F0046A0D0 /* ExternalAccessory.framework in Frameworks */,
 				24D5C75911E6364F00F097E2 /* libtiverify.a in Frameworks */,
@@ -1644,13 +1692,13 @@
 				24D8E4AB119B9D8A00F8CAA6 /* libxml2.dylib in Frameworks */,
 				24D8E4AC119B9D8A00F8CAA6 /* StoreKit.framework in Frameworks */,
 				242E8E3211BA39FE0046A0D0 /* libTiCore.a in Frameworks */,
-				421F3F3F5FC74847B7C8E960 /* libcom.pj.a in Frameworks */,
-				035F3A9B3ADA4D268B5D1E31 /* libbencoding.blur.a in Frameworks */,
-				DC680149688643189477EB28 /* libbencoding.localnotify.a in Frameworks */,
-				54FA37B6CF1C49C68279BD43 /* libcom.salsarhythmsoftware.zlsound.a in Frameworks */,
-				EE07AA8734C0427488927B2B /* libti.map.a in Frameworks */,
-				EE73CB3F3A2C4BE480C1ECD8 /* libcom.facebook.a in Frameworks */,
-				D6A09EA5F8274771BFCC0DEE /* libti.coremotion.a in Frameworks */,
+				F78D2B313275403BBA2253B2 /* libfacebook.a in Frameworks */,
+				444A37DDDE3C4562B83FAD14 /* libcom.pj.a in Frameworks */,
+				9382B2725B7340D8A2C1C987 /* libbencoding.blur.a in Frameworks */,
+				0F399E6425374840901A8F71 /* libbencoding.localnotify.a in Frameworks */,
+				77281CF9923843F7981F3E7C /* libcom.salsarhythmsoftware.zlsound.a in Frameworks */,
+				B1BA4FC1235A4AE08231F007 /* libti.map.a in Frameworks */,
+				0000F31B69CA4ED5AC814EF4 /* libti.coremotion.a in Frameworks */,
 				24D5C75A11E6364F00F097E2 /* libtiverify.a in Frameworks */,
 				DADE76D613D65C6F0079FC75 /* libicucore.dylib in Frameworks */,
 			);
@@ -1691,13 +1739,13 @@
 				DABB37B412E8CB280026A6EA /* libxml2.dylib in Frameworks */,
 				DABB37B512E8CB280026A6EA /* StoreKit.framework in Frameworks */,
 				DABB37B612E8CB280026A6EA /* libTiCore.a in Frameworks */,
-				1112073A601140E69780DEDF /* libcom.pj.a in Frameworks */,
-				A9FDE94F60CC4A7B83596219 /* libbencoding.blur.a in Frameworks */,
-				26C55A9BC424408AAEC4B068 /* libbencoding.localnotify.a in Frameworks */,
-				F2BFACF7A8444CFEA0E85939 /* libcom.salsarhythmsoftware.zlsound.a in Frameworks */,
-				98D23674A37A40FEBFE0F718 /* libti.map.a in Frameworks */,
-				F4BEA4A4556F40858C41A2E2 /* libcom.facebook.a in Frameworks */,
-				B3F19409FFCC4C1B8E32BEFF /* libti.coremotion.a in Frameworks */,
+				9E89520C5E114BAC89417B49 /* libfacebook.a in Frameworks */,
+				C665EB907A814E81B93F4535 /* libcom.pj.a in Frameworks */,
+				E18BADF9C5E44220A5C77BB5 /* libbencoding.blur.a in Frameworks */,
+				E9AF89081DE7469A9CD98573 /* libbencoding.localnotify.a in Frameworks */,
+				9A8D692A365F4A7DB1BCCDE0 /* libcom.salsarhythmsoftware.zlsound.a in Frameworks */,
+				98B22F272B334715BAA8A5AA /* libti.map.a in Frameworks */,
+				FCCF622F53054B7CA00DCE1B /* libti.coremotion.a in Frameworks */,
 				DABB37B712E8CB280026A6EA /* libtiverify.a in Frameworks */,
 				DADE76D713D65C7D0079FC75 /* libicucore.dylib in Frameworks */,
 			);
@@ -1773,6 +1821,8 @@
 				BB26FC7D19AB13B9007A35AF /* TiAppiOSNotificationActionProxy.m */,
 				BB26FC7E19AB13B9007A35AF /* TiAppiOSNotificationCategoryProxy.h */,
 				BB26FC7F19AB13B9007A35AF /* TiAppiOSNotificationCategoryProxy.m */,
+				CEBC156F1A95452000CB7B66 /* TiAppiOSUserDefaultsProxy.h */,
+				CEBC15701A95452000CB7B66 /* TiAppiOSUserDefaultsProxy.m */,
 			);
 			name = iOS;
 			sourceTree = "<group>";
@@ -2101,6 +2151,7 @@
 		24CA8C14111164040084E2DE /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				BBDD81351A2C71E5003CDA10 /* AttributedString */,
 				84DEE90F1815CE67000D7B78 /* RefreshControl */,
 				24ADC5081299F4730014DB75 /* Clipboard */,
 				24D06FDE11D020E600F615D8 /* iOS */,
@@ -2549,9 +2600,9 @@
 			children = (
 				B6A0A2AF180DF4DA00E3FAA6 /* TiUIiOSTransitionAnimationProxy.h */,
 				B6A0A2B0180DF4DA00E3FAA6 /* TiUIiOSTransitionAnimationProxy.m */,
-				B6C5205E18035ACF002471C6 /* AttributedString */,
 				84A00FED17FB392E00D4BF94 /* Dynamics */,
 				84E00A9917B6462900B6DCE2 /* Nav Window */,
+				84EB07FE1A71920300D35815 /* SplitViewWindow */,
 				2B0B6E0F15951FC200F3170F /* DocumentViewer */,
 				2BDEA4F41448FFCB004EC750 /* Tabbedbar */,
 				2BCD59C91429563400DEC2E8 /* Toolbar */,
@@ -2575,13 +2626,6 @@
 				24D06FE711D0219B00F615D8 /* TiUIiOSAdView.m */,
 			);
 			name = iAd;
-			sourceTree = "<group>";
-		};
-		24DDF65B11646D0F006FD6E1 /* Document View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = "Document View";
 			sourceTree = "<group>";
 		};
 		24DEDAC21123719700398D86 /* XML */ = {
@@ -2671,7 +2715,6 @@
 		24FB4ECF115C8120001AAF99 /* iPad */ = {
 			isa = PBXGroup;
 			children = (
-				24DDF65B11646D0F006FD6E1 /* Document View */,
 				24FB4ED2115C813F001AAF99 /* Popover */,
 				24FB4ED0115C812E001AAF99 /* Split View */,
 				24FB4F40115C8C4E001AAF99 /* TiUIiPadProxy.h */,
@@ -2709,6 +2752,7 @@
 				24CA8903111160C30084E2DE /* Thirdparty */,
 				29B97315FDCFA39411CA2CEA /* Other Sources */,
 				29B97317FDCFA39411CA2CEA /* Resources */,
+				CEFFA0BB1A8A80810078F310 /* Extensions */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
 				19C28FACFE9D520D11CA2CBB /* Products */,
 			);
@@ -2754,13 +2798,13 @@
 				DAA4B2AD134E3DBD00AB6011 /* libti_ios_debugger.a */,
 				24D5C75811E6364F00F097E2 /* libtiverify.a */,
 				242E8E3011BA39FD0046A0D0 /* libTiCore.a */,
-				D3391F70999A4E8DB4EED1C0 /* libcom.pj.a */,
-				6015D78BFE7443D88B45F1A0 /* libbencoding.blur.a */,
-				A0A79F113E2A460095AB3A52 /* libbencoding.localnotify.a */,
-				6881687135754313BE85E921 /* libcom.salsarhythmsoftware.zlsound.a */,
-				CB351EC564F34C67ACBBC3A8 /* libti.map.a */,
-				060F82EDE1444E95B9AA0FBC /* libcom.facebook.a */,
-				55DA9230B06749FC8E97D5A1 /* libti.coremotion.a */,
+				CDBF527165AC43DA8E4062EC /* libfacebook.a */,
+				BEFF5CAE39D34B6DBF87BBF4 /* libcom.pj.a */,
+				D1EA9FF52D454ED7A023E8BA /* libbencoding.blur.a */,
+				39A62276180344E6A2F558B9 /* libbencoding.localnotify.a */,
+				AC79E97E0D1C403C8E4E60C0 /* libcom.salsarhythmsoftware.zlsound.a */,
+				B16F762CE6874CE89B4F2FA9 /* libti.map.a */,
+				5C8A9BCC124E4BB58D01A10B /* libti.coremotion.a */,
 				1DF5F4DF0D08C38300B7A737 /* UIKit.framework */,
 				1D30AB110D05D00D00671497 /* Foundation.framework */,
 				288765FC0DF74451002DB57D /* CoreGraphics.framework */,
@@ -2918,6 +2962,17 @@
 			name = "Nav Window";
 			sourceTree = "<group>";
 		};
+		84EB07FE1A71920300D35815 /* SplitViewWindow */ = {
+			isa = PBXGroup;
+			children = (
+				84EB07FF1A71932D00D35815 /* TiUIiOSSplitWindowProxy.h */,
+				84EB08001A71932D00D35815 /* TiUIiOSSplitWindowProxy.m */,
+				84EB08041A71948C00D35815 /* TiUIiOSSplitWindow.h */,
+				84EB08051A71948C00D35815 /* TiUIiOSSplitWindow.m */,
+			);
+			name = SplitViewWindow;
+			sourceTree = "<group>";
+		};
 		B43663DA11138AB300782262 /* Scrollable View */ = {
 			isa = PBXGroup;
 			children = (
@@ -2991,13 +3046,20 @@
 			path = Classes/APSHTTPClient;
 			sourceTree = "<group>";
 		};
-		B6C5205E18035ACF002471C6 /* AttributedString */ = {
+		BBDD81351A2C71E5003CDA10 /* AttributedString */ = {
 			isa = PBXGroup;
 			children = (
-				B6C5205F18035AF3002471C6 /* TiUIiOSAttributedStringProxy.h */,
-				B6C5206018035AF3002471C6 /* TiUIiOSAttributedStringProxy.m */,
+				BBDD81321A2C71C9003CDA10 /* TiUIAttributedStringProxy.h */,
+				BBDD81331A2C71C9003CDA10 /* TiUIAttributedStringProxy.m */,
 			);
 			name = AttributedString;
+			sourceTree = "<group>";
+		};
+		CEFFA0BB1A8A80810078F310 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Extensions;
 			sourceTree = "<group>";
 		};
 		D93DAA4C16CBF8A000AD64C9 /* Calendar */ = {
@@ -3058,6 +3120,7 @@
 				1D60588E0D05DD3D006BFB54 /* Sources */,
 				1D60588F0D05DD3D006BFB54 /* Frameworks */,
 				24CA8D03111169070084E2DE /* Post-Compile */,
+				CEFFA0B81A8A7E1B0078F310 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
@@ -3077,6 +3140,7 @@
 				24D8E3BA119B9D8A00F8CAA6 /* Sources */,
 				24D8E497119B9D8A00F8CAA6 /* Frameworks */,
 				24D8E4AD119B9D8A00F8CAA6 /* Post-Compile */,
+				CEFFA0B91A8A7E420078F310 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
@@ -3096,6 +3160,7 @@
 				DABB36A012E8CB280026A6EA /* Sources */,
 				DABB37A112E8CB280026A6EA /* Frameworks */,
 				DABB37B812E8CB280026A6EA /* Post-Compile */,
+				CEFFA0BA1A8A7E550078F310 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
@@ -3172,7 +3237,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "export TITANIUM_PREFIX=\"_Prefix-*\"\necho \"Xcode Pre-Compile Phase: Removing $SHARED_PRECOMPS_DIR/$PROJECT$TITANIUM_PREFIX\"\nfind \"$SHARED_PRECOMPS_DIR\" -name \"$PROJECT$TITANIUM_PREFIX\" -print0 | xargs -0 rm -rf\nif [ \"x$TITANIUM_CLI_XCODEBUILD\" == \"x\" ]; then\n    /usr/local/bin/node \"/Users/johneisenheim/.appcelerator/install/4.0.0/package/node_modules/appc-cli-titanium/node_modules/titanium/bin/titanium\" build --platform iphone --sdk \"3.5.1.GA\" --no-prompt --no-progress-bars --no-banner --no-colors --build-only --xcode\n    exit $?\nelse\n    echo \"skipping pre-compile phase\"\nfi";
+			shellScript = "export TITANIUM_PREFIX=\"_Prefix-*\"\necho \"Xcode Pre-Compile Phase: Removing $SHARED_PRECOMPS_DIR/$PROJECT$TITANIUM_PREFIX\"\nfind \"$SHARED_PRECOMPS_DIR\" -name \"$PROJECT$TITANIUM_PREFIX\" -print0 | xargs -0 rm -rf\nif [ \"x$TITANIUM_CLI_XCODEBUILD\" == \"x\" ]; then\n    /usr/local/bin/node \"/Users/johneisenheim/.appcelerator/install/4.0.2/package/node_modules/appc-cli-titanium/node_modules/titanium/bin/titanium\" build --platform iphone --sdk \"4.0.0.GA\" --no-prompt --no-progress-bars --no-banner --no-colors --build-only --xcode\n    exit $?\nelse\n    echo \"skipping pre-compile phase\"\nfi";
 		};
 		24CA8D03111169070084E2DE /* Post-Compile */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -3200,7 +3265,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "export TITANIUM_PREFIX=\"_Prefix-*\"\necho \"Xcode Pre-Compile Phase: Removing $SHARED_PRECOMPS_DIR/$PROJECT$TITANIUM_PREFIX\"\nfind \"$SHARED_PRECOMPS_DIR\" -name \"$PROJECT$TITANIUM_PREFIX\" -print0 | xargs -0 rm -rf\nif [ \"x$TITANIUM_CLI_XCODEBUILD\" == \"x\" ]; then\n    /usr/local/bin/node \"/Users/johneisenheim/.appcelerator/install/4.0.0/package/node_modules/appc-cli-titanium/node_modules/titanium/bin/titanium\" build --platform iphone --sdk \"3.5.1.GA\" --no-prompt --no-progress-bars --no-banner --no-colors --build-only --xcode\n    exit $?\nelse\n    echo \"skipping pre-compile phase\"\nfi";
+			shellScript = "export TITANIUM_PREFIX=\"_Prefix-*\"\necho \"Xcode Pre-Compile Phase: Removing $SHARED_PRECOMPS_DIR/$PROJECT$TITANIUM_PREFIX\"\nfind \"$SHARED_PRECOMPS_DIR\" -name \"$PROJECT$TITANIUM_PREFIX\" -print0 | xargs -0 rm -rf\nif [ \"x$TITANIUM_CLI_XCODEBUILD\" == \"x\" ]; then\n    /usr/local/bin/node \"/Users/johneisenheim/.appcelerator/install/4.0.2/package/node_modules/appc-cli-titanium/node_modules/titanium/bin/titanium\" build --platform iphone --sdk \"4.0.0.GA\" --no-prompt --no-progress-bars --no-banner --no-colors --build-only --xcode\n    exit $?\nelse\n    echo \"skipping pre-compile phase\"\nfi";
 		};
 		24D8E4AD119B9D8A00F8CAA6 /* Post-Compile */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -3228,7 +3293,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "export TITANIUM_PREFIX=\"_Prefix-*\"\necho \"Xcode Pre-Compile Phase: Removing $SHARED_PRECOMPS_DIR/$PROJECT$TITANIUM_PREFIX\"\nfind \"$SHARED_PRECOMPS_DIR\" -name \"$PROJECT$TITANIUM_PREFIX\" -print0 | xargs -0 rm -rf\nif [ \"x$TITANIUM_CLI_XCODEBUILD\" == \"x\" ]; then\n    /usr/local/bin/node \"/Users/johneisenheim/.appcelerator/install/4.0.0/package/node_modules/appc-cli-titanium/node_modules/titanium/bin/titanium\" build --platform iphone --sdk \"3.5.1.GA\" --no-prompt --no-progress-bars --no-banner --no-colors --build-only --xcode\n    exit $?\nelse\n    echo \"skipping pre-compile phase\"\nfi";
+			shellScript = "export TITANIUM_PREFIX=\"_Prefix-*\"\necho \"Xcode Pre-Compile Phase: Removing $SHARED_PRECOMPS_DIR/$PROJECT$TITANIUM_PREFIX\"\nfind \"$SHARED_PRECOMPS_DIR\" -name \"$PROJECT$TITANIUM_PREFIX\" -print0 | xargs -0 rm -rf\nif [ \"x$TITANIUM_CLI_XCODEBUILD\" == \"x\" ]; then\n    /usr/local/bin/node \"/Users/johneisenheim/.appcelerator/install/4.0.2/package/node_modules/appc-cli-titanium/node_modules/titanium/bin/titanium\" build --platform iphone --sdk \"4.0.0.GA\" --no-prompt --no-progress-bars --no-banner --no-colors --build-only --xcode\n    exit $?\nelse\n    echo \"skipping pre-compile phase\"\nfi";
 		};
 		DABB37B812E8CB280026A6EA /* Post-Compile */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -3327,6 +3392,7 @@
 				24CA8BA1111161FE0084E2DE /* TiUIEmailDialogProxy.m in Sources */,
 				24CA8BA5111161FE0084E2DE /* TiUICanvasViewProxy.m in Sources */,
 				24CA8BA6111161FE0084E2DE /* TiUICanvasView.m in Sources */,
+				BBDD81341A2C71C9003CDA10 /* TiUIAttributedStringProxy.m in Sources */,
 				24CA8BA7111161FE0084E2DE /* TiUIButtonProxy.m in Sources */,
 				24CA8BA8111161FE0084E2DE /* TiUIButtonBarProxy.m in Sources */,
 				24CA8BA9111161FE0084E2DE /* TiUIButtonBar.m in Sources */,
@@ -3398,9 +3464,11 @@
 				243ED8EF11288B4300639DF4 /* TiUIiPhoneTableViewScrollPositionProxy.m in Sources */,
 				24FBE58311293D06005C8D48 /* TiMediaAudioRecorderProxy.mm in Sources */,
 				24E25CC4112A698C0083D43D /* SCListener.m in Sources */,
+				84EB08061A71948C00D35815 /* TiUIiOSSplitWindow.m in Sources */,
 				24A1E519112D33AF003DA834 /* TiMediaAudioSession.m in Sources */,
 				24A1E875112DF80B003DA834 /* TiUIPickerProxy.m in Sources */,
 				24A1E87B112DF83E003DA834 /* TiUIPicker.m in Sources */,
+				CEBC15711A95452000CB7B66 /* TiAppiOSUserDefaultsProxy.m in Sources */,
 				24A1E8A8112DFACA003DA834 /* TiUIPickerRowProxy.m in Sources */,
 				24A1E992112E1363003DA834 /* TiUIPickerColumnProxy.m in Sources */,
 				24A1EAF6112F4C02003DA834 /* UIImage+Alpha.m in Sources */,
@@ -3438,6 +3506,7 @@
 				DA864E3211A2314A00B9CD68 /* TiMediaMusicPlayer.m in Sources */,
 				DAA905CE11A359F10030B119 /* TiMediaItem.m in Sources */,
 				B468B4F111B5816F007D1C1E /* TiLayoutQueue.m in Sources */,
+				84EB08011A71932D00D35815 /* TiUIiOSSplitWindowProxy.m in Sources */,
 				242E967711BAD2F20046A0D0 /* AsyncSocket.m in Sources */,
 				242E967811BAD2F20046A0D0 /* AsyncUdpSocket.m in Sources */,
 				DA4E12D711C0A55F00A55BAB /* TiContactsGroup.m in Sources */,
@@ -3509,7 +3578,6 @@
 				D93DAA5016CBF8CB00AD64C9 /* CalendarModule.m in Sources */,
 				D93DAA5516CBF8E500AD64C9 /* TiCalendarCalendar.m in Sources */,
 				D93DAA5A16CBF8FB00AD64C9 /* TiCalendarAlert.m in Sources */,
-				B6C5206118035AF3002471C6 /* TiUIiOSAttributedStringProxy.m in Sources */,
 				D93DAA5F16CBF91100AD64C9 /* TiCalendarEvent.m in Sources */,
 				D93DAA6416CBFC7C00AD64C9 /* TiCalendarReminder.m in Sources */,
 				D930111E16DA9D63002E25C2 /* TiCalendarRecurrenceRule.m in Sources */,
@@ -3603,6 +3671,7 @@
 				24D8E416119B9D8A00F8CAA6 /* TiUIImageViewProxy.m in Sources */,
 				24D8E417119B9D8A00F8CAA6 /* TiUIImageView.m in Sources */,
 				24D8E418119B9D8A00F8CAA6 /* TiUIEmailDialogProxy.m in Sources */,
+				BBD6C2931A3AA22C00FA700E /* TiUIAttributedStringProxy.m in Sources */,
 				24D8E41B119B9D8A00F8CAA6 /* TiUICanvasViewProxy.m in Sources */,
 				24D8E41C119B9D8A00F8CAA6 /* TiUICanvasView.m in Sources */,
 				24D8E41D119B9D8A00F8CAA6 /* TiUIButtonProxy.m in Sources */,
@@ -3674,9 +3743,11 @@
 				24D8E467119B9D8A00F8CAA6 /* ListenerEntry.m in Sources */,
 				24D8E468119B9D8A00F8CAA6 /* XMLModule.m in Sources */,
 				24D8E469119B9D8A00F8CAA6 /* TiUIiPhoneTableViewScrollPositionProxy.m in Sources */,
+				84EB08071A71948C00D35815 /* TiUIiOSSplitWindow.m in Sources */,
 				24D8E46A119B9D8A00F8CAA6 /* TiMediaAudioRecorderProxy.mm in Sources */,
 				24D8E46F119B9D8A00F8CAA6 /* SCListener.m in Sources */,
 				24D8E470119B9D8A00F8CAA6 /* TiMediaAudioSession.m in Sources */,
+				CEBC15721A95452000CB7B66 /* TiAppiOSUserDefaultsProxy.m in Sources */,
 				24D8E471119B9D8A00F8CAA6 /* TiUIPickerProxy.m in Sources */,
 				24D8E472119B9D8A00F8CAA6 /* TiUIPicker.m in Sources */,
 				24D8E473119B9D8A00F8CAA6 /* TiUIPickerRowProxy.m in Sources */,
@@ -3714,6 +3785,7 @@
 				24D8E494119B9D8A00F8CAA6 /* TiApp.m in Sources */,
 				24D8E495119B9D8A00F8CAA6 /* TiErrorController.m in Sources */,
 				DAA905CF11A35A010030B119 /* TiMediaMusicPlayer.m in Sources */,
+				84EB08021A71932D00D35815 /* TiUIiOSSplitWindowProxy.m in Sources */,
 				DAA905D011A35A010030B119 /* TiMediaItem.m in Sources */,
 				B468B4F211B5816F007D1C1E /* TiLayoutQueue.m in Sources */,
 				242E967911BAD2F20046A0D0 /* AsyncSocket.m in Sources */,
@@ -3784,7 +3856,6 @@
 				5081CEF915F8100E00C881D8 /* TiExceptionHandler.m in Sources */,
 				D93DAA5116CBF8CB00AD64C9 /* CalendarModule.m in Sources */,
 				D93DAA5616CBF8E500AD64C9 /* TiCalendarCalendar.m in Sources */,
-				B6C5206218035AF3002471C6 /* TiUIiOSAttributedStringProxy.m in Sources */,
 				D93DAA5B16CBF8FB00AD64C9 /* TiCalendarAlert.m in Sources */,
 				D93DAA6016CBF91100AD64C9 /* TiCalendarEvent.m in Sources */,
 				D93DAA6516CBFC7C00AD64C9 /* TiCalendarReminder.m in Sources */,
@@ -3879,6 +3950,7 @@
 				DABB36F112E8CB280026A6EA /* TiUIImageViewProxy.m in Sources */,
 				DABB36F212E8CB280026A6EA /* TiUIImageView.m in Sources */,
 				DABB36F312E8CB280026A6EA /* TiUIEmailDialogProxy.m in Sources */,
+				BBD6C2941A3AA22D00FA700E /* TiUIAttributedStringProxy.m in Sources */,
 				DABB36F612E8CB280026A6EA /* TiUICanvasViewProxy.m in Sources */,
 				DABB36F712E8CB280026A6EA /* TiUICanvasView.m in Sources */,
 				DABB36F812E8CB280026A6EA /* TiUIButtonProxy.m in Sources */,
@@ -3950,9 +4022,11 @@
 				DABB373F12E8CB280026A6EA /* ListenerEntry.m in Sources */,
 				DABB374012E8CB280026A6EA /* XMLModule.m in Sources */,
 				DABB374112E8CB280026A6EA /* TiUIiPhoneTableViewScrollPositionProxy.m in Sources */,
+				84EB08081A71948C00D35815 /* TiUIiOSSplitWindow.m in Sources */,
 				DABB374212E8CB280026A6EA /* TiMediaAudioRecorderProxy.mm in Sources */,
 				DABB374712E8CB280026A6EA /* SCListener.m in Sources */,
 				DABB374812E8CB280026A6EA /* TiMediaAudioSession.m in Sources */,
+				CEBC15731A95452000CB7B66 /* TiAppiOSUserDefaultsProxy.m in Sources */,
 				DABB374912E8CB280026A6EA /* TiUIPickerProxy.m in Sources */,
 				DABB374A12E8CB280026A6EA /* TiUIPicker.m in Sources */,
 				DABB374B12E8CB280026A6EA /* TiUIPickerRowProxy.m in Sources */,
@@ -3990,6 +4064,7 @@
 				DABB376C12E8CB280026A6EA /* TiApp.m in Sources */,
 				DABB376D12E8CB280026A6EA /* TiErrorController.m in Sources */,
 				DABB376F12E8CB280026A6EA /* TiMediaMusicPlayer.m in Sources */,
+				84EB08031A71932D00D35815 /* TiUIiOSSplitWindowProxy.m in Sources */,
 				DABB377012E8CB280026A6EA /* TiMediaItem.m in Sources */,
 				DABB377112E8CB280026A6EA /* TiLayoutQueue.m in Sources */,
 				DABB377312E8CB280026A6EA /* AsyncSocket.m in Sources */,
@@ -4060,7 +4135,6 @@
 				5081CEFA15F8100E00C881D8 /* TiExceptionHandler.m in Sources */,
 				D93DAA5216CBF8CB00AD64C9 /* CalendarModule.m in Sources */,
 				D93DAA5716CBF8E500AD64C9 /* TiCalendarCalendar.m in Sources */,
-				B6C5206318035AF3002471C6 /* TiUIiOSAttributedStringProxy.m in Sources */,
 				D93DAA5C16CBF8FB00AD64C9 /* TiCalendarAlert.m in Sources */,
 				D93DAA6116CBF91100AD64C9 /* TiCalendarEvent.m in Sources */,
 				D93DAA6616CBFC7C00AD64C9 /* TiCalendarReminder.m in Sources */,
@@ -4083,6 +4157,7 @@
 			baseConfigurationReference = 241EAEC5118E2BA90081A5BE /* project.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CODE_SIGN_ENTITLEMENTS = Entitlements.plist;
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_CPP_RTTI = NO;
@@ -4095,12 +4170,12 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/lib\"",
+                                        "\"/Users/johneisenheim/Library/Application Support/Titanium/modules/iphone/facebook/4.0.3\"",
                                         "\"/Users/johneisenheim/Documents/Appcelerator_Studio_Workspace/bangcode/modules/iphone/com.pj/1.0.0\"",
                                         "\"/Users/johneisenheim/Documents/Appcelerator_Studio_Workspace/bangcode/modules/iphone/bencoding.blur/0.40-beta\"",
                                         "\"/Users/johneisenheim/Documents/Appcelerator_Studio_Workspace/bangcode/modules/iphone/bencoding.localnotify/0.47\"",
                                         "\"/Users/johneisenheim/Documents/Appcelerator_Studio_Workspace/bangcode/modules/iphone/com.salsarhythmsoftware.zlsound/2.1\"",
                                         "\"/Users/johneisenheim/Library/Application Support/Titanium/modules/iphone/ti.map/2.2.2\"",
-                                        "\"/Users/johneisenheim/Documents/Appcelerator_Studio_Workspace/bangcode/modules/iphone/com.facebook/3.21.10\"",
                                         "\"/Users/johneisenheim/Library/Application Support/Titanium/modules/iphone/ti.coremotion/1.1.0\"",
 					"\"$(SRCROOT)/Classes/APSAnalytics\"",
 					"\"$(SRCROOT)/Classes/APSHTTPClient\"",
@@ -4120,6 +4195,7 @@
 			baseConfigurationReference = 241EAEC5118E2BA90081A5BE /* project.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CODE_SIGN_ENTITLEMENTS = Entitlements.plist;
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Bang!Western Duels_Prefix.pch";
@@ -4129,12 +4205,12 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/lib\"",
+                                        "\"/Users/johneisenheim/Library/Application Support/Titanium/modules/iphone/facebook/4.0.3\"",
                                         "\"/Users/johneisenheim/Documents/Appcelerator_Studio_Workspace/bangcode/modules/iphone/com.pj/1.0.0\"",
                                         "\"/Users/johneisenheim/Documents/Appcelerator_Studio_Workspace/bangcode/modules/iphone/bencoding.blur/0.40-beta\"",
                                         "\"/Users/johneisenheim/Documents/Appcelerator_Studio_Workspace/bangcode/modules/iphone/bencoding.localnotify/0.47\"",
                                         "\"/Users/johneisenheim/Documents/Appcelerator_Studio_Workspace/bangcode/modules/iphone/com.salsarhythmsoftware.zlsound/2.1\"",
                                         "\"/Users/johneisenheim/Library/Application Support/Titanium/modules/iphone/ti.map/2.2.2\"",
-                                        "\"/Users/johneisenheim/Documents/Appcelerator_Studio_Workspace/bangcode/modules/iphone/com.facebook/3.21.10\"",
                                         "\"/Users/johneisenheim/Library/Application Support/Titanium/modules/iphone/ti.coremotion/1.1.0\"",
 					"\"$(SRCROOT)/Classes/APSAnalytics\"",
 					"\"$(SRCROOT)/Classes/APSHTTPClient\"",
@@ -4150,6 +4226,7 @@
 			baseConfigurationReference = 241EAEC5118E2BA90081A5BE /* project.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CODE_SIGN_ENTITLEMENTS = Entitlements.plist;
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -4160,12 +4237,12 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/lib\"",
+                                        "\"/Users/johneisenheim/Library/Application Support/Titanium/modules/iphone/facebook/4.0.3\"",
                                         "\"/Users/johneisenheim/Documents/Appcelerator_Studio_Workspace/bangcode/modules/iphone/com.pj/1.0.0\"",
                                         "\"/Users/johneisenheim/Documents/Appcelerator_Studio_Workspace/bangcode/modules/iphone/bencoding.blur/0.40-beta\"",
                                         "\"/Users/johneisenheim/Documents/Appcelerator_Studio_Workspace/bangcode/modules/iphone/bencoding.localnotify/0.47\"",
                                         "\"/Users/johneisenheim/Documents/Appcelerator_Studio_Workspace/bangcode/modules/iphone/com.salsarhythmsoftware.zlsound/2.1\"",
                                         "\"/Users/johneisenheim/Library/Application Support/Titanium/modules/iphone/ti.map/2.2.2\"",
-                                        "\"/Users/johneisenheim/Documents/Appcelerator_Studio_Workspace/bangcode/modules/iphone/com.facebook/3.21.10\"",
                                         "\"/Users/johneisenheim/Library/Application Support/Titanium/modules/iphone/ti.coremotion/1.1.0\"",
 					"\"$(SRCROOT)/Classes/APSAnalytics\"",
 					"\"$(SRCROOT)/Classes/APSHTTPClient\"",
@@ -4185,6 +4262,7 @@
 			baseConfigurationReference = 241EAEC5118E2BA90081A5BE /* project.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CODE_SIGN_ENTITLEMENTS = Entitlements.plist;
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Bang!Western Duels_Prefix.pch";
@@ -4193,12 +4271,12 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/lib\"",
+                                        "\"/Users/johneisenheim/Library/Application Support/Titanium/modules/iphone/facebook/4.0.3\"",
                                         "\"/Users/johneisenheim/Documents/Appcelerator_Studio_Workspace/bangcode/modules/iphone/com.pj/1.0.0\"",
                                         "\"/Users/johneisenheim/Documents/Appcelerator_Studio_Workspace/bangcode/modules/iphone/bencoding.blur/0.40-beta\"",
                                         "\"/Users/johneisenheim/Documents/Appcelerator_Studio_Workspace/bangcode/modules/iphone/bencoding.localnotify/0.47\"",
                                         "\"/Users/johneisenheim/Documents/Appcelerator_Studio_Workspace/bangcode/modules/iphone/com.salsarhythmsoftware.zlsound/2.1\"",
                                         "\"/Users/johneisenheim/Library/Application Support/Titanium/modules/iphone/ti.map/2.2.2\"",
-                                        "\"/Users/johneisenheim/Documents/Appcelerator_Studio_Workspace/bangcode/modules/iphone/com.facebook/3.21.10\"",
                                         "\"/Users/johneisenheim/Library/Application Support/Titanium/modules/iphone/ti.coremotion/1.1.0\"",
 					"\"$(SRCROOT)/Classes/APSAnalytics\"",
 					"\"$(SRCROOT)/Classes/APSHTTPClient\"",
@@ -4361,6 +4439,7 @@
 			baseConfigurationReference = 241EAEC5118E2BA90081A5BE /* project.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CODE_SIGN_ENTITLEMENTS = Entitlements.plist;
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_CPP_RTTI = NO;
@@ -4373,12 +4452,12 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/lib\"",
+                                        "\"/Users/johneisenheim/Library/Application Support/Titanium/modules/iphone/facebook/4.0.3\"",
                                         "\"/Users/johneisenheim/Documents/Appcelerator_Studio_Workspace/bangcode/modules/iphone/com.pj/1.0.0\"",
                                         "\"/Users/johneisenheim/Documents/Appcelerator_Studio_Workspace/bangcode/modules/iphone/bencoding.blur/0.40-beta\"",
                                         "\"/Users/johneisenheim/Documents/Appcelerator_Studio_Workspace/bangcode/modules/iphone/bencoding.localnotify/0.47\"",
                                         "\"/Users/johneisenheim/Documents/Appcelerator_Studio_Workspace/bangcode/modules/iphone/com.salsarhythmsoftware.zlsound/2.1\"",
                                         "\"/Users/johneisenheim/Library/Application Support/Titanium/modules/iphone/ti.map/2.2.2\"",
-                                        "\"/Users/johneisenheim/Documents/Appcelerator_Studio_Workspace/bangcode/modules/iphone/com.facebook/3.21.10\"",
                                         "\"/Users/johneisenheim/Library/Application Support/Titanium/modules/iphone/ti.coremotion/1.1.0\"",
 					"\"$(SRCROOT)/Classes/APSAnalytics\"",
 					"\"$(SRCROOT)/Classes/APSHTTPClient\"",
@@ -4398,6 +4477,7 @@
 			baseConfigurationReference = 241EAEC5118E2BA90081A5BE /* project.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CODE_SIGN_ENTITLEMENTS = Entitlements.plist;
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -4408,12 +4488,12 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/lib\"",
+                                        "\"/Users/johneisenheim/Library/Application Support/Titanium/modules/iphone/facebook/4.0.3\"",
                                         "\"/Users/johneisenheim/Documents/Appcelerator_Studio_Workspace/bangcode/modules/iphone/com.pj/1.0.0\"",
                                         "\"/Users/johneisenheim/Documents/Appcelerator_Studio_Workspace/bangcode/modules/iphone/bencoding.blur/0.40-beta\"",
                                         "\"/Users/johneisenheim/Documents/Appcelerator_Studio_Workspace/bangcode/modules/iphone/bencoding.localnotify/0.47\"",
                                         "\"/Users/johneisenheim/Documents/Appcelerator_Studio_Workspace/bangcode/modules/iphone/com.salsarhythmsoftware.zlsound/2.1\"",
                                         "\"/Users/johneisenheim/Library/Application Support/Titanium/modules/iphone/ti.map/2.2.2\"",
-                                        "\"/Users/johneisenheim/Documents/Appcelerator_Studio_Workspace/bangcode/modules/iphone/com.facebook/3.21.10\"",
                                         "\"/Users/johneisenheim/Library/Application Support/Titanium/modules/iphone/ti.coremotion/1.1.0\"",
 					"\"$(SRCROOT)/Classes/APSAnalytics\"",
 					"\"$(SRCROOT)/Classes/APSHTTPClient\"",
@@ -4433,6 +4513,7 @@
 			baseConfigurationReference = 241EAEC5118E2BA90081A5BE /* project.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CODE_SIGN_ENTITLEMENTS = Entitlements.plist;
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -4443,12 +4524,12 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/lib\"",
+                                        "\"/Users/johneisenheim/Library/Application Support/Titanium/modules/iphone/facebook/4.0.3\"",
                                         "\"/Users/johneisenheim/Documents/Appcelerator_Studio_Workspace/bangcode/modules/iphone/com.pj/1.0.0\"",
                                         "\"/Users/johneisenheim/Documents/Appcelerator_Studio_Workspace/bangcode/modules/iphone/bencoding.blur/0.40-beta\"",
                                         "\"/Users/johneisenheim/Documents/Appcelerator_Studio_Workspace/bangcode/modules/iphone/bencoding.localnotify/0.47\"",
                                         "\"/Users/johneisenheim/Documents/Appcelerator_Studio_Workspace/bangcode/modules/iphone/com.salsarhythmsoftware.zlsound/2.1\"",
                                         "\"/Users/johneisenheim/Library/Application Support/Titanium/modules/iphone/ti.map/2.2.2\"",
-                                        "\"/Users/johneisenheim/Documents/Appcelerator_Studio_Workspace/bangcode/modules/iphone/com.facebook/3.21.10\"",
                                         "\"/Users/johneisenheim/Library/Application Support/Titanium/modules/iphone/ti.coremotion/1.1.0\"",
 					"\"$(SRCROOT)/Classes/APSAnalytics\"",
 					"\"$(SRCROOT)/Classes/APSHTTPClient\"",
@@ -4474,6 +4555,7 @@
 			baseConfigurationReference = 241EAEC5118E2BA90081A5BE /* project.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CODE_SIGN_ENTITLEMENTS = Entitlements.plist;
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -4484,12 +4566,12 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/lib\"",
+                                        "\"/Users/johneisenheim/Library/Application Support/Titanium/modules/iphone/facebook/4.0.3\"",
                                         "\"/Users/johneisenheim/Documents/Appcelerator_Studio_Workspace/bangcode/modules/iphone/com.pj/1.0.0\"",
                                         "\"/Users/johneisenheim/Documents/Appcelerator_Studio_Workspace/bangcode/modules/iphone/bencoding.blur/0.40-beta\"",
                                         "\"/Users/johneisenheim/Documents/Appcelerator_Studio_Workspace/bangcode/modules/iphone/bencoding.localnotify/0.47\"",
                                         "\"/Users/johneisenheim/Documents/Appcelerator_Studio_Workspace/bangcode/modules/iphone/com.salsarhythmsoftware.zlsound/2.1\"",
                                         "\"/Users/johneisenheim/Library/Application Support/Titanium/modules/iphone/ti.map/2.2.2\"",
-                                        "\"/Users/johneisenheim/Documents/Appcelerator_Studio_Workspace/bangcode/modules/iphone/com.facebook/3.21.10\"",
                                         "\"/Users/johneisenheim/Library/Application Support/Titanium/modules/iphone/ti.coremotion/1.1.0\"",
 					"\"$(SRCROOT)/Classes/APSAnalytics\"",
 					"\"$(SRCROOT)/Classes/APSHTTPClient\"",
@@ -4515,6 +4597,7 @@
 			baseConfigurationReference = 241EAEC5118E2BA90081A5BE /* project.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CODE_SIGN_ENTITLEMENTS = Entitlements.plist;
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Bang!Western Duels_Prefix.pch";
@@ -4523,12 +4606,12 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/lib\"",
+                                        "\"/Users/johneisenheim/Library/Application Support/Titanium/modules/iphone/facebook/4.0.3\"",
                                         "\"/Users/johneisenheim/Documents/Appcelerator_Studio_Workspace/bangcode/modules/iphone/com.pj/1.0.0\"",
                                         "\"/Users/johneisenheim/Documents/Appcelerator_Studio_Workspace/bangcode/modules/iphone/bencoding.blur/0.40-beta\"",
                                         "\"/Users/johneisenheim/Documents/Appcelerator_Studio_Workspace/bangcode/modules/iphone/bencoding.localnotify/0.47\"",
                                         "\"/Users/johneisenheim/Documents/Appcelerator_Studio_Workspace/bangcode/modules/iphone/com.salsarhythmsoftware.zlsound/2.1\"",
                                         "\"/Users/johneisenheim/Library/Application Support/Titanium/modules/iphone/ti.map/2.2.2\"",
-                                        "\"/Users/johneisenheim/Documents/Appcelerator_Studio_Workspace/bangcode/modules/iphone/com.facebook/3.21.10\"",
                                         "\"/Users/johneisenheim/Library/Application Support/Titanium/modules/iphone/ti.coremotion/1.1.0\"",
 					"\"$(SRCROOT)/Classes/APSAnalytics\"",
 					"\"$(SRCROOT)/Classes/APSHTTPClient\"",

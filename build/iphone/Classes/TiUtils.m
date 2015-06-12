@@ -775,30 +775,36 @@ If the new path starts with / and the base url is app://..., we have to massage 
 		return [NSURL URLWithString:relativeString];
 	}
 
-	NSURL *result = nil;
-		
-	// don't bother if we don't at least have a path and it's not remote
-	//TODO: What is this mess? -BTH
-	if ([relativeString hasPrefix:@"http://"] || [relativeString hasPrefix:@"https://"])
-	{
-		NSRange range = [relativeString rangeOfString:@"/" options:0 range:NSMakeRange(7, [relativeString length]-7)];
-		if (range.location!=NSNotFound)
-		{
-			NSString *firstPortion = [relativeString substringToIndex:range.location];
-			NSString *pathPortion = [relativeString substringFromIndex:range.location];
-			CFStringRef escapedPath = CFURLCreateStringByAddingPercentEscapes(kCFAllocatorDefault,
-					(CFStringRef)pathPortion, charactersToNotEscape,charactersThatNeedEscaping,
-					kCFStringEncodingUTF8);
-			relativeString = [firstPortion stringByAppendingString:(NSString *)escapedPath];
-			if(escapedPath != NULL)
-			{
-				CFRelease(escapedPath);
-			}
-		}
-	}
-
-	result = [NSURL URLWithString:relativeString relativeToURL:rootPath];
+    NSURL *result = nil;
     
+    // don't bother if we don't at least have a path and it's not remote
+    //TODO: What is this mess? -BTH
+    if ([relativeString hasPrefix:@"http://"] || [relativeString hasPrefix:@"https://"])
+    {
+        NSRange range = [relativeString rangeOfString:@"/" options:0 range:NSMakeRange(7, [relativeString length]-7)];
+        if (range.location!=NSNotFound)
+        {
+            NSString *firstPortion = [relativeString substringToIndex:range.location];
+            NSString *pathPortion = [relativeString substringFromIndex:range.location];
+            CFStringRef escapedPath = CFURLCreateStringByAddingPercentEscapes(kCFAllocatorDefault,
+                                                                              (CFStringRef)pathPortion, charactersToNotEscape,charactersThatNeedEscaping,
+                                                                              kCFStringEncodingUTF8);
+            relativeString = [firstPortion stringByAppendingString:(NSString *)escapedPath];
+            if(escapedPath != NULL)
+            {
+                CFRelease(escapedPath);
+            }
+        }
+        result = [NSURL URLWithString:relativeString relativeToURL:rootPath];
+    } else {
+        //only add percentescape if there are spaces in relativestring
+        if ([[relativeString componentsSeparatedByString:@" "] count] -1 == 0) {
+            result = [NSURL URLWithString:relativeString relativeToURL:rootPath];
+        }
+        else {
+            result = [NSURL URLWithString:[relativeString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding] relativeToURL:rootPath];
+        }
+    }
     //TIMOB-18262
     if (result && ([[result scheme] isEqualToString:@"file"])){
         BOOL isDir = NO;
@@ -1540,26 +1546,16 @@ if ([str isEqualToString:@#orientation]) return (UIDeviceOrientation)orientation
     UIBarStyle barStyle = [self barStyleForColor:color];
     BOOL isTranslucent = [self barTranslucencyForColor:color];
 
-    BOOL isIOS7 = [self isIOS7OrGreater];
-
     UINavigationBar * navBar = [navController navigationBar];
     [navBar setBarStyle:barStyle];
     [navBar setTranslucent:isTranslucent];
-    if(isIOS7) {
-        [navBar performSelector:@selector(setBarTintColor:) withObject:barColor];
-    } else {
-        [navBar setTintColor:barColor];
-    }
+    [navBar setBarTintColor:barColor];
     
     //This should not be here but in setToolBar. But keeping in place. Clean in 3.2.0
     UIToolbar * toolBar = [navController toolbar];
     [toolBar setBarStyle:barStyle];
     [toolBar setTranslucent:isTranslucent];
-    if(isIOS7) {
-        [toolBar performSelector:@selector(setBarTintColor:) withObject:barColor];
-    } else {
-        [toolBar setTintColor:barColor];
-    }
+    [toolBar setBarTintColor:barColor];
 }
 
 +(NSString*)replaceString:(NSString *)string characters:(NSCharacterSet *)characterSet withString:(NSString *)replacementString

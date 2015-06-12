@@ -128,6 +128,12 @@ function StartChallengeView() {
 		title : 'Imposta data'
 	};
 
+	var fakeView = Titanium.UI.createView({
+		width : 1,
+		height : 15,
+		backgroundColor : '#F5F4F2'
+	});
+
 	var dialog = Ti.UI.createOptionDialog(opts);
 
 	dialog.addEventListener('click', function(e) {
@@ -225,12 +231,12 @@ function StartChallengeView() {
 			var QuickGame = require('ui/quickGame/QuickGame');
 			var quickGame = new QuickGame();
 			quickGame.setIDOpponent(currentID);
-			global.mainTab.open(quickGame, {
+			Ti.API.info(currentID);
+			quickGame.open({
 				modal : true,
 				modalTransitionStyle : Ti.UI.iPhone.MODAL_TRANSITION_STYLE_COVER_VERTICAL,
 				modalStyle : Ti.UI.iPhone.MODAL_PRESENTATION_FORMSHEET
 			});
-
 		} else {
 			loader.showLoader(self);
 			var text = whenTile.getTitle();
@@ -249,14 +255,14 @@ function StartChallengeView() {
 						var minutes = time[1];
 						minutes = minutes - 5;
 						var month = months[splitted[1]];
-						var date = new Date(splitted[2],month-1,splitted[0],hh,minutes,0,0);
+						var date = new Date(splitted[2], month - 1, splitted[0], hh, minutes, 0, 0);
 						//response.last_id
 						Ti.App.iOS.scheduleLocalNotification({
 							alertBody : 'Un nuovo duello ti aspetta!',
 							badge : 1,
 							sound : 'music/notification.mp3',
 							userInfo : {
-								"id": response.last_id
+								"id" : response.last_id
 							},
 							date : date,
 							category : 'DUEL',
@@ -316,6 +322,7 @@ function StartChallengeView() {
 	self.add(challengerTile);
 	self.add(challengerSubtitle);
 	self.add(sendChallengeButton);
+	self.add(fakeView);
 	//self.add(challengeController);
 
 	return self;

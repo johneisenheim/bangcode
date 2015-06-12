@@ -2,8 +2,6 @@ function QuickGameView(){
 	
 	var Motion = require('core/Motion');
 	var motion = new Motion();
-
-	self.flag = false;
 	var status = 0;
 
 	var orientation = 0;
@@ -21,6 +19,8 @@ function QuickGameView(){
 		isGunAdded : false
 		//top : 10
 	});
+	
+	self.flag = false;
 
 	var label = Titanium.UI.createLabel({
 		top : 60,

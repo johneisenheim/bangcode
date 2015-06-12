@@ -39,7 +39,7 @@ function MainWindow() {
 		tabBarHidden : true,
 		rightNavButton : settingsButton,
 		leftNavButton : tutorialButton,
-		clipMode : Titanium.UI.iOS.CLIP_MODE_ENABLED
+		//clipMode : Titanium.UI.iOS.CLIP_MODE_ENABLED
 	});
 
 	self.add(mainView);

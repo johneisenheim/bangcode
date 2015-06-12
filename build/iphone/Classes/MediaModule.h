@@ -63,6 +63,7 @@
 @property(nonatomic,readonly) NSDictionary* currentRoute;
 @property(nonatomic,readonly) NSNumber* audioPlaying;
 @property(nonatomic,readonly) NSNumber* isCameraSupported;
+@property(nonatomic,readonly) NSNumber* cameraAuthorizationStatus;
 @property(nonatomic, assign) NSNumber* audioSessionMode;
 @property(nonatomic, assign) NSString* audioSessionCategory;
 @property(nonatomic,readonly) TiMediaMusicPlayer* systemMusicPlayer;
@@ -100,6 +101,11 @@
 @property(nonatomic,readonly) NSNumber* CAMERA_FLASH_OFF;
 @property(nonatomic,readonly) NSNumber* CAMERA_FLASH_AUTO;
 @property(nonatomic,readonly) NSNumber* CAMERA_FLASH_ON;
+
+@property(nonatomic,readonly) NSNumber* CAMERA_AUTHORIZATION_AUTHORIZED;
+@property(nonatomic,readonly) NSNumber* CAMERA_AUTHORIZATION_DENIED;
+@property(nonatomic,readonly) NSNumber* CAMERA_AUTHORIZATION_RESTRICTED;
+@property(nonatomic,readonly) NSNumber* CAMERA_AUTHORIZATION_NOT_DETERMINED;
 
 @property(nonatomic,readonly) NSString* MEDIA_TYPE_VIDEO;
 @property(nonatomic,readonly) NSString* MEDIA_TYPE_PHOTO;

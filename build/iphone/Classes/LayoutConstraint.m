@@ -216,6 +216,13 @@ CGSize SizeConstraintViewWithSizeAddingResizing(LayoutConstraint * constraint, N
 
 CGPoint PositionConstraintGivenSizeBoundsAddingResizing(LayoutConstraint * constraint, TiViewProxy* viewProxy, CGSize viewSize, CGPoint anchorPoint, CGSize referenceSize, CGSize sandboxSize, UIViewAutoresizing * resultResizing)
 {
+    BOOL clearMargins = NO;
+    TiViewProxy* parent = [viewProxy parent];
+    if (parent != nil && (!TiLayoutRuleIsAbsolute([parent layoutProperties]->layoutStyle))) {
+        //Calculated Sandbox implies fixed margins
+        clearMargins = YES;
+    }
+
     BOOL flexibleSize = *resultResizing & UIViewAutoresizingFlexibleWidth;
     
     *resultResizing &= ~(UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleBottomMargin);
@@ -245,7 +252,7 @@ CGPoint PositionConstraintGivenSizeBoundsAddingResizing(LayoutConstraint * const
         {
             marginSuggestions++;
         }
-        else if (!flexibleSize)
+        else if (!flexibleSize && !clearMargins)
         {
             *resultResizing |= UIViewAutoresizingFlexibleLeftMargin;
         }
@@ -258,7 +265,7 @@ CGPoint PositionConstraintGivenSizeBoundsAddingResizing(LayoutConstraint * const
                 marginSuggestions++;
                 frameLeft += sandboxSize.width - viewSize.width - frameRight;
             }
-            else if (!flexibleSize)
+            else if (!flexibleSize && !clearMargins)
             {
                 *resultResizing |= UIViewAutoresizingFlexibleRightMargin;
             }
@@ -300,7 +307,7 @@ CGPoint PositionConstraintGivenSizeBoundsAddingResizing(LayoutConstraint * const
         {
             marginSuggestions++;
         }
-        else if (!flexibleSize)
+        else if (!flexibleSize && !clearMargins)
         {
             *resultResizing |= UIViewAutoresizingFlexibleTopMargin;
         }
@@ -311,7 +318,7 @@ CGPoint PositionConstraintGivenSizeBoundsAddingResizing(LayoutConstraint * const
                 marginSuggestions++;
                 frameTop += sandboxSize.height - viewSize.height - frameBottom;
             }
-            else if (!flexibleSize)
+            else if (!flexibleSize && !clearMargins)
             {
                 *resultResizing |= UIViewAutoresizingFlexibleBottomMargin;
             }

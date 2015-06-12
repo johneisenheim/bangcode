@@ -7,8 +7,8 @@ function MainView() {
 
 	var self = Titanium.UI.createScrollView({
 		backgroundColor : '#F5F4F2',
-		width : Ti.UI.SIZE,
-		height : Ti.UI.SIZE,
+		width : '100%',
+		height : '100%',
 		layout : 'vertical',
 		top : 10
 	});
@@ -53,6 +53,12 @@ function MainView() {
 		color : '#856C64',
 		top : 10
 	});
+	
+	var fakeView = Titanium.UI.createView({
+		width : 1,
+		height : 15,
+		backgroundColor : '#F5F4F2'
+	});
 
 	duelsTile.initialize(String.format(L('main:duelLabel'), ''), 35, 21);
 	challengesTile.initialize(String.format(L('main:challengesLabel'), ''), 10, 21);
@@ -66,6 +72,7 @@ function MainView() {
 	self.add(challengesTile);
 	self.add(statsTile);
 	self.add(quickGameFinderButton);
+	self.add(fakeView);
 
 	quickGameFinderButton.addEventListener('click', function() {
 		var QuickGameFinder = require('ui/quickGame/QuickGameFinder');
