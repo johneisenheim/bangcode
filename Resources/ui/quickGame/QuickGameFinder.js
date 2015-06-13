@@ -7,6 +7,7 @@ function QuickGameFinder() {
 	var vsStatus = 'notready';
 	var random = 0;
 	var counter = 0;
+	var interval = null;
 
 	var QuickGameFinderView = require('ui/quickGame/QuickGameFinderView');
 	var quickGameFinderView = new QuickGameFinderView();
@@ -133,7 +134,7 @@ function QuickGameFinder() {
 				telepathy.sendData(status + ':');
 				break;
 			case 'start':
-				counter = 3+random;
+				counter = 3 + parseInt(random);
 				Ti.API.info('[INFO] Counter is '+counter);
 				startCountdown();
 				ticSound.play();
@@ -153,7 +154,7 @@ function QuickGameFinder() {
 			Ti.App.fireEvent('user_can_fire', {});
 			clearInterval(interval);
 		} else {
-			Ti.API.info(counter);
+			Ti.API.info('[INFO] _countdown '+counter);
 			counter = counter - 1;
 		}
 	}
@@ -173,11 +174,6 @@ function QuickGameFinder() {
 		telepathy = null;
 		self.close();
 	});
-
-	/*self.addEventListener('open', function() {
-	//fadeOut();
-	player.stop();
-	});*/
 
 	self.add(statusLabel);
 	self.add(closeButton);

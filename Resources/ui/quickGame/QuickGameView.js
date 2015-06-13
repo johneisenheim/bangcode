@@ -1,15 +1,15 @@
-function QuickGameView(){
-	
+function QuickGameView() {
+
 	var Motion = require('core/Motion');
 	var motion = new Motion();
 	var status = 0;
 
 	var orientation = 0;
-	
-    var loadSound = ZLSound.createSample({
-        media: 'music/gun_loading.mp3',
-        volume : 1.0
-    });
+
+	var loadSound = ZLSound.createSample({
+		media : 'music/gun_loading.mp3',
+		volume : 1.0
+	});
 
 	var self = Titanium.UI.createView({
 		width : '100%',
@@ -19,8 +19,10 @@ function QuickGameView(){
 		isGunAdded : false
 		//top : 10
 	});
+
+	var flag = false;
 	
-	self.flag = false;
+	var masterCanSendStartPacket = false;
 
 	var label = Titanium.UI.createLabel({
 		top : 60,
@@ -51,9 +53,10 @@ function QuickGameView(){
 	});
 
 	var whenUpside = function() {
-		if (self.flag) {
+		if (flag) {
 			motion.imInStarting = true;
-			Ti.API.info('im in starting ' + motion.imInStarting);
+			masterCanSendStartPacket = true;
+			//Ti.API.info('im in starting ' + motion.imInStarting);
 			loadSound.play();
 		}
 	};
@@ -87,15 +90,19 @@ function QuickGameView(){
 
 	Ti.App.addEventListener('position', function(e) {
 		if (e.what) {
-			if (!self.flag){
-				self.flag = true;
+			if (!flag) {
+				flag = true;
 			}
 		} else {
 			Ti.Media.vibrate();
-			if (self.flag)
-				self.flag = false;
+			if (flag)
+				flag = false;
 		}
 	});
+	
+	self.canISendStartPacket = function(){
+		return masterCanSendStartPacket;
+	};
 
 	self.add(label);
 	self.add(position);

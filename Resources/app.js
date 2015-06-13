@@ -105,6 +105,8 @@ if (Ti.Platform.name == "iPhone OS" && parseInt(Ti.Platform.version.split(".")[0
 	});
 }
 
+Ti.App.idleTimerDisabled = true;
+
 // Monitor notifications received while app is in the foreground
 Ti.App.iOS.addEventListener('notification', function(e) {
 	// Reset the badge value

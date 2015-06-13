@@ -113,7 +113,8 @@ function QuickGame() {
 				telepathy.sendData('tellme:');
 				break;
 			case 'ready':
-				if (quickGameView.flag) {
+				Ti.API.info('Can I send Start packet? '+quickGameView.canISendStartPacket());
+				if (quickGameView.canISendStartPacket()) {
 					telepathy.sendData('start:');
 					counter = 3 + random;
 					//setTimeout(function() {
