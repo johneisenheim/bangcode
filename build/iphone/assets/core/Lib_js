@@ -1,0 +1,1 @@
+function Lib(){var e={};return e.calculateHeight=function(e){return e*Titanium.Platform.displayCaps.platformHeight/667},e.calculateWidth=function(e){return e*Titanium.Platform.displayCaps.platformWidth/375},e}module.exports=Lib;

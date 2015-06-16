@@ -1,11 +1,23 @@
 function QuickGame() {
 
-	var Telepathy = require('com.pj');
+	var Telepathy = null;
 	var telepathy = null;
+	var telepathyStartedServices = false;
 	var QuickGameView = require('ui/quickGame/QuickGameView');
 	var quickGameView = new QuickGameView();
 	var counter = 0;
 	var interval = null;
+	var Calculating = null;
+	var calculating = null;
+
+	var firstTimeExchange = true;
+
+	var duelTime = 0;
+
+	var myAcceleration = 0;
+	var vsAcceleration = 0;
+
+	var idWinner = 0;
 
 	var random = Math.floor((Math.random() * 4) + 1);
 
@@ -49,8 +61,26 @@ function QuickGame() {
 
 	loader.showLoader(self);
 
+	var closeButton = Titanium.UI.createButton({
+		title : 'Chiudi',
+		font : {
+			fontSize : 19
+		},
+		color : '#856C64',
+		top : 20,
+		right : 15
+	});
+
+	var dialog = Ti.UI.createAlertDialog({
+		//message : 'Il tuo dispositivo sembra non essere connesso ad Internet.',
+		ok : 'Okay',
+		title : 'Bang!'
+	});
+
 	var initQuickGameCallback = function() {
 		Ti.API.info('initQuickGameCallback');
+		Ti.API.info('Telepathy is null');
+		Telepathy = require('com.pj');
 		telepathy = Telepathy.createSession();
 		var bluetoothState = telepathy.checkBluetoothAccess();
 		telepathy.addEventListener('bluetoothState', function(e) {
@@ -80,6 +110,7 @@ function QuickGame() {
 				statusLabel.text = 'Ricerco l\'avversario...';
 				Ti.API.info(opponentID);
 				telepathy.setupSessionAndStartServices(Ti.App.Properties.getString('fb_id'), opponentID, 1);
+				telepathyStartedServices = true;
 				break;
 			}
 		});
@@ -94,6 +125,7 @@ function QuickGame() {
 			setTimeout(function() {
 				loader.hideLoader(self);
 				self.remove(statusLabel);
+				quickGameView.initialize();
 				self.add(quickGameView);
 				telepathy.sendData('tellme:');
 				telepathy.sendData('random:' + random);
@@ -106,6 +138,8 @@ function QuickGame() {
 		});
 
 		telepathy.addEventListener('didReceiveData', function(e) {
+			if(!telepathyStartedServices)
+				return;
 			var sMessage = (e.message).split(':');
 			Ti.API.info("[INFO] RECEIVED MESSAGE : " + sMessage[0]);
 			switch(sMessage[0]) {
@@ -113,17 +147,103 @@ function QuickGame() {
 				telepathy.sendData('tellme:');
 				break;
 			case 'ready':
-				Ti.API.info('Can I send Start packet? '+quickGameView.canISendStartPacket());
+				Ti.API.info('Can I send Start packet? ' + quickGameView.canISendStartPacket());
 				if (quickGameView.canISendStartPacket()) {
 					telepathy.sendData('start:');
 					counter = 3 + random;
 					//setTimeout(function() {
-						ticSound.play();
-						startCountdown();
+					ticSound.play();
+					startCountdown();
 					//}, 100);
 				} else {
 					telepathy.sendData('tellme:');
 				}
+				break;
+			case 'fault':
+				ticSound.stop();
+				clearInterval(interval);
+				myTime = 0;
+				vsTime = 888888888;
+				var tmp_motion = quickGameView.getMotionObject();
+				tmp_motion.stopMotionRecognizer();
+				var Win = require('ui/winlose/Win');
+				var win = new Win(self);
+				idWinner = Ti.App.Properties.getString('fb_id');
+				sendDataToServer(opponentID, idWinner, random, myTime, vsTime, myAcceleration, vsAcceleration);
+				self.add(win);
+				win.playSound();
+				break;
+			case 'calculate':
+				vsTime = sMessage[1];
+				Ti.API.info('vs time is ' + vsTime);
+				if (myTime < vsTime) {
+					telepathy.sendData('youLoose:');
+					var Win = require('ui/winlose/Win');
+					var win = new Win(self);
+					idWinner = Ti.App.Properties.getString('fb_id');
+					sendDataToServer(opponentID, idWinner, random, myTime, vsTime, myAcceleration, vsAcceleration);
+					setTimeout(function() {
+						self.remove(calculating);
+						self.add(win);
+						win.playSound();
+					}, 2500);
+				} else if (myTime > vsTime) {
+					telepathy.sendData('youWin:');
+					var Lose = require('ui/winlose/Lose');
+					var lose = new Lose(self);
+					idWinner = opponentID;
+					sendDataToServer(opponentID, idWinner, random, myTime, vsTime, myAcceleration, vsAcceleration);
+					setTimeout(function() {
+						self.remove(calculating);
+						self.add(lose);
+						lose.playSound();
+					}, 2500);
+				} else {
+					telepathy.sendData('youLoose:');
+					var Lose = require('ui/winlose/Lose');
+					var lose = new Lose(self);
+					idWinner = opponentID;
+					sendDataToServer(opponentID, idWinner, random, myTime, vsTime, myAcceleration, vsAcceleration);
+					setTimeout(function() {
+						self.remove(calculating);
+						self.add(lose);
+						lose.playSound();
+					}, 2500);
+				}
+				break;
+			case 'times':
+				vsTime = sMessage[1];
+				Ti.API.info('vs time is ' + vsTime);
+				if (myTime != 0) {
+					if (myTime < vsTime) {
+						telepathy.sendData('youLoose:');
+						var Win = require('ui/winlose/Win');
+						var win = new Win(self);
+						win.setLabelText('Hai vinto. Il tuo tempo è ' + myTime + ' e il tempo dell\'avversario è ' + vsTime);
+						idWinner = Ti.App.Properties.getString('fb_id');
+						sendDataToServer(opponentID, idWinner, random, myTime, vsTime, myAcceleration, vsAcceleration);
+						setTimeout(function() {
+							self.remove(calculating);
+							self.add(win);
+							win.playSound();
+						}, 2500);
+					} else {
+						telepathy.sendData('youWin:');
+						var Lose = require('ui/winlose/Lose');
+						var lose = new Lose(self);
+						lose.setLabelText('Hai perso. Il tuo tempo è ' + myTime + ' e il tempo dell\'avversario è ' + vsTime);
+						sendDataToServer(opponentID, idWinner, random, myTime, vsTime, myAcceleration, vsAcceleration);
+						idWinner = opponentID;
+						setTimeout(function() {
+							self.remove(calculating);
+							self.add(lose);
+							lose.playSound();
+						}, 2500);
+					}
+				}
+				break;
+			case 'acceleration':
+				vsAcceleration = sMessage[1];
 				break;
 			}
 		});
@@ -134,11 +254,12 @@ function QuickGame() {
 			//countdown.text = 'BANG!!!';
 			Ti.API.info('countdown BANG!');
 			ticSound.stop();
-			//setTimeout(function() {
-			churchbellSound.play();
-			Ti.App.fireEvent('user_can_fire', {});
 			clearInterval(interval);
-			//},300);
+			setTimeout(function() {
+				startTime = new Date();
+				churchbellSound.play();
+				Ti.App.fireEvent('user_can_fire', {});
+			}, 300);
 		} else {
 			Ti.API.info(counter);
 			counter = counter - 1;
@@ -147,12 +268,15 @@ function QuickGame() {
 	}
 
 	function startCountdown() {
-		interval = setInterval(function() {
-			Ti.API.info('called startCountdown');
-			count();
-		}, 1000);
+		interval = setInterval(count, 1000);
 	}
 
+
+	Ti.App.addEventListener('fault', function() {
+		clearInterval(interval);
+		ticSound.stop();
+		telepathy.sendData('fault:');
+	});
 
 	self.setIDOpponent = function(id) {
 		Ti.API.info('Opponent ID is ' + id);
@@ -161,10 +285,105 @@ function QuickGame() {
 
 	self.addEventListener('open', initQuickGameCallback);
 
+	closeButton.addEventListener('click', function() {
+		self.close();
+	});
+
+	Ti.App.addEventListener('timeExchange', function(e) {
+		if (!firstTimeExchange)
+			return;
+		if (e.flag == 999999999 || e.flag == 88888888) {
+			Ti.API.info('e.flag: ' + e.flag);
+			myTime = e.flag;
+			try {
+				telepathy.sendData('times:' + e.flag);
+			} catch(ex) {
+			}
+		} else {
+			myTime = diffTime;
+			Ti.API.info('myTime not parsed ' + myTime);
+			Ti.API.info('myTime parsed ' + parseFloat(myTime));
+			try {
+				telepathy.sendData('times:' + diffTime);
+			} catch(ex) {
+			}
+		}
+		myAcceleration = e.acceleration;
+		Calculating = require('ui/winlose/Calculating');
+		calculating = new Calculating();
+		quickGameView.removeEventOnOrientation();
+		self.remove(quickGameView);
+		self.add(calculating);
+		firstTimeExchange = false;
+	});
+
 	self.add(statusLabel);
+	self.add(closeButton);
+	
+	var closingFunction = function(){
+		Ti.API.info('closing window...');
+		if(telepathyStartedServices)
+			telepathy.stopServices();
+		Telepathy = null;
+		telepathy = null;
+		myTime = 0;
+		vsTime = 0;
+		startTime = 0;
+		endTime = 0;
+		diffTime = 0;
+		quickGameView.deallocModule();
+		quickGameView = null;
+		QuickGameView = null;
+	};
+
+	self.addEventListener('close', closingFunction);
 
 	return self;
 
+}
+
+function sendDataToServer(opponentID, idWinner, random, myTime, vsTime, myAcceleration, vsAcceleration) {
+	var request = Ti.Network.createHTTPClient({
+		onload : function(e) {
+			Ti.API.info("Received text: " + this.responseText);
+			var response = JSON.parse(this.responseText);
+			if (response.return == 0) {
+				Ti.API.info('duello registrato');
+			} else if (response.return == -1) {
+				Ti.API.info('duello NON registrato');
+			}
+		},
+		onerror : function(e) {
+			Ti.API.debug(e.error);
+		},
+		timeout : 5000
+	});
+
+	var dataToSend = {
+		player_one : Ti.App.Properties.getString('fb_id'),
+		player_two : opponentID,
+		id_winner : idWinner,
+		status : 0,
+		round_time : random,
+		acceleration1 : myAcceleration,
+		acceleration2 : vsAcceleration,
+		diff_timestamp1 : myTime,
+		diff_timestamp2 : vsTime
+	};
+
+	if (myTime == 999999999)
+		dataToSend.num_faults1 = 1;
+	else
+		dataToSend.num_faults1 = 0;
+
+	if (vsTime == 999999999)
+		dataToSend.num_faults2 = 1;
+	else
+		dataToSend.num_faults2 = 0;
+
+	Ti.API.info(JSON.stringify(dataToSend));
+	request.open("GET", global.bangServerUrl + '/challenge-quickgameChallenge.php?challenge=' + JSON.stringify(dataToSend));
+	request.send();
 }
 
 module.exports = QuickGame;

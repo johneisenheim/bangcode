@@ -3,6 +3,8 @@ function QuickGameView() {
 	var Motion = require('core/Motion');
 	var motion = new Motion();
 	var status = 0;
+	
+	var iHaveAlreadyLoadedTheGun = false;
 
 	var orientation = 0;
 
@@ -54,17 +56,27 @@ function QuickGameView() {
 
 	var whenUpside = function() {
 		if (flag) {
-			motion.imInStarting = true;
-			masterCanSendStartPacket = true;
-			//Ti.API.info('im in starting ' + motion.imInStarting);
-			loadSound.play();
+			if (!iHaveAlreadyLoadedTheGun) {
+				motion.imInStarting = true;
+				Ti.API.info('im in starting ' + motion.imInStarting);
+				loadSound.play();
+				iHaveAlreadyLoadedTheGun = true;
+				masterCanSendStartPacket = true;
+			}
 		}
 	};
 
 	gun.addEventListener('click', whenUpside);
-
-	Ti.Gesture.addEventListener('orientationchange', function(e) {
+	
+	var orientationChangeCallback = function(e){
 		orientation = e.orientation;
+		if( Motion == null ){
+			Ti.API.info('Motion is null');
+			Motion = require('core/Motion');
+			motion = new Motion();
+		}else{
+			Ti.API.info('Motion is not null.');
+		}
 		Ti.API.info(orientation);
 		switch(e.orientation) {
 		case 2:
@@ -86,7 +98,7 @@ function QuickGameView() {
 		default:
 			break;
 		}
-	});
+	};
 
 	Ti.App.addEventListener('position', function(e) {
 		if (e.what) {
@@ -95,13 +107,31 @@ function QuickGameView() {
 			}
 		} else {
 			Ti.Media.vibrate();
+			Ti.Media.beep();
 			if (flag)
 				flag = false;
 		}
 	});
 	
+	self.initialize = function(){
+		Ti.Gesture.addEventListener('orientationchange', orientationChangeCallback);
+	};
+	
 	self.canISendStartPacket = function(){
 		return masterCanSendStartPacket;
+	};
+	
+	self.getMotionObject = function(){
+		return motion;
+	};
+	
+	self.deallocModule = function(){
+		Motion = null;
+		motion = null;
+	};
+	
+	self.removeEventOnOrientation = function(){
+		Ti.Gesture.removeEventListener('orientationchange', orientationChangeCallback);
 	};
 
 	self.add(label);

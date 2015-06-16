@@ -3,24 +3,20 @@ function Motion() {
 	var CoreMotion = require('ti.coremotion');
 
 	var self = {};
-
-	var accelX = accelY = accelZ = 0;
-	var lastX = lastY = lastZ = 0;
-	var ACCEL_THRESHOLD = 1;
-	var SHAKE_THRESHOLD = 1;
+	
 	self.imInStarting = false;
-	var stopCatchingYaw = false;
 	var startCountdown = false;
-	var startingYaw = 0;
 	var userCanFire = false;
-	var timeout = null;
 	var shouldListeningForPosition = true;
+	var currentYaw = 0;
+	var positionReached = true;  
+	/*siccome il richiamo della funzione di callback del motion è molto veloce, può accedere che si
+	 * possa fare bang, missed o fault anche quando una delle condizioni avvenga. Quindi usiamo questo flag
+	 * */
 
-	/*var bangSound = Ti.Media.createSound({
-	 url : "music/colt_shot.mp3",
-	 looping : false,
-	 volume : 1
-	 });*/
+	var pitch,
+	    roll,
+	    yaw;
 
 	var bangSound = ZLSound.createSample({
 		media : 'music/colt_shot.mp3',
@@ -28,32 +24,23 @@ function Motion() {
 	});
 
 	var missSound = ZLSound.createSample({
-		media : 'music/colt_shot.mp3',
+		media : 'music/missed.mp3',
+		volume : 1.0
+	});
+
+	var faultSound = ZLSound.createSample({
+		media : 'music/fault.mp3',
 		volume : 1.0
 	});
 
 	self.startMotionRecognizer = function() {
 		if (CoreMotion.isDeviceMotionAvailable()) {
-			CoreMotion.setDeviceMotionUpdateInterval(200);
+			CoreMotion.setDeviceMotionUpdateInterval(20);
 			var frames = CoreMotion.availableAttitudeReferenceFrames();
-			var ref_frame = CoreMotion.ATTITUDE_REFERENCE_FRAME_X_ARBITRARY_CORRECTED_Z_VERTICAL;
-			if (frames & ref_frame) {
-				// Use the True North Frame if available
-				Ti.API.info('REFERENCE FRAME: True North');
-				CoreMotion.startDeviceMotionUpdatesUsingReferenceFrame({
-					referenceFrame : ref_frame
-				}, updateMotionData);
-			} else if ( ref_frame = CoreMotion.getAttitudeReferenceFrame()) {
-				// Use the default frame if it exists
-				Ti.API.info('REFERENCE FRAME: Default ' + ref_frame);
-				CoreMotion.startDeviceMotionUpdatesUsingReferenceFrame({
-					referenceFrame : ref_frame
-				}, updateMotionData);
-			} else {
-				// Do not use a reference frame
-				Ti.API.info('REFERENCE FRAME: None');
-				CoreMotion.startDeviceMotionUpdates(updateMotionData);
-			}
+			var ref_frame = CoreMotion.ATTITUDE_REFERENCE_FRAME_X_TRUE_NORTH_Z_VERTICAL;
+			CoreMotion.startDeviceMotionUpdatesUsingReferenceFrame({
+				referenceFrame : ref_frame
+			}, updateMotionData);
 		}
 	};
 
@@ -64,36 +51,27 @@ function Motion() {
 
 	function updateMotionData(e) {
 		if (e.success) {
+			if( !positionReached )
+				return;
+			
 			var userAcceleration = e.userAcceleration;
-			if (Math.abs(lastX - userAcceleration.x) > ACCEL_THRESHOLD) {
-				accelX++;
-			}
-			if (Math.abs(lastY - userAcceleration.y) > ACCEL_THRESHOLD) {
-				accelY++;
-			}
-			if (Math.abs(lastZ - userAcceleration.z) > ACCEL_THRESHOLD) {
-				accelZ++;
-			}
-			analyzeResults();
-			lastX = userAcceleration.x;
-			lastY = userAcceleration.y;
-			lastZ = userAcceleration.z;
+
+			xAcc = userAcceleration.x;
 
 			var data = e.attitude;
+			pitch = data.pitch;
+			roll = data.roll;
+			yaw = data.yaw;
 
 			if (shouldListeningForPosition) {
-				//if (!self.imInStarting) {
-				if ((data.pitch >= -2.25 && data.pitch < -0.25) && (data.roll >= 0.9 && data.roll < 2.5)) {
+				if (transform(pitch) <= -60 && transform(pitch) > -90) {
 					Ti.API.info("Starting position!");
-					//self.imInStarting = true;
+					currentYaw = transform(yaw);
 					Ti.App.fireEvent('position', {
 						what : true
 					});
-					//userCanFire = true;
-					//da cancellare perché determina la fine del countdown
 				} else {
 					Ti.API.info("No starting position");
-					//self.imInStarting = false;
 					Ti.App.fireEvent('position', {
 						what : false
 					});
@@ -101,68 +79,71 @@ function Motion() {
 			}
 
 			if (self.imInStarting) {
-				Ti.API.info('sono in starting e la variabile è ' + userCanFire);
-				if ((data.pitch >= -0.4 && data.pitch < 0.4 ) && (data.roll >= 1.2 && data.roll < 1.7)) {
-					if (data.yaw >= (startingYaw - 0.5) && data.yaw < (startingYaw + 0.5)) {
-						if (userCanFire) {
+				if (transform(pitch) >= 1 && transform(pitch) < 10) {
+					//BANG
+					if (userCanFire) {
+						if (transform(yaw) >= (currentYaw + 10) || transform(yaw) < (currentYaw - 10)) {
+							//MISSED
+							missSound.play();
+							Ti.API.info("Missed!");
+							self.imInStarting = false;
+							endTime = new Date();
+							diffTime = endTime - startTime;
+							self.stopMotionRecognizer();
+							Ti.App.fireEvent('timeExchange', {
+								flag : 999999999,
+								acceleration : xAcc
+							});
+							positionReached = false;
+						} else {
 							Ti.API.info("Bang!");
 							bangSound.play();
-							Ti.API.info("ACCELERAZIONE: " + lastX + ' ' + lastY + ' ' + lastZ);
-							Ti.API.info(data.yaw + " con yaw di riferimento " + startingYaw);
 							self.imInStarting = false;
-							stopCatchingYaw = false;
 							self.stopMotionRecognizer();
-						} else {
-							Ti.API.info("Fault!");
-							userCanFire = false;
-							self.imInStarting = false;
-							stopCatchingYaw = false;
+							endTime = new Date();
+							diffTime = endTime - startTime;
+							Ti.App.fireEvent('timeExchange', {
+								flag : 0,
+								acceleration : xAcc
+							});
+							positionReached = false;
 						}
-
 					} else {
-						Ti.API.info("Missed!");
+						Ti.API.info("Fault!");
+						faultSound.play();
+						Ti.App.fireEvent('fault', {});
+						userCanFire = false;
 						self.imInStarting = false;
-						stopCatchingYaw = false;
-						Ti.API.info(data.yaw + " con yaw di riferimento " + startingYaw);
+						self.stopMotionRecognizer();
+						endTime = new Date();
+						diffTime = endTime - startTime;
+						Ti.App.fireEvent('timeExchange', {
+							flag : 88888888,
+							acceleration : xAcc
+						});
+						positionReached = false;
 					}
-					//self.imInStarting = false;
 				}
 			} else {
 				Ti.API.info('im in starting è false');
 			}
 
-			if (!stopCatchingYaw)
-				startingYaw = data.yaw;
 		} else {
 			if (e.error)
 				Ti.API.error(e.error);
 		}
 	}
-
-	function analyzeResults() {
-		if (accelX > SHAKE_THRESHOLD || accelY > SHAKE_THRESHOLD || accelZ > SHAKE_THRESHOLD) {
-			var err = SHAKE_THRESHOLD * 1;
-			if (accelX > SHAKE_THRESHOLD && accelY > SHAKE_THRESHOLD) {
-				Ti.API.info("Quit shaking me back and forth!");
-				Ti.API.info(accelZ);
-			} else if (accelX > SHAKE_THRESHOLD && accelZ > SHAKE_THRESHOLD) {
-				Ti.API.info("Quit shaking me up and down!");
-			} else if (accelZ > SHAKE_THRESHOLD && accelY > SHAKE_THRESHOLD) {
-				Ti.API.info("Why are you shaking me like that?!");
-			} else {
-				//Ti.API.info("Quit shaking me!");
-			}
-			accelX = accelY = accelZ = 0;
-		}
-	}
-
-
+	
 	Ti.App.addEventListener('user_can_fire', function() {
 		userCanFire = true;
 		shouldListeningForPosition = false;
 	});
 
 	return self;
+}
+
+function transform(element) {
+	return element * 180 / Math.PI;
 }
 
 module.exports = Motion;

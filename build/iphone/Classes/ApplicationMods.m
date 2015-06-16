@@ -87,20 +87,6 @@
 		]];
 		
 		[modules addObject:[NSDictionary
-			dictionaryWithObjectsAndKeys:@"telepathy",
-			@"name",
-			@"com.pj",
-			@"moduleid",
-			@"1.0.0",
-			@"version",
-			@"4aadde24-8fad-4082-9cb4-4b6ced681eb0",
-			@"guid",
-			@"",
-			@"licensekey",
-			nil
-		]];
-		
-		[modules addObject:[NSDictionary
 			dictionaryWithObjectsAndKeys:@"facebook",
 			@"name",
 			@"facebook",
@@ -108,6 +94,20 @@
 			@"4.0.3",
 			@"version",
 			@"da8acc57-8673-4692-9282-e3c1a21f5d83",
+			@"guid",
+			@"",
+			@"licensekey",
+			nil
+		]];
+		
+		[modules addObject:[NSDictionary
+			dictionaryWithObjectsAndKeys:@"telepathy",
+			@"name",
+			@"com.pj",
+			@"moduleid",
+			@"1.0.0",
+			@"version",
+			@"4aadde24-8fad-4082-9cb4-4b6ced681eb0",
 			@"guid",
 			@"",
 			@"licensekey",

@@ -30,21 +30,21 @@
 		1DF5F4E00D08C38300B7A737 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DF5F4DF0D08C38300B7A737 /* UIKit.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		2412F467115C296300454E5B /* TiMediaVideoPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2412F465115C296300454E5B /* TiMediaVideoPlayer.m */; };
 		242E8E3111BA39FD0046A0D0 /* libTiCore.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 242E8E3011BA39FD0046A0D0 /* libTiCore.a */; };
-		17467B9830F14491AA0872E4 /* libfacebook.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AFB2C20A5F64575A2641733 /* libfacebook.a */; };
-		191CF126AC8948299F22A564 /* libcom.pj.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 094A263ED4C64A209D12AC2D /* libcom.pj.a */; };
-		DABF102550AC47A6924B4CEB /* libbencoding.blur.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0626679B6E2E46E194F833DD /* libbencoding.blur.a */; };
-		2373BA91228C40D4BB0DD42E /* libbencoding.localnotify.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B7501F4BE05A4FFEAD68D438 /* libbencoding.localnotify.a */; };
-		92608DBCFD1644B7BF4996EB /* libcom.salsarhythmsoftware.zlsound.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A23FCE5BC26E4B27ABD4FFBD /* libcom.salsarhythmsoftware.zlsound.a */; };
-		1DB658BB0DAB4AF8AA2871B0 /* libti.map.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AD7A79A9C7624610B3E28DEE /* libti.map.a */; };
-		7B689723FE5741A8AB8DC6E8 /* libti.coremotion.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EA1DCEEF680495FA2CFE51A /* libti.coremotion.a */; };
+		AFEC5B59DE1048DA9D8A85CF /* libcom.pj.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D6B8E4021CD84DF5B912665D /* libcom.pj.a */; };
+		13003F23A60F4F94B95E15C7 /* libfacebook.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 61F872F4EEC04417BF757671 /* libfacebook.a */; };
+		E499B0B8ACBE44B48741D7BC /* libbencoding.blur.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 28262DE0EA6E407DB05EB3DB /* libbencoding.blur.a */; };
+		28FAF1B2DABC40F3A42BB331 /* libbencoding.localnotify.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7EF1CF464C9A4CB894CA1741 /* libbencoding.localnotify.a */; };
+		379A2D29B37A4A0EAA57846D /* libcom.salsarhythmsoftware.zlsound.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 31178957828A411DA10D605F /* libcom.salsarhythmsoftware.zlsound.a */; };
+		108201240EA14EF7BE4C7C55 /* libti.map.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BF8048F526B4041953F5D09 /* libti.map.a */; };
+		21279D55C3FA4A91A578AA84 /* libti.coremotion.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F55D535AE1945809B51522C /* libti.coremotion.a */; };
 		242E8E3211BA39FE0046A0D0 /* libTiCore.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 242E8E3011BA39FD0046A0D0 /* libTiCore.a */; };
-		726B3B103A204FB28E07E794 /* libfacebook.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AFB2C20A5F64575A2641733 /* libfacebook.a */; };
-		5E956C2A3B8545BB91DADD48 /* libcom.pj.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 094A263ED4C64A209D12AC2D /* libcom.pj.a */; };
-		2963A44E8E734DAE94182261 /* libbencoding.blur.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0626679B6E2E46E194F833DD /* libbencoding.blur.a */; };
-		A7A3A0A71FA4489ABAC3B8CC /* libbencoding.localnotify.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B7501F4BE05A4FFEAD68D438 /* libbencoding.localnotify.a */; };
-		E8AFF64AF4244E62962922FE /* libcom.salsarhythmsoftware.zlsound.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A23FCE5BC26E4B27ABD4FFBD /* libcom.salsarhythmsoftware.zlsound.a */; };
-		4F751038D70B4CD48EFC2717 /* libti.map.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AD7A79A9C7624610B3E28DEE /* libti.map.a */; };
-		13D5511BB35D427C956F81D2 /* libti.coremotion.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EA1DCEEF680495FA2CFE51A /* libti.coremotion.a */; };
+		380ADF4C89294F868E545C94 /* libcom.pj.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D6B8E4021CD84DF5B912665D /* libcom.pj.a */; };
+		DE1C4591769A4E6CA72E44AC /* libfacebook.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 61F872F4EEC04417BF757671 /* libfacebook.a */; };
+		0E0257A219634558B314B7AC /* libbencoding.blur.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 28262DE0EA6E407DB05EB3DB /* libbencoding.blur.a */; };
+		06F244D2E6FF4AA78A4E8E82 /* libbencoding.localnotify.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7EF1CF464C9A4CB894CA1741 /* libbencoding.localnotify.a */; };
+		7B3CC7A088A54B9CB94F6326 /* libcom.salsarhythmsoftware.zlsound.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 31178957828A411DA10D605F /* libcom.salsarhythmsoftware.zlsound.a */; };
+		646BBB8665B748538EC6049B /* libti.map.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BF8048F526B4041953F5D09 /* libti.map.a */; };
+		F1BFFF67725746B0B2DB8DB4 /* libti.coremotion.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F55D535AE1945809B51522C /* libti.coremotion.a */; };
 		242E967711BAD2F20046A0D0 /* AsyncSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 242E967411BAD2F20046A0D0 /* AsyncSocket.m */; };
 		242E967811BAD2F20046A0D0 /* AsyncUdpSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 242E967611BAD2F20046A0D0 /* AsyncUdpSocket.m */; };
 		242E967911BAD2F20046A0D0 /* AsyncSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = 242E967411BAD2F20046A0D0 /* AsyncSocket.m */; };
@@ -911,13 +911,13 @@
 		DABB37B412E8CB280026A6EA /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 24EB0A57111E1BAE001DC2D1 /* libxml2.dylib */; };
 		DABB37B512E8CB280026A6EA /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24597034118FF66300519F79 /* StoreKit.framework */; };
 		DABB37B612E8CB280026A6EA /* libTiCore.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 242E8E3011BA39FD0046A0D0 /* libTiCore.a */; };
-		CC0E6D4452A84EFEABF3BFF8 /* libfacebook.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AFB2C20A5F64575A2641733 /* libfacebook.a */; };
-		B982CC0D7A3349CDBAD19EF5 /* libcom.pj.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 094A263ED4C64A209D12AC2D /* libcom.pj.a */; };
-		35AACA44376D4BB3822D2CD0 /* libbencoding.blur.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0626679B6E2E46E194F833DD /* libbencoding.blur.a */; };
-		01D3714BD7FF4FC8A4B97645 /* libbencoding.localnotify.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B7501F4BE05A4FFEAD68D438 /* libbencoding.localnotify.a */; };
-		2E32264B33D34A77B0AC72CA /* libcom.salsarhythmsoftware.zlsound.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A23FCE5BC26E4B27ABD4FFBD /* libcom.salsarhythmsoftware.zlsound.a */; };
-		EEE4C2F0D369421383B32B1F /* libti.map.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AD7A79A9C7624610B3E28DEE /* libti.map.a */; };
-		7B868BD23A464AD78DF411C9 /* libti.coremotion.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3EA1DCEEF680495FA2CFE51A /* libti.coremotion.a */; };
+		D7BCCF80980147D7B50507C4 /* libcom.pj.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D6B8E4021CD84DF5B912665D /* libcom.pj.a */; };
+		5FF016C63A8E47489E043D24 /* libfacebook.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 61F872F4EEC04417BF757671 /* libfacebook.a */; };
+		3F78AB5D0C1D4FA9B1F523B3 /* libbencoding.blur.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 28262DE0EA6E407DB05EB3DB /* libbencoding.blur.a */; };
+		9CD5D41806D44B6392A811F9 /* libbencoding.localnotify.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7EF1CF464C9A4CB894CA1741 /* libbencoding.localnotify.a */; };
+		C23AC93105D14FB889E4DDBA /* libcom.salsarhythmsoftware.zlsound.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 31178957828A411DA10D605F /* libcom.salsarhythmsoftware.zlsound.a */; };
+		A0425827598648EC867AE6AB /* libti.map.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BF8048F526B4041953F5D09 /* libti.map.a */; };
+		200CA93FABBB459F8226AEC9 /* libti.coremotion.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F55D535AE1945809B51522C /* libti.coremotion.a */; };
 		DABB37B712E8CB280026A6EA /* libtiverify.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 24D5C75811E6364F00F097E2 /* libtiverify.a */; };
 		DABDEB08128B5A8F00C85FEA /* AudioStreamerCUR.m in Sources */ = {isa = PBXBuildFile; fileRef = DA9FF582128A1F3600457759 /* AudioStreamerCUR.m */; };
 		DABF3ECF134D210400836137 /* TiBuffer.m in Sources */ = {isa = PBXBuildFile; fileRef = DABF3ECE134D210400836137 /* TiBuffer.m */; };
@@ -1000,13 +1000,13 @@
 		241EAA21118AB3BB0081A5BE /* defines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = defines.h; path = Classes/defines.h; sourceTree = SOURCE_ROOT; };
 		241EAEC5118E2BA90081A5BE /* project.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = project.xcconfig; sourceTree = "<group>"; };
 		242E8E3011BA39FD0046A0D0 /* libTiCore.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libTiCore.a; path = lib/libTiCore.a; sourceTree = SOURCE_ROOT; };
-		8AFB2C20A5F64575A2641733 /* libfacebook.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libfacebook.a; path = "/Users/johneisenheim/Library/Application Support/Titanium/modules/iphone/facebook/4.0.3/libfacebook.a"; sourceTree = "<absolute>"; };
-		094A263ED4C64A209D12AC2D /* libcom.pj.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcom.pj.a; path = "/Users/johneisenheim/Documents/Appcelerator_Studio_Workspace/bangcode/modules/iphone/com.pj/1.0.0/libcom.pj.a"; sourceTree = "<absolute>"; };
-		0626679B6E2E46E194F833DD /* libbencoding.blur.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libbencoding.blur.a; path = "/Users/johneisenheim/Documents/Appcelerator_Studio_Workspace/bangcode/modules/iphone/bencoding.blur/0.40-beta/libbencoding.blur.a"; sourceTree = "<absolute>"; };
-		B7501F4BE05A4FFEAD68D438 /* libbencoding.localnotify.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libbencoding.localnotify.a; path = "/Users/johneisenheim/Documents/Appcelerator_Studio_Workspace/bangcode/modules/iphone/bencoding.localnotify/0.47/libbencoding.localnotify.a"; sourceTree = "<absolute>"; };
-		A23FCE5BC26E4B27ABD4FFBD /* libcom.salsarhythmsoftware.zlsound.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcom.salsarhythmsoftware.zlsound.a; path = "/Users/johneisenheim/Documents/Appcelerator_Studio_Workspace/bangcode/modules/iphone/com.salsarhythmsoftware.zlsound/2.1/libcom.salsarhythmsoftware.zlsound.a"; sourceTree = "<absolute>"; };
-		AD7A79A9C7624610B3E28DEE /* libti.map.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libti.map.a; path = "/Users/johneisenheim/Library/Application Support/Titanium/modules/iphone/ti.map/2.2.2/libti.map.a"; sourceTree = "<absolute>"; };
-		3EA1DCEEF680495FA2CFE51A /* libti.coremotion.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libti.coremotion.a; path = "/Users/johneisenheim/Library/Application Support/Titanium/modules/iphone/ti.coremotion/1.1.0/libti.coremotion.a"; sourceTree = "<absolute>"; };
+		D6B8E4021CD84DF5B912665D /* libcom.pj.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcom.pj.a; path = "/Users/johneisenheim/Documents/Appcelerator_Studio_Workspace/bangcode/modules/iphone/com.pj/1.0.0/libcom.pj.a"; sourceTree = "<absolute>"; };
+		61F872F4EEC04417BF757671 /* libfacebook.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libfacebook.a; path = "/Users/johneisenheim/Library/Application Support/Titanium/modules/iphone/facebook/4.0.3/libfacebook.a"; sourceTree = "<absolute>"; };
+		28262DE0EA6E407DB05EB3DB /* libbencoding.blur.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libbencoding.blur.a; path = "/Users/johneisenheim/Documents/Appcelerator_Studio_Workspace/bangcode/modules/iphone/bencoding.blur/0.40-beta/libbencoding.blur.a"; sourceTree = "<absolute>"; };
+		7EF1CF464C9A4CB894CA1741 /* libbencoding.localnotify.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libbencoding.localnotify.a; path = "/Users/johneisenheim/Documents/Appcelerator_Studio_Workspace/bangcode/modules/iphone/bencoding.localnotify/0.47/libbencoding.localnotify.a"; sourceTree = "<absolute>"; };
+		31178957828A411DA10D605F /* libcom.salsarhythmsoftware.zlsound.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcom.salsarhythmsoftware.zlsound.a; path = "/Users/johneisenheim/Documents/Appcelerator_Studio_Workspace/bangcode/modules/iphone/com.salsarhythmsoftware.zlsound/2.1/libcom.salsarhythmsoftware.zlsound.a"; sourceTree = "<absolute>"; };
+		2BF8048F526B4041953F5D09 /* libti.map.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libti.map.a; path = "/Users/johneisenheim/Library/Application Support/Titanium/modules/iphone/ti.map/2.2.2/libti.map.a"; sourceTree = "<absolute>"; };
+		3F55D535AE1945809B51522C /* libti.coremotion.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libti.coremotion.a; path = "/Users/johneisenheim/Library/Application Support/Titanium/modules/iphone/ti.coremotion/1.1.0/libti.coremotion.a"; sourceTree = "<absolute>"; };
 		242E967311BAD2F20046A0D0 /* AsyncSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AsyncSocket.h; path = Classes/AsyncSocket.h; sourceTree = SOURCE_ROOT; };
 		242E967411BAD2F20046A0D0 /* AsyncSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AsyncSocket.m; path = Classes/AsyncSocket.m; sourceTree = SOURCE_ROOT; };
 		242E967511BAD2F20046A0D0 /* AsyncUdpSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AsyncUdpSocket.h; path = Classes/AsyncUdpSocket.h; sourceTree = SOURCE_ROOT; };
@@ -1644,13 +1644,13 @@
 				24EB0A58111E1BAE001DC2D1 /* libxml2.dylib in Frameworks */,
 				24597035118FF66300519F79 /* StoreKit.framework in Frameworks */,
 				242E8E3111BA39FD0046A0D0 /* libTiCore.a in Frameworks */,
-				17467B9830F14491AA0872E4 /* libfacebook.a in Frameworks */,
-				191CF126AC8948299F22A564 /* libcom.pj.a in Frameworks */,
-				DABF102550AC47A6924B4CEB /* libbencoding.blur.a in Frameworks */,
-				2373BA91228C40D4BB0DD42E /* libbencoding.localnotify.a in Frameworks */,
-				92608DBCFD1644B7BF4996EB /* libcom.salsarhythmsoftware.zlsound.a in Frameworks */,
-				1DB658BB0DAB4AF8AA2871B0 /* libti.map.a in Frameworks */,
-				7B689723FE5741A8AB8DC6E8 /* libti.coremotion.a in Frameworks */,
+				AFEC5B59DE1048DA9D8A85CF /* libcom.pj.a in Frameworks */,
+				13003F23A60F4F94B95E15C7 /* libfacebook.a in Frameworks */,
+				E499B0B8ACBE44B48741D7BC /* libbencoding.blur.a in Frameworks */,
+				28FAF1B2DABC40F3A42BB331 /* libbencoding.localnotify.a in Frameworks */,
+				379A2D29B37A4A0EAA57846D /* libcom.salsarhythmsoftware.zlsound.a in Frameworks */,
+				108201240EA14EF7BE4C7C55 /* libti.map.a in Frameworks */,
+				21279D55C3FA4A91A578AA84 /* libti.coremotion.a in Frameworks */,
 				B606EF60190B42FB00663EFC /* libAPSHTTPClient.a in Frameworks */,
 				242EA11611BD956F0046A0D0 /* ExternalAccessory.framework in Frameworks */,
 				24D5C75911E6364F00F097E2 /* libtiverify.a in Frameworks */,
@@ -1692,13 +1692,13 @@
 				24D8E4AB119B9D8A00F8CAA6 /* libxml2.dylib in Frameworks */,
 				24D8E4AC119B9D8A00F8CAA6 /* StoreKit.framework in Frameworks */,
 				242E8E3211BA39FE0046A0D0 /* libTiCore.a in Frameworks */,
-				726B3B103A204FB28E07E794 /* libfacebook.a in Frameworks */,
-				5E956C2A3B8545BB91DADD48 /* libcom.pj.a in Frameworks */,
-				2963A44E8E734DAE94182261 /* libbencoding.blur.a in Frameworks */,
-				A7A3A0A71FA4489ABAC3B8CC /* libbencoding.localnotify.a in Frameworks */,
-				E8AFF64AF4244E62962922FE /* libcom.salsarhythmsoftware.zlsound.a in Frameworks */,
-				4F751038D70B4CD48EFC2717 /* libti.map.a in Frameworks */,
-				13D5511BB35D427C956F81D2 /* libti.coremotion.a in Frameworks */,
+				380ADF4C89294F868E545C94 /* libcom.pj.a in Frameworks */,
+				DE1C4591769A4E6CA72E44AC /* libfacebook.a in Frameworks */,
+				0E0257A219634558B314B7AC /* libbencoding.blur.a in Frameworks */,
+				06F244D2E6FF4AA78A4E8E82 /* libbencoding.localnotify.a in Frameworks */,
+				7B3CC7A088A54B9CB94F6326 /* libcom.salsarhythmsoftware.zlsound.a in Frameworks */,
+				646BBB8665B748538EC6049B /* libti.map.a in Frameworks */,
+				F1BFFF67725746B0B2DB8DB4 /* libti.coremotion.a in Frameworks */,
 				24D5C75A11E6364F00F097E2 /* libtiverify.a in Frameworks */,
 				DADE76D613D65C6F0079FC75 /* libicucore.dylib in Frameworks */,
 			);
@@ -1739,13 +1739,13 @@
 				DABB37B412E8CB280026A6EA /* libxml2.dylib in Frameworks */,
 				DABB37B512E8CB280026A6EA /* StoreKit.framework in Frameworks */,
 				DABB37B612E8CB280026A6EA /* libTiCore.a in Frameworks */,
-				CC0E6D4452A84EFEABF3BFF8 /* libfacebook.a in Frameworks */,
-				B982CC0D7A3349CDBAD19EF5 /* libcom.pj.a in Frameworks */,
-				35AACA44376D4BB3822D2CD0 /* libbencoding.blur.a in Frameworks */,
-				01D3714BD7FF4FC8A4B97645 /* libbencoding.localnotify.a in Frameworks */,
-				2E32264B33D34A77B0AC72CA /* libcom.salsarhythmsoftware.zlsound.a in Frameworks */,
-				EEE4C2F0D369421383B32B1F /* libti.map.a in Frameworks */,
-				7B868BD23A464AD78DF411C9 /* libti.coremotion.a in Frameworks */,
+				D7BCCF80980147D7B50507C4 /* libcom.pj.a in Frameworks */,
+				5FF016C63A8E47489E043D24 /* libfacebook.a in Frameworks */,
+				3F78AB5D0C1D4FA9B1F523B3 /* libbencoding.blur.a in Frameworks */,
+				9CD5D41806D44B6392A811F9 /* libbencoding.localnotify.a in Frameworks */,
+				C23AC93105D14FB889E4DDBA /* libcom.salsarhythmsoftware.zlsound.a in Frameworks */,
+				A0425827598648EC867AE6AB /* libti.map.a in Frameworks */,
+				200CA93FABBB459F8226AEC9 /* libti.coremotion.a in Frameworks */,
 				DABB37B712E8CB280026A6EA /* libtiverify.a in Frameworks */,
 				DADE76D713D65C7D0079FC75 /* libicucore.dylib in Frameworks */,
 			);
@@ -2798,13 +2798,13 @@
 				DAA4B2AD134E3DBD00AB6011 /* libti_ios_debugger.a */,
 				24D5C75811E6364F00F097E2 /* libtiverify.a */,
 				242E8E3011BA39FD0046A0D0 /* libTiCore.a */,
-				8AFB2C20A5F64575A2641733 /* libfacebook.a */,
-				094A263ED4C64A209D12AC2D /* libcom.pj.a */,
-				0626679B6E2E46E194F833DD /* libbencoding.blur.a */,
-				B7501F4BE05A4FFEAD68D438 /* libbencoding.localnotify.a */,
-				A23FCE5BC26E4B27ABD4FFBD /* libcom.salsarhythmsoftware.zlsound.a */,
-				AD7A79A9C7624610B3E28DEE /* libti.map.a */,
-				3EA1DCEEF680495FA2CFE51A /* libti.coremotion.a */,
+				D6B8E4021CD84DF5B912665D /* libcom.pj.a */,
+				61F872F4EEC04417BF757671 /* libfacebook.a */,
+				28262DE0EA6E407DB05EB3DB /* libbencoding.blur.a */,
+				7EF1CF464C9A4CB894CA1741 /* libbencoding.localnotify.a */,
+				31178957828A411DA10D605F /* libcom.salsarhythmsoftware.zlsound.a */,
+				2BF8048F526B4041953F5D09 /* libti.map.a */,
+				3F55D535AE1945809B51522C /* libti.coremotion.a */,
 				1DF5F4DF0D08C38300B7A737 /* UIKit.framework */,
 				1D30AB110D05D00D00671497 /* Foundation.framework */,
 				288765FC0DF74451002DB57D /* CoreGraphics.framework */,
@@ -4170,8 +4170,8 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/lib\"",
-                                        "\"/Users/johneisenheim/Library/Application Support/Titanium/modules/iphone/facebook/4.0.3\"",
                                         "\"/Users/johneisenheim/Documents/Appcelerator_Studio_Workspace/bangcode/modules/iphone/com.pj/1.0.0\"",
+                                        "\"/Users/johneisenheim/Library/Application Support/Titanium/modules/iphone/facebook/4.0.3\"",
                                         "\"/Users/johneisenheim/Documents/Appcelerator_Studio_Workspace/bangcode/modules/iphone/bencoding.blur/0.40-beta\"",
                                         "\"/Users/johneisenheim/Documents/Appcelerator_Studio_Workspace/bangcode/modules/iphone/bencoding.localnotify/0.47\"",
                                         "\"/Users/johneisenheim/Documents/Appcelerator_Studio_Workspace/bangcode/modules/iphone/com.salsarhythmsoftware.zlsound/2.1\"",
@@ -4205,8 +4205,8 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/lib\"",
-                                        "\"/Users/johneisenheim/Library/Application Support/Titanium/modules/iphone/facebook/4.0.3\"",
                                         "\"/Users/johneisenheim/Documents/Appcelerator_Studio_Workspace/bangcode/modules/iphone/com.pj/1.0.0\"",
+                                        "\"/Users/johneisenheim/Library/Application Support/Titanium/modules/iphone/facebook/4.0.3\"",
                                         "\"/Users/johneisenheim/Documents/Appcelerator_Studio_Workspace/bangcode/modules/iphone/bencoding.blur/0.40-beta\"",
                                         "\"/Users/johneisenheim/Documents/Appcelerator_Studio_Workspace/bangcode/modules/iphone/bencoding.localnotify/0.47\"",
                                         "\"/Users/johneisenheim/Documents/Appcelerator_Studio_Workspace/bangcode/modules/iphone/com.salsarhythmsoftware.zlsound/2.1\"",
@@ -4237,8 +4237,8 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/lib\"",
-                                        "\"/Users/johneisenheim/Library/Application Support/Titanium/modules/iphone/facebook/4.0.3\"",
                                         "\"/Users/johneisenheim/Documents/Appcelerator_Studio_Workspace/bangcode/modules/iphone/com.pj/1.0.0\"",
+                                        "\"/Users/johneisenheim/Library/Application Support/Titanium/modules/iphone/facebook/4.0.3\"",
                                         "\"/Users/johneisenheim/Documents/Appcelerator_Studio_Workspace/bangcode/modules/iphone/bencoding.blur/0.40-beta\"",
                                         "\"/Users/johneisenheim/Documents/Appcelerator_Studio_Workspace/bangcode/modules/iphone/bencoding.localnotify/0.47\"",
                                         "\"/Users/johneisenheim/Documents/Appcelerator_Studio_Workspace/bangcode/modules/iphone/com.salsarhythmsoftware.zlsound/2.1\"",
@@ -4271,8 +4271,8 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/lib\"",
-                                        "\"/Users/johneisenheim/Library/Application Support/Titanium/modules/iphone/facebook/4.0.3\"",
                                         "\"/Users/johneisenheim/Documents/Appcelerator_Studio_Workspace/bangcode/modules/iphone/com.pj/1.0.0\"",
+                                        "\"/Users/johneisenheim/Library/Application Support/Titanium/modules/iphone/facebook/4.0.3\"",
                                         "\"/Users/johneisenheim/Documents/Appcelerator_Studio_Workspace/bangcode/modules/iphone/bencoding.blur/0.40-beta\"",
                                         "\"/Users/johneisenheim/Documents/Appcelerator_Studio_Workspace/bangcode/modules/iphone/bencoding.localnotify/0.47\"",
                                         "\"/Users/johneisenheim/Documents/Appcelerator_Studio_Workspace/bangcode/modules/iphone/com.salsarhythmsoftware.zlsound/2.1\"",
@@ -4452,8 +4452,8 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/lib\"",
-                                        "\"/Users/johneisenheim/Library/Application Support/Titanium/modules/iphone/facebook/4.0.3\"",
                                         "\"/Users/johneisenheim/Documents/Appcelerator_Studio_Workspace/bangcode/modules/iphone/com.pj/1.0.0\"",
+                                        "\"/Users/johneisenheim/Library/Application Support/Titanium/modules/iphone/facebook/4.0.3\"",
                                         "\"/Users/johneisenheim/Documents/Appcelerator_Studio_Workspace/bangcode/modules/iphone/bencoding.blur/0.40-beta\"",
                                         "\"/Users/johneisenheim/Documents/Appcelerator_Studio_Workspace/bangcode/modules/iphone/bencoding.localnotify/0.47\"",
                                         "\"/Users/johneisenheim/Documents/Appcelerator_Studio_Workspace/bangcode/modules/iphone/com.salsarhythmsoftware.zlsound/2.1\"",
@@ -4488,8 +4488,8 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/lib\"",
-                                        "\"/Users/johneisenheim/Library/Application Support/Titanium/modules/iphone/facebook/4.0.3\"",
                                         "\"/Users/johneisenheim/Documents/Appcelerator_Studio_Workspace/bangcode/modules/iphone/com.pj/1.0.0\"",
+                                        "\"/Users/johneisenheim/Library/Application Support/Titanium/modules/iphone/facebook/4.0.3\"",
                                         "\"/Users/johneisenheim/Documents/Appcelerator_Studio_Workspace/bangcode/modules/iphone/bencoding.blur/0.40-beta\"",
                                         "\"/Users/johneisenheim/Documents/Appcelerator_Studio_Workspace/bangcode/modules/iphone/bencoding.localnotify/0.47\"",
                                         "\"/Users/johneisenheim/Documents/Appcelerator_Studio_Workspace/bangcode/modules/iphone/com.salsarhythmsoftware.zlsound/2.1\"",
@@ -4524,8 +4524,8 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/lib\"",
-                                        "\"/Users/johneisenheim/Library/Application Support/Titanium/modules/iphone/facebook/4.0.3\"",
                                         "\"/Users/johneisenheim/Documents/Appcelerator_Studio_Workspace/bangcode/modules/iphone/com.pj/1.0.0\"",
+                                        "\"/Users/johneisenheim/Library/Application Support/Titanium/modules/iphone/facebook/4.0.3\"",
                                         "\"/Users/johneisenheim/Documents/Appcelerator_Studio_Workspace/bangcode/modules/iphone/bencoding.blur/0.40-beta\"",
                                         "\"/Users/johneisenheim/Documents/Appcelerator_Studio_Workspace/bangcode/modules/iphone/bencoding.localnotify/0.47\"",
                                         "\"/Users/johneisenheim/Documents/Appcelerator_Studio_Workspace/bangcode/modules/iphone/com.salsarhythmsoftware.zlsound/2.1\"",
@@ -4566,8 +4566,8 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/lib\"",
-                                        "\"/Users/johneisenheim/Library/Application Support/Titanium/modules/iphone/facebook/4.0.3\"",
                                         "\"/Users/johneisenheim/Documents/Appcelerator_Studio_Workspace/bangcode/modules/iphone/com.pj/1.0.0\"",
+                                        "\"/Users/johneisenheim/Library/Application Support/Titanium/modules/iphone/facebook/4.0.3\"",
                                         "\"/Users/johneisenheim/Documents/Appcelerator_Studio_Workspace/bangcode/modules/iphone/bencoding.blur/0.40-beta\"",
                                         "\"/Users/johneisenheim/Documents/Appcelerator_Studio_Workspace/bangcode/modules/iphone/bencoding.localnotify/0.47\"",
                                         "\"/Users/johneisenheim/Documents/Appcelerator_Studio_Workspace/bangcode/modules/iphone/com.salsarhythmsoftware.zlsound/2.1\"",
@@ -4606,8 +4606,8 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/lib\"",
-                                        "\"/Users/johneisenheim/Library/Application Support/Titanium/modules/iphone/facebook/4.0.3\"",
                                         "\"/Users/johneisenheim/Documents/Appcelerator_Studio_Workspace/bangcode/modules/iphone/com.pj/1.0.0\"",
+                                        "\"/Users/johneisenheim/Library/Application Support/Titanium/modules/iphone/facebook/4.0.3\"",
                                         "\"/Users/johneisenheim/Documents/Appcelerator_Studio_Workspace/bangcode/modules/iphone/bencoding.blur/0.40-beta\"",
                                         "\"/Users/johneisenheim/Documents/Appcelerator_Studio_Workspace/bangcode/modules/iphone/bencoding.localnotify/0.47\"",
                                         "\"/Users/johneisenheim/Documents/Appcelerator_Studio_Workspace/bangcode/modules/iphone/com.salsarhythmsoftware.zlsound/2.1\"",

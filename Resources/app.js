@@ -42,6 +42,18 @@ var global = {
 
 var ZLSound = require('com.salsarhythmsoftware.zlsound');
 
+var Lib = require('core/Lib');
+var johnsLib = new Lib();
+
+var startTime = 0;
+var endTime = 0;
+var diffTime = 0;
+var vsTime = 0;
+var myTime = 0;
+
+//Ti.API.info('device width: '+ Titanium.Platform.displayCaps.platformWidth);
+//Ti.API.info('device height: '+ Titanium.Platform.displayCaps.platformHeight);
+
 var musicVolume = Ti.App.Properties.getDouble('volume', 0.4);
 /*var player = Ti.Media.createSound({
  url : "music/theme.mp3",

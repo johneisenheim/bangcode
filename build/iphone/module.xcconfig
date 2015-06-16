@@ -3,8 +3,8 @@
 TI_MAP_OTHER_LDFLAGS=$(inherited) -weak_framework MapKit
 COM_SALSARHYTHMSOFTWARE_ZLSOUND_OTHER_LDFLAGS=$(inherited) -framework OpenAL -framework AudioToolbox -framework AVFoundation
 BENCODING_BLUR_OTHER_LDFLAGS=$(inherited) -framework CoreMedia -framework CoreVideo -framework OpenGLES -framework AVFoundation -framework QuartzCore -framework Accelerate -framework CoreImage
-COM_PJ_OTHER_LDFLAGS=$(inherited) -framework MultipeerConnectivity -framework CoreBluetooth
 FACEBOOK_FRAMEWORK_SEARCH_PATHS=$(SRCROOT)/../../modules/iphone/facebook/4.0.3/platform "~/Library/Application Support/Titanium/modules/iphone/facebook/4.0.3/platform"
 FACEBOOK_OTHER_LDFLAGS=$(inherited) -framework Social -framework FacebookSDK
-OTHER_LDFLAGS=$(inherited) $(TI_MAP_OTHER_LDFLAGS) $(COM_SALSARHYTHMSOFTWARE_ZLSOUND_OTHER_LDFLAGS) $(BENCODING_BLUR_OTHER_LDFLAGS) $(COM_PJ_OTHER_LDFLAGS) $(FACEBOOK_OTHER_LDFLAGS) 
+COM_PJ_OTHER_LDFLAGS=$(inherited) -framework MultipeerConnectivity -framework CoreBluetooth
+OTHER_LDFLAGS=$(inherited) $(TI_MAP_OTHER_LDFLAGS) $(COM_SALSARHYTHMSOFTWARE_ZLSOUND_OTHER_LDFLAGS) $(BENCODING_BLUR_OTHER_LDFLAGS) $(FACEBOOK_OTHER_LDFLAGS) $(COM_PJ_OTHER_LDFLAGS) 
 FRAMEWORK_SEARCH_PATHS=$(inherited) $(FACEBOOK_FRAMEWORK_SEARCH_PATHS) 

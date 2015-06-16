@@ -54,7 +54,7 @@
 		</data>
 		<key>embedded.mobileprovision</key>
 		<data>
-		nL2+5n/v70lSPpfNw50vqIxj8Cs=
+		Tqv+19dfyW9UTLfkPUACnzcyRNc=
 		</data>
 		<key>en.lproj/Localizable.strings</key>
 		<dict>
@@ -157,6 +157,10 @@
 		<data>
 		C+HglKRF1VtK2WOUP27KB6J2rCM=
 		</data>
+		<key>images/boots.png</key>
+		<data>
+		bGIwh5j59ce9jdxa4aahVmihT7s=
+		</data>
 		<key>images/frame.png</key>
 		<data>
 		qf5QFJ+HyDv6nx7FPQXSzYUJ4QU=
@@ -168,6 +172,10 @@
 		<key>images/loading.png</key>
 		<data>
 		EMsTMF/Vom8ZGJA6pFLZV1mmuX4=
+		</data>
+		<key>images/loseIMG.png</key>
+		<data>
+		9zwlOWmJlGwgrggzWpEsgZujFds=
 		</data>
 		<key>images/points.png</key>
 		<data>
@@ -188,6 +196,10 @@
 		<key>images/settings.png</key>
 		<data>
 		X3Pf4WNYpaZmKObI8Af3IGF7JKM=
+		</data>
+		<key>images/winIMG.png</key>
+		<data>
+		abq31d2J07w5KBRL8O2boA83Kt0=
 		</data>
 		<key>it.lproj/Localizable.strings</key>
 		<dict>
@@ -222,9 +234,21 @@
 		<data>
 		jV5FudnnOTbqpm+VUs6z31GHngg=
 		</data>
+		<key>music/fault.mp3</key>
+		<data>
+		AYApdORYUR5dP+DXZvjImrESJWs=
+		</data>
 		<key>music/gun_loading.mp3</key>
 		<data>
 		CCr89cfWbcxK5HkIGXFGinYeBMs=
+		</data>
+		<key>music/loseSound.mp3</key>
+		<data>
+		r3mvLEWXpqLQbfL4ABtOE7UCzbg=
+		</data>
+		<key>music/missed.mp3</key>
+		<data>
+		/3VEs5N0bjwtJe0YKxjRnzGbNp0=
 		</data>
 		<key>music/notification.mp3</key>
 		<data>
@@ -237,6 +261,10 @@
 		<key>music/tic.mp3</key>
 		<data>
 		HmacVQxlOzUi66JBdp/dusdzS5M=
+		</data>
+		<key>music/winSound.mp3</key>
+		<data>
+		WoUB5YPJnZUOQRDXATf0CSL4OIM=
 		</data>
 		<key>profiler.plist</key>
 		<data>
@@ -291,7 +319,7 @@
 		</data>
 		<key>embedded.mobileprovision</key>
 		<data>
-		nL2+5n/v70lSPpfNw50vqIxj8Cs=
+		Tqv+19dfyW9UTLfkPUACnzcyRNc=
 		</data>
 		<key>en.lproj/Localizable.strings</key>
 		<dict>
@@ -394,6 +422,10 @@
 		<data>
 		C+HglKRF1VtK2WOUP27KB6J2rCM=
 		</data>
+		<key>images/boots.png</key>
+		<data>
+		bGIwh5j59ce9jdxa4aahVmihT7s=
+		</data>
 		<key>images/frame.png</key>
 		<data>
 		qf5QFJ+HyDv6nx7FPQXSzYUJ4QU=
@@ -405,6 +437,10 @@
 		<key>images/loading.png</key>
 		<data>
 		EMsTMF/Vom8ZGJA6pFLZV1mmuX4=
+		</data>
+		<key>images/loseIMG.png</key>
+		<data>
+		9zwlOWmJlGwgrggzWpEsgZujFds=
 		</data>
 		<key>images/points.png</key>
 		<data>
@@ -425,6 +461,10 @@
 		<key>images/settings.png</key>
 		<data>
 		X3Pf4WNYpaZmKObI8Af3IGF7JKM=
+		</data>
+		<key>images/winIMG.png</key>
+		<data>
+		abq31d2J07w5KBRL8O2boA83Kt0=
 		</data>
 		<key>it.lproj/Localizable.strings</key>
 		<dict>
@@ -459,9 +499,21 @@
 		<data>
 		jV5FudnnOTbqpm+VUs6z31GHngg=
 		</data>
+		<key>music/fault.mp3</key>
+		<data>
+		AYApdORYUR5dP+DXZvjImrESJWs=
+		</data>
 		<key>music/gun_loading.mp3</key>
 		<data>
 		CCr89cfWbcxK5HkIGXFGinYeBMs=
+		</data>
+		<key>music/loseSound.mp3</key>
+		<data>
+		r3mvLEWXpqLQbfL4ABtOE7UCzbg=
+		</data>
+		<key>music/missed.mp3</key>
+		<data>
+		/3VEs5N0bjwtJe0YKxjRnzGbNp0=
 		</data>
 		<key>music/notification.mp3</key>
 		<data>
@@ -474,6 +526,10 @@
 		<key>music/tic.mp3</key>
 		<data>
 		HmacVQxlOzUi66JBdp/dusdzS5M=
+		</data>
+		<key>music/winSound.mp3</key>
+		<data>
+		WoUB5YPJnZUOQRDXATf0CSL4OIM=
 		</data>
 		<key>profiler.plist</key>
 		<data>

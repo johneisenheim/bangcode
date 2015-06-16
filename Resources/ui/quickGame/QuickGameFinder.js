@@ -8,19 +8,25 @@ function QuickGameFinder() {
 	var random = 0;
 	var counter = 0;
 	var interval = null;
+	
+	var telepathyStartedServices = false;
 
 	var QuickGameFinderView = require('ui/quickGame/QuickGameFinderView');
 	var quickGameFinderView = new QuickGameFinderView();
-	
+	var Calculating = null;
+	var calculating = null;
+
+	var firstTimeExchange = true;
+
 	var churchbellSound = ZLSound.createSample({
-        media: 'music/bell.mp3',
-        volume : 1.0
-    });
-    
-    var ticSound = ZLSound.createSample({
-        media: 'music/tic.mp3',
-        volume : 1.0
-    });
+		media : 'music/bell.mp3',
+		volume : 1.0
+	});
+
+	var ticSound = ZLSound.createSample({
+		media : 'music/tic.mp3',
+		volume : 1.0
+	});
 
 	var self = Titanium.UI.createWindow({
 		navTintColor : 'white',
@@ -96,6 +102,7 @@ function QuickGameFinder() {
 			case 'Bluetooth is currently powered on and available to use.':
 				statusLabel.text = 'Ricerco la partita...';
 				telepathy.setupSessionAndStartServices(Ti.App.Properties.getString('fb_id'), '', 0);
+				telepathyStartedServices = true;
 				break;
 			}
 		});
@@ -114,6 +121,7 @@ function QuickGameFinder() {
 			setTimeout(function() {
 				loader.hideLoader(self);
 				self.remove(statusLabel);
+				quickGameFinderView.initialize();
 				self.add(quickGameFinderView);
 			}, 2000);
 
@@ -127,20 +135,62 @@ function QuickGameFinder() {
 			var sMessage = (e.message).split(':');
 			switch(sMessage[0]) {
 			case 'tellme':
-				if( quickGameFinderView.getMyOwnStatus() )
+				if (quickGameFinderView.getMyOwnStatus())
 					status = 'ready';
-				else status = 'notready';
-				Ti.API.info('[INFO] Sending '+status);
+				else
+					status = 'notready';
+				Ti.API.info('[INFO] Sending ' + status);
 				telepathy.sendData(status + ':');
 				break;
 			case 'start':
 				counter = 3 + parseInt(random);
-				Ti.API.info('[INFO] Counter is '+counter);
+				Ti.API.info('[INFO] Counter is ' + counter);
 				startCountdown();
 				ticSound.play();
 				break;
 			case 'random':
 				random = sMessage[1];
+				break;
+			case 'fault':
+				ticSound.stop();
+				clearInterval(interval);
+				myTime = 0;
+				vsTime = 888888888;
+				var tmp_motion = quickGameFinderView.getMotionObject();
+				tmp_motion.stopMotionRecognizer();
+				var Win = require('ui/winlose/Win');
+				var win = new Win(self);
+				win.setLabelText('Hai vinto!');
+				self.add(win);
+				win.playSound();
+				break;
+			case 'youWin':
+				setTimeout(function() {
+					var Win = require('ui/winlose/Win');
+					var win = new Win(self);
+					win.setLabelText('Hai vinto. Il tuo tempo è ' + myTime + ' e il tempo dell\'avversario è ' + vsTime);
+					self.remove(calculating);
+					self.add(win);
+					win.playSound();
+				}, 2500);
+				//alert("Hai vinto!");
+				break;
+			case 'youLoose':
+				setTimeout(function() {
+					var Lose = require('ui/winlose/Lose');
+					var lose = new Lose(self);
+					lose.setLabelText('Hai perso. Il tuo tempo è ' + myTime + ' e il tempo dell\'avversario è ' + vsTime);
+					self.remove(calculating);
+					self.add(lose);
+					lose.playSound();
+				}, 2500);
+				//alert("Hai perso!");
+				break;
+			case 'times':
+				vsTime = sMessage[1];
+				if (myTime != 0) {
+					telepathy.sendData('calculate:' + myTime);
+				}
 				break;
 			}
 		});
@@ -148,35 +198,84 @@ function QuickGameFinder() {
 
 	function count() {
 		if (counter == 0) {
+			//countdown.text = 'BANG!!!';
 			Ti.API.info('countdown BANG!');
 			ticSound.stop();
-			churchbellSound.play();
-			Ti.App.fireEvent('user_can_fire', {});
 			clearInterval(interval);
+			setTimeout(function() {
+				startTime = new Date();
+				churchbellSound.play();
+				Ti.App.fireEvent('user_can_fire', {});
+			}, 300);
 		} else {
-			Ti.API.info('[INFO] _countdown '+counter);
+			Ti.API.info(counter);
 			counter = counter - 1;
+			//countdown.text = counter;
 		}
 	}
 
 	function startCountdown() {
-		interval = setInterval(function() {
-			Ti.API.info('called startCountdown');
-			count();
-		}, 1000);
+		interval = setInterval(count, 1000);
 	}
 
+
+	Ti.App.addEventListener('fault', function() {
+		clearInterval(interval);
+		ticSound.stop();
+		telepathy.sendData('fault:');
+	});
 
 	self.addEventListener('open', initQuickGameCallback);
 
 	closeButton.addEventListener('click', function() {
-		Telepathy = null;
-		telepathy = null;
 		self.close();
+	});
+
+	Ti.App.addEventListener('timeExchange', function(e) {
+		if (!firstTimeExchange)
+			return;
+		telepathy.sendData('acceleration:' + e.acceleration);
+		if (e.flag == 999999999 || e.flag == 88888888) {
+			myTime = e.flag;
+			try {
+				telepathy.sendData('times:' + e.flag);
+			} catch(ex) {
+			}
+		} else {
+			myTime = diffTime;
+			try {
+				telepathy.sendData('times:' + diffTime);
+			} catch(ex) {
+			}
+		}
+		Calculating = require('ui/winlose/Calculating');
+		calculating = new Calculating();
+		quickGameFinderView.removeEventOnOrientation();
+		self.remove(quickGameFinderView);
+		self.add(calculating);
+		firstTimeExchange = false;
 	});
 
 	self.add(statusLabel);
 	self.add(closeButton);
+	
+	var closingFunction = function(){
+		Ti.API.info('closing window...');
+		if(telepathyStartedServices)
+			telepathy.stopServices();
+		Telepathy = null;
+		telepathy = null;
+		myTime = 0;
+		vsTime = 0;
+		startTime = 0;
+		endTime = 0;
+		diffTime = 0;
+		quickGameFinderView.deallocModule();
+		quickGameFinderView = null;
+		QuickGameFinderView = null;
+	};
+
+	self.addEventListener('close', closingFunction);
 
 	return self;
 

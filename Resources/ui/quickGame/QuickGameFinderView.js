@@ -5,13 +5,14 @@ function QuickGameFinderView() {
 
 	var flag = false;
 	var status = 0;
+	var iHaveAlreadyLoadedTheGun = false;
 
 	var orientation = 0;
-	
-    var loadSound = ZLSound.createSample({
-        media: 'music/gun_loading.mp3',
-        volume : 1.0
-    });
+
+	var loadSound = ZLSound.createSample({
+		media : 'music/gun_loading.mp3',
+		volume : 1.0
+	});
 
 	var self = Titanium.UI.createView({
 		width : '100%',
@@ -52,16 +53,26 @@ function QuickGameFinderView() {
 
 	var whenUpside = function() {
 		if (flag) {
-			motion.imInStarting = true;
-			Ti.API.info('im in starting ' + motion.imInStarting);
-			loadSound.play();
+			if (!iHaveAlreadyLoadedTheGun) {
+				motion.imInStarting = true;
+				Ti.API.info('im in starting ' + motion.imInStarting);
+				loadSound.play();
+				iHaveAlreadyLoadedTheGun = true;
+			}
 		}
 	};
 
 	gun.addEventListener('click', whenUpside);
 
-	Ti.Gesture.addEventListener('orientationchange', function(e) {
+	var orientationChangeCallback = function(e){
 		orientation = e.orientation;
+		if( Motion == null ){
+			Ti.API.info('Motion is null');
+			Motion = require('core/Motion');
+			motion = new Motion();
+		}else{
+			Ti.API.info('Motion is not null.');
+		}
 		Ti.API.info(orientation);
 		switch(e.orientation) {
 		case 2:
@@ -83,7 +94,7 @@ function QuickGameFinderView() {
 		default:
 			break;
 		}
-	});
+	};
 
 	Ti.App.addEventListener('position', function(e) {
 		if (e.what) {
@@ -91,14 +102,32 @@ function QuickGameFinderView() {
 				flag = true;
 		} else {
 			Ti.Media.vibrate();
+			Ti.Media.beep();
 			if (flag)
 				flag = false;
 		}
 	});
-	
-	self.getMyOwnStatus = function(){
+
+	self.getMyOwnStatus = function() {
 		//Ti.API.info('[INFO] getMyOwnStatus '+flag&&motion.imInStarting);
-		 return flag && motion.imInStarting;
+		return flag && motion.imInStarting;
+	};
+	
+	self.getMotionObject = function(){
+		return motion;
+	};
+	
+	self.initialize = function(){
+		Ti.Gesture.addEventListener('orientationchange', orientationChangeCallback);
+	};
+	
+	self.deallocModule = function(){
+		Motion = null;
+		motion = null;
+	};
+	
+	self.removeEventOnOrientation = function(){
+		Ti.Gesture.removeEventListener('orientationchange', orientationChangeCallback);
 	};
 
 	self.add(label);
