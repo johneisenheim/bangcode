@@ -127,6 +127,7 @@ function QuickGameFinderView() {
 	};
 	
 	self.removeEventOnOrientation = function(){
+		Ti.API.info('remove orientation');
 		Ti.Gesture.removeEventListener('orientationchange', orientationChangeCallback);
 	};
 

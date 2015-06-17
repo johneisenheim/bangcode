@@ -50,6 +50,7 @@ var endTime = 0;
 var diffTime = 0;
 var vsTime = 0;
 var myTime = 0;
+var amITheMaster = -1;
 
 //Ti.API.info('device width: '+ Titanium.Platform.displayCaps.platformWidth);
 //Ti.API.info('device height: '+ Titanium.Platform.displayCaps.platformHeight);

@@ -39,6 +39,15 @@ function Loader() {
 		});
 		win.add(self);
 	};
+	
+	self.reloadAnimation = function(){
+		chamber.animate({
+			transform : matrix,
+			duration : 900,
+			//autoreverse : true,
+			repeat : 300000
+		});
+	};
 
 	self.hideLoader = function(win) {
 		win.remove(self);

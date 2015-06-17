@@ -47,6 +47,7 @@ function StartChallengeWindow() {
 	Ti.App.addEventListener('back',function(){
 		self.close();
 	});
+	
 
 	return self;
 }

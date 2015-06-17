@@ -39,36 +39,38 @@ function Tutorial() {
 		window : win
 	});
 
-	var ViewScrollr = require("ui/customUI/ViewScrollr");
+	/*var ViewScrollr = require("ui/customUI/ViewScrollr");
 
-	var view = ViewScrollr.create({
-		navigation : {
-			backgroundColor : '#F5F4F2',
-			selectedColor : '#856C64',
-			color : '#BEA49C'
-		},
-		panels : [
-			{view : tutPage1},
-			{view : tutPage2},
-			{view : tutPage3},
-			{view : tutPage4},
-			{view : tutPage5}
-		]
-	});
-
-	/*var view = Titanium.UI.createScrollableView({
-	 views : [tutPage1],
-	 showPagingControl : true,
-	 scrollingEnabled: true,
-	 width:'100%',
-	 height:'100%',
-	 layout:'composite',
-	 backgroundColor:'#F5F4F2',
-	 pa
-	 overlayEnabled : true,
-	 pagingControlAlpha : 1,
-	 pagingControlColor : '#856C64'
+	 var view = ViewScrollr.create({
+	 navigation : {
+	 backgroundColor : '#F5F4F2',
+	 selectedColor : '#856C64',
+	 color : '#BEA49C'
+	 },
+	 panels : [
+	 {view : tutPage1},
+	 {view : tutPage2},
+	 {view : tutPage3},
+	 {view : tutPage4},
+	 {view : tutPage5}
+	 ]
 	 });*/
+
+	var view = Titanium.UI.createScrollableView({
+		views : [tutPage1, tutPage2, tutPage3, tutPage4, tutPage5],
+		showPagingControl : true,
+		scrollingEnabled : true,
+		width : '100%',
+		height : '100%',
+		layout : 'composite',
+		backgroundColor : '#F5F4F2',
+		pageIndicatorTintColor:'#BEA49C',
+        currentPageIndicatorTintColor:'#856C64',
+		//tintColor : '#F5F4F2',
+		overlayEnabled : false,
+		pagingControlAlpha : 1,
+		pagingControlColor : '#F5F4F2'
+	});
 
 	win.add(view);
 

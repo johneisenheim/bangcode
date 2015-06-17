@@ -74,6 +74,8 @@
 		pageControl = [[UIPageControl alloc] initWithFrame:[self pageControlRect]];
 		[pageControl setAutoresizingMask:UIViewAutoresizingFlexibleWidth|UIViewAutoresizingFlexibleTopMargin];
 		[pageControl addTarget:self action:@selector(pageControlTouched:) forControlEvents:UIControlEventValueChanged];
+        [pageControl setPageIndicatorTintColor:pageIndicatorTintColor];
+        [pageControl setCurrentPageIndicatorTintColor:currentPageIndicatorTintColor];
 		[pageControl setBackgroundColor:pageControlBackgroundColor];
 		[self addSubview:pageControl];
 	}
@@ -145,6 +147,8 @@
 		[pg setFrame:[self pageControlRect]];
         [pg setNumberOfPages:[[self proxy] viewCount]];
         [pg setBackgroundColor:pageControlBackgroundColor];
+        [pg setCurrentPageIndicatorTintColor:currentPageIndicatorTintColor];
+        [pg setPageIndicatorTintColor:pageIndicatorTintColor];
 		pg.currentPage = currentPage;
         pg.alpha = pagingControlAlpha;
         pg.backgroundColor = pageControlBackgroundColor;
@@ -459,6 +463,30 @@
         }
     }
 }
+
+-(void)setPageIndicatorTintColor_:(id)args
+{
+    TiColor* val = [TiUtils colorValue:args];
+    if (val != nil) {
+        RELEASE_TO_NIL(pageIndicatorTintColor);
+        pageIndicatorTintColor = [[val _color] retain];
+        if (showPageControl && (scrollview!=nil) && ([[scrollview subviews] count]>0)) {
+            [[self pagecontrol] setPageIndicatorTintColor:pageIndicatorTintColor];
+        }
+    }
+}
+-(void)setCurrentPageIndicatorTintColor_:(id)args
+{
+    TiColor* val = [TiUtils colorValue:args];
+    if (val != nil) {
+        RELEASE_TO_NIL(currentPageIndicatorTintColor);
+        currentPageIndicatorTintColor = [[val _color] retain];
+        if (showPageControl && (scrollview!=nil) && ([[scrollview subviews] count]>0)) {
+            [[self pagecontrol] setCurrentPageIndicatorTintColor:currentPageIndicatorTintColor];
+        }
+    }
+}
+
 -(void)setPagingControlAlpha_:(id)args
 {
     pagingControlAlpha = [TiUtils floatValue:args def:1.0];

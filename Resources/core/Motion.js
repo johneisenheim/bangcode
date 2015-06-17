@@ -35,9 +35,9 @@ function Motion() {
 
 	self.startMotionRecognizer = function() {
 		if (CoreMotion.isDeviceMotionAvailable()) {
-			CoreMotion.setDeviceMotionUpdateInterval(20);
+			CoreMotion.setDeviceMotionUpdateInterval(50);
 			var frames = CoreMotion.availableAttitudeReferenceFrames();
-			var ref_frame = CoreMotion.ATTITUDE_REFERENCE_FRAME_X_TRUE_NORTH_Z_VERTICAL;
+			var ref_frame = CoreMotion.ATTITUDE_REFERENCE_FRAME_X_ARBITRARY_CORRECTED_Z_VERTICAL;
 			CoreMotion.startDeviceMotionUpdatesUsingReferenceFrame({
 				referenceFrame : ref_frame
 			}, updateMotionData);
@@ -51,8 +51,6 @@ function Motion() {
 
 	function updateMotionData(e) {
 		if (e.success) {
-			if( !positionReached )
-				return;
 			
 			var userAcceleration = e.userAcceleration;
 
@@ -64,14 +62,14 @@ function Motion() {
 			yaw = data.yaw;
 
 			if (shouldListeningForPosition) {
-				if (transform(pitch) <= -60 && transform(pitch) > -90) {
-					Ti.API.info("Starting position!");
-					currentYaw = transform(yaw);
+				if ( (pitch >= -2.25 && pitch < -0.25) && (roll >= 0.9 && roll < 2.5) ) {
+					//Ti.API.info("Starting position!");
+					currentYaw = yaw;
 					Ti.App.fireEvent('position', {
 						what : true
 					});
 				} else {
-					Ti.API.info("No starting position");
+					//Ti.API.info("No starting position");
 					Ti.App.fireEvent('position', {
 						what : false
 					});
@@ -79,27 +77,14 @@ function Motion() {
 			}
 
 			if (self.imInStarting) {
-				if (transform(pitch) >= 1 && transform(pitch) < 10) {
+				if ((pitch >= -0.4 && pitch < 0.4 ) && (roll >= 1.2 && roll < 1.7)) {
 					//BANG
 					if (userCanFire) {
-						if (transform(yaw) >= (currentYaw + 10) || transform(yaw) < (currentYaw - 10)) {
-							//MISSED
-							missSound.play();
-							Ti.API.info("Missed!");
-							self.imInStarting = false;
-							endTime = new Date();
-							diffTime = endTime - startTime;
-							self.stopMotionRecognizer();
-							Ti.App.fireEvent('timeExchange', {
-								flag : 999999999,
-								acceleration : xAcc
-							});
-							positionReached = false;
-						} else {
+						if ((yaw) >= 0.70 && (yaw) < 1.25) {
 							Ti.API.info("Bang!");
 							bangSound.play();
 							self.imInStarting = false;
-							self.stopMotionRecognizer();
+							CoreMotion.stopDeviceMotionUpdates();
 							endTime = new Date();
 							diffTime = endTime - startTime;
 							Ti.App.fireEvent('timeExchange', {
@@ -107,18 +92,31 @@ function Motion() {
 								acceleration : xAcc
 							});
 							positionReached = false;
+						} else {
+							//MISSED
+							missSound.play();
+							Ti.API.info("Missed!");
+							self.imInStarting = false;
+							endTime = new Date();
+							diffTime = endTime - startTime;
+							CoreMotion.stopDeviceMotionUpdates();
+							Ti.App.fireEvent('timeExchange', {
+								flag : 999999999,
+								acceleration : xAcc
+							});
+							positionReached = false;
 						}
 					} else {
 						Ti.API.info("Fault!");
 						faultSound.play();
-						Ti.App.fireEvent('fault', {});
+						//Ti.App.fireEvent('fault', {});
 						userCanFire = false;
 						self.imInStarting = false;
-						self.stopMotionRecognizer();
+						CoreMotion.stopDeviceMotionUpdates();
 						endTime = new Date();
 						diffTime = endTime - startTime;
 						Ti.App.fireEvent('timeExchange', {
-							flag : 88888888,
+							flag : 888888888,
 							acceleration : xAcc
 						});
 						positionReached = false;
@@ -142,8 +140,5 @@ function Motion() {
 	return self;
 }
 
-function transform(element) {
-	return element * 180 / Math.PI;
-}
 
 module.exports = Motion;

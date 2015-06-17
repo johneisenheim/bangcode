@@ -2,7 +2,7 @@ function Win(win){
 	
 	var CustomButton = require('ui/customUI/CustomButton');
 	var revengeButton = new CustomButton();
-	revengeButton.initialize('Rivincita', 40);
+	revengeButton.initialize('Rivincita', 30);
 	
 	var winSound = ZLSound.createSample({
 		media : 'music/winSound.mp3',
@@ -20,8 +20,8 @@ function Win(win){
 		top : 50,
 		image : 'images/winIMG.png',
 		backgroundColor : 'transparent',
-		width : johnsLib.calculateWidth(250),
-		height : johnsLib.calculateHeight(300)
+		width : johnsLib.calculateWidth(260),
+		height : johnsLib.calculateHeight(357)
 	});
 
 	var label = Titanium.UI.createLabel({
@@ -37,7 +37,7 @@ function Win(win){
 	});
 	
 	var infos = Titanium.UI.createLabel({
-		top : 5,
+		top : 0,
 		font : {
 			fontSize : 17,
 			fontFamily : "Roboto-LightItalic"
@@ -57,7 +57,18 @@ function Win(win){
 		top : 10
 	});
 	
+	var separator = Titanium.UI.createLabel({
+		text:'x',
+		font:{
+     		fontSize:130,
+      		fontFamily:"Sughayer Separates 4"
+   		},
+   		color:'#856C64',
+   		top:-95
+	});
+	
 	closeButton.addEventListener('click', function(){
+		Ti.App.fireEvent('back',{});
 		win.close();
 	});
 	
@@ -67,11 +78,21 @@ function Win(win){
 		},1500);
 	};
 	
-	if( myTime == 999999999 || myTime == 888888888 || vsTime == 999999999 || vsTime == 888888888)
-		infos.text = '';
+	revengeButton.addEventListener('click', function(){
+		if( amITheMaster ){
+			win.close();
+			Ti.App.fireEvent('reloadMasterView',{});
+		}else if( !amITheMaster)
+			Ti.App.fireEvent('reloadFinderView',{});
+	});
+	
+	self.setLabelText = function(txt){
+		infos.text = txt;
+	};
 
 	self.add(winIMG);
 	self.add(label);
+	self.add(separator);
 	self.add(infos);
 	self.add(revengeButton);
 	self.add(closeButton);

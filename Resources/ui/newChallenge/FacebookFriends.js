@@ -33,20 +33,13 @@ function FacebookFriends() {
 		window : win
 	});
 
-	/*var toolbarDone = Ti.UI.createButton({
-	 systemButton : Titanium.UI.iPhone.SystemButton.CANCEL
-	 });
-	 var flexSpace = Titanium.UI.createButton({
-	 systemButton : Titanium.UI.iPhone.SystemButton.FLEXIBLE_SPACE
-	 });*/
-
 	var search = Titanium.UI.createSearchBar({
 		barColor : '#d5d1c8',
 		height : 43,
 		hintText : 'Cerca amici',
 		borderColor : '#d5d1c8',
 		top : 64,
-		showCancel : true,
+		showCancel : false,
 		tintColor : 'white'
 	});
 
@@ -113,10 +106,9 @@ function FacebookFriends() {
 			separatorColor : '#958078',
 			top : 60,
 			data : dataTable,
-			tintColor : 'E2BB5A',
+			tintColor : '#E2BB5A',
 			style : Titanium.UI.iPhone.TableViewStyle.GROUPED,
-			search : search,
-			tintColor : 'white'
+			search : search
 		});
 		table.addEventListener('click', function(e) {
 			currentID = e.rowData.fb_id;

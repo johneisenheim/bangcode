@@ -15,6 +15,8 @@ function StartChallengeView() {
 	var CustomButton = require('ui/customUI/CustomButton');
 	var sendChallengeButton = new CustomButton();
 	var isQuickGame = false;
+	var QuickGame = null;
+	var quickGame = null;
 
 	var responseDialog = Ti.UI.createAlertDialog({
 		//message : 'Il tuo dispositivo sembra non essere connesso ad Internet.',
@@ -228,8 +230,8 @@ function StartChallengeView() {
 		}
 
 		if (isQuickGame) {
-			var QuickGame = require('ui/quickGame/QuickGame');
-			var quickGame = new QuickGame();
+			QuickGame = require('ui/quickGame/QuickGame');
+			quickGame = new QuickGame();
 			quickGame.setIDOpponent(currentID);
 			Ti.API.info(currentID);
 			quickGame.open({
@@ -309,6 +311,21 @@ function StartChallengeView() {
 		locationTile.setTitle('Posizione impostata');
 		latitude = e.latitude + "";
 		longitude = e.longitude + "";
+	});
+
+	Ti.App.addEventListener('reloadMasterView', function() {
+		QuickGame = null;
+		quickGame = null;
+		loader.reloadAnimation();
+		var QuickGame = require('ui/quickGame/QuickGame');
+		var quickGame = new QuickGame();
+		quickGame.setIDOpponent(currentID);
+		Ti.API.info(currentID);
+		quickGame.open({
+			modal : true,
+			modalTransitionStyle : Ti.UI.iPhone.MODAL_TRANSITION_STYLE_COVER_VERTICAL,
+			modalStyle : Ti.UI.iPhone.MODAL_PRESENTATION_FORMSHEET
+		});
 	});
 
 	self.add(pageTitle);

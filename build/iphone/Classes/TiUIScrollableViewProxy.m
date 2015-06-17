@@ -20,6 +20,8 @@
     [self initializeProperty:@"currentPage" defaultValue:NUMINT(0)];
     [self initializeProperty:@"pagingControlColor" defaultValue:@"black"];
     [self initializeProperty:@"pagingControlHeight" defaultValue:NUMINT(20)];
+    [self initializeProperty:@"pageIndicatorTintColor" defaultValue:@"gray"];
+    [self initializeProperty:@"currentPageIndicatorTintColor" defaultValue:@"white"];
     [self initializeProperty:@"showPagingControl" defaultValue:NUMBOOL(NO)];
     [self initializeProperty:@"pagingControlAlpha" defaultValue:NUMFLOAT(1.0)];
     [self initializeProperty:@"overlayEnabled" defaultValue:NUMBOOL(NO)];

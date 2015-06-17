@@ -9,6 +9,7 @@ function QuickGame() {
 	var interval = null;
 	var Calculating = null;
 	var calculating = null;
+	amITheMaster = 1;
 
 	var firstTimeExchange = true;
 
@@ -125,10 +126,20 @@ function QuickGame() {
 			setTimeout(function() {
 				loader.hideLoader(self);
 				self.remove(statusLabel);
+				Ti.API.info('calling initialize from setTimeout');
 				quickGameView.initialize();
 				self.add(quickGameView);
-				telepathy.sendData('tellme:');
-				telepathy.sendData('random:' + random);
+				try {
+					telepathy.sendData('tellme:');
+				} catch(ex) {
+					alert('Telepathy tell me in connected event listener');
+				}
+				try {
+					telepathy.sendData('random:' + random);
+				} catch(ex) {
+					alert('Telepathy random in connected event listener');
+				}
+
 			}, 2000);
 
 		});
@@ -138,73 +149,84 @@ function QuickGame() {
 		});
 
 		telepathy.addEventListener('didReceiveData', function(e) {
-			if(!telepathyStartedServices)
-				return;
 			var sMessage = (e.message).split(':');
 			Ti.API.info("[INFO] RECEIVED MESSAGE : " + sMessage[0]);
 			switch(sMessage[0]) {
 			case 'notready':
-				telepathy.sendData('tellme:');
+				try {
+					telepathy.sendData('tellme:');
+				} catch(ex) {
+					alert('Telepathy tell me in didreceivedata');
+				}
 				break;
 			case 'ready':
 				Ti.API.info('Can I send Start packet? ' + quickGameView.canISendStartPacket());
 				if (quickGameView.canISendStartPacket()) {
-					telepathy.sendData('start:');
+					try {
+						telepathy.sendData('start:');
+					} catch(ex) {
+						alert('Telepathy start in case ready in didreceivedata');
+					}
 					counter = 3 + random;
 					//setTimeout(function() {
 					ticSound.play();
 					startCountdown();
 					//}, 100);
 				} else {
-					telepathy.sendData('tellme:');
+					try {
+						telepathy.sendData('tellme:');
+					} catch(ex) {
+						alert('Telepathy tellme in case ready in didreceivedata');
+					}
 				}
-				break;
-			case 'fault':
-				ticSound.stop();
-				clearInterval(interval);
-				myTime = 0;
-				vsTime = 888888888;
-				var tmp_motion = quickGameView.getMotionObject();
-				tmp_motion.stopMotionRecognizer();
-				var Win = require('ui/winlose/Win');
-				var win = new Win(self);
-				idWinner = Ti.App.Properties.getString('fb_id');
-				sendDataToServer(opponentID, idWinner, random, myTime, vsTime, myAcceleration, vsAcceleration);
-				self.add(win);
-				win.playSound();
 				break;
 			case 'calculate':
 				vsTime = sMessage[1];
 				Ti.API.info('vs time is ' + vsTime);
 				if (myTime < vsTime) {
-					telepathy.sendData('youLoose:');
+					try {
+						telepathy.sendData('youLoose:');
+					} catch(ex) {
+						alert('Telepathy youloose in calculate in didreceivedata');
+					}
 					var Win = require('ui/winlose/Win');
 					var win = new Win(self);
 					idWinner = Ti.App.Properties.getString('fb_id');
 					sendDataToServer(opponentID, idWinner, random, myTime, vsTime, myAcceleration, vsAcceleration);
 					setTimeout(function() {
+						telepathy.stopServices();
 						self.remove(calculating);
 						self.add(win);
 						win.playSound();
 					}, 2500);
 				} else if (myTime > vsTime) {
-					telepathy.sendData('youWin:');
+					try {
+						telepathy.sendData('youWin:');
+					} catch(ex) {
+						alert('Telepathy youwin in calculate in didreceivedata');
+					}
 					var Lose = require('ui/winlose/Lose');
 					var lose = new Lose(self);
 					idWinner = opponentID;
 					sendDataToServer(opponentID, idWinner, random, myTime, vsTime, myAcceleration, vsAcceleration);
 					setTimeout(function() {
+						telepathy.stopServices();
 						self.remove(calculating);
 						self.add(lose);
 						lose.playSound();
 					}, 2500);
 				} else {
-					telepathy.sendData('youLoose:');
+					try {
+						telepathy.sendData('youLoose:');
+					} catch(ex) {
+						alert('Telepathy youloose in calculate in didreceivedata 2');
+					}
 					var Lose = require('ui/winlose/Lose');
 					var lose = new Lose(self);
 					idWinner = opponentID;
 					sendDataToServer(opponentID, idWinner, random, myTime, vsTime, myAcceleration, vsAcceleration);
 					setTimeout(function() {
+						telepathy.stopServices();
 						self.remove(calculating);
 						self.add(lose);
 						lose.playSound();
@@ -213,28 +235,74 @@ function QuickGame() {
 				break;
 			case 'times':
 				vsTime = sMessage[1];
-				Ti.API.info('vs time is ' + vsTime);
-				if (myTime != 0) {
-					if (myTime < vsTime) {
-						telepathy.sendData('youLoose:');
+				if (vsTime == 888888888) {
+					clearInterval(interval);
+					ticSound.stop();
+					Calculating = require('ui/winlose/Calculating');
+					calculating = new Calculating();
+					var tmp = quickGameView.getMotionObject();
+					quickGameView.removeEventOnOrientation();
+					tmp.stopMotionRecognizer();
+					self.remove(quickGameView);
+					self.add(calculating);
+					var Win = require('ui/winlose/Win');
+					var win = new Win(self);
+					win.setLabelText('Hai vinto! Il tuo avversario ha sparato per primo. Avrà mica voluto barare?');
+					idWinner = Ti.App.Properties.getString('fb_id');
+					sendDataToServer(opponentID, idWinner, random, myTime, vsTime, myAcceleration, vsAcceleration);
+					setTimeout(function() {
+						self.remove(calculating);
+						self.add(win);
+						win.playSound();
+					}, 2500);
+				} else if (myTime != 0) {
+					if ( myTime == vsTime ){
+						try {
+							telepathy.sendData('youLoose:');
+						} catch(ex) {
+							alert('Telepathy youloose in calculate in didreceivedata 3');
+						}
+						var Lose = require('ui/winlose/Lose');
+						var lose = new Lose(self);
+						lose.setLabelText('Avete perso entrambi...Impara bene gringo, rischi la pelle nel vecchio west!');
+						idWinner = opponentID;
+						sendDataToServer(opponentID, idWinner, random, myTime, vsTime, myAcceleration, vsAcceleration);
+						setTimeout(function() {
+							telepathy.stopServices();
+							self.remove(calculating);
+							self.add(lose);
+							lose.playSound();
+						}, 2500);
+					}else if (myTime < vsTime) {
+						try {
+							telepathy.sendData('youLoose:');
+						} catch(ex) {
+							alert('Telepathy youloose in calculate in didreceivedata 3');
+						}
 						var Win = require('ui/winlose/Win');
 						var win = new Win(self);
 						win.setLabelText('Hai vinto. Il tuo tempo è ' + myTime + ' e il tempo dell\'avversario è ' + vsTime);
 						idWinner = Ti.App.Properties.getString('fb_id');
 						sendDataToServer(opponentID, idWinner, random, myTime, vsTime, myAcceleration, vsAcceleration);
 						setTimeout(function() {
+							telepathy.stopServices();
 							self.remove(calculating);
 							self.add(win);
 							win.playSound();
 						}, 2500);
 					} else {
-						telepathy.sendData('youWin:');
+						try {
+							telepathy.sendData('youWin:');
+						} catch(ex) {
+							alert('Telepathy youwin in calculate in didreceivedata 2');
+						}
 						var Lose = require('ui/winlose/Lose');
 						var lose = new Lose(self);
 						lose.setLabelText('Hai perso. Il tuo tempo è ' + myTime + ' e il tempo dell\'avversario è ' + vsTime);
-						sendDataToServer(opponentID, idWinner, random, myTime, vsTime, myAcceleration, vsAcceleration);
 						idWinner = opponentID;
+						sendDataToServer(opponentID, idWinner, random, myTime, vsTime, myAcceleration, vsAcceleration);
 						setTimeout(function() {
+							telepathy.stopServices();
 							self.remove(calculating);
 							self.add(lose);
 							lose.playSound();
@@ -271,13 +339,6 @@ function QuickGame() {
 		interval = setInterval(count, 1000);
 	}
 
-
-	Ti.App.addEventListener('fault', function() {
-		clearInterval(interval);
-		ticSound.stop();
-		telepathy.sendData('fault:');
-	});
-
 	self.setIDOpponent = function(id) {
 		Ti.API.info('Opponent ID is ' + id);
 		opponentID = id;
@@ -292,13 +353,40 @@ function QuickGame() {
 	Ti.App.addEventListener('timeExchange', function(e) {
 		if (!firstTimeExchange)
 			return;
-		if (e.flag == 999999999 || e.flag == 88888888) {
+		firstTimeExchange = false;
+		Calculating = require('ui/winlose/Calculating');
+		calculating = new Calculating();
+		quickGameView.removeEventOnOrientation();
+		var tmp = quickGameView.getMotionObject();
+		tmp.stopMotionRecognizer();
+		self.remove(quickGameView);
+		self.add(calculating);
+
+		if (e.flag == 999999999) {
 			Ti.API.info('e.flag: ' + e.flag);
 			myTime = e.flag;
 			try {
 				telepathy.sendData('times:' + e.flag);
 			} catch(ex) {
+				alert('Telepathy times in timeExchange');
 			}
+		} else if (e.flag == 888888888) {
+			clearInterval(interval);
+			ticSound.stop();
+			myTime = e.flag;
+			try {
+				telepathy.sendData('times:' + e.flag);
+			} catch(ex) {
+				alert('Telepathy times timeExchange');
+			}
+			var Lose = require('ui/winlose/Lose');
+			var lose = new Lose(self);
+			lose.setLabelText('Ehi gringo, attento! Hai sparato troppo presto!');
+			setTimeout(function() {
+				self.remove(calculating);
+				self.add(lose);
+				lose.playSound();
+			}, 2500);
 		} else {
 			myTime = diffTime;
 			Ti.API.info('myTime not parsed ' + myTime);
@@ -306,24 +394,17 @@ function QuickGame() {
 			try {
 				telepathy.sendData('times:' + diffTime);
 			} catch(ex) {
+				alert('Telepathy times in timeExchange else');
 			}
 		}
-		myAcceleration = e.acceleration;
-		Calculating = require('ui/winlose/Calculating');
-		calculating = new Calculating();
-		quickGameView.removeEventOnOrientation();
-		self.remove(quickGameView);
-		self.add(calculating);
-		firstTimeExchange = false;
 	});
 
 	self.add(statusLabel);
 	self.add(closeButton);
-	
-	var closingFunction = function(){
+
+	var closingFunction = function() {
 		Ti.API.info('closing window...');
-		if(telepathyStartedServices)
-			telepathy.stopServices();
+		telepathy.stopServices();
 		Telepathy = null;
 		telepathy = null;
 		myTime = 0;

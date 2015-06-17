@@ -4,7 +4,9 @@ function MainView() {
 	var duelsTile = new NormalTile();
 	var challengesTile = new NormalTile();
 	var statsTile = new NormalTile();
-
+	var QuickGameFinder = null;
+	var quickGameFinder = null;
+	
 	var self = Titanium.UI.createScrollView({
 		backgroundColor : '#F5F4F2',
 		width : '100%',
@@ -53,7 +55,7 @@ function MainView() {
 		color : '#856C64',
 		top : 10
 	});
-	
+
 	var fakeView = Titanium.UI.createView({
 		width : 1,
 		height : 15,
@@ -75,8 +77,8 @@ function MainView() {
 	self.add(fakeView);
 
 	quickGameFinderButton.addEventListener('click', function() {
-		var QuickGameFinder = require('ui/quickGame/QuickGameFinder');
-		var quickGameFinder = new QuickGameFinder();
+		QuickGameFinder = require('ui/quickGame/QuickGameFinder');
+		quickGameFinder = new QuickGameFinder();
 		quickGameFinder.open({
 			modal : true,
 			modalTransitionStyle : Ti.UI.iPhone.MODAL_TRANSITION_STYLE_COVER_VERTICAL,
@@ -105,6 +107,20 @@ function MainView() {
 		var profile = new Profile();
 		global.mainTab.open(profile, {
 			transition : Ti.UI.iPhone.AnimationStyle.FLIP_FROM_LEFT
+		});
+	});
+	
+	Ti.App.addEventListener('reloadFinderView', function() {
+		quickGameFinder.close();
+		QuickGameFinder = null;
+		quickGameFinder = null;
+		loader.reloadAnimation();
+		QuickGameFinder = require('ui/quickGame/QuickGameFinder');
+		quickGameFinder = new QuickGameFinder();
+		quickGameFinder.open({
+			modal : true,
+			modalTransitionStyle : Ti.UI.iPhone.MODAL_TRANSITION_STYLE_COVER_VERTICAL,
+			modalStyle : Ti.UI.iPhone.MODAL_PRESENTATION_FORMSHEET
 		});
 	});
 

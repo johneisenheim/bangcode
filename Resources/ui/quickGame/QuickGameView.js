@@ -69,6 +69,7 @@ function QuickGameView() {
 	gun.addEventListener('click', whenUpside);
 	
 	var orientationChangeCallback = function(e){
+		Ti.API.info('orientationChangeCallback');
 		orientation = e.orientation;
 		if( Motion == null ){
 			Ti.API.info('Motion is null');
@@ -93,7 +94,6 @@ function QuickGameView() {
 				self.add(position);
 				self.isGunAdded = false;
 			}
-			//gun.removeEventListener('click', whenUpside);
 			break;
 		default:
 			break;
@@ -114,6 +114,7 @@ function QuickGameView() {
 	});
 	
 	self.initialize = function(){
+		Ti.API.info('initialize for the master called');
 		Ti.Gesture.addEventListener('orientationchange', orientationChangeCallback);
 	};
 	
@@ -131,6 +132,7 @@ function QuickGameView() {
 	};
 	
 	self.removeEventOnOrientation = function(){
+		Ti.API.info('remove orientation');
 		Ti.Gesture.removeEventListener('orientationchange', orientationChangeCallback);
 	};
 

@@ -8,7 +8,8 @@ function QuickGameFinder() {
 	var random = 0;
 	var counter = 0;
 	var interval = null;
-	
+	amITheMaster = 0;
+
 	var telepathyStartedServices = false;
 
 	var QuickGameFinderView = require('ui/quickGame/QuickGameFinderView');
@@ -140,7 +141,12 @@ function QuickGameFinder() {
 				else
 					status = 'notready';
 				Ti.API.info('[INFO] Sending ' + status);
-				telepathy.sendData(status + ':');
+				try {
+					telepathy.sendData(status + ':');
+				} catch(ex) {
+					alert('Telepathy status in tellme case in didreceivedata');
+				}
+
 				break;
 			case 'start':
 				counter = 3 + parseInt(random);
@@ -151,20 +157,8 @@ function QuickGameFinder() {
 			case 'random':
 				random = sMessage[1];
 				break;
-			case 'fault':
-				ticSound.stop();
-				clearInterval(interval);
-				myTime = 0;
-				vsTime = 888888888;
-				var tmp_motion = quickGameFinderView.getMotionObject();
-				tmp_motion.stopMotionRecognizer();
-				var Win = require('ui/winlose/Win');
-				var win = new Win(self);
-				win.setLabelText('Hai vinto!');
-				self.add(win);
-				win.playSound();
-				break;
 			case 'youWin':
+				telepathy.stopServices();
 				setTimeout(function() {
 					var Win = require('ui/winlose/Win');
 					var win = new Win(self);
@@ -176,6 +170,7 @@ function QuickGameFinder() {
 				//alert("Hai vinto!");
 				break;
 			case 'youLoose':
+				telepathy.stopServices();
 				setTimeout(function() {
 					var Lose = require('ui/winlose/Lose');
 					var lose = new Lose(self);
@@ -184,12 +179,33 @@ function QuickGameFinder() {
 					self.add(lose);
 					lose.playSound();
 				}, 2500);
-				//alert("Hai perso!");
 				break;
 			case 'times':
 				vsTime = sMessage[1];
-				if (myTime != 0) {
-					telepathy.sendData('calculate:' + myTime);
+				if (vsTime == 888888888) {
+					clearInterval(interval);
+					ticSound.stop();
+					Calculating = require('ui/winlose/Calculating');
+					calculating = new Calculating();
+					var tmp = quickGameFinderView.getMotionObject();
+					quickGameFinderView.removeEventOnOrientation();
+					tmp.stopMotionRecognizer();
+					self.remove(quickGameFinderView);
+					self.add(calculating);
+					var Win = require('ui/winlose/Win');
+					var win = new Win(self);
+					win.setLabelText('Hai vinto! Il tuo avversario ha sparato per primo. Avrà mica voluto barare?');
+					setTimeout(function() {
+						self.remove(calculating);
+						self.add(win);
+						win.playSound();
+					}, 2500);
+				} else if (myTime != 0) {
+					try {
+						telepathy.sendData('calculate:' + myTime);
+					} catch(ex) {
+						alert('calculate in times case in didreceivedata');
+					}
 				}
 				break;
 			}
@@ -219,12 +235,6 @@ function QuickGameFinder() {
 	}
 
 
-	Ti.App.addEventListener('fault', function() {
-		clearInterval(interval);
-		ticSound.stop();
-		telepathy.sendData('fault:');
-	});
-
 	self.addEventListener('open', initQuickGameCallback);
 
 	closeButton.addEventListener('click', function() {
@@ -234,35 +244,62 @@ function QuickGameFinder() {
 	Ti.App.addEventListener('timeExchange', function(e) {
 		if (!firstTimeExchange)
 			return;
-		telepathy.sendData('acceleration:' + e.acceleration);
-		if (e.flag == 999999999 || e.flag == 88888888) {
+		firstTimeExchange = false;
+		Ti.API.info('timeExchange');
+		try {
+			telepathy.sendData('acceleration:' + e.acceleration);
+		} catch(ex) {
+			alert('Telepathy acceleration timeExchange');
+		}
+		Calculating = require('ui/winlose/Calculating');
+		calculating = new Calculating();
+		quickGameFinderView.removeEventOnOrientation();
+		var tmp = quickGameFinderView.getMotionObject();
+		tmp.stopMotionRecognizer();
+		self.remove(quickGameFinderView);
+		self.add(calculating);
+
+		if (e.flag == 999999999) {
 			myTime = e.flag;
 			try {
 				telepathy.sendData('times:' + e.flag);
 			} catch(ex) {
+				alert('Telepathy times timeExchange');
 			}
+		} else if (e.flag == 888888888) {
+			Ti.API.info('flag is 888888888');
+			clearInterval(interval);
+			ticSound.stop();
+			myTime = e.flag;
+			try {
+				telepathy.sendData('times:' + e.flag);
+			} catch(ex) {
+				alert('Telepathy times timeExchange');
+			}
+			var Lose = require('ui/winlose/Lose');
+			var lose = new Lose(self);
+			lose.setLabelText('Ehi gringo, attento! Hai sparato troppo presto!');
+			setTimeout(function() {
+				self.remove(calculating);
+				self.add(lose);
+				lose.playSound();
+			}, 2500);
 		} else {
 			myTime = diffTime;
 			try {
 				telepathy.sendData('times:' + diffTime);
 			} catch(ex) {
+				alert('Telepathy times timeExchange else');
 			}
 		}
-		Calculating = require('ui/winlose/Calculating');
-		calculating = new Calculating();
-		quickGameFinderView.removeEventOnOrientation();
-		self.remove(quickGameFinderView);
-		self.add(calculating);
-		firstTimeExchange = false;
 	});
 
 	self.add(statusLabel);
 	self.add(closeButton);
-	
-	var closingFunction = function(){
+
+	var closingFunction = function() {
 		Ti.API.info('closing window...');
-		if(telepathyStartedServices)
-			telepathy.stopServices();
+		telepathy.stopServices();
 		Telepathy = null;
 		telepathy = null;
 		myTime = 0;
@@ -276,6 +313,7 @@ function QuickGameFinder() {
 	};
 
 	self.addEventListener('close', closingFunction);
+
 
 	return self;
 

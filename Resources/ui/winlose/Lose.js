@@ -16,12 +16,20 @@ function Lose(win) {
 		layout : 'vertical'
 	});
 	
-	var loseIMG = Titanium.UI.createImageView({
+	/*var loseIMG = Titanium.UI.createImageView({
 		top : 50,
 		image : 'images/loseIMG.png',
 		backgroundColor : 'transparent',
 		width : johnsLib.calculateWidth(250),
 		height : johnsLib.calculateHeight(212)
+	});*/
+	
+	var loseIMG = Titanium.UI.createImageView({
+		top : 50,
+		image : 'images/holes.png',
+		backgroundColor : 'transparent',
+		width : johnsLib.calculateWidth(260),
+		height : johnsLib.calculateHeight(251)
 	});
 
 	var label = Titanium.UI.createLabel({
@@ -65,7 +73,18 @@ function Lose(win) {
 		top : 10
 	});
 	
+	var separator = Titanium.UI.createLabel({
+		text:'x',
+		font:{
+     		fontSize:130,
+      		fontFamily:"Sughayer Separates 4"
+   		},
+   		color:'#856C64',
+   		top:-85
+	});
+	
 	closeButton.addEventListener('click', function(){
+		Ti.App.fireEvent('back',{});
 		win.close();
 	});
 	
@@ -75,11 +94,24 @@ function Lose(win) {
 		},1500);
 	};
 	
-	if( myTime == 999999999 || myTime == 888888888 || vsTime == 999999999 || vsTime == 888888888)
-		infos.text = '';
+	self.setLabelText = function(txt){
+		infos.text = txt;
+	};
+	
+	revengeButton.addEventListener('click', function(){
+		if( amITheMaster ){
+			win.close();
+			Ti.App.fireEvent('reloadMasterView',{});
+		}else if( !amITheMaster)
+			Ti.App.fireEvent('reloadFinderView',{});
+	});
+	
+	/*if( myTime == 999999999 || myTime == 888888888 || vsTime == 999999999 || vsTime == 888888888)
+		infos.text = '';*/
 
 	self.add(loseIMG);
 	self.add(label);
+	self.add(separator);
 	self.add(infos);
 	self.add(revengeButton);
 	self.add(closeButton);
