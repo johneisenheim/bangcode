@@ -15,12 +15,18 @@ function Wizard() {
 
 	var scrollableView = Ti.UI.createScrollableView({
 		views : [firstPage, secondPage],
-		showPagingControl : false,
+		showPagingControl : true,
 		scrollingEnabled: true,
 		width:'100%',
 		height:'100%',
 		layout:'composite',
-		backgroundColor:'#F5F4F2'
+		backgroundColor:'#F5F4F2',
+		pageIndicatorTintColor:'#BEA49C',
+        currentPageIndicatorTintColor:'#856C64',
+		//tintColor : '#F5F4F2',
+		overlayEnabled : false,
+		pagingControlAlpha : 1,
+		pagingControlColor : '#F5F4F2'
 	});
 		
 	window.add(scrollableView);

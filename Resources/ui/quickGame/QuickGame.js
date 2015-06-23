@@ -11,6 +11,9 @@ function QuickGame() {
 	var calculating = null;
 	amITheMaster = 1;
 
+	var Loader = require('ui/customUI/Loader');
+	var load = new Loader();
+
 	var firstTimeExchange = true;
 
 	var duelTime = 0;
@@ -60,7 +63,7 @@ function QuickGame() {
 		width : '95%'
 	});
 
-	loader.showLoader(self);
+	//loader.showLoader(self);
 
 	var closeButton = Titanium.UI.createButton({
 		title : 'Chiudi',
@@ -132,12 +135,12 @@ function QuickGame() {
 				try {
 					telepathy.sendData('tellme:');
 				} catch(ex) {
-					alert('Telepathy tell me in connected event listener');
+					Ti.API.info('Telepathy tell me in connected event listener');
 				}
 				try {
 					telepathy.sendData('random:' + random);
 				} catch(ex) {
-					alert('Telepathy random in connected event listener');
+					Ti.API.info('Telepathy random in connected event listener');
 				}
 
 			}, 2000);
@@ -156,7 +159,7 @@ function QuickGame() {
 				try {
 					telepathy.sendData('tellme:');
 				} catch(ex) {
-					alert('Telepathy tell me in didreceivedata');
+					Ti.API.info('Telepathy tell me in didreceivedata');
 				}
 				break;
 			case 'ready':
@@ -165,7 +168,7 @@ function QuickGame() {
 					try {
 						telepathy.sendData('start:');
 					} catch(ex) {
-						alert('Telepathy start in case ready in didreceivedata');
+						Ti.API.info('Telepathy start in case ready in didreceivedata');
 					}
 					counter = 3 + random;
 					//setTimeout(function() {
@@ -176,7 +179,7 @@ function QuickGame() {
 					try {
 						telepathy.sendData('tellme:');
 					} catch(ex) {
-						alert('Telepathy tellme in case ready in didreceivedata');
+						Ti.API.info('Telepathy tellme in case ready in didreceivedata');
 					}
 				}
 				break;
@@ -187,7 +190,7 @@ function QuickGame() {
 					try {
 						telepathy.sendData('youLoose:');
 					} catch(ex) {
-						alert('Telepathy youloose in calculate in didreceivedata');
+						Ti.API.info('Telepathy youloose in calculate in didreceivedata');
 					}
 					var Win = require('ui/winlose/Win');
 					var win = new Win(self);
@@ -203,7 +206,7 @@ function QuickGame() {
 					try {
 						telepathy.sendData('youWin:');
 					} catch(ex) {
-						alert('Telepathy youwin in calculate in didreceivedata');
+						Ti.API.info('Telepathy youwin in calculate in didreceivedata');
 					}
 					var Lose = require('ui/winlose/Lose');
 					var lose = new Lose(self);
@@ -219,7 +222,7 @@ function QuickGame() {
 					try {
 						telepathy.sendData('youLoose:');
 					} catch(ex) {
-						alert('Telepathy youloose in calculate in didreceivedata 2');
+						Ti.API.info('Telepathy youloose in calculate in didreceivedata 2');
 					}
 					var Lose = require('ui/winlose/Lose');
 					var lose = new Lose(self);
@@ -240,10 +243,13 @@ function QuickGame() {
 					ticSound.stop();
 					Calculating = require('ui/winlose/Calculating');
 					calculating = new Calculating();
-					var tmp = quickGameView.getMotionObject();
-					quickGameView.removeEventOnOrientation();
-					tmp.stopMotionRecognizer();
-					self.remove(quickGameView);
+					var tmp = null;
+					if (quickGameView != null) {
+						tmp = quickGameView.getMotionObject();
+						quickGameView.removeEventOnOrientation();
+						tmp.stopMotionRecognizer();
+						self.remove(quickGameView);
+					}
 					self.add(calculating);
 					var Win = require('ui/winlose/Win');
 					var win = new Win(self);
@@ -256,11 +262,11 @@ function QuickGame() {
 						win.playSound();
 					}, 2500);
 				} else if (myTime != 0) {
-					if ( myTime == vsTime ){
+					if (myTime == vsTime) {
 						try {
-							telepathy.sendData('youLoose:');
+							telepathy.sendData('draw:');
 						} catch(ex) {
-							alert('Telepathy youloose in calculate in didreceivedata 3');
+							Ti.API.info('Telepathy youloose in calculate in didreceivedata 3');
 						}
 						var Lose = require('ui/winlose/Lose');
 						var lose = new Lose(self);
@@ -273,15 +279,15 @@ function QuickGame() {
 							self.add(lose);
 							lose.playSound();
 						}, 2500);
-					}else if (myTime < vsTime) {
+					} else if (myTime < vsTime) {
 						try {
 							telepathy.sendData('youLoose:');
 						} catch(ex) {
-							alert('Telepathy youloose in calculate in didreceivedata 3');
+							Ti.API.info('Telepathy youloose in calculate in didreceivedata 3');
 						}
 						var Win = require('ui/winlose/Win');
 						var win = new Win(self);
-						win.setLabelText('Hai vinto. Il tuo tempo è ' + myTime + ' e il tempo dell\'avversario è ' + vsTime);
+						win.setLabelText('Hai vinto. Il tuo tempo è ' + myTime + 'ms e il tempo dell\'avversario è ' + vsTime);
 						idWinner = Ti.App.Properties.getString('fb_id');
 						sendDataToServer(opponentID, idWinner, random, myTime, vsTime, myAcceleration, vsAcceleration);
 						setTimeout(function() {
@@ -294,11 +300,11 @@ function QuickGame() {
 						try {
 							telepathy.sendData('youWin:');
 						} catch(ex) {
-							alert('Telepathy youwin in calculate in didreceivedata 2');
+							Ti.API.info('Telepathy youwin in calculate in didreceivedata 2');
 						}
 						var Lose = require('ui/winlose/Lose');
 						var lose = new Lose(self);
-						lose.setLabelText('Hai perso. Il tuo tempo è ' + myTime + ' e il tempo dell\'avversario è ' + vsTime);
+						lose.setLabelText('Hai perso. Il tuo tempo è ' + myTime + 'ms e il tempo dell\'avversario è ' + vsTime);
 						idWinner = opponentID;
 						sendDataToServer(opponentID, idWinner, random, myTime, vsTime, myAcceleration, vsAcceleration);
 						setTimeout(function() {
@@ -339,6 +345,7 @@ function QuickGame() {
 		interval = setInterval(count, 1000);
 	}
 
+
 	self.setIDOpponent = function(id) {
 		Ti.API.info('Opponent ID is ' + id);
 		opponentID = id;
@@ -356,10 +363,13 @@ function QuickGame() {
 		firstTimeExchange = false;
 		Calculating = require('ui/winlose/Calculating');
 		calculating = new Calculating();
-		quickGameView.removeEventOnOrientation();
-		var tmp = quickGameView.getMotionObject();
-		tmp.stopMotionRecognizer();
-		self.remove(quickGameView);
+		var tmp = null;
+		if (quickGameView != null) {
+			tmp = quickGameView.getMotionObject();
+			quickGameView.removeEventOnOrientation();
+			tmp.stopMotionRecognizer();
+			self.remove(quickGameView);
+		}
 		self.add(calculating);
 
 		if (e.flag == 999999999) {
@@ -368,7 +378,7 @@ function QuickGame() {
 			try {
 				telepathy.sendData('times:' + e.flag);
 			} catch(ex) {
-				alert('Telepathy times in timeExchange');
+				Ti.API.info('Telepathy times in timeExchange');
 			}
 		} else if (e.flag == 888888888) {
 			clearInterval(interval);
@@ -377,7 +387,7 @@ function QuickGame() {
 			try {
 				telepathy.sendData('times:' + e.flag);
 			} catch(ex) {
-				alert('Telepathy times timeExchange');
+				Ti.API.info('Telepathy times timeExchange');
 			}
 			var Lose = require('ui/winlose/Lose');
 			var lose = new Lose(self);
@@ -394,13 +404,15 @@ function QuickGame() {
 			try {
 				telepathy.sendData('times:' + diffTime);
 			} catch(ex) {
-				alert('Telepathy times in timeExchange else');
+				Ti.API.info('Telepathy times in timeExchange else');
 			}
 		}
 	});
 
 	self.add(statusLabel);
 	self.add(closeButton);
+	self.add(load);
+	load.showLoader(self);
 
 	var closingFunction = function() {
 		Ti.API.info('closing window...');
@@ -418,6 +430,13 @@ function QuickGame() {
 	};
 
 	self.addEventListener('close', closingFunction);
+	
+	Ti.App.addEventListener('resume', function(e) {
+		Ti.API.info('resumed');
+		//chamber.animate();
+		load.hideLoader(self);
+		load.showLoader(self);
+	});
 
 	return self;
 

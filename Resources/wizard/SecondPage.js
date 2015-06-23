@@ -19,7 +19,7 @@ function SecondPage() {
       		fontFamily:"Wild West Icons"
    		},
    		color:'#856C64',
-   		top:0
+   		top:-20
 	});
 	
 	var loginMessage = Titanium.UI.createLabel({
@@ -44,8 +44,15 @@ function SecondPage() {
 	});
 	
 	fbButton.addEventListener('click', function(){
-		loader.showLoader(self);
+		loader.showLoader(window);
 		facebookHandler.logMeIn();
+	});
+	
+	Ti.App.addEventListener('resume', function(e) {
+		Ti.API.info('resumed');
+		//chamber.animate();
+		loader.hideLoader(window);
+		loader.showLoader(window);
 	});
 	
 	self.add(guns);

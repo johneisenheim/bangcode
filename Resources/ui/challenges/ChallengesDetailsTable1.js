@@ -8,10 +8,13 @@ var year,
     seconds,
     latitude,
     longitude,
+    player_one,
+    player_two,
     matchID;
 function ChallengesDetailsTable1() {
 
 	var Countdown = require('core/Countdown');
+	var _master = -1;
 
 	var BigTile = require('ui/customUI/BigTile');
 	var bigTile = new BigTile();
@@ -120,14 +123,14 @@ function ChallengesDetailsTable1() {
 						Ti.API.info("Received text: " + this.responseText);
 						var response = JSON.parse(this.responseText);
 						Ti.API.info(response.return);
-						if( response.return === '0'){
+						if (response.return === '0') {
 							loader.hideLoader(self);
 							Ti.API.info("ok");
-							Ti.App.fireEvent('reload',{});
-							setTimeout(function(){
+							Ti.App.fireEvent('reload', {});
+							setTimeout(function() {
 								self.close();
-							},1000);
-						}else{
+							}, 1000);
+						} else {
 							loader.hideLoader(self);
 							alert("Error");
 						}
@@ -152,6 +155,18 @@ function ChallengesDetailsTable1() {
 	self.initialize = function(data) {
 		bigTile.setTitle(data.title + ' nei paraggi di ' + data.address);
 		var challengeDate = data.challenge_date;
+		Ti.API.info(data.player_one);
+		if (Ti.App.Properties.getString('fb_id') === data.player_one) {
+			//sono il master, uso QuickGameView
+			player_one = data.player_one;
+			player_two = data.player_two;
+			_master = 1;
+		} else {
+			//sono lo slave uso QuickGameFinder
+			player_one = data.player_two;
+			player_two = data.player_one;
+			_master = 0;
+		}
 		Ti.API.info(challengeDate);
 		//2015-05-16 13:31:00 year, month, day, hours, minutes, seconds
 		//startCountdown();
@@ -190,14 +205,41 @@ function ChallengesDetailsTable1() {
 			} else {
 				countdownLabel.text = timespan.hours + ":" + timespan.minutes + ":" + Math.floor(timespan.seconds);
 				countdownInstructions.text = 'ore:minuti:secondi';
+				if (timespan.hours == 0 && timespan.minutes <= 10) {
+					//abilita il bottone inizia
+					customDisabledButton.enable();
+				}
 			}
 		}, 1000);
 		//startCountdown();
 		//countIt();
 	};
 
+	customDisabledButton.addEventListener('click', function() {
+		if (!customDisabledButton.isEnabled)
+			return;
+		if (master) {
+			var Master = require('ui/challenges/Master');
+			var master = new Master();
+			master.setIDOpponent(player_two);
+			master.open({
+				modal : true,
+				modalTransitionStyle : Ti.UI.iPhone.MODAL_TRANSITION_STYLE_COVER_VERTICAL,
+				modalStyle : Ti.UI.iPhone.MODAL_PRESENTATION_FORMSHEET
+			});
+		}else{
+			var Slave = require('ui/challenges/Slave');
+			var slave = new Slave();
+			slave.setMasterID(player_one);
+			slave.open({
+				modal : true,
+				modalTransitionStyle : Ti.UI.iPhone.MODAL_TRANSITION_STYLE_COVER_VERTICAL,
+				modalStyle : Ti.UI.iPhone.MODAL_PRESENTATION_FORMSHEET
+			});
+		}
+	});
+
 	self.addEventListener('close', function() {
-		Ti.API.info('closing...');
 		clear();
 	});
 

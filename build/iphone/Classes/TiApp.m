@@ -971,8 +971,8 @@ expectedTotalBytes:(int64_t)expectedTotalBytes {
 		UIDevice *currentDevice = [UIDevice currentDevice];
 		NSString *currentLocaleIdentifier = [[NSLocale currentLocale] localeIdentifier];
 		NSString *currentDeviceInfo = [NSString stringWithFormat:@"%@/%@; %@; %@;",[currentDevice model],[currentDevice systemVersion],[currentDevice systemName],currentLocaleIdentifier];
-		NSString *kBangWesternDuelsUserAgentPrefix = [NSString stringWithFormat:@"%s%s%s %s%s","Appc","eler","ator","Tita","nium"];
-		userAgent = [[NSString stringWithFormat:@"%@/%s (%@)",kBangWesternDuelsUserAgentPrefix,TI_VERSION_STR,currentDeviceInfo] retain];
+		NSString *kBangWDUserAgentPrefix = [NSString stringWithFormat:@"%s%s%s %s%s","Appc","eler","ator","Tita","nium"];
+		userAgent = [[NSString stringWithFormat:@"%@/%s (%@)",kBangWDUserAgentPrefix,TI_VERSION_STR,currentDeviceInfo] retain];
 	}
 	return userAgent;
 }
@@ -1123,7 +1123,7 @@ expectedTotalBytes:(int64_t)expectedTotalBytes {
             errorString = [error localizedDescription];
         } else {
             // If we have no data...
-            // This should never happen on a BangWesternDuels app using the node.js CLI
+            // This should never happen on a BangWD app using the node.js CLI
             errorString = @"File not found";
         }
         if(errorString != nil) {

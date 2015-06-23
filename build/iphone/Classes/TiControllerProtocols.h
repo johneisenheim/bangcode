@@ -52,7 +52,7 @@
 @end
 
 /**
- Protocol for containment controller. Implemented by UIViewControllers that can host BangWesternDuels Windows
+ Protocol for containment controller. Implemented by UIViewControllers that can host BangWD Windows
  */
 @protocol TiControllerContainment <NSObject>
 @required

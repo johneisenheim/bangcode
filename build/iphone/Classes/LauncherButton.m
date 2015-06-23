@@ -9,9 +9,9 @@
 
 
 // A good bit of this code was derived from the Three20 project
-// and was customized to work inside BangWesternDuels
+// and was customized to work inside BangWD
 //
-// All modifications by BangWesternDuels are licensed under 
+// All modifications by BangWD are licensed under 
 // the Apache License, Version 2.0
 //
 //

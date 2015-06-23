@@ -16,23 +16,23 @@
 {
 	switch (type)
 	{
-		case UIBangWesternDuelsNativeItemInfoLight:
+		case UIBangWDNativeItemInfoLight:
 		{
 			return [UIButton buttonWithType:UIButtonTypeInfoLight];
 		}
-		case UIBangWesternDuelsNativeItemInfoDark:
+		case UIBangWDNativeItemInfoDark:
 		{
 			return [UIButton buttonWithType:UIButtonTypeInfoDark];
 		}
-		case UIBangWesternDuelsNativeItemDisclosure:
+		case UIBangWDNativeItemDisclosure:
 		{
 			return [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
 		}
-		case UIBangWesternDuelsNativeItemContactAdd:
+		case UIBangWDNativeItemContactAdd:
 		{
 			return [UIButton buttonWithType:UIButtonTypeContactAdd];
 		}
-		case UIBangWesternDuelsNativeItemSpinner:
+		case UIBangWDNativeItemSpinner:
 		{
 			UIActivityIndicatorView *button = [[[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite] autorelease];
 			[button startAnimating];

@@ -35,7 +35,7 @@
     BOOL pageChanged;
 }
 
-#pragma mark - BangWesternDuels Internal Use Only
+#pragma mark - BangWD Internal Use Only
 -(void)manageRotation;
 -(UIScrollView*)scrollview;
 -(void)refreshScrollView:(CGRect)visibleBounds readd:(BOOL)readd;

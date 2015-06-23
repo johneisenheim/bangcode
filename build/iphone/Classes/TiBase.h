@@ -60,7 +60,7 @@ extern "C" {
 	#define KMETHOD_DEBUG MEMORY_DEBUG
 #endif
 
-// in simulator we redefine to format for BangWesternDuels Developer console
+// in simulator we redefine to format for BangWD Developer console
 
 
 #define TI_INLINE static __inline__
@@ -309,13 +309,13 @@ void TiExceptionThrowWithNameAndReason(NSString *exceptionName, NSString *reason
 #define DEFINE_EXCEPTIONS \
 - (void) throwException:(NSString *) reason subreason:(NSString*)subreason location:(NSString *)location\
 {\
-	NSString * exceptionName = [@"org.bangwesternduels." stringByAppendingString:NSStringFromClass([self class])];\
+	NSString * exceptionName = [@"org.bangwd." stringByAppendingString:NSStringFromClass([self class])];\
 	TiExceptionThrowWithNameAndReason(exceptionName,reason,subreason,location);\
 }\
 \
 + (void) throwException:(NSString *) reason subreason:(NSString*)subreason location:(NSString *)location\
 {\
-	NSString * exceptionName = @"org.bangwesternduels";\
+	NSString * exceptionName = @"org.bangwd";\
 	TiExceptionThrowWithNameAndReason(exceptionName,reason,subreason,location);\
 }\
 
@@ -426,28 +426,28 @@ DebugLog(@"[WARN] Ti%@.%@ DEPRECATED in %@, in favor of %@.",@"tanium",api,in,ne
 
  //MUST BE NEGATIVE, as it inhabits the same space as UIBarButtonSystemItem
 enum {
-	UIBangWesternDuelsNativeItemNone = -1, 
-	UIBangWesternDuelsNativeItemSpinner = -2,
-	UIBangWesternDuelsNativeItemProgressBar = -3,
+	UIBangWDNativeItemNone = -1, 
+	UIBangWDNativeItemSpinner = -2,
+	UIBangWDNativeItemProgressBar = -3,
 	
-	UIBangWesternDuelsNativeItemSlider = -4,
-	UIBangWesternDuelsNativeItemSwitch = -5,
-	UIBangWesternDuelsNativeItemMultiButton = -6,
-	UIBangWesternDuelsNativeItemSegmented = -7,
+	UIBangWDNativeItemSlider = -4,
+	UIBangWDNativeItemSwitch = -5,
+	UIBangWDNativeItemMultiButton = -6,
+	UIBangWDNativeItemSegmented = -7,
 	
-	UIBangWesternDuelsNativeItemTextView = -8,
-	UIBangWesternDuelsNativeItemTextField = -9,
-	UIBangWesternDuelsNativeItemSearchBar = -10,
+	UIBangWDNativeItemTextView = -8,
+	UIBangWDNativeItemTextField = -9,
+	UIBangWDNativeItemSearchBar = -10,
 	
-	UIBangWesternDuelsNativeItemPicker = -11,
-	UIBangWesternDuelsNativeItemDatePicker = -12,
+	UIBangWDNativeItemPicker = -11,
+	UIBangWDNativeItemDatePicker = -12,
 	
-	UIBangWesternDuelsNativeItemInfoLight = -13,
-	UIBangWesternDuelsNativeItemInfoDark = -14,
+	UIBangWDNativeItemInfoLight = -13,
+	UIBangWDNativeItemInfoDark = -14,
 	
-	UIBangWesternDuelsNativeItemDisclosure = -15,
+	UIBangWDNativeItemDisclosure = -15,
 	
-	UIBangWesternDuelsNativeItemContactAdd = -16
+	UIBangWDNativeItemContactAdd = -16
 };
 
 
@@ -628,7 +628,7 @@ void incrementKrollCounter();
 void decrementKrollCounter();
     
 /**
- *	TiThreadPerformOnMainThread should replace all BangWesternDuels instances of
+ *	TiThreadPerformOnMainThread should replace all BangWD instances of
  *	performSelectorOnMainThread, ESPECIALLY if wait is to be yes. That way,
  *	exceptional-case main thread activities can process them outside of the
  *	standard event loop.

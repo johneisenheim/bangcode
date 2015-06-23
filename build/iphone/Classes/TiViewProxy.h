@@ -17,7 +17,7 @@
  */
 @protocol TiKeyboardFocusableView
 
-#pragma mark Public BangWesternDuels APIs.
+#pragma mark Public BangWD APIs.
 
 /**
  Tells the view to focus.

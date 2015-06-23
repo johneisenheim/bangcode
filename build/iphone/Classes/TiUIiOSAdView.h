@@ -21,7 +21,7 @@
 
 @property (nonatomic, readonly) ADBannerView* adview;
 
-#pragma mark - BangWesternDuels Internal Use
+#pragma mark - BangWD Internal Use
 -(CGFloat)contentHeightForWidth:(CGFloat)value;
 -(CGFloat)contentWidthForWidth:(CGFloat)value;
 @end

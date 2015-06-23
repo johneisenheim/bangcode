@@ -144,7 +144,7 @@ function QuickGameFinder() {
 				try {
 					telepathy.sendData(status + ':');
 				} catch(ex) {
-					alert('Telepathy status in tellme case in didreceivedata');
+					Ti.API.info('Telepathy status in tellme case in didreceivedata');
 				}
 
 				break;
@@ -162,7 +162,7 @@ function QuickGameFinder() {
 				setTimeout(function() {
 					var Win = require('ui/winlose/Win');
 					var win = new Win(self);
-					win.setLabelText('Hai vinto. Il tuo tempo è ' + myTime + ' e il tempo dell\'avversario è ' + vsTime);
+					win.setLabelText('Hai vinto. Il tuo tempo è ' + myTime + 'ms e il tempo dell\'avversario è ' + vsTime);
 					self.remove(calculating);
 					self.add(win);
 					win.playSound();
@@ -174,7 +174,21 @@ function QuickGameFinder() {
 				setTimeout(function() {
 					var Lose = require('ui/winlose/Lose');
 					var lose = new Lose(self);
-					lose.setLabelText('Hai perso. Il tuo tempo è ' + myTime + ' e il tempo dell\'avversario è ' + vsTime);
+					if (myTime == 999999999)
+						lose.setLabelText('Hai mancato il tuo avversario! Aggiusta la mira, gringo!');
+					else
+						lose.setLabelText('Hai perso. Il tuo tempo è ' + myTime + 'ms e il tempo dell\'avversario è ' + vsTime);
+					self.remove(calculating);
+					self.add(lose);
+					lose.playSound();
+				}, 2500);
+				break;
+			case 'draw':
+				telepathy.stopServices();
+				var Lose = require('ui/winlose/Lose');
+				var lose = new Lose(self);
+				lose.setLabelText('Avete perso entrambi...Impara bene gringo, rischi la pelle nel vecchio west!');
+				setTimeout(function() {
 					self.remove(calculating);
 					self.add(lose);
 					lose.playSound();
@@ -187,10 +201,13 @@ function QuickGameFinder() {
 					ticSound.stop();
 					Calculating = require('ui/winlose/Calculating');
 					calculating = new Calculating();
-					var tmp = quickGameFinderView.getMotionObject();
-					quickGameFinderView.removeEventOnOrientation();
-					tmp.stopMotionRecognizer();
-					self.remove(quickGameFinderView);
+					var tmp = null;
+					if (quickGameFinderView != null) {
+						tmp = quickGameFinderView.getMotionObject();
+						quickGameFinderView.removeEventOnOrientation();
+						tmp.stopMotionRecognizer();
+						self.remove(quickGameFinderView);
+					}
 					self.add(calculating);
 					var Win = require('ui/winlose/Win');
 					var win = new Win(self);
@@ -204,7 +221,7 @@ function QuickGameFinder() {
 					try {
 						telepathy.sendData('calculate:' + myTime);
 					} catch(ex) {
-						alert('calculate in times case in didreceivedata');
+						Ti.API.info('calculate in times case in didreceivedata');
 					}
 				}
 				break;
@@ -249,14 +266,17 @@ function QuickGameFinder() {
 		try {
 			telepathy.sendData('acceleration:' + e.acceleration);
 		} catch(ex) {
-			alert('Telepathy acceleration timeExchange');
+			Ti.API.info('Telepathy acceleration timeExchange');
 		}
 		Calculating = require('ui/winlose/Calculating');
 		calculating = new Calculating();
-		quickGameFinderView.removeEventOnOrientation();
-		var tmp = quickGameFinderView.getMotionObject();
-		tmp.stopMotionRecognizer();
-		self.remove(quickGameFinderView);
+		var tmp = null;
+		if (quickGameFinderView != null) {
+			tmp = quickGameFinderView.getMotionObject();
+			quickGameFinderView.removeEventOnOrientation();
+			tmp.stopMotionRecognizer();
+			self.remove(quickGameFinderView);
+		}
 		self.add(calculating);
 
 		if (e.flag == 999999999) {
@@ -264,7 +284,7 @@ function QuickGameFinder() {
 			try {
 				telepathy.sendData('times:' + e.flag);
 			} catch(ex) {
-				alert('Telepathy times timeExchange');
+				Ti.API.info('Telepathy times timeExchange');
 			}
 		} else if (e.flag == 888888888) {
 			Ti.API.info('flag is 888888888');
@@ -274,7 +294,7 @@ function QuickGameFinder() {
 			try {
 				telepathy.sendData('times:' + e.flag);
 			} catch(ex) {
-				alert('Telepathy times timeExchange');
+				Ti.API.info('Telepathy times timeExchange');
 			}
 			var Lose = require('ui/winlose/Lose');
 			var lose = new Lose(self);
@@ -289,7 +309,7 @@ function QuickGameFinder() {
 			try {
 				telepathy.sendData('times:' + diffTime);
 			} catch(ex) {
-				alert('Telepathy times timeExchange else');
+				Ti.API.info('Telepathy times timeExchange else');
 			}
 		}
 	});
@@ -313,7 +333,6 @@ function QuickGameFinder() {
 	};
 
 	self.addEventListener('close', closingFunction);
-
 
 	return self;
 

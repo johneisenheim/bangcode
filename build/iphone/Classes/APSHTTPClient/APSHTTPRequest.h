@@ -1,5 +1,5 @@
 /**
- * BangWesternDuels APSHTTPClient Library
+ * BangWD APSHTTPClient Library
  * Copyright (c) 2009-2015 by Appcelerator, Inc. All Rights Reserved.
  * Licensed under the terms of the Apache Public License
  * Please see the LICENSE included with this distribution for details.
@@ -77,7 +77,7 @@ typedef NS_ENUM(NSInteger, APSRequestError) {
  */
 @property(nonatomic, strong, readwrite) NSArray                          *runModes;
 
-// Only used in BangWesternDuels ImageLoader
+// Only used in BangWD ImageLoader
 @property(nonatomic, strong, readwrite) NSDictionary                     *userInfo;
 
 -(void)send;

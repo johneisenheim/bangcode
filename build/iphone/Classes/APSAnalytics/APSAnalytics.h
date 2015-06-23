@@ -20,9 +20,9 @@ extern NSString * const APSDeployTypeProduction;
 
 /**
  * The APSAnalytics class configures the application to use the APS analytic services
- * to send analytic data that can be viewed on the BangWesternDuels Dashboard.
+ * to send analytic data that can be viewed on the BangWD Dashboard.
  *
- * For information on getting started with BangWesternDuels Platform Services,
+ * For information on getting started with BangWD Platform Services,
  * see [Appclerator Platform Services for iOS](http://bit.ly/1kqteQS).
  */
 @interface APSAnalytics : NSObject

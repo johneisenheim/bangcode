@@ -58,7 +58,7 @@ function Lose(win) {
 			fontSize : 17,
 			fontFamily : "Roboto-LightItalic"
 		},
-		text : 'Hai impiegato '+myTime+' ms per sparare, mentre il tuo avversario ne ha impiegati '+vsTime+'.',
+		text : 'Hai impiegato '+myTime+'ms per sparare, mentre il tuo avversario ne ha impiegati '+vsTime+'.',
 		textAlign : 'center',
 		color : '#aa938b',
 		width : '85%'
@@ -95,6 +95,7 @@ function Lose(win) {
 	};
 	
 	self.setLabelText = function(txt){
+		Ti.API.info('setLabelText');
 		infos.text = txt;
 	};
 	
@@ -105,6 +106,12 @@ function Lose(win) {
 		}else if( !amITheMaster)
 			Ti.App.fireEvent('reloadFinderView',{});
 	});
+	
+	if( myTime == 999999999 && vsTime == 999999999 ){
+		infos.text = 'Avete perso entrambi...Impara bene gringo, rischi la pelle nel vecchio west!';
+	}else if( vsTime == 999999999 ){
+		infos.text = 'Hai perso! Hai mancato il tuo avversario che ti ha sparato in '+vsTime+'ms!';
+	}
 	
 	/*if( myTime == 999999999 || myTime == 888888888 || vsTime == 999999999 || vsTime == 888888888)
 		infos.text = '';*/

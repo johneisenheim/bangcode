@@ -62,8 +62,29 @@ var musicVolume = Ti.App.Properties.getDouble('volume', 0.4);
  volume : musicVolume
  });*/
 
+var track = Ti.App.Properties.getInt('track',1);
+var mediaPath;
+
+switch(track){
+	case 1:
+		mediaPath = 'music/track1.mp3';
+	break;
+	case 2:
+		mediaPath = 'music/track2.mp3';
+	break;
+	case 3:
+		mediaPath = 'music/track3.mp3';
+	break;
+	case 4:
+		mediaPath = 'music/track4.mp3';
+	break;
+	case 5:
+		mediaPath = 'music/track5.mp3';
+	break;
+}
+
 var player = ZLSound.createSample({
-	media : "music/theme.mp3",
+	media : mediaPath,
 	volume : musicVolume
 });
 
@@ -134,6 +155,7 @@ Ti.App.iOS.addEventListener('notification', function(e) {
 
 var Loader = require('ui/customUI/Loader');
 var loader = new Loader();
+
 
 // This is a single context application with multiple windows in a stack
 (function() {

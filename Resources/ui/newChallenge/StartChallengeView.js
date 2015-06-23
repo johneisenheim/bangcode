@@ -17,6 +17,9 @@ function StartChallengeView() {
 	var isQuickGame = false;
 	var QuickGame = null;
 	var quickGame = null;
+	var isTraining = false;
+	var Training = null;
+	var training = null;
 
 	var responseDialog = Ti.UI.createAlertDialog({
 		//message : 'Il tuo dispositivo sembra non essere connesso ad Internet.',
@@ -124,8 +127,8 @@ function StartChallengeView() {
 	});
 
 	var opts = {
-		cancel : 4,
-		options : ['Quick game', 'Tra 10 minuti', 'Tra un\'ora', 'Scegli data', 'Annulla'],
+		cancel : 5,
+		options : ['Training', 'Quick game', 'Tra 10 minuti', 'Tra un\'ora', 'Scegli data', 'Annulla'],
 		//destructive : 4,
 		title : 'Imposta data'
 	};
@@ -141,11 +144,24 @@ function StartChallengeView() {
 	dialog.addEventListener('click', function(e) {
 		switch(e.index) {
 		case 0:
-			isQuickGame = true;
-			whenTile.setTitle('Quick Game');
+			isTraining = true;
+			isQuickGame = false;
+			whenTile.setTitle('Training');
 			locationTile.disable();
+			challengerTile.disable();
 			break;
 		case 1:
+			isQuickGame = true;
+			isTraining = false;
+			whenTile.setTitle('Quick Game');
+			locationTile.disable();
+			challengerTile.enable();
+			break;
+		case 2:
+			isTraining = false;
+			isQuickGame = false;
+			locationTile.enable();
+			challengerTile.enable();
 			var date = new Date();
 			date.setMinutes(date.getMinutes() + 10);
 			var hourFormat = date.toLocaleTimeString();
@@ -154,7 +170,11 @@ function StartChallengeView() {
 			locationTile.enable();
 			isQuickGame = false;
 			break;
-		case 2:
+		case 3:
+			isTraining = false;
+			isQuickGame = false;
+			locationTile.enable();
+			challengerTile.enable();
 			var date = new Date();
 			date.setHours(date.getHours() + 1);
 			var hourFormat = date.toLocaleTimeString();
@@ -163,7 +183,11 @@ function StartChallengeView() {
 			locationTile.enable();
 			isQuickGame = false;
 			break;
-		case 3:
+		case 4:
+			isTraining = false;
+			isQuickGame = false;
+			locationTile.enable();
+			challengerTile.enable();
 			dialog.hide();
 			Ti.App.fireEvent('show_picker', {});
 			locationTile.enable();
@@ -179,6 +203,8 @@ function StartChallengeView() {
 
 	locationTile.addEventListener('click', function() {
 		if (isQuickGame)
+			return;
+		if (isTraining)
 			return;
 		Ti.App.fireEvent('close_picker', {});
 		if (!Titanium.Network.getOnline()) {
@@ -196,6 +222,8 @@ function StartChallengeView() {
 	});
 
 	challengerTile.addEventListener('click', function() {
+		if (isTraining)
+			return;
 		Ti.App.fireEvent('close_picker', {});
 		if (!Titanium.Network.getOnline()) {
 			var dialog = Ti.UI.createAlertDialog({
@@ -229,16 +257,69 @@ function StartChallengeView() {
 			return;
 		}
 
-		if (isQuickGame) {
-			QuickGame = require('ui/quickGame/QuickGame');
-			quickGame = new QuickGame();
-			quickGame.setIDOpponent(currentID);
-			Ti.API.info(currentID);
-			quickGame.open({
+		if (isTraining) {
+			Training = require('ui/training/Training');
+			training = new Training();
+			training.open({
 				modal : true,
 				modalTransitionStyle : Ti.UI.iPhone.MODAL_TRANSITION_STYLE_COVER_VERTICAL,
 				modalStyle : Ti.UI.iPhone.MODAL_PRESENTATION_FORMSHEET
 			});
+			return;
+		}
+
+		if (isQuickGame) {
+			Ti.API.info(Ti.App.Properties.getBool('remember_quick', 1));
+			if (Ti.App.Properties.getBool('remember_quick', 1)) {
+				Ti.API.info('La prop è true');
+				var initDialog = Ti.UI.createAlertDialog({
+					buttonNames : ['Si, ricordamelo', 'No, lo ricorderò'],
+					message : 'Dì al tuo avversario di accedere al Quick Game Finder dalla schermata principale. Vuoi che ti ricordi questo messaggio la prossima volta?',
+					title : 'Quick Game'
+				});
+
+				initDialog.addEventListener('click', function(e) {
+					switch(e.index) {
+					case 0:
+						Ti.App.Properties.setBool('remember_quick', 1);
+						QuickGame = require('ui/quickGame/QuickGame');
+						quickGame = new QuickGame();
+						quickGame.setIDOpponent(currentID);
+						Ti.API.info(currentID);
+						quickGame.open({
+							modal : true,
+							modalTransitionStyle : Ti.UI.iPhone.MODAL_TRANSITION_STYLE_COVER_VERTICAL,
+							modalStyle : Ti.UI.iPhone.MODAL_PRESENTATION_FORMSHEET
+						});
+						break;
+					case 1:
+						Ti.App.Properties.setBool('remember_quick', 0);
+						QuickGame = require('ui/quickGame/QuickGame');
+						quickGame = new QuickGame();
+						quickGame.setIDOpponent(currentID);
+						Ti.API.info(currentID);
+						quickGame.open({
+							modal : true,
+							modalTransitionStyle : Ti.UI.iPhone.MODAL_TRANSITION_STYLE_COVER_VERTICAL,
+							modalStyle : Ti.UI.iPhone.MODAL_PRESENTATION_FORMSHEET
+						});
+						break;
+					}
+				});
+				initDialog.show();
+			} else {
+				Ti.API.info('La prop è false');
+				QuickGame = require('ui/quickGame/QuickGame');
+				quickGame = new QuickGame();
+				quickGame.setIDOpponent(currentID);
+				Ti.API.info(currentID);
+				quickGame.open({
+					modal : true,
+					modalTransitionStyle : Ti.UI.iPhone.MODAL_TRANSITION_STYLE_COVER_VERTICAL,
+					modalStyle : Ti.UI.iPhone.MODAL_PRESENTATION_FORMSHEET
+				});
+			}
+
 		} else {
 			loader.showLoader(self);
 			var text = whenTile.getTitle();
@@ -316,12 +397,23 @@ function StartChallengeView() {
 	Ti.App.addEventListener('reloadMasterView', function() {
 		QuickGame = null;
 		quickGame = null;
-		loader.reloadAnimation();
 		var QuickGame = require('ui/quickGame/QuickGame');
 		var quickGame = new QuickGame();
 		quickGame.setIDOpponent(currentID);
 		Ti.API.info(currentID);
 		quickGame.open({
+			modal : true,
+			modalTransitionStyle : Ti.UI.iPhone.MODAL_TRANSITION_STYLE_COVER_VERTICAL,
+			modalStyle : Ti.UI.iPhone.MODAL_PRESENTATION_FORMSHEET
+		});
+	});
+
+	Ti.App.addEventListener('training_reload', function() {
+		Training = null;
+		training = null;
+		Training = require('ui/training/Training');
+		training = new Training();
+		training.open({
 			modal : true,
 			modalTransitionStyle : Ti.UI.iPhone.MODAL_TRANSITION_STYLE_COVER_VERTICAL,
 			modalStyle : Ti.UI.iPhone.MODAL_PRESENTATION_FORMSHEET

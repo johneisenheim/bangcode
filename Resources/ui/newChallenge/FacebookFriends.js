@@ -1,5 +1,5 @@
 function FacebookFriends() {
-	
+
 	var currentFriend = '';
 	var currentID = '';
 
@@ -8,8 +8,11 @@ function FacebookFriends() {
 	});
 
 	done.addEventListener('click', function() {
-		if ( currentFriend !== '')
-			Ti.App.fireEvent('friend_choosen',{who:currentFriend, id:currentID});
+		if (currentFriend !== '')
+			Ti.App.fireEvent('friend_choosen', {
+				who : currentFriend,
+				id : currentID
+			});
 		self.close();
 	});
 
@@ -63,16 +66,20 @@ function FacebookFriends() {
 	var table = null;
 
 	Ti.App.addEventListener('friends_done', function(e) {
-		Ti.API.info(e.data);
-		var jsonRes = JSON.parse(e.data);
+		var jsonRes = null;
+		try {
+			jsonRes = JSON.parse(e.data);
+		} catch(ex) {
+			alert(e.data);
+		}
 		var dataTable = [];
 		var imgFile = null;
 		for (var i = 1; i <= jsonRes.length; i++) {
-			var fileName = jsonRes[i-1].id + '.png';
+			var fileName = jsonRes[i - 1].id + '.png';
 			imgFile = Titanium.Filesystem.getFile(Titanium.Filesystem.applicationDataDirectory, fileName);
-			if( !imgFile.exists() ){
+			if (!imgFile.exists()) {
 				var miniImage = Titanium.UI.createImageView({
-					image : 'https://graph.facebook.com/' + jsonRes[i-1].id + '/picture?width=200&height=200',
+					image : 'https://graph.facebook.com/' + jsonRes[i - 1].id + '/picture?width=200&height=200',
 					width : 120,
 					height : 120
 				});
@@ -112,8 +119,19 @@ function FacebookFriends() {
 		});
 		table.addEventListener('click', function(e) {
 			currentID = e.rowData.fb_id;
-			e.rowData.hasCheck = true;
 			currentFriend = e.rowData.title;
+			var tmp = e.rowData.rowIndex;
+			Ti.API.info('TMP è '+tmp);
+			for (var j = 0; j < dataTable.length; j++ ){
+				if( j == (tmp-1) ) 
+					dataTable[j].hasCheck = true;
+				else if( j != (tmp-1) ){
+					Ti.API.info(j+ ' è diverso da '+tmp);
+					Ti.API.info(dataTable[j]);
+					dataTable[j].hasCheck = false;
+				}
+			}
+			table.setData(dataTable);
 		});
 
 		self.add(table);

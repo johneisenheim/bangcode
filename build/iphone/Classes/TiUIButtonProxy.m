@@ -68,10 +68,10 @@
 {
 	switch((int)styleCache)
 	{
-		case UIBangWesternDuelsNativeItemInfoLight:
-		case UIBangWesternDuelsNativeItemInfoDark:
+		case UIBangWDNativeItemInfoLight:
+		case UIBangWDNativeItemInfoDark:
 			return 18;
-		case UIBangWesternDuelsNativeItemDisclosure:
+		case UIBangWDNativeItemDisclosure:
 			return 29;
 		default: {
 			break;
@@ -84,10 +84,10 @@
 {
 	switch((int)styleCache)
 	{
-		case UIBangWesternDuelsNativeItemInfoLight:
-		case UIBangWesternDuelsNativeItemInfoDark:
+		case UIBangWDNativeItemInfoLight:
+		case UIBangWDNativeItemInfoDark:
 			return 19;
-		case UIBangWesternDuelsNativeItemDisclosure:
+		case UIBangWDNativeItemDisclosure:
 			return 31;
 		default: {
 			break;
@@ -101,9 +101,9 @@
 {
 	switch ((int)styleCache)
 	{
-		case UIBangWesternDuelsNativeItemInfoLight:
-		case UIBangWesternDuelsNativeItemInfoDark:
-		case UIBangWesternDuelsNativeItemDisclosure:
+		case UIBangWDNativeItemInfoLight:
+		case UIBangWDNativeItemInfoDark:
+		case UIBangWDNativeItemDisclosure:
 			return suggestedResizing & ~(UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight);
 		default: {
 			break;

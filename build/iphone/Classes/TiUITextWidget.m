@@ -239,7 +239,7 @@
 }
 
 
-#pragma mark - BangWesternDuels Internal Use Only
+#pragma mark - BangWD Internal Use Only
 -(void)updateKeyboardStatus
 {
     if ( ([[[TiApp app] controller] keyboardVisible]) && ([[[TiApp app] controller] keyboardFocusedProxy] == [self proxy]) ) {

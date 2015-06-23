@@ -66,6 +66,17 @@
 	<key>CFBundleIconFiles</key>
 	<array>
 		<string>appicon.png</string>
+		<string>appicon@2x.png</string>
+		<string>appicon-60.png</string>
+		<string>appicon-60@2x.png</string>
+		<string>appicon-60@3x.png</string>
+		<string>appicon-76.png</string>
+		<string>appicon-76@2x.png</string>
+		<string>appicon-Small.png</string>
+		<string>appicon-Small@2x.png</string>
+		<string>appicon-Small@3x.png</string>
+		<string>appicon-Small-40.png</string>
+		<string>appicon-Small-40@2x.png</string>
 	</array>
 	<key>UILaunchImages</key>
 	<array>

@@ -54,7 +54,7 @@
     NSInteger activeAlertControllerCount;
 }
 
-//BangWesternDuels Support
+//BangWD Support
 -(CGRect)resizeView;
 -(void)repositionSubviews;
 -(UIView *)topWindowProxyView;

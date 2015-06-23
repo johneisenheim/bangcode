@@ -13,7 +13,7 @@
 @class TiHost;
 
 /**
- The base class for all BangWesternDuels modules
+ The base class for all BangWD modules
  */
 @interface TiModule : TiProxy 
 {
@@ -51,30 +51,30 @@
 // lifecycle
 
 /**
- BangWesternDuels Platform calls this method on startup.
+ BangWD Platform calls this method on startup.
  */
 -(void)startup;
 
 /**
- BangWesternDuels Platform calls this method on shutdown.
+ BangWD Platform calls this method on shutdown.
  @param sender The sender of the event.
  */
 -(void)shutdown:(id)sender;
 
 /**
- BangWesternDuels Platform calls this method on suspend.
+ BangWD Platform calls this method on suspend.
  @param sender The sender of the event.
  */
 -(void)suspend:(id)sender;
 
 /**
- BangWesternDuels Platform calls this method on entering background.
+ BangWD Platform calls this method on entering background.
  @param sender The sender of the event.
  */
 -(void)paused:(id)sender;
 
 /**
- BangWesternDuels Platform calls this method on resume.
+ BangWD Platform calls this method on resume.
  @param sender The sender of the event.
  */
 -(void)resume:(id)sender;

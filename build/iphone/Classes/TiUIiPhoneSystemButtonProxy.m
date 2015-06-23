@@ -39,12 +39,12 @@ MAKE_SYSTEM_PROP(DONE,UIBarButtonSystemItemDone);
 MAKE_SYSTEM_PROP(FLEXIBLE_SPACE,UIBarButtonSystemItemFlexibleSpace);
 MAKE_SYSTEM_PROP(FIXED_SPACE,UIBarButtonSystemItemFixedSpace);
 
-MAKE_SYSTEM_PROP(ACTIVITY,UIBangWesternDuelsNativeItemSpinner);
-MAKE_SYSTEM_PROP(SPINNER,UIBangWesternDuelsNativeItemSpinner);
-MAKE_SYSTEM_PROP(INFO_LIGHT,UIBangWesternDuelsNativeItemInfoLight);
-MAKE_SYSTEM_PROP(INFO_DARK,UIBangWesternDuelsNativeItemInfoDark);
-MAKE_SYSTEM_PROP(DISCLOSURE,UIBangWesternDuelsNativeItemDisclosure);
-MAKE_SYSTEM_PROP(CONTACT_ADD,UIBangWesternDuelsNativeItemContactAdd);
+MAKE_SYSTEM_PROP(ACTIVITY,UIBangWDNativeItemSpinner);
+MAKE_SYSTEM_PROP(SPINNER,UIBangWDNativeItemSpinner);
+MAKE_SYSTEM_PROP(INFO_LIGHT,UIBangWDNativeItemInfoLight);
+MAKE_SYSTEM_PROP(INFO_DARK,UIBangWDNativeItemInfoDark);
+MAKE_SYSTEM_PROP(DISCLOSURE,UIBangWDNativeItemDisclosure);
+MAKE_SYSTEM_PROP(CONTACT_ADD,UIBangWDNativeItemContactAdd);
 
 
 @end

@@ -42,8 +42,8 @@ function QuickGameView() {
 		top : 50,
 		image : 'images/position1.png',
 		backgroundColor : 'transparent',
-		width : 90,
-		height : 356
+		width : johnsLib.calculateHeight(90),
+		height : johnsLib.calculateHeight(356)
 	});
 
 	var gun = Titanium.UI.createImageView({

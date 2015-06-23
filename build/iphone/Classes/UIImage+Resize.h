@@ -3,7 +3,7 @@
 // Free for personal or commercial use, with or without modification.
 // No warranty is expressed or implied.
 
-// NOTE: BangWesternDuels modified to convert from Category to 
+// NOTE: BangWD modified to convert from Category to 
 // new Class name since iPhone seems to have some issues with Categories
 // of built in Classes
 

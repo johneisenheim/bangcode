@@ -89,6 +89,12 @@ function Win(win){
 	self.setLabelText = function(txt){
 		infos.text = txt;
 	};
+	
+	if( myTime == 999999999 && vsTime == 999999999 ){
+		infos.text = 'Avete perso entrambi...Impara bene gringo, rischi la pelle nel vecchio west!';
+	}else if( vsTime == 999999999 ){
+		infos.text = 'Hai vinto! Il tuo tempo è '+myTime+'ms mentre l\'avversario ti ha mancato!';
+	}
 
 	self.add(winIMG);
 	self.add(label);

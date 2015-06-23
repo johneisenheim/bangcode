@@ -19,9 +19,9 @@
 
 #ifdef KROLL_COVERAGE
 # import "KrollCoverage.h"
-@interface BangWesternDuelsObject : KrollCoverageObject {
+@interface BangWDObject : KrollCoverageObject {
 #else
-@interface BangWesternDuelsObject : KrollObject {
+@interface BangWDObject : KrollObject {
 #endif
 @private
 	NSMutableDictionary *modules;
@@ -35,7 +35,7 @@
 -(TiModule*)moduleNamed:(NSString*)name context:(id<TiEvaluator>)context;
 @end
 
-extern NSString * BangWesternDuels$ModuleRequireFormat;
+extern NSString * BangWD$ModuleRequireFormat;
 
 @interface KrollBridge : Bridge<TiEvaluator,KrollDelegate> {
 @private
@@ -44,7 +44,7 @@ extern NSString * BangWesternDuels$ModuleRequireFormat;
 	KrollContext *context;
 	NSDictionary *preload;
 	NSMutableDictionary *modules;
-	BangWesternDuelsObject *_bangwesternduels;
+	BangWDObject *_bangwd;
     KrollObject* console;
 	BOOL shutdown;
     BOOL evaluationError;

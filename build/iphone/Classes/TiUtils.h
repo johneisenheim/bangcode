@@ -39,7 +39,7 @@ typedef enum {
 } EncodingError;
 
 /**
- BangWesternDuels orientation flags.
+ BangWD orientation flags.
  */
 typedef enum
 {

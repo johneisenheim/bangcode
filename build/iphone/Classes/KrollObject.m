@@ -302,10 +302,10 @@ bool KrollSetProperty(TiContextRef jsContext, TiObjectRef object, TiStringRef pr
 
 // forward declare these
 
-//@interface BangWesternDuelsObject : NSObject
+//@interface BangWDObject : NSObject
 //@end
 
-@interface BangWesternDuelsObject (Private)
+@interface BangWDObject (Private)
 -(NSDictionary*)modules;
 @end
 
@@ -323,9 +323,9 @@ void KrollPropertyNames(TiContextRef ctx, TiObjectRef object, TiPropertyNameAccu
 	{
 		id target = [o target];
 		
-		if ([o isKindOfClass:[BangWesternDuelsObject class]])
+		if ([o isKindOfClass:[BangWDObject class]])
 		{
-			for (NSString *key in [[(BangWesternDuelsObject*)o modules] allKeys])
+			for (NSString *key in [[(BangWDObject*)o modules] allKeys])
 			{
 				TiStringRef value = TiStringCreateWithUTF8CString([key UTF8String]);
 				TiPropertyNameAccumulatorAddName(propertyNames,value);

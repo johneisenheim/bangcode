@@ -31,7 +31,7 @@ void TiBindingRunLoopEnqueue(TiBindingRunLoop runLoop, TiBindingCallback callbac
  *	every time a run loop is started, before the file is executed. Because
  *	the file the run loop uses is not parsed or run yet, there won't be a
  *	path, but this lets you enqeue methods to run immediately after the
- *	parsing, or set up changes to the runtime environment. The BangWesternDuels
+ *	parsing, or set up changes to the runtime environment. The BangWD
  *	and other globals WILL be set during the callback's execution.
  *
  *	These callbacks are invoked before:

@@ -7,8 +7,8 @@
  * WARNING: This is generated code. Modify at your own risk and without support.
  */
 
-#ifndef BangWesternDuels_ThirdpartyNS_h
-#define BangWesternDuels_ThirdpartyNS_h
+#ifndef BangWD_ThirdpartyNS_h
+#define BangWD_ThirdpartyNS_h
 
 #ifndef __TI_NAMESPACE_PREFIX_
 #define __TI_NAMESPACE_PREFIX_	TI

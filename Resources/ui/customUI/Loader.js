@@ -8,7 +8,7 @@ function Loader() {
 		height : 60,
 		borderRadius : 10,
 		opacity : 0.96,
-		zIndex : 10,
+		zIndex : 50,
 		top : '40%',
 		layout : 'composite',
 		viewShadowColor : '#817F7F',
@@ -26,32 +26,46 @@ function Loader() {
 	var matrix = Ti.UI.create2DMatrix();
 	matrix = matrix.rotate(180);
 
+	var animation = Ti.UI.createAnimation({
+		transform : matrix,
+		duration : 900,
+		//autoreverse : true,
+		repeat : 10000000
+	});
+	
+	/*animation.addEventListener('complete', function(){
+		Ti.API.info('complete animation');
+		chamber.animate(animation);
+	});*/
+
 	self.add(chamber);
 
 	self.showLoader = function(win) {
-		if( win != null )
+		if (win != null)
 			currentObject = win;
-		chamber.animate({
-			transform : matrix,
-			duration : 900,
-			//autoreverse : true,
-			repeat : 300000
-		});
 		win.add(self);
+		startAnimation();
 	};
 	
-	self.reloadAnimation = function(){
-		chamber.animate({
-			transform : matrix,
-			duration : 900,
-			//autoreverse : true,
-			repeat : 300000
-		});
-	};
+	
+	/*self.addEventListener('postlayout', function(){
+		Ti.API.info('postlayout');
+		chamber.animate(animation);
+	});
+	
+	self.reloadAnimation = function() {
+		Ti.API.info('reload');
+		chamber.animate();
+		startAnimation();
+	};*/
 
 	self.hideLoader = function(win) {
 		win.remove(self);
 	};
+	
+	function startAnimation(){
+		chamber.animate(animation);
+	}
 
 	return self;
 
