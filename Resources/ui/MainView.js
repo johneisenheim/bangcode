@@ -78,7 +78,7 @@ function MainView() {
 
 	quickGameFinderButton.addEventListener('click', function() {
 		QuickGameFinder = require('ui/quickGame/QuickGameFinder');
-		quickGameFinder = new QuickGameFinder();
+		quickGameFinder = new QuickGameFinder(false);
 		quickGameFinder.open({
 			modal : true,
 			modalTransitionStyle : Ti.UI.iPhone.MODAL_TRANSITION_STYLE_COVER_VERTICAL,
@@ -114,9 +114,8 @@ function MainView() {
 		quickGameFinder.close();
 		QuickGameFinder = null;
 		quickGameFinder = null;
-		loader.reloadAnimation();
 		QuickGameFinder = require('ui/quickGame/QuickGameFinder');
-		quickGameFinder = new QuickGameFinder();
+		quickGameFinder = new QuickGameFinder(true);
 		quickGameFinder.open({
 			modal : true,
 			modalTransitionStyle : Ti.UI.iPhone.MODAL_TRANSITION_STYLE_COVER_VERTICAL,

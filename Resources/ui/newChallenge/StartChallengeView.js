@@ -283,7 +283,7 @@ function StartChallengeView() {
 					case 0:
 						Ti.App.Properties.setBool('remember_quick', 1);
 						QuickGame = require('ui/quickGame/QuickGame');
-						quickGame = new QuickGame();
+						quickGame = new QuickGame(false);
 						quickGame.setIDOpponent(currentID);
 						Ti.API.info(currentID);
 						quickGame.open({
@@ -295,7 +295,7 @@ function StartChallengeView() {
 					case 1:
 						Ti.App.Properties.setBool('remember_quick', 0);
 						QuickGame = require('ui/quickGame/QuickGame');
-						quickGame = new QuickGame();
+						quickGame = new QuickGame(false);
 						quickGame.setIDOpponent(currentID);
 						Ti.API.info(currentID);
 						quickGame.open({
@@ -310,7 +310,7 @@ function StartChallengeView() {
 			} else {
 				Ti.API.info('La prop è false');
 				QuickGame = require('ui/quickGame/QuickGame');
-				quickGame = new QuickGame();
+				quickGame = new QuickGame(false);
 				quickGame.setIDOpponent(currentID);
 				Ti.API.info(currentID);
 				quickGame.open({
@@ -398,7 +398,7 @@ function StartChallengeView() {
 		QuickGame = null;
 		quickGame = null;
 		var QuickGame = require('ui/quickGame/QuickGame');
-		var quickGame = new QuickGame();
+		var quickGame = new QuickGame(true);
 		quickGame.setIDOpponent(currentID);
 		Ti.API.info(currentID);
 		quickGame.open({

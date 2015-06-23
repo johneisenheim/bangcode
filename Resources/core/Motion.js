@@ -54,7 +54,7 @@ function Motion() {
 			
 			var userAcceleration = e.userAcceleration;
 
-			xAcc = userAcceleration.x;
+			xAcc = userAcceleration.y;
 
 			var data = e.attitude;
 			pitch = data.pitch;
@@ -92,6 +92,7 @@ function Motion() {
 								acceleration : xAcc
 							});
 							positionReached = false;
+							//Ti.API.info('x: '+userAcceleration.x+', y: '+userAcceleration.y+', z: '+userAcceleration.z);
 						} else {
 							//MISSED
 							missSound.play();

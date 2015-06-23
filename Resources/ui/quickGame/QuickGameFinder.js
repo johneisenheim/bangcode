@@ -1,4 +1,4 @@
-function QuickGameFinder() {
+function QuickGameFinder(isReloading) {
 
 	var Telepathy = null;
 	var telepathy = null;
@@ -18,6 +18,12 @@ function QuickGameFinder() {
 	var calculating = null;
 
 	var firstTimeExchange = true;
+	
+	var Loader = require('ui/customUI/Loader');
+	var load = new Loader();
+
+	var Loader2 = require('ui/customUI/Loader2');
+	var loader2 = new Loader2();
 
 	var churchbellSound = ZLSound.createSample({
 		media : 'music/bell.mp3',
@@ -71,7 +77,7 @@ function QuickGameFinder() {
 		title : 'Bang!'
 	});
 
-	loader.showLoader(self);
+	//load.showLoader(self);
 
 	var initQuickGameCallback = function() {
 		Telepathy = require('com.pj');
@@ -120,7 +126,9 @@ function QuickGameFinder() {
 			statusLabel.text = 'Connesso! Iniziamo...';
 			//Costruisci UI
 			setTimeout(function() {
-				loader.hideLoader(self);
+				if(!isReloading)
+					load.hideLoader(self);
+				else loader2.hideLoader(self);
 				self.remove(statusLabel);
 				quickGameFinderView.initialize();
 				self.add(quickGameFinderView);
@@ -316,6 +324,8 @@ function QuickGameFinder() {
 
 	self.add(statusLabel);
 	self.add(closeButton);
+	if (!isReloading)
+		load.showLoader(self);
 
 	var closingFunction = function() {
 		Ti.API.info('closing window...');
@@ -333,6 +343,19 @@ function QuickGameFinder() {
 	};
 
 	self.addEventListener('close', closingFunction);
+	
+	self.addEventListener('focus', function() {
+		Ti.API.info('FOCUS');
+		if(isReloading)
+			loader2.showLoader(self);
+	});
+	
+	Ti.App.addEventListener('resume', function(e) {
+		Ti.API.info('resumed');
+		//chamber.animate();
+		load.hideLoader(self);
+		load.showLoader(self);
+	});
 
 	return self;
 

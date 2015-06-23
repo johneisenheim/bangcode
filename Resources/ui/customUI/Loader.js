@@ -44,20 +44,13 @@ function Loader() {
 		if (win != null)
 			currentObject = win;
 		win.add(self);
-		startAnimation();
+		chamber.animate(animation);
 	};
 	
-	
-	/*self.addEventListener('postlayout', function(){
-		Ti.API.info('postlayout');
+	self.restartAnimation = function(){
 		chamber.animate(animation);
-	});
-	
-	self.reloadAnimation = function() {
-		Ti.API.info('reload');
-		chamber.animate();
-		startAnimation();
-	};*/
+		Ti.API.info('restartAnimation function');
+	};
 
 	self.hideLoader = function(win) {
 		win.remove(self);

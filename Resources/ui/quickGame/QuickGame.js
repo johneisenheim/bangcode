@@ -1,4 +1,4 @@
-function QuickGame() {
+function QuickGame(isReloading) {
 
 	var Telepathy = null;
 	var telepathy = null;
@@ -13,6 +13,9 @@ function QuickGame() {
 
 	var Loader = require('ui/customUI/Loader');
 	var load = new Loader();
+
+	var Loader2 = require('ui/customUI/Loader2');
+	var loader2 = new Loader2();
 
 	var firstTimeExchange = true;
 
@@ -127,7 +130,10 @@ function QuickGame() {
 			statusLabel.text = 'Connesso! Iniziamo...';
 			//Costruisci UI
 			setTimeout(function() {
-				loader.hideLoader(self);
+				//loader.hideLoader(self);
+				if(!isReloading)
+					load.hideLoader(self);
+				else loader2.hideLoader(self);
 				self.remove(statusLabel);
 				Ti.API.info('calling initialize from setTimeout');
 				quickGameView.initialize();
@@ -411,14 +417,17 @@ function QuickGame() {
 
 	self.add(statusLabel);
 	self.add(closeButton);
-	self.add(load);
-	load.showLoader(self);
+	Ti.API.info('isReloading ' + isReloading);
+	if (!isReloading)
+		load.showLoader(self);
 
 	var closingFunction = function() {
 		Ti.API.info('closing window...');
 		telepathy.stopServices();
 		Telepathy = null;
 		telepathy = null;
+		Loader = null;
+		load = null;
 		myTime = 0;
 		vsTime = 0;
 		startTime = 0;
@@ -430,7 +439,13 @@ function QuickGame() {
 	};
 
 	self.addEventListener('close', closingFunction);
-	
+
+	self.addEventListener('focus', function() {
+		Ti.API.info('FOCUS');
+		if(isReloading)
+			loader2.showLoader(self);
+	});
+
 	Ti.App.addEventListener('resume', function(e) {
 		Ti.API.info('resumed');
 		//chamber.animate();
